@@ -1,6 +1,22 @@
-## Replace this README.md!
+# Text Adventure
 
-This is a standard README.md file for you to replace. You'll want to include your own content here!
+- Are you ready for a new adventure?
+- Are you ready for travel with your ____?
 
-MD (Markdown) files use [Markdown formatting](https://guides.github.com/features/mastering-markdown/): 
-these look very much like .txt files, so you can write them in a very similar way.
+## Specification
+
+Running this program starts a local-based game that allows users to have a great adventure with their ____.
+
+General interface
+- Login: log in own account
+- Register: create new account 
+- Main: Back to Main menu
+- Map: Select a map
+- Search: Search ____ of current map
+
+Battle interface
+- Skill: Select current ____'s skill
+- Items: Use items
+- Switch: Switch current ____ with other ____ in player pocket
+- Run: run away from this battle
+
