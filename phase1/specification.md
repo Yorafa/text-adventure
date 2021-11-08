@@ -33,7 +33,7 @@ the player would enter the battle interface. The possibility is determined by th
 
 ### Battle
 
-The battle is turn-based.  The pokemon with a higher speed starts the 
+The battle is turn-based. The pokemon with a higher speed starts the 
 turn first. At each turn, the player can perform one of the following actions.
 
 - Attack
@@ -58,6 +58,7 @@ turn first. At each turn, the player can perform one of the following actions.
 
 ### Pokemon
 
+- **Name**
 - **Level**
 - **Health**: 
 - **Attack**: 
