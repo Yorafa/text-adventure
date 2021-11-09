@@ -1,6 +1,20 @@
-## Replace this README.md!
+# Text Adventure
 
-This is a standard README.md file for you to replace. You'll want to include your own content here!
+- Are you ready for a new adventure?
+- Are you ready for travel with your Pokemon?
+- Now, downloading this game to enjoy your adventure.
 
-MD (Markdown) files use [Markdown formatting](https://guides.github.com/features/mastering-markdown/): 
-these look very much like .txt files, so you can write them in a very similar way.
+## Release
+[Download]()
+
+## Documentation
+
+- see specific play instruction on [](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/blob/main/phase1/specification.md)
+
+## Support 
+
+if you find bug or need advice for going on game, you can ask help on:
+
+- Email: 
+
+## [Contributors](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/graphs/contributors)
