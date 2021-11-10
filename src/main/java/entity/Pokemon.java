@@ -1,6 +1,8 @@
 package entity;
 
-public class Pokemon extends BasePokemon {
+import java.io.Serializable;
+
+public class Pokemon extends BasePokemon implements Serializable {
     private int experiencePoint;
     private int currentHitPoint;
 
