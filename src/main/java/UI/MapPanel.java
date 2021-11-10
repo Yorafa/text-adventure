@@ -5,16 +5,16 @@ import java.awt.*;
 
 public class MapPanel extends JPanel {
 
-    public MapPanel(TextAdventureFrame taf){
+    public MapPanel(TextAdventureFrame taf) {
         taf.setContentPane(this);
-        this.setBorder(BorderFactory.createEmptyBorder(100,50,50,50));
-        this.setLayout(new GridLayout(2,1,10,10));
+        this.setBorder(BorderFactory.createEmptyBorder(100, 50, 50, 50));
+        this.setLayout(new GridLayout(2, 1, 10, 10));
 
         JLabel label = new JLabel("Welcome to Text Adventure, " + taf.getUser().getName());
         this.add(label);
         // Setup Button Field
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(2,2,10,10));
+        buttonPanel.setLayout(new GridLayout(2, 2, 10, 10));
         JButton search = new JButton("Walk around");
         search.addActionListener((e) -> {
             // TODO: Map walk around

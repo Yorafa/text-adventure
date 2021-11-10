@@ -1,6 +1,6 @@
 package gateway;
 
-import controller.UserManager;
+import usecase.UserManager;
 
 import java.io.*;
 
@@ -15,13 +15,14 @@ public class UserGate {
             e.printStackTrace();
         }
     }
+
     public static UserManager readUM() {
         UserManager userManager;
         try {
             ObjectInputStream objectInputStream = new ObjectInputStream(
                     new FileInputStream("userinfo.ser"));
             try {
-                userManager = (UserManager)objectInputStream.readObject();
+                userManager = (UserManager) objectInputStream.readObject();
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
                 userManager = new UserManager();
