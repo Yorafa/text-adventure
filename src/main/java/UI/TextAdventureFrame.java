@@ -1,10 +1,9 @@
 package UI;
 
-import controller.UserManager;
-import usecase.User;
+import usecase.UserManager;
+import entity.User;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class TextAdventureFrame extends JFrame {
     UserManager userManager;
@@ -25,8 +24,16 @@ public class TextAdventureFrame extends JFrame {
     public void setUser(User user) {
         this.user = user;
     }
-    public User getUser(){return user;}
 
-    public void setUserManager(UserManager userManager){this.userManager = userManager;}
-    public UserManager getUserManager(){return this.userManager;}
+    public User getUser() {
+        return user;
+    }
+
+    public void setUserManager(UserManager userManager) {
+        this.userManager = userManager;
+    }
+
+    public UserManager getUserManager() {
+        return this.userManager;
+    }
 }

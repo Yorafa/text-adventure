@@ -1,5 +1,4 @@
-package usecase;
-import entity.*;
+package entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -10,42 +9,54 @@ public class User implements Serializable {
     private String name;
     private String id;
     private String password;
-    private ArrayList<ConcretePokemon> pocket;
+    private ArrayList<Pokemon> pocket;
 
-    public User(){
+    public User() {
         name = "";
         id = "";
         password = "";
         pocket = new ArrayList<>();
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
-    public String getId(){
+
+    public String getId() {
         return id;
     }
-    public String getPassword(){
+
+    public String getPassword() {
         return password;
     }
-    public ArrayList<ConcretePokemon> getPocket(){
+
+    public ArrayList<Pokemon> getPocket() {
         return pocket;
     }
-    public void setName(String name){
+
+    public void setName(String name) {
         this.name = name;
     }
-    public void setId(String ID){
+
+    public void setId(String ID) {
         this.id = ID;
     }
-    public void setPassword(String password){
+
+    public void setPassword(String password) {
         this.password = password;
     }
 
     @Override
-    public boolean equals(Object obj){
-        if (this == obj){return true;}
-        if (obj == null){return false;}
-        if (getClass() != obj.getClass()){return false;}
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
         User object = (User) obj;
         return object.getName() == this.getName();
     }
