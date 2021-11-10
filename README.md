@@ -2,7 +2,7 @@
 
 - Are you ready for a new adventure?
 - Are you ready for travel with your Pokemon?
-- Now, downloading this game to enjoy your adventure.
+- Now, download this game to enjoy your adventure.
 
 ## Release
 [Download]()
