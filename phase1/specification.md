@@ -34,7 +34,7 @@ the player would enter the battle interface. The possibility is determined by th
 ### Battle
 
 The battle is turn-based. The pokemon with a higher speed starts the 
-turn first. At each turn, the player can perform one of the following actions.
+turn first. At each turn, the player can perform one and only one of the following actions.
 
 - Attack
 - Defence
@@ -47,9 +47,9 @@ turn first. At each turn, the player can perform one of the following actions.
 ### Account
 
 - **Username**: distinct accounts must have distinct usernames
-- **Password**
-- **Nickname**
-- **Game data**
+- **Password**: rules TBD (lower case, upper case, numbers)
+- **Nickname**: can be differennt from the associated username (uniqueness TBD)
+- **Game data**: serializable and can be restored
 
 ### Trainer
 
