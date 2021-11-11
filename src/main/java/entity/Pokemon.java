@@ -3,33 +3,49 @@ package entity;
 import java.io.Serializable;
 
 public class Pokemon extends BasePokemon implements Serializable {
+    private int level;
     private int experiencePoint;
-    private int currentHitPoint;
+    private int hitPoint;
+    private PokemonData pokemonData;
 
-    public Pokemon(String name, PokemonType type, int baseHitPoint, int baseAttackPoint, int baseDefencePoint,
-                   int baseSpeed, int experiencePoint, int currentHitPoint) {
-        super(name, type, baseHitPoint, baseAttackPoint, baseDefencePoint, baseSpeed);
+    public Pokemon(String name, BasePokemonData basePokemonData, int level, int experiencePoint, int hitPoint,
+                   PokemonData pokemonData) {
+        super(name, basePokemonData);
+        this.level = level;
         this.experiencePoint = experiencePoint;
-        this.currentHitPoint = currentHitPoint;
+        this.hitPoint = hitPoint;
+        this.pokemonData = pokemonData;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     public int getExperiencePoint() {
         return experiencePoint;
     }
 
-    public int getCurrentHitPoint() {
-        return currentHitPoint;
-    }
-
     public void setExperiencePoint(int experiencePoint) {
         this.experiencePoint = experiencePoint;
     }
 
-    public void setCurrentHitPoint(int currentHitPoint) {
-        this.currentHitPoint = currentHitPoint;
+    public int getHitPoint() {
+        return hitPoint;
     }
 
-    public int getLevel(LevelCalculator lc) {
-        return lc.calculate(experiencePoint);
+    public void setHitPoint(int hitPoint) {
+        this.hitPoint = hitPoint;
+    }
+
+    public PokemonData getPokemonData() {
+        return pokemonData;
+    }
+
+    public void setPokemonData(PokemonData pokemonData) {
+        this.pokemonData = pokemonData;
     }
 }

@@ -4,68 +4,39 @@ import java.io.Serializable;
 
 public class BasePokemon implements Serializable {
     protected String name;
-    protected PokemonType type;
-    protected int baseHitPoint;
-    protected int baseAttackPoint;
-    protected int baseDefencePoint;
-    protected int baseSpeed;
+    protected BasePokemonData basePokemonData;
 
-    public BasePokemon(String name, PokemonType type, int baseHitPoint, int baseAttackPoint, int baseDefencePoint,
-                       int baseSpeed) {
+    public BasePokemon(String name, BasePokemonData basePokemonData) {
         this.name = name;
-        this.type = type;
-        this.baseHitPoint = baseHitPoint;
-        this.baseAttackPoint = baseAttackPoint;
-        this.baseDefencePoint = baseDefencePoint;
-        this.baseSpeed = baseSpeed;
+        this.basePokemonData = basePokemonData;
     }
 
     public String getName() {
         return name;
     }
 
-    public PokemonType getType() {
-        return type;
+    public BasePokemonData getBasePokemonData() {
+        return basePokemonData;
     }
 
-    public int getBaseHitPoint() {
-        return baseHitPoint;
+    public PokemonType getPokemonType() {
+        return basePokemonData.getPokemonType();
     }
 
-    public int getBaseAttackPoint() {
-        return baseAttackPoint;
+    public int getMaxHitPoint() {
+        return basePokemonData.getMaxHitPoint();
     }
 
-    public int getBaseDefencePoint() {
-        return baseDefencePoint;
+    public int getAttackPoint() {
+        return basePokemonData.getAttackPoint();
     }
 
-    public int getBaseSpeed() {
-        return baseSpeed;
+    public int getDefencePoint() {
+        return basePokemonData.getDefencePoint();
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setType(PokemonType type) {
-        this.type = type;
-    }
-
-    public void setBaseHitPoint(int baseHitPoint) {
-        this.baseHitPoint = baseHitPoint;
-    }
-
-    public void setBaseAttackPoint(int baseAttackPoint) {
-        this.baseAttackPoint = baseAttackPoint;
-    }
-
-    public void setBaseDefencePoint(int baseDefencePoint) {
-        this.baseDefencePoint = baseDefencePoint;
-    }
-
-    public void setBaseSpeed(int baseSpeed) {
-        this.baseSpeed = baseSpeed;
+    public int getSpeed() {
+        return basePokemonData.getSpeed();
     }
 
 }
