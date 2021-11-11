@@ -1,14 +1,15 @@
 package UI;
 
-import usecase.UserManager;
-import gateway.UserGate;
+import gateway.*;
+import usecase.*;
 
 import javax.swing.*;
 
 public class TextAdventure {
     public static void main(String[] args) {
         UserManager userManager = UserGate.readUM();
-        JFrame frame = new TextAdventureFrame(userManager);
+        MapManager mapManager = new MapManager();
+        MapGate.writeMM(mapManager);
 
     }
 }
