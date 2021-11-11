@@ -7,22 +7,29 @@ import java.util.Objects;
 
 public class User implements Serializable {
     private String name;
-    private String id;
+    private int id;
     private String password;
     private ArrayList<Pokemon> pocket;
 
     public User() {
-        name = "";
-        id = "";
-        password = "";
-        pocket = new ArrayList<>();
+        this.name = "";
+        this.id = 0;
+        this.password = "";
+        this.pocket = new ArrayList<>();
+    }
+
+    public User(String name, String password) {
+        this.name = name;
+        this.id = 0;
+        this.password = password;
+        this.pocket = new ArrayList<>();
     }
 
     public String getName() {
         return name;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -38,7 +45,7 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public void setId(String ID) {
+    public void setId(int ID) {
         this.id = ID;
     }
 
@@ -51,18 +58,25 @@ public class User implements Serializable {
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
         User object = (User) obj;
-        return object.getName() == this.getName();
+        return this.getName().equals(object.getName());
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(name, id, password, pocket);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                ", password='" + password + '\'' +
+                ", pocket=" + pocket +
+                '}';
     }
 }

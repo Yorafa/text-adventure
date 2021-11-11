@@ -1,14 +1,18 @@
 package UI;
 
-import usecase.UserManager;
-import gateway.UserGate;
+import entity.*;
+import usecase.*;
+import gateway.*;
 
 import javax.swing.*;
 
+import static entity.PokemonType.ELECTRICITY;
+
 public class TextAdventure {
+
     public static void main(String[] args) {
         UserManager userManager = UserGate.readUM();
-        JFrame frame = new TextAdventureFrame(userManager);
-
+        MapManager mapManager = MapGate.readMM();
+        JFrame frame = new TextAdventureFrame(userManager, mapManager);
     }
 }

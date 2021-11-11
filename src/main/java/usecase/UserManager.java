@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class UserManager implements Serializable {
     private ArrayList<User> users;
-    private static final long serialVersionUID = 114514;
 
     public UserManager() {
         users = new ArrayList<>();
@@ -15,16 +14,19 @@ public class UserManager implements Serializable {
 
     public void addUser(User user) {
         users.add(user);
-
     }
 
     public void deleteUser(User user) {
         users.remove(user);
     }
 
-    public Boolean hasUser(String name) {
-        int index = getIndex(name);
-        return index != -1;
+    public Boolean hasUser(User user) {
+        for (User user1: users){
+            if (user1.equals(user)){
+                return true;
+            }
+        }
+        return false;
     }
 
     public int getIndex(String name) {
@@ -34,6 +36,10 @@ public class UserManager implements Serializable {
             }
         }
         return -1;
+    }
+
+    public int getIndex(User user) {
+        return users.indexOf(user);
     }
 
     public User login(String name, String password) {
@@ -55,9 +61,8 @@ public class UserManager implements Serializable {
         if (getIndex(name) != -1) {
             return null;
         }
-        User user = new User();
-        user.setName(name);
-        user.setPassword(password);
+        User user = new User(name, password);
+        user.setId(users.size());
         addUser(user);
         return user;
     }

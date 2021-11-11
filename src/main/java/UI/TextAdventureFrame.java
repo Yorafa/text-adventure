@@ -1,18 +1,22 @@
 package UI;
 
-import usecase.UserManager;
-import entity.User;
+import usecase.*;
+import entity.*;
 
 import javax.swing.*;
 
 public class TextAdventureFrame extends JFrame {
     UserManager userManager;
+    MapManager mapManager;
     User user;
+    Pmap pmap;
 
 
-    public TextAdventureFrame(UserManager userManager) {
+    public TextAdventureFrame(UserManager userManager, MapManager mapManager) {
         this.userManager = userManager;
+        this.mapManager = mapManager;
         this.user = null;
+        this.pmap = mapManager.start();
         // Setup frame
         this.setTitle("Text Adventure");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -25,8 +29,16 @@ public class TextAdventureFrame extends JFrame {
         this.user = user;
     }
 
+    public void setMap(Pmap pmap) {
+        this.pmap = pmap;
+    }
+
     public User getUser() {
         return user;
+    }
+
+    public Pmap getMap() {
+        return pmap;
     }
 
     public void setUserManager(UserManager userManager) {
@@ -35,5 +47,9 @@ public class TextAdventureFrame extends JFrame {
 
     public UserManager getUserManager() {
         return this.userManager;
+    }
+
+    public MapManager getMapManager() {
+        return mapManager;
     }
 }

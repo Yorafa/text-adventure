@@ -1,7 +1,6 @@
 package usecase;
 
-import entity.BasePokemonData;
-import entity.PokemonData;
+import entity.*;
 
 public class PokemonDataManager {
     public PokemonData create(BasePokemonData basePokemonData, int level) {

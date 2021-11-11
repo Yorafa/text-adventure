@@ -1,6 +1,6 @@
 package UI;
 
-import gateway.UserGate;
+import gateway.*;
 
 import javax.swing.*;
 import java.awt.*;

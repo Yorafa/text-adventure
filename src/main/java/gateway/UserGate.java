@@ -1,6 +1,6 @@
 package gateway;
 
-import usecase.UserManager;
+import usecase.*;
 
 import java.io.*;
 
@@ -8,7 +8,7 @@ public class UserGate {
     public static void writeUM(UserManager userManager) {
         try {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(
-                    new FileOutputStream("userinfo.ser"));
+                    new FileOutputStream("gamedata/userinfo.ser"));
             objectOutputStream.writeObject(userManager);
             objectOutputStream.close();
         } catch (IOException e) {
@@ -20,7 +20,7 @@ public class UserGate {
         UserManager userManager;
         try {
             ObjectInputStream objectInputStream = new ObjectInputStream(
-                    new FileInputStream("userinfo.ser"));
+                    new FileInputStream("gamedata/userinfo.ser"));
             try {
                 userManager = (UserManager) objectInputStream.readObject();
             } catch (ClassNotFoundException e) {

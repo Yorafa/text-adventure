@@ -10,6 +10,7 @@
 ## Documentation
 
 - see specific play instruction on [](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/blob/main/phase1/specification.md)
+- We will use gson to Serializing our partial game data, if you unfamiliar with that, please look [gson](https://github.com/google/gson)
 
 ## Support 
 
