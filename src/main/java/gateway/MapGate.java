@@ -14,7 +14,8 @@ public class MapGate {
         String mapManagerJson = gson.toJson(mapManager);
         try {
             FileWriter mapFile = new FileWriter("gamedata/mapdata.json");
-            mapFile.write(mapManagerJson);}
+            mapFile.write(mapManagerJson);
+            mapFile.close();}
         catch (IOException e) {
             e.printStackTrace();}
 
@@ -23,7 +24,11 @@ public class MapGate {
         try {
             File mapFile = new File("gamedata/mapdata.json");
             Scanner scanner = new Scanner(mapFile);
-            String mapManagerJson = scanner.toString();
+            StringBuilder mapString = new StringBuilder();
+            while (scanner.hasNext()){
+                mapString.append(scanner.next().strip());
+            }
+            String mapManagerJson = mapString.toString();
             Gson gson = new Gson();
             return gson.fromJson(mapManagerJson, MapManager.class);}
         catch (IOException e) {

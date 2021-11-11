@@ -9,14 +9,14 @@ public class TextAdventureFrame extends JFrame {
     UserManager userManager;
     MapManager mapManager;
     User user;
-    Map map;
+    Pmap pmap;
 
 
     public TextAdventureFrame(UserManager userManager, MapManager mapManager) {
         this.userManager = userManager;
         this.mapManager = mapManager;
         this.user = null;
-        this.map = null;
+        this.pmap = null;
         // Setup frame
         this.setTitle("Text Adventure");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,16 +29,16 @@ public class TextAdventureFrame extends JFrame {
         this.user = user;
     }
 
-    public void setMap(Map map) {
-        this.map = map;
+    public void setMap(Pmap pmap) {
+        this.pmap = pmap;
     }
 
     public User getUser() {
         return user;
     }
 
-    public Map getMap() {
-        return map;
+    public Pmap getMap() {
+        return pmap;
     }
 
     public void setUserManager(UserManager userManager) {

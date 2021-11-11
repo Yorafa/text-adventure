@@ -2,30 +2,18 @@ package usecase;
 
 import entity.*;
 
-
 import java.util.ArrayList;
 
 public class MapManager {
-    private ArrayList<Map> maps;
-    private Map map;
+    private ArrayList<Pmap> pmaps;
 
-    public MapManager(){
-        this.maps = new ArrayList<>();
+    public MapManager(){this.pmaps = new ArrayList<>();}
+
+    public ArrayList<Pmap> getMaps() {
+        return pmaps;
     }
 
-    public void setMap(Map map) {
-        this.map = map;
-    }
-
-    public Map getMap() {
-        return map;
-    }
-
-    public ArrayList<Map> getMaps() {
-        return maps;
-    }
-
-    public void setMap(int index) {
-        this.map = this.maps.get(index);
+    public void addMap(Pmap pmap){
+        pmaps.add(pmap);
     }
 }

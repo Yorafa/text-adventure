@@ -3,21 +3,21 @@ package entity;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Map {
+public class Pmap {
     private String mapName;
     private int mapId;
     private ArrayList<Pokemon> pokemons;
     private ArrayList<Long> probability;
     // Note: the two Lists are parallel so that easy catch up.
 
-    public Map(){
+    public Pmap(){
         this.mapName = "";
         this.mapId = 0;
         this.pokemons = new ArrayList<>();
         this.probability = new ArrayList<>();
     }
 
-    public Map(String mapName, int mapId){
+    public Pmap(String mapName, int mapId){
         this.mapName = mapName;
         this.mapId = mapId;
         this.pokemons = new ArrayList<>();
@@ -65,8 +65,8 @@ public class Map {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Map map = (Map) o;
-        return this.getMapName().equals(map.getMapName());
+        Pmap pmap = (Pmap) o;
+        return this.getMapName().equals(pmap.getMapName());
     }
 
     @Override

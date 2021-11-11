@@ -1,6 +1,6 @@
 package gateway;
 
-import usecase.UserManager;
+import usecase.*;
 
 import java.io.*;
 
