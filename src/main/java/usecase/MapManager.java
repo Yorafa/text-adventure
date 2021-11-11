@@ -16,4 +16,17 @@ public class MapManager {
     public void addMap(Pmap pmap){
         pmaps.add(pmap);
     }
+
+    public Pmap start(){
+        return pmaps.get(0);
+    }
+
+    public Pmap find(String mapName){
+        for (Pmap pmap: pmaps){
+            if (pmap.getMapName().equals(mapName)){
+                return pmap;
+            }
+        }
+        return null;
+    }
 }

@@ -16,7 +16,7 @@ public class TextAdventureFrame extends JFrame {
         this.userManager = userManager;
         this.mapManager = mapManager;
         this.user = null;
-        this.pmap = null;
+        this.pmap = mapManager.start();
         // Setup frame
         this.setTitle("Text Adventure");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -47,5 +47,9 @@ public class TextAdventureFrame extends JFrame {
 
     public UserManager getUserManager() {
         return this.userManager;
+    }
+
+    public MapManager getMapManager() {
+        return mapManager;
     }
 }
