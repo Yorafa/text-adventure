@@ -21,8 +21,17 @@ public class UserManager implements Serializable {
     }
 
     public Boolean hasUser(User user) {
-        for (User user1: users){
-            if (user1.equals(user)){
+        for (User user1 : users) {
+            if (user1.equals(user)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Boolean hasUser(String username) {
+        for (User user : users) {
+            if (user.getName().equals(username)) {
                 return true;
             }
         }

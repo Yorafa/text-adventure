@@ -9,20 +9,20 @@ public class User implements Serializable {
     private String name;
     private int id;
     private String password;
-    private ArrayList<Pokemon> pocket;
+    private Pocket pocket;
 
     public User() {
         this.name = "";
         this.id = 0;
         this.password = "";
-        this.pocket = new ArrayList<>();
+        this.pocket = new Pocket();
     }
 
     public User(String name, String password) {
         this.name = name;
         this.id = 0;
         this.password = password;
-        this.pocket = new ArrayList<>();
+        this.pocket = new Pocket();
     }
 
     public String getName() {
@@ -37,7 +37,7 @@ public class User implements Serializable {
         return password;
     }
 
-    public ArrayList<Pokemon> getPocket() {
+    public Pocket getPocket() {
         return pocket;
     }
 

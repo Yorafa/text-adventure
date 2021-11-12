@@ -1,18 +1,24 @@
 package usecase;
 
 import entity.BasePokemon;
+import entity.Pocket;
 import entity.Pokemon;
+import entity.PokemonBook;
 
 import java.util.List;
 import java.util.Map;
 
 public class PokemonManager {
+    private PokemonBook pokemonBook;
+    private Pocket pocket;
     private LevelCalculator lc;
     private PokemonDataManager pdm;
 
-    public PokemonManager(LevelCalculator lc, PokemonDataManager pdm) {
-        this.lc = lc;
-        this.pdm = pdm;
+    public PokemonManager(Pocket pocket) {
+        this.pokemonBook = new PokemonBook();
+        this.pocket = pocket;
+        this.lc = new LevelCalculator();
+        this.pdm = new PokemonDataManager();
     }
 
     public void levelChange(Pokemon pokemon, int level) {
@@ -26,5 +32,13 @@ public class PokemonManager {
         if (level != pokemon.getLevel()) {
             levelChange(pokemon, level);
         }
+    }
+
+    public Pocket getPocket() {
+        return pocket;
+    }
+
+    public void setPocket(Pocket pocket) {
+        this.pocket = pocket;
     }
 }
