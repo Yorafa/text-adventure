@@ -7,19 +7,18 @@ import java.util.Scanner;
 public abstract class TextPanel {
     protected Scanner input;
     protected List<String> options;
-    protected PanelRunner panelRunner;
+    protected boolean panelEnded;
 
-    public TextPanel(Scanner input, PanelRunner panelRunner) {
+    public TextPanel(Scanner input) {
         this.input = input;
         this.options = new ArrayList<>();
-        this.panelRunner = panelRunner;
+        this.panelEnded = false;
     }
 
     public void runPanel() {
         printMenu();
         execute(input.nextLine());
     }
-
 
     protected void printMenu() {
         for (String option : options) {

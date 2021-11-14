@@ -8,9 +8,10 @@ import java.util.Scanner;
 
 public class TextLoginPanel extends TextPanel {
     private UserManager userManager;
+    private String username;
 
-    public TextLoginPanel(Scanner input, PanelRunner panelRunner, UserManager userManager) {
-        super(input, panelRunner);
+    public TextLoginPanel(Scanner input, UserManager userManager) {
+        super(input);
         super.options.add("1. Login");
         super.options.add("2. Signup");
         this.userManager = userManager;
@@ -27,14 +28,14 @@ public class TextLoginPanel extends TextPanel {
                 break;
             default:
                 System.out.println("Not valid");
-                panelRunner.runLoginPanel();
+                runPanel();
         }
 
     }
 
     public void login() {
         User user = null;
-        String username, password;
+        String username = null, password;
         while (user == null) {
             System.out.print("Username: ");
             username = input.nextLine();
@@ -45,12 +46,12 @@ public class TextLoginPanel extends TextPanel {
                 System.out.println("Not valid");
             }
         }
-        panelRunner.runExplorePanel(new PokemonManager(user.getPocket()));
+        this.username = username;
     }
 
     private void signup() {
         User user = null;
-        String username, password;
+        String username = null, password;
         while (user == null) {
             System.out.print("Username: ");
             username = input.nextLine();
@@ -62,7 +63,11 @@ public class TextLoginPanel extends TextPanel {
                 user = userManager.register(username, password);
             }
         }
-        panelRunner.runExplorePanel(new PokemonManager(user.getPocket()));
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
 }
