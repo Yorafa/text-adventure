@@ -2,6 +2,7 @@ package usecase;
 
 import entity.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -9,25 +10,28 @@ import java.util.Map;
 public class PokemonManager {
     private PokemonBook pokemonBook;
     private Pocket pocket;
-    private LevelCalculator lc;
-    private PokemonDataManager pdm;
 
     public PokemonManager() {
         this.pokemonBook = new PokemonBook();
         this.pocket = new Pocket();
-        this.lc = new LevelCalculator();
-        this.pdm = new PokemonDataManager();
         initialize();
     }
 
+    public PokemonManager(Pocket pocket) {
+        this.pokemonBook = new PokemonBook();
+        this.pocket = pocket;
+    }
+
     public void levelChange(Pokemon pokemon, int level) {
+        PokemonDataManager pokemonDataManager = new PokemonDataManager();
         pokemon.setLevel(level);
-        pdm.update(pokemon.getPokemonData(), pokemon.getBasePokemonData(), level);
+        pokemonDataManager.update(pokemon.getPokemonData(), pokemon.getBasePokemonData(), level);
     }
 
     public void addExperiencePoint(Pokemon pokemon, int increment) {
+        LevelCalculator levelCalculator = new LevelCalculator();
         pokemon.setExperiencePoint(pokemon.getExperiencePoint() + increment);
-        int level = lc.calculate(pokemon.getExperiencePoint());
+        int level = levelCalculator.calculate(pokemon.getExperiencePoint());
         if (level != pokemon.getLevel()) {
             levelChange(pokemon, level);
         }

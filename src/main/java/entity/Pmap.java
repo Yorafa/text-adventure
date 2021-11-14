@@ -1,9 +1,10 @@
 package entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Pmap {
+public class Pmap implements Serializable {
     private String mapName;
     private int mapId;
     private ArrayList<Pokemon> pokemons;

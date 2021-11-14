@@ -2,6 +2,7 @@ package usecase;
 
 import entity.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,10 @@ public class MapManager {
 
     public MapManager() {
         this.pmaps = new ArrayList<>();
+    }
+
+    public MapManager(Pmap currentPlace) {
+        this.currentPlace = currentPlace;
     }
 
     public ArrayList<Pmap> getMaps() {
@@ -59,7 +64,12 @@ public class MapManager {
         return null;
     }
 
+    public Pmap getCurrentPlace() {
+        return currentPlace;
+    }
+
     public void setCurrentPlace(String placeName) {
         currentPlace = getMap(placeName);
     }
+
 }

@@ -1,6 +1,8 @@
 package entity;
 
-public class BasePokemonData {
+import java.io.Serializable;
+
+public class BasePokemonData implements Serializable {
     protected PokemonType pokemonType;
     protected int maxHitPoint;
     protected int attackPoint;

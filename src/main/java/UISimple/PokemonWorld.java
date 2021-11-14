@@ -1,9 +1,12 @@
 package UISimple;
 
+import entity.GameData;
+import entity.User;
 import usecase.PokemonManager;
 import usecase.UserManager;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class PokemonWorld {
@@ -12,7 +15,8 @@ public class PokemonWorld {
         UserReadWriter userReadWriter = new UserReadWriter();
         UserManager userManager = new UserManager();
         try {
-            userManager = userReadWriter.read();
+            List<User> users = userReadWriter.read();
+            userManager.setUsers(users);
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("No userinfo");
         }
@@ -25,7 +29,7 @@ public class PokemonWorld {
         while (true) {
             loginPanel.runPanel();
             try {
-                userReadWriter.write(userManager);
+                userReadWriter.write(userManager.getUsers());
             } catch (IOException e) {
                 System.out.println("Problem");
             }
@@ -33,13 +37,14 @@ public class PokemonWorld {
 
             gameDataRW = new GameDataReadWriter(username);
             try {
-                gameController = gameDataRW.read();
+                GameData gameData = gameDataRW.read();
+                gameController = new GameController(scanner, gameData);
             } catch (IOException | ClassNotFoundException e) {
                 gameController = new GameController(scanner);
             }
             gameController.run();
             try {
-                gameDataRW.write(gameController);
+                gameDataRW.write(gameController.getGameData());
             } catch (IOException e) {
                 System.out.println("Problem");
             }

@@ -1,6 +1,8 @@
 package entity;
 
-public class PokemonData extends BasePokemonData {
+import java.io.Serializable;
+
+public class PokemonData extends BasePokemonData implements Serializable {
 
     public PokemonData(PokemonType pokemonType, int maxHitPoint, int attackPoint, int defencePoint, int speed) {
         super(pokemonType, maxHitPoint, attackPoint, defencePoint, speed);
