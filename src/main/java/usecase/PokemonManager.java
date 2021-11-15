@@ -50,7 +50,8 @@ public class PokemonManager {
     }
 
     public void attack(Pokemon p1, Pokemon p2) {
-        // TODO: complete this
+        // not fully implemented
+        p2.setHitPoint(p2.getHitPoint() - p1.getAttackPoint());
     }
 
     public boolean capture(Pokemon opponent) {
