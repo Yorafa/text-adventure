@@ -6,22 +6,29 @@ import java.util.List;
 
 public class Pocket implements Serializable {
     private List<Pokemon> pokemons;
-    private List<Pokemon> defaultPokemons;
+    private List<Pokemon> battlePokemons;
 
     public Pocket() {
         pokemons = new ArrayList<>();
     }
 
-    public void setDefaultPokemons(List<Pokemon> defaultPokemons) {
-        this.defaultPokemons = defaultPokemons;
+    public void setBattlePokemons(List<Pokemon> battlePokemons) {
+        this.battlePokemons = battlePokemons;
     }
 
-    public List<Pokemon> getDefaultPokemons() {
-        return defaultPokemons;
+    public List<Pokemon> getBattlePokemons() {
+        return battlePokemons;
+    }
+
+    public Pokemon getDefaultPokemon() {
+        return battlePokemons.get(0);
     }
 
     public void add(Pokemon pokemon) {
         pokemons.add(pokemon);
     }
 
+    public List<Pokemon> getPokemons() {
+        return pokemons;
+    }
 }

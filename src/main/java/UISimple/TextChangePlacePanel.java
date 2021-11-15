@@ -1,15 +1,24 @@
 package UISimple;
 
+import entity.Pmap;
+import usecase.MapManager;
+
 import java.util.List;
 import java.util.Scanner;
 
 public class TextChangePlacePanel extends TextPanel {
-    private String newPlace;
-    private List<String> mapNames;
+    private Pmap newPlace;
+    private List<Pmap> maps;
 
-    public TextChangePlacePanel(Scanner input, List<String> mapNames) {
+    public TextChangePlacePanel(Scanner input, List<Pmap> maps, MapManager mapManager) {
         super(input);
-        this.mapNames = mapNames;
+        this.maps = maps;
+        int i = 1;
+        for (Pmap map : maps) {
+            options.add(mapManager.getName(map));
+            i++;
+        }
+        options.add(i + ". " + "Cancel");
     }
 
     @Override
@@ -18,19 +27,15 @@ public class TextChangePlacePanel extends TextPanel {
             int choiceIndex = Integer.parseInt(choice) - 1;
             options.get(choiceIndex);
             if (choiceIndex != options.size() - 1) {
-                newPlace = mapNames.get(choiceIndex);
+                newPlace = maps.get(choiceIndex);
             }
         } catch (NumberFormatException | IndexOutOfBoundsException e) {
+            System.out.println("Not valid.");
             runPanel();
         }
-
     }
 
-    public void addOption(String option) {
-        options.add(option);
-    }
-
-    public String getNewPlace() {
+    public Pmap getNewPlace() {
         return newPlace;
     }
 }

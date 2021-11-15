@@ -2,10 +2,8 @@ package usecase;
 
 import entity.*;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class PokemonManager {
     private PokemonBook pokemonBook;
@@ -45,28 +43,37 @@ public class PokemonManager {
         this.pocket = pocket;
     }
 
-    public List<Pokemon> getDefaultPokemon() {
-        return pocket.getDefaultPokemons();
+    public List<Pokemon> getBattlePokemons() {
+        return pocket.getBattlePokemons();
     }
 
-    public void attack(Pokemon p1, Pokemon p2) {
-        // not fully implemented
-        p2.setHitPoint(p2.getHitPoint() - p1.getAttackPoint());
-    }
-
-    public boolean capture(Pokemon opponent) {
-        // TODO: complete this
-        return true;
+    public Pokemon getDefaultPokemon() {
+        return pocket.getDefaultPokemon();
     }
 
     public void initialize() {
-        BasePokemonData basePokemonData = new BasePokemonData(PokemonType.ELECTRICITY, 10, 10, 10, 10);
+        BasePokemonData basePokemonData = new BasePokemonData(PokemonType.ELECTRICITY, 1000, 1000, 1000, 1000);
         BasePokemon basePokemon = new BasePokemon("Pikachu", basePokemonData);
         PokemonFactory pf = new PokemonFactory();
-        Pokemon pikachu = pf.getPokemon(basePokemon, 1000, 10);
+        Pokemon pikachu = pf.getPokemon(basePokemon, 0, 1000);
         pocket.add(pikachu);
         List<Pokemon> dp = new ArrayList<>();
         dp.add(pikachu);
-        pocket.setDefaultPokemons(dp);
+        pocket.setBattlePokemons(dp);
+    }
+
+    public void add(Pokemon pokemon) {
+        pocket.add(pokemon);
+    }
+
+    public String getName(Pokemon pokemon) {
+        return pokemon.getName();
+    }
+
+    public void healAll() {
+        List<Pokemon> pokemons = pocket.getPokemons();
+        for (Pokemon pokemon : pokemons) {
+            pokemon.setHitPoint(pokemon.getMaxHitPoint());
+        }
     }
 }

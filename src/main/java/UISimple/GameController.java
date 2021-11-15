@@ -32,14 +32,16 @@ public class GameController {
     }
 
     public void run() {
-        TextExplorePanel explorePanel = new TextExplorePanel(input, mapManager);
+        TextExplorePanel explorePanel = new TextExplorePanel(input, mapManager, pokemonManager);
         TextBattlePanel battlePanel;
 
         while (!explorePanel.isLoggedOut()) {
             explorePanel.runPanel();
             if (!explorePanel.isExploring()) {
                 battlePanel = new TextBattlePanel(input, pokemonManager, explorePanel.getPokemon());
-                battlePanel.runPanel();
+                if (battlePanel.isBattling()) {
+                    battlePanel.runPanel();
+                }
                 explorePanel.continueExploring();
             }
         }

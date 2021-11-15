@@ -1,18 +1,15 @@
 package UISimple;
 
 import entity.Pokemon;
+import usecase.BattleManager;
 import usecase.PokemonManager;
 
-import java.util.List;
 import java.util.Scanner;
 import java.util.Random;
 
 public class TextBattlePanel extends TextPanel {
     private PokemonManager pokemonManager;
-    private List<Pokemon> myPokemons;
-    private Pokemon myPokemon;
-    private Pokemon opponent;
-    private boolean inChange = false;
+    private BattleManager battleManager;
 
     public TextBattlePanel(Scanner input, PokemonManager pokemonManager, Pokemon opponent) {
         super(input);
@@ -22,68 +19,84 @@ public class TextBattlePanel extends TextPanel {
         options.add("4. Change pokemon");
         options.add("5. Escape");
         this.pokemonManager = pokemonManager;
-        this.myPokemons = pokemonManager.getDefaultPokemon();
-        this.myPokemon = myPokemons.get(0);
-        this.opponent = opponent;
+        this.battleManager = new BattleManager(pokemonManager.getBattlePokemons(), opponent);
+
+        System.out.println("You bumped into " + battleManager.getP2Name() + ".");
+        if (!battleManager.isFaster()) {
+            opponentAction();
+            if (battleManager.youLose()) {
+                System.out.println("You lose.");
+            } else if (battleManager.youWin()) {
+                System.out.println("You win.");
+            }
+        }
     }
 
     @Override
     protected void execute(String choice) {
-        if (!inChange) {
-            switch (choice) {
-                case "1":
-                    System.out.println("chose attack");
-                    pokemonManager.attack(myPokemon, opponent);
+        switch (choice) {
+            case "1":
+                int damage = battleManager.attack();
+                System.out.println("You made " + damage + " damage to " +
+                        battleManager.getP2Name());
+                if (battleManager.isBattling()) {
                     opponentAction();
-                    runPanel();
-                    break;
-                case "2":
-                    System.out.println("chose defense");
+                }
+                break;
+            case "2":
+                battleManager.defense();
+                System.out.println("You are defending.");
+                opponentAction();
+                break;
+            case "3":
+                boolean captured = battleManager.capture();
+                if (captured) {
+                    pokemonManager.add(battleManager.getOpponent());
+                    System.out.println("You captured " + battleManager.getP2Name() + ".");
+                    battleManager.endBattle();
+                } else {
+                    System.out.println("Not captured.");
                     opponentAction();
-                    runPanel();
-                    break;
-                case "3":
-                    System.out.println("chose capture");
-                    boolean captured = pokemonManager.capture(opponent);
-                    if (!captured) {
-                        opponentAction();
-                        runPanel();
-                    }
-                    break;
-                case "4":
-                    System.out.println("chose change pokemon");
-                    changePokemon();
-                    runPanel();
-                    break;
-                case "5":
-                    System.out.println("chose escape");
-                    break;
-                default:
-                    System.out.println("Not Valid");
-                    runPanel();
-            }
-        } else {
-            myPokemon = myPokemons.get(Integer.valueOf(choice) - 1);
+                }
+                break;
+            case "4":
+                changePokemon();
+                opponentAction();
+                System.out.println("Changed to " + battleManager.getP1Name() + ".");
+                break;
+            case "5":
+                System.out.println("Escaped.");
+                battleManager.endBattle();
+                break;
+            default:
+                System.out.println("Not Valid");
+        }
+        if (battleManager.isBattling()) {
+            runPanel();
+        } else if (battleManager.youLose()) {
+            System.out.println("You lose.");
+        } else if (battleManager.youWin()) {
+            System.out.println("You win.");
         }
     }
 
     private void opponentAction() {
-        Random rand = new Random();
-        double num = rand.nextDouble();
-        double cons = 0.95 / 2;
-        // if num > 0.95, the opponent pokemon will escape, otherwise, random action as of now.
-        if (num < cons) {
-            pokemonManager.attack(opponent, myPokemon);
-        } else if (num < 2 * cons) {
-            opponent.setHitPoint((int) Math.round(opponent.getHitPoint() * 1.1));
-        }
+        String message = battleManager.opponentAction();
+        System.out.println(message);
     }
 
     private void changePokemon() {
-        int temp = 0;
-        inChange = true;
-        for (Pokemon p : myPokemons) {
-            System.out.println((temp + 1) + " " + p.getName());
+        TextChangePokemonPanel changePokemonPanel = new TextChangePokemonPanel(input, battleManager.getBattlePokemons(),
+                pokemonManager);
+        changePokemonPanel.runPanel();
+        Pokemon newPokemon = changePokemonPanel.getNewPokemon();
+        if (newPokemon != null) {
+            battleManager.changePokemon(changePokemonPanel.getNewPokemon());
         }
     }
+
+    public boolean isBattling() {
+        return battleManager.isBattling();
+    }
+
 }
