@@ -47,14 +47,6 @@ public class MapManager {
         return pf.getPokemon(basePokemon, 1000, 10);
     }
 
-    public List<String> getMapNames() {
-        List<String> mapNames = new ArrayList<>();
-        for (Pmap pmap : pmaps) {
-            mapNames.add(pmap.getMapName());
-        }
-        return mapNames;
-    }
-
     private Pmap getMap(String placeName) {
         for (Pmap pmap : pmaps) {
             if (pmap.getMapName().equals(placeName)) {
@@ -68,8 +60,13 @@ public class MapManager {
         return currentPlace;
     }
 
-    public void setCurrentPlace(String placeName) {
-        currentPlace = getMap(placeName);
+    public void setCurrentPlace(Pmap currentPlace) {
+        this.currentPlace = currentPlace;
     }
+
+    public String getName(Pmap map) {
+        return map.getMapName();
+    }
+
 
 }

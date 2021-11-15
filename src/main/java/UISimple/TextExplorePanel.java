@@ -1,5 +1,6 @@
 package UISimple;
 
+import entity.Pmap;
 import entity.Pokemon;
 import usecase.MapManager;
 
@@ -50,17 +51,10 @@ public class TextExplorePanel extends TextPanel {
     }
 
     public void changePlace() {
-        List<String> mapNames = mapManager.getMapNames();
-        TextChangePlacePanel changePlacePanel = new TextChangePlacePanel(input, mapNames);
-        int i = 1;
-        for (String name : mapNames) {
-            changePlacePanel.addOption(i + ". " + name);
-            i++;
-        }
-        changePlacePanel.addOption(i + ". " + "cancel");
+        List<Pmap> maps = mapManager.getMaps();
+        TextChangePlacePanel changePlacePanel = new TextChangePlacePanel(input, maps, mapManager);
         changePlacePanel.runPanel();
-        String newPlace = changePlacePanel.getNewPlace();
-        mapManager.setCurrentPlace(newPlace);
+        mapManager.setCurrentPlace(changePlacePanel.getNewPlace());
     }
 
     public boolean isLoggedOut() {

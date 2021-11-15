@@ -1,0 +1,21 @@
+{
+  "pokemon1Name" :
+  {
+    "pokemonType": "GRASS",
+    "maxHitPoint": 10,
+    "attackPoint": 10,
+    "defencePoint": 10,
+    "speed": 10
+  },
+
+  "pokemon2Name":
+  {
+    "pokemonType": "FIRE",
+    "maxHitPoint": 12,
+    "attackPoint": 13,
+    "defencePoint": 14,
+    "speed": 15
+  }
+}
+
+HashMap<pokemonName, HashMap<attribute, value>>

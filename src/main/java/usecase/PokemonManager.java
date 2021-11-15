@@ -2,10 +2,8 @@ package usecase;
 
 import entity.*;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class PokemonManager {
     private PokemonBook pokemonBook;
@@ -45,17 +43,12 @@ public class PokemonManager {
         this.pocket = pocket;
     }
 
-    public List<Pokemon> getDefaultPokemon() {
-        return pocket.getDefaultPokemons();
+    public List<Pokemon> getBattlePokemons() {
+        return pocket.getBattlePokemons();
     }
 
-    public void attack(Pokemon p1, Pokemon p2) {
-        // TODO: complete this
-    }
-
-    public boolean capture(Pokemon opponent) {
-        // TODO: complete this
-        return true;
+    public Pokemon getDefaultPokemon() {
+        return pocket.getDefaultPokemon();
     }
 
     public void initialize() {
@@ -66,6 +59,14 @@ public class PokemonManager {
         pocket.add(pikachu);
         List<Pokemon> dp = new ArrayList<>();
         dp.add(pikachu);
-        pocket.setDefaultPokemons(dp);
+        pocket.setBattlePokemons(dp);
+    }
+
+    public void add(Pokemon pokemon) {
+        pocket.add(pokemon);
+    }
+
+    public String getName(Pokemon pokemon) {
+        return pokemon.getName();
     }
 }
