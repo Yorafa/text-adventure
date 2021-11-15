@@ -5,12 +5,14 @@ import usecase.PokemonManager;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.Random;
 
 public class TextBattlePanel extends TextPanel {
     private PokemonManager pokemonManager;
     private List<Pokemon> myPokemons;
     private Pokemon myPokemon;
     private Pokemon opponent;
+    private boolean inChange = false;
 
     public TextBattlePanel(Scanner input, PokemonManager pokemonManager, Pokemon opponent) {
         super(input);
@@ -27,6 +29,7 @@ public class TextBattlePanel extends TextPanel {
 
     @Override
     protected void execute(String choice) {
+        if (!inChange) {
         switch (choice) {
             case "1":
                 System.out.println("chose attack");
@@ -58,14 +61,28 @@ public class TextBattlePanel extends TextPanel {
             default:
                 System.out.println("Not Valid");
                 runPanel();
-        }
+            }
+        } //else {
+          //  myPokemon = myPokemons.
+        //} to be implemented when it supports myPokemons.get(somePokemonName)
     }
 
     private void opponentAction() {
-        // TODO
+        Random rand = new Random();
+        double num = rand.nextDouble();
+        double cons = 0.95 / 2;
+        // if num > 0.95, the opponent pokemon will escape, otherwise, random action as of now.
+        if (num < cons) {
+            pokemonManager.attack(opponent, myPokemon);
+        } else if (num < 2 * cons) {
+            opponent.setHitPoint((int) Math.round(opponent.getHitPoint() * 1.1));
+        }
     }
 
     private void changePokemon() {
-        // TODO
+        inChange = true;
+        for (Pokemon p : myPokemons) {
+            System.out.println(p.getName());
+        }
     }
 }
