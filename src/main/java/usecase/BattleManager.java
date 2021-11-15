@@ -84,10 +84,11 @@ public class BattleManager {
         int i = r.nextInt(100);
         if (i < 70) {
             int damage = attack(p2, p1, hasDefenseP1);
-            message = getP2Name() + " made " + damage + " damage to " + getP1Name() + ".";
+            message = getP2Name() + " attacked. " + getP2Name() + " made " + damage + " damage to " + getP1Name()
+                    + ".";
         } else {
             hasDefenseP2 = true;
-            message = getP2Name() + "defended.";
+            message = getP2Name() + " defended.";
         }
         return message;
     }
@@ -97,15 +98,16 @@ public class BattleManager {
     }
 
     public boolean isBattling() {
-        endBattle();
-        if (p2.getHitPoint() != 0) {
-            battling = true;
+        if (p2.getHitPoint() == 0) {
+            battling = false;
         }
+        boolean notAlDead = false;
         for (Pokemon pokemon : battlePokemons) {
             if (pokemon.getHitPoint() != 0) {
-                battling = true;
+                notAlDead = true;
             }
         }
+        battling = battling && notAlDead;
         return battling;
     }
 

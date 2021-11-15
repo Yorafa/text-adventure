@@ -30,6 +30,7 @@ public class TextChangePokemonPanel extends TextPanel {
                 newPokemon = battlePokemons.get(choiceIndex);
             }
         } catch (NumberFormatException | IndexOutOfBoundsException e) {
+            System.out.println("Not valid.");
             runPanel();
         }
     }

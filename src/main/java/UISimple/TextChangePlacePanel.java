@@ -30,6 +30,7 @@ public class TextChangePlacePanel extends TextPanel {
                 newPlace = maps.get(choiceIndex);
             }
         } catch (NumberFormatException | IndexOutOfBoundsException e) {
+            System.out.println("Not valid.");
             runPanel();
         }
     }
