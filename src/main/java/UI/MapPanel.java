@@ -10,7 +10,7 @@ public class MapPanel extends JPanel {
         this.setBorder(BorderFactory.createEmptyBorder(100, 50, 50, 50));
         this.setLayout(new GridLayout(2, 1, 10, 10));
 
-        JLabel label = new JLabel("Welcome to Text Adventure, " + taf.getUser().getName() +
+        JLabel label = new JLabel("Welcome to Text Adventure, " + taf.getUser().getUsername() +
                 ". You are currently at " + taf.getMap().getMapName() + "."
                 );
 

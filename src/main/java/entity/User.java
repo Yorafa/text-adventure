@@ -1,52 +1,28 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Objects;
 
 
 public class User implements Serializable {
-    private String name;
-    private int id;
+    private String username;
     private String password;
-    private ArrayList<Pokemon> pocket;
 
-    public User() {
-        this.name = "";
-        this.id = 0;
-        this.password = "";
-        this.pocket = new ArrayList<>();
-    }
-
-    public User(String name, String password) {
-        this.name = name;
-        this.id = 0;
+    public User(String username, String password) {
+        this.username = username;
         this.password = password;
-        this.pocket = new ArrayList<>();
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getId() {
-        return id;
+    public String getUsername() {
+        return username;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public ArrayList<Pokemon> getPocket() {
-        return pocket;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setId(int ID) {
-        this.id = ID;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setPassword(String password) {
@@ -62,21 +38,19 @@ public class User implements Serializable {
             return false;
         }
         User object = (User) obj;
-        return this.getName().equals(object.getName());
+        return this.getUsername().equals(object.getUsername());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, id, password, pocket);
+        return Objects.hash(username, password);
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
-                ", id=" + id +
+                "name='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", pocket=" + pocket +
                 '}';
     }
 }

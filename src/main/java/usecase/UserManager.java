@@ -4,12 +4,17 @@ import entity.User;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
-public class UserManager implements Serializable {
-    private ArrayList<User> users;
+public class UserManager {
+    private List<User> users;
 
     public UserManager() {
         users = new ArrayList<>();
+    }
+
+    public List<User> getUsers() {
+        return users;
     }
 
     public void addUser(User user) {
@@ -20,35 +25,29 @@ public class UserManager implements Serializable {
         users.remove(user);
     }
 
-    public Boolean hasUser(User user) {
-        for (User user1: users){
-            if (user1.equals(user)){
+    public boolean hasUser(String username) {
+        for (User user : users) {
+            if (user.getUsername().equals(username)) {
                 return true;
             }
         }
         return false;
     }
 
-    public int getIndex(String name) {
+    public User getUser(String username) {
         for (User user : users) {
-            if (user.getName().equals(name)) {
-                return users.indexOf(user);
+            if (user.getUsername().equals(username)) {
+                return user;
             }
         }
-        return -1;
+        return null;
     }
 
-    public int getIndex(User user) {
-        return users.indexOf(user);
-    }
-
-    public User login(String name, String password) {
-        int index = getIndex(name);
-
-        if (index == -1) {
+    public User login(String username, String password) {
+        if (!hasUser(username)) {
             return null;
         } else {
-            User user = users.get(index);
+            User user = getUser(username);
             if (user.getPassword().equals(password)) {
                 return user;
             } else {
@@ -57,13 +56,17 @@ public class UserManager implements Serializable {
         }
     }
 
-    public User register(String name, String password) {
-        if (getIndex(name) != -1) {
+    public User register(String username, String password) {
+        if (hasUser(username)) {
             return null;
+        } else {
+            User user = new User(username, password);
+            addUser(user);
+            return user;
         }
-        User user = new User(name, password);
-        user.setId(users.size());
-        addUser(user);
-        return user;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }
