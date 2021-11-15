@@ -5,6 +5,7 @@ import usecase.BattleManager;
 import usecase.PokemonManager;
 
 import java.util.Scanner;
+import java.util.Random;
 
 public class TextBattlePanel extends TextPanel {
     private PokemonManager pokemonManager;
