@@ -11,6 +11,8 @@ public class BattleManager {
     private Pokemon p2;
     private boolean hasDefenseP1;
     private boolean hasDefenseP2;
+    private boolean hasCounterattackP1;
+    private boolean hasCounterattackP2;
     private boolean battling;
 
     public BattleManager(List<Pokemon> battlePokemons, Pokemon p2) {
@@ -19,6 +21,8 @@ public class BattleManager {
         this.p2 = p2;
         this.hasDefenseP1 = false;
         this.hasDefenseP2 = false;
+        this.hasCounterattackP1 = false;
+        this.hasCounterattackP2 = false;
         this.battling = true;
     }
 
@@ -36,16 +40,29 @@ public class BattleManager {
 
     public int attack() {
         this.hasDefenseP1 = false;
-        return attack(p1, p2, hasDefenseP2);
+        if (hasDefenseP2) {
+            hasCounterattackP2 = true;
+        }
+        int damage = attack(p1, hasCounterattackP1, p2, hasDefenseP2);
+        hasCounterattackP1 = false;
+        return damage;
     }
 
     public void defense() {
         this.hasDefenseP1 = true;
     }
 
-    private int attack(Pokemon attacker, Pokemon attackee, boolean haveDefense) {
+    private int attack(Pokemon attacker, boolean hasCounterattack, Pokemon attackee, boolean hasDefense) {
         DamageCalculator damageCalculator = new DamageCalculator();
-        int damage = damageCalculator.calculate(attacker, attackee, haveDefense);
+        int attackPoint = attacker.getAttackPoint();
+        if (hasCounterattack) {
+            attackPoint *= 2;
+        }
+        int defencePoint = attackee.getDefencePoint();
+        if (hasDefense) {
+            defencePoint *= 2;
+        }
+        int damage = damageCalculator.calculate(attackPoint, defencePoint);
         attackee.setHitPoint(Math.max(attackee.getHitPoint() - damage, 0));
         return damage;
     }
@@ -69,7 +86,7 @@ public class BattleManager {
         int speedP2 = p2.getSpeed();
         if (speedP1 < speedP2) {
             return false;
-        } else if (speedP1 < speedP2) {
+        } else if (speedP1 > speedP2) {
             return true;
         } else {
             Random r = new Random();
@@ -83,9 +100,12 @@ public class BattleManager {
         Random r = new Random();
         int i = r.nextInt(100);
         if (i < 70) {
-            int damage = attack(p2, p1, hasDefenseP1);
-            message = getP2Name() + " attacked. " + getP2Name() + " made " + damage + " damage to " + getP1Name()
-                    + ".";
+            if (hasDefenseP1) {
+                hasCounterattackP1 = true;
+            }
+            int damage = attack(p2, hasCounterattackP2, p1, hasDefenseP1);
+            hasCounterattackP2 = false;
+            message = getP2Name() + " attacked. " + getP2Name() + " made " + damage + " damage to you.";
         } else {
             hasDefenseP2 = true;
             message = getP2Name() + " defended.";
@@ -101,17 +121,31 @@ public class BattleManager {
         if (p2.getHitPoint() == 0) {
             battling = false;
         }
-        boolean notAlDead = false;
+        boolean notAllDead = false;
         for (Pokemon pokemon : battlePokemons) {
             if (pokemon.getHitPoint() != 0) {
-                notAlDead = true;
+                notAllDead = true;
             }
         }
-        battling = battling && notAlDead;
+        battling = battling && notAllDead;
         return battling;
     }
 
     public void endBattle() {
         this.battling = false;
+    }
+
+    public boolean youLose() {
+        boolean notAllDead = false;
+        for (Pokemon pokemon : battlePokemons) {
+            if (pokemon.getHitPoint() != 0) {
+                notAllDead = true;
+            }
+        }
+        return !isBattling() && !notAllDead;
+    }
+
+    public boolean youWin() {
+        return !isBattling() && p2.getHitPoint() == 0;
     }
 }

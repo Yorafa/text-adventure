@@ -19,8 +19,15 @@ public class TextBattlePanel extends TextPanel {
         options.add("5. Escape");
         this.pokemonManager = pokemonManager;
         this.battleManager = new BattleManager(pokemonManager.getBattlePokemons(), opponent);
+
+        System.out.println("You bumped into " + battleManager.getP2Name() + ".");
         if (!battleManager.isFaster()) {
             opponentAction();
+            if (battleManager.youLose()) {
+                System.out.println("You lose.");
+            } else if (battleManager.youWin()) {
+                System.out.println("You win.");
+            }
         }
     }
 
@@ -29,20 +36,22 @@ public class TextBattlePanel extends TextPanel {
         switch (choice) {
             case "1":
                 int damage = battleManager.attack();
-                System.out.println(battleManager.getP1Name() + " made " + damage + " damage to " +
+                System.out.println("You made " + damage + " damage to " +
                         battleManager.getP2Name());
-                opponentAction();
+                if (battleManager.isBattling()) {
+                    opponentAction();
+                }
                 break;
             case "2":
                 battleManager.defense();
-                System.out.println("Defending.");
+                System.out.println("You are defending.");
                 opponentAction();
                 break;
             case "3":
                 boolean captured = battleManager.capture();
                 if (captured) {
                     pokemonManager.add(battleManager.getOpponent());
-                    System.out.println("Captured.");
+                    System.out.println("You captured " + battleManager.getP2Name() + ".");
                     battleManager.endBattle();
                 } else {
                     System.out.println("Not captured.");
@@ -50,9 +59,9 @@ public class TextBattlePanel extends TextPanel {
                 }
                 break;
             case "4":
-                System.out.println("chose change pokemon");
                 changePokemon();
                 opponentAction();
+                System.out.println("Changed to " + battleManager.getP1Name() + ".");
                 break;
             case "5":
                 System.out.println("Escaped.");
@@ -63,6 +72,10 @@ public class TextBattlePanel extends TextPanel {
         }
         if (battleManager.isBattling()) {
             runPanel();
+        } else if (battleManager.youLose()) {
+            System.out.println("You lose.");
+        } else if (battleManager.youWin()) {
+            System.out.println("You win.");
         }
     }
 
@@ -75,7 +88,14 @@ public class TextBattlePanel extends TextPanel {
         TextChangePokemonPanel changePokemonPanel = new TextChangePokemonPanel(input, battleManager.getBattlePokemons(),
                 pokemonManager);
         changePokemonPanel.runPanel();
-        battleManager.changePokemon(changePokemonPanel.getNewPokemon());
+        Pokemon newPokemon = changePokemonPanel.getNewPokemon();
+        if (newPokemon != null) {
+            battleManager.changePokemon(changePokemonPanel.getNewPokemon());
+        }
+    }
+
+    public boolean isBattling() {
+        return battleManager.isBattling();
     }
 
 }

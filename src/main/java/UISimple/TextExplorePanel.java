@@ -3,22 +3,26 @@ package UISimple;
 import entity.Pmap;
 import entity.Pokemon;
 import usecase.MapManager;
+import usecase.PokemonManager;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class TextExplorePanel extends TextPanel {
     private MapManager mapManager;
+    private PokemonManager pokemonManager;
     private Pokemon pokemon;
     private boolean loggedOut;
     private boolean exploring;
 
-    public TextExplorePanel(Scanner input, MapManager mapManager) {
+    public TextExplorePanel(Scanner input, MapManager mapManager, PokemonManager pokemonManager) {
         super(input);
         options.add("1. Walk around");
-        options.add("2. Change place");
-        options.add("3. Logout");
+        options.add("2. Heal Pokemons");
+        options.add("3. Change place");
+        options.add("4. Logout");
         this.mapManager = mapManager;
+        this.pokemonManager = pokemonManager;
         this.loggedOut = false;
         this.exploring = true;
     }
@@ -27,21 +31,25 @@ public class TextExplorePanel extends TextPanel {
     protected void execute(String choice) {
         switch (choice) {
             case "1":
-                System.out.println("chose walk around");
                 pokemon = mapManager.walkAround();
                 if (pokemon == null) {
+                    System.out.println("Nothing happens.");
                     runPanel();
                 } else {
                     exploring = false;
                 }
                 break;
             case "2":
-                System.out.println("chose change place");
+                pokemonManager.healAll();
+                System.out.println("All pokemons are healed.");
+                break;
+            case "3":
+                System.out.println("Where do you want to go?");
                 changePlace();
                 runPanel();
                 break;
-            case "3":
-                System.out.println("chose log out");
+            case "4":
+                System.out.println("You are logged out.");
                 loggedOut = true;
                 break;
             default:

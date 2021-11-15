@@ -52,10 +52,10 @@ public class PokemonManager {
     }
 
     public void initialize() {
-        BasePokemonData basePokemonData = new BasePokemonData(PokemonType.ELECTRICITY, 10, 10, 10, 10);
+        BasePokemonData basePokemonData = new BasePokemonData(PokemonType.ELECTRICITY, 1000, 1000, 1000, 1000);
         BasePokemon basePokemon = new BasePokemon("Pikachu", basePokemonData);
         PokemonFactory pf = new PokemonFactory();
-        Pokemon pikachu = pf.getPokemon(basePokemon, 1000, 10);
+        Pokemon pikachu = pf.getPokemon(basePokemon, 0, 1000);
         pocket.add(pikachu);
         List<Pokemon> dp = new ArrayList<>();
         dp.add(pikachu);
@@ -68,5 +68,12 @@ public class PokemonManager {
 
     public String getName(Pokemon pokemon) {
         return pokemon.getName();
+    }
+
+    public void healAll() {
+        List<Pokemon> pokemons = pocket.getPokemons();
+        for (Pokemon pokemon : pokemons) {
+            pokemon.setHitPoint(pokemon.getMaxHitPoint());
+        }
     }
 }

@@ -7,10 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MapManager {
+    private PokemonDataManager pokemonDataManager;
     private ArrayList<Pmap> pmaps;
     private Pmap currentPlace;
 
     public MapManager() {
+        this.pokemonDataManager = new PokemonDataManager();
         this.pmaps = new ArrayList<>();
     }
 
@@ -41,10 +43,10 @@ public class MapManager {
 
     public Pokemon walkAround() {
         // TODO: return a random (according to the probability of currentPlace) pokemon.
-        BasePokemonData basePokemonData = new BasePokemonData(PokemonType.ELECTRICITY, 10, 10, 10, 10);
+        BasePokemonData basePokemonData = new BasePokemonData(PokemonType.ELECTRICITY, 1000, 1000, 1000, 1000);
         BasePokemon basePokemon = new BasePokemon("Pikachu", basePokemonData);
         PokemonFactory pf = new PokemonFactory();
-        return pf.getPokemon(basePokemon, 1000, 10);
+        return pf.getPokemon(basePokemon, 0, 1000);
     }
 
     private Pmap getMap(String placeName) {
