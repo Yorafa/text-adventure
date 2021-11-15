@@ -30,41 +30,41 @@ public class TextBattlePanel extends TextPanel {
     @Override
     protected void execute(String choice) {
         if (!inChange) {
-        switch (choice) {
-            case "1":
-                System.out.println("chose attack");
-                pokemonManager.attack(myPokemon, opponent);
-                opponentAction();
-                runPanel();
-                break;
-            case "2":
-                System.out.println("chose defense");
-                opponentAction();
-                runPanel();
-                break;
-            case "3":
-                System.out.println("chose capture");
-                boolean captured = pokemonManager.capture(opponent);
-                if (!captured) {
+            switch (choice) {
+                case "1":
+                    System.out.println("chose attack");
+                    pokemonManager.attack(myPokemon, opponent);
                     opponentAction();
                     runPanel();
-                }
-                break;
-            case "4":
-                System.out.println("chose change pokemon");
-                changePokemon();
-                runPanel();
-                break;
-            case "5":
-                System.out.println("chose escape");
-                break;
-            default:
-                System.out.println("Not Valid");
-                runPanel();
+                    break;
+                case "2":
+                    System.out.println("chose defense");
+                    opponentAction();
+                    runPanel();
+                    break;
+                case "3":
+                    System.out.println("chose capture");
+                    boolean captured = pokemonManager.capture(opponent);
+                    if (!captured) {
+                        opponentAction();
+                        runPanel();
+                    }
+                    break;
+                case "4":
+                    System.out.println("chose change pokemon");
+                    changePokemon();
+                    runPanel();
+                    break;
+                case "5":
+                    System.out.println("chose escape");
+                    break;
+                default:
+                    System.out.println("Not Valid");
+                    runPanel();
             }
-        } //else {
-          //  myPokemon = myPokemons.
-        //} to be implemented when it supports myPokemons.get(somePokemonName)
+        } else {
+            myPokemon = myPokemons.get(Integer.valueOf(choice) - 1);
+        }
     }
 
     private void opponentAction() {
@@ -80,9 +80,10 @@ public class TextBattlePanel extends TextPanel {
     }
 
     private void changePokemon() {
+        int temp = 0;
         inChange = true;
         for (Pokemon p : myPokemons) {
-            System.out.println(p.getName());
+            System.out.println((temp + 1) + " " + p.getName());
         }
     }
 }
