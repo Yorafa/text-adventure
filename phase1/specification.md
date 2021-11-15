@@ -27,6 +27,7 @@ The player can choose among the following actions.
 
 - Walk around: There is some possibility of bumping into some pokemon, and if that is the case, 
 the player would enter the battle interface. The possibility is determined by the current place.
+- Heal pokemons
 - Change place: The list of all places will be shown for the player to choose from.
 - Browse pokemons: Show a list of all pokemons that the player has.
 - Log out: Log out from the current account, and go back to the login interface.
@@ -41,28 +42,3 @@ turn first. At each turn, the player can perform one and only one of the followi
 - Capture
 - Change pokemon
 - Escape
-
-## Basic Classes and Attributes
-
-### Account
-
-- **Username**: distinct accounts must have distinct usernames
-- **Password**: rules TBD (lower case, upper case, numbers)
-- **Nickname**: can be differennt from the associated username (uniqueness TBD)
-- **Game data**: serializable and can be restored
-
-### Trainer
-
-- **Pokemons**: pokemons that the trainer owns
-- **Backpack**: items that the trainer owns
-
-### Pokemon
-
-- **Name**
-- **Level**
-- **Health**: 
-- **Attack**: 
-- **Defence**: 
-- **Speed**: 
-- **Type**: grass, water, fire...
-

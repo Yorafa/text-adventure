@@ -29,7 +29,8 @@ In the future,
 
 ## Clean Architecture
 
--
+- Inner layers do not depend on outer layers
+- Controller/Presenter/Gateway does not depends on Entity
 
 ## Packaging Strategies
 

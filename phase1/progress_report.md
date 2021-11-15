@@ -25,11 +25,18 @@ Open question & discussion
 - Specification
 - Pokemon & its related
 - Shell play UI
+- Battle & its related
 
+### Yucen Liu
+
+- ReadWriter
+- GameDataManager
+- Some Panels
 
 ### Xi Chen
 
-- fix a error on Specification
+- fix an error on Specification
+- Panel design
 
 
 ## Plan
@@ -41,6 +48,14 @@ Open question & discussion
 ### Jerry Wei
 
 - Perfect the base layer
+- Enhance game logic
+
+### Yucen Liu
+
+- Refactoring
+- new game contents
 
 ### Xi Chen
- 
+
+- Refactoring
+- Tests
