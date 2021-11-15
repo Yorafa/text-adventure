@@ -17,7 +17,7 @@ In the future,
 
 ## SOLID
 - SRP (Single Responsibility Principle)
-  - e.g.
+  - In order to achieve SRP, we wrote a lot of classes and made each class responsible for a function.
 - OCP (Open Closed Principle)
   - e.g. all private attribute
 - LSP (Liskov Substitution Principle)
