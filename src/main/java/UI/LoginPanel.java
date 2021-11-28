@@ -9,7 +9,7 @@ public class LoginPanel extends JPanel {
     public LoginPanel(TextAdventureFrame taf) {
         taf.setContentPane(this);
         // Setup mainPanel
-        this.setBorder(BorderFactory.createEmptyBorder(100, 100, 100, 100));
+        this.setBorder(BorderFactory.createEmptyBorder(200, 400, 200, 400));
         this.setLayout(new GridLayout(3, 1));
 
         // Setup Text Field
@@ -29,6 +29,7 @@ public class LoginPanel extends JPanel {
                 String message = "Either your username not exist or wrong password";
                 JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
             } else {
+                taf.remove(this);
                 taf.setContentPane(new MapPanel(taf));
             }
         });
@@ -45,6 +46,7 @@ public class LoginPanel extends JPanel {
                 String message = "You are successful registered";
                 JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
                 UserGate.writeUM(taf.getUserManager());
+                taf.remove(this);
                 taf.setContentPane(new MapPanel(taf));
             }
         });
@@ -52,6 +54,7 @@ public class LoginPanel extends JPanel {
         buttonPanel.add(register);
 
         this.add(buttonPanel);
+        taf.pack();
     }
 
     public JPanel createLine(String itemName, JTextField field) {

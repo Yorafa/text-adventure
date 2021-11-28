@@ -20,9 +20,10 @@ public class TextAdventureFrame extends JFrame {
         // Setup frame
         this.setTitle("Text Adventure");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(800, 450);
+        this.setContentPane(new LoginPanel(this));
+        this.pack();
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
-        LoginPanel loginPanel = new LoginPanel(this);
     }
 
     public void setUser(User user) {
