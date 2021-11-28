@@ -18,4 +18,9 @@ public class PokemonBook implements Serializable {
     public void removePokemon(int i) {
         pokemonBook.remove(i);
     }
+
+    public List<BasePokemon> getPokemonBook(){
+        return pokemonBook;
+    }
+
 }
