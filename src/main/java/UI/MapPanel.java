@@ -7,7 +7,8 @@ public class MapPanel extends JPanel {
 
     public MapPanel(TextAdventureFrame taf) {
         taf.setContentPane(this);
-        this.setBorder(BorderFactory.createEmptyBorder(100, 50, 50, 50));
+
+        this.setBorder(BorderFactory.createEmptyBorder(200, 400, 200, 400));
         this.setLayout(new GridLayout(2, 1, 10, 10));
 
         JLabel label = new JLabel("Welcome to Text Adventure, " + taf.getUser().getUsername() +
@@ -24,7 +25,11 @@ public class MapPanel extends JPanel {
         });
 
         JButton mapButton = new JButton("Change place");
-        mapButton.addActionListener((e) -> taf.setContentPane(new MapChangingPanel(taf)));
+        mapButton.addActionListener((e) ->
+        {
+            taf.remove(this);
+            taf.setContentPane(new MapChangingPanel(taf));
+        });
 
         JButton browsePokemon = new JButton("Browse pokemon");
         browsePokemon.addActionListener((e) -> {
@@ -33,6 +38,7 @@ public class MapPanel extends JPanel {
 
         JButton logOut = new JButton("Log out");
         logOut.addActionListener((e) -> {
+            taf.remove(this);
             taf.setContentPane(new LoginPanel(taf));
             taf.setUser(null);
         });
@@ -43,6 +49,6 @@ public class MapPanel extends JPanel {
         buttonPanel.add(logOut);
 
         this.add(buttonPanel);
-
+        taf.pack();
     }
 }

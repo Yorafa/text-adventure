@@ -6,8 +6,6 @@ import gateway.*;
 
 import javax.swing.*;
 
-import static entity.PokemonType.ELECTRICITY;
-
 public class TextAdventure {
 
     public static void main(String[] args) {
