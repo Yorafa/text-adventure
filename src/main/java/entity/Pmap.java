@@ -7,45 +7,32 @@ import java.util.Objects;
 
 public class Pmap implements Serializable {
     private String mapName;
-    private List<Pokemon> pokemons;
-    private List<Double> probability;
+    private List<List<Pokemon>> pokemons;
     // Note: the two Lists are parallel so that easy catch up.
 
     public Pmap(){
         this.mapName = "";
         this.pokemons = new ArrayList<>();
-        this.probability = new ArrayList<>();
     }
 
-    public Pmap(String mapName, int mapId){
+    public Pmap(String mapName){
         this.mapName = mapName;
         this.pokemons = new ArrayList<>();
-        this.probability = new ArrayList<>();
     }
-
 
     public void setMapName(String mapName) {
         this.mapName = mapName;
     }
 
-    public void setPokemons(List<Pokemon> pokemons) {
+    public void setPokemons(List<List<Pokemon>> pokemons) {
         this.pokemons = pokemons;
-    }
-
-    public void setProbability(List<Double> probability) {
-        this.probability = probability;
     }
 
     public String getMapName() {
         return mapName;
     }
 
-
-    public List<Double> getProbability() {
-        return probability;
-    }
-
-    public List<Pokemon> getPokemons() {
+    public List<List<Pokemon>> getPokemons() {
         return pokemons;
     }
 
@@ -59,7 +46,7 @@ public class Pmap implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(mapName, pokemons, probability);
+        return Objects.hash(mapName, pokemons);
     }
 
     @Override
@@ -67,7 +54,6 @@ public class Pmap implements Serializable {
         return "Map{" +
                 "mapName='" + mapName + '\'' +
                 ", pokemons=" + pokemons +
-                ", probability=" + probability +
                 '}';
     }
 }

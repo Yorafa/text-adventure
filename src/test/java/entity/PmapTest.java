@@ -25,22 +25,17 @@ public class PmapTest {
 
     @Test(timeout = 50)
     public void testSetPokemonsAndGetPokemons(){
-        List<Pokemon> pokemonList = new ArrayList<>();
+        List<List<Pokemon>> pokemonList = new ArrayList<>();
         BasePokemonData basePokemonData = new BasePokemonData(PokemonType.ELECTRICITY, 1,1,1,1);
         PokemonData pokemonData = new PokemonData(PokemonType.ELECTRICITY, 1,1,1,1);
         Pokemon pokemon = new Pokemon("test", basePokemonData, 1, 0, 1, pokemonData);
-        pokemonList.add(pokemon);
+        List<Pokemon> rarity = new ArrayList<>();
+        rarity.add(pokemon);
+        pokemonList.add(rarity);
         this.pmap.setPokemons(pokemonList);
         assertEquals(pokemonList, pmap.getPokemons());
     }
 
-    @Test(timeout = 50)
-    public void testSetProbabilityAndGetProbability(){
-        List<Double> probability = new ArrayList<>();
-        probability.add(0.123);
-        this.pmap.setProbability(probability);
-        assertEquals(probability, this.pmap.getProbability());
-    }
 
     @Test(timeout = 50)
     public void testEqual(){
