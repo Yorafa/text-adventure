@@ -25,17 +25,19 @@ public class PmapTest {
 
     @Test(timeout = 50)
     public void testSetPokemonsAndGetPokemons(){
-        List<List<Pokemon>> pokemonList = new ArrayList<>();
-        BasePokemonData basePokemonData = new BasePokemonData(PokemonType.ELECTRICITY, 1,1,1,1);
-        PokemonData pokemonData = new PokemonData(PokemonType.ELECTRICITY, 1,1,1,1);
-        Pokemon pokemon = new Pokemon("test", basePokemonData, 1, 0, 1, pokemonData);
-        List<Pokemon> rarity = new ArrayList<>();
-        rarity.add(pokemon);
+        List<List<String>> pokemonList = new ArrayList<>();
+        List<String> rarity = new ArrayList<>();
+        rarity.add("pokemonName");
         pokemonList.add(rarity);
         this.pmap.setPokemons(pokemonList);
         assertEquals(pokemonList, pmap.getPokemons());
     }
 
+    @Test(timeout = 50)
+    public void testConstant(){
+        assertEquals(0, pmap.getMAX_ExperiencePoint());
+        assertEquals(0, pmap.getMIN_ExperiencePoint());
+    }
 
     @Test(timeout = 50)
     public void testEqual(){

@@ -12,4 +12,13 @@ public class PokemonFactory {
         return new Pokemon(basePokemon.getName(), basePokemon.getBasePokemonData(), level, experiencePoint,
                 currentHitPoint, pokemonData);
     }
+    public Pokemon getPokemon(BasePokemon basePokemon, int experiencePoint) {
+        LevelCalculator lc = new LevelCalculator();
+        PokemonDataManager pdm = new PokemonDataManager();
+
+        int level = lc.calculate(experiencePoint);
+        PokemonData pokemonData = pdm.create(basePokemon.getBasePokemonData(), level);
+        return new Pokemon(basePokemon.getName(), basePokemon.getBasePokemonData(), level, experiencePoint,
+                basePokemon.getMaxHitPoint(), pokemonData);
+    }
 }

@@ -2,25 +2,32 @@ package usecase;
 
 import entity.*;
 
-import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapManager {
+public class MapManager{
     private PokemonDataManager pokemonDataManager;
-    private ArrayList<Pmap> pmaps;
+    private List<Pmap> pmaps;
     private Pmap currentPlace;
 
     public MapManager() {
         this.pokemonDataManager = new PokemonDataManager();
         this.pmaps = new ArrayList<>();
+        this.currentPlace = null;
     }
 
     public MapManager(Pmap currentPlace) {
+        this.pokemonDataManager = new PokemonDataManager();
+        this.pmaps = new ArrayList<>();
         this.currentPlace = currentPlace;
     }
 
-    public ArrayList<Pmap> getMaps() {
+    public void setPmaps(List<Pmap> pmaps){
+        this.pmaps = pmaps;
+    }
+
+    public List<Pmap> getMaps() {
         return pmaps;
     }
 
@@ -29,7 +36,8 @@ public class MapManager {
     }
 
     public Pmap start() {
-        return pmaps.get(0);
+        if (!pmaps.isEmpty()){return pmaps.get(0);}
+        return null;
     }
 
     public Pmap find(String mapName) {
@@ -49,13 +57,10 @@ public class MapManager {
         return pf.getPokemon(basePokemon, 0, 1000);
     }
 
-    private Pmap getMap(String placeName) {
-        for (Pmap pmap : pmaps) {
-            if (pmap.getMapName().equals(placeName)) {
-                return pmap;
-            }
-        }
-        return null;
+    public Pokemon walkAround(PokemonBook pokemonBook) {
+        RandomAlgorithm ra = new RandomAlgorithm(this.currentPlace);
+        PokemonFactory pokemonFactory = new PokemonFactory();
+        return pokemonFactory.getPokemon(ra.encounter(pokemonBook), ra.randomExp());
     }
 
     public Pmap getCurrentPlace() {

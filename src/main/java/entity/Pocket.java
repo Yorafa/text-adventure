@@ -2,16 +2,23 @@ package entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
 public class Pocket implements Serializable {
     private List<Pokemon> pokemons;
     private List<Pokemon> battlePokemons;
+    private HashMap<String, Integer> items;
 
     public Pocket() {
         pokemons = new ArrayList<>();
         battlePokemons = new ArrayList<>();
+        items = new HashMap<>();
+    }
+
+    public HashMap<String, Integer> getItems() {
+        return items;
     }
 
     public void setBattlePokemons(List<Pokemon> battlePokemons) {

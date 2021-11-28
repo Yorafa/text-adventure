@@ -15,10 +15,18 @@ public class BattleManager {
     private boolean hasCounterattackP2;
     private boolean battling;
 
-    public BattleManager(List<Pokemon> battlePokemons, Pokemon p2) {
+    /**
+     * Construct a BattleManager, giving them the p1, p2, by the given battlePokemons and p2.
+     *
+     * @param battlePokemons The pokemons in user's hand.
+     * @param wildPokemon  A wild pokemon meet by walk around
+     */
+
+    public BattleManager(List<Pokemon> battlePokemons, Pokemon wildPokemon) {
         this.battlePokemons = battlePokemons;
-        this.p1 = battlePokemons.get(0);
-        this.p2 = p2;
+        Pokemon userFirstPokemon = battlePokemons.get(0);
+        this.p1 = userFirstPokemon;
+        this.p2 = wildPokemon;
         this.hasDefenseP1 = false;
         this.hasDefenseP2 = false;
         this.hasCounterattackP1 = false;
@@ -113,7 +121,11 @@ public class BattleManager {
         return message;
     }
 
-    public Pokemon getOpponent() {
+    public Pokemon getP1() {
+        return this.p1;
+    }
+
+    public Pokemon getP2() {
         return this.p2;
     }
 
