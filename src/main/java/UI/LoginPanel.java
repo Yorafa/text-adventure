@@ -37,7 +37,9 @@ public class LoginPanel extends JPanel {
         register.addActionListener((e) -> {
             taf.setUser(taf.getUserManager().register(username.getText(), password.getText()));
             if (taf.getUser() == null) {
-                String message = "Your name already been used";
+                String message = "Your name already been used or\n" +
+                        "Your password is doesn't match requirement:\n" +
+                        "length 6-16, consist with numbers and characters";
                 JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
             } else {
                 String message = "You are successful registered";

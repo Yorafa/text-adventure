@@ -2,63 +2,50 @@ package entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Pmap implements Serializable {
     private String mapName;
-    private int mapId;
-    private ArrayList<Pokemon> pokemons;
-    private ArrayList<Long> probability;
+    private List<Pokemon> pokemons;
+    private List<Double> probability;
     // Note: the two Lists are parallel so that easy catch up.
 
     public Pmap(){
         this.mapName = "";
-        this.mapId = 0;
         this.pokemons = new ArrayList<>();
         this.probability = new ArrayList<>();
     }
 
     public Pmap(String mapName, int mapId){
         this.mapName = mapName;
-        this.mapId = mapId;
         this.pokemons = new ArrayList<>();
         this.probability = new ArrayList<>();
     }
 
-    public void setMapId(int mapId) {
-        this.mapId = mapId;
-    }
 
     public void setMapName(String mapName) {
         this.mapName = mapName;
     }
 
-    public void setPokemons(ArrayList<Pokemon> pokemons) {
+    public void setPokemons(List<Pokemon> pokemons) {
         this.pokemons = pokemons;
     }
 
-    public void setProbability(ArrayList<Long> probability) {
+    public void setProbability(List<Double> probability) {
         this.probability = probability;
-    }
-
-    public void addPokemon(Pokemon pokemon, long probability){
-        this.pokemons.add(pokemon);
-        this.probability.add(probability);
     }
 
     public String getMapName() {
         return mapName;
     }
 
-    public int getMapId() {
-        return mapId;
-    }
 
-    public ArrayList<Long> getProbability() {
+    public List<Double> getProbability() {
         return probability;
     }
 
-    public ArrayList<Pokemon> getPokemons() {
+    public List<Pokemon> getPokemons() {
         return pokemons;
     }
 
@@ -72,14 +59,13 @@ public class Pmap implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(mapName, mapId, pokemons, probability);
+        return Objects.hash(mapName, pokemons, probability);
     }
 
     @Override
     public String toString() {
         return "Map{" +
                 "mapName='" + mapName + '\'' +
-                ", mapId=" + mapId +
                 ", pokemons=" + pokemons +
                 ", probability=" + probability +
                 '}';

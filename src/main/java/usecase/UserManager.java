@@ -6,11 +6,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserManager {
+public class UserManager implements Serializable{
     private List<User> users;
 
     public UserManager() {
         users = new ArrayList<>();
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
     public List<User> getUsers() {
@@ -34,10 +38,28 @@ public class UserManager {
         return false;
     }
 
+    public boolean hasUser(User user) {
+        for (User inListUser : users) {
+            if (inListUser.equals(user)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public User getUser(String username) {
         for (User user : users) {
             if (user.getUsername().equals(username)) {
                 return user;
+            }
+        }
+        return null;
+    }
+
+    public User getUser(User user) {
+        for (User inListUser : users) {
+            if (inListUser.equals(user)) {
+                return inListUser;
             }
         }
         return null;
@@ -57,16 +79,12 @@ public class UserManager {
     }
 
     public User register(String username, String password) {
-        if (hasUser(username)) {
-            return null;
-        } else {
+        if (hasUser(username)) {return null;}
+        else if(!password.matches("^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$")){return null;}
+        else {
             User user = new User(username, password);
             addUser(user);
             return user;
         }
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
     }
 }
