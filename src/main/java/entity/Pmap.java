@@ -15,8 +15,8 @@ public class Pmap implements Serializable {
     public Pmap(){
         this.mapName = "";
         this.pokemons = new ArrayList<>();
-        this.MAX_ExperiencePoint = 0;
         this.MIN_ExperiencePoint = 0;
+        this.MAX_ExperiencePoint = 0;
     }
 
     public int getMAX_ExperiencePoint() {

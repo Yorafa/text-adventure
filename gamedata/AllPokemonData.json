@@ -17,5 +17,3 @@
     "speed": 15
   }
 }
-
-HashMap<pokemonName, HashMap<attribute, value>>

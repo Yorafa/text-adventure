@@ -1,4 +1,8 @@
 {"pmaps":[
-    {"mapName":"Home","pokemons":[[],[],[],[]]},
-    {"mapName":"Shop","pokemons":[[],[],[],[]]}]
-}
+    {"mapName":"Home","pokemons":[[],[],[],[]],"MIN_ExperiencePoint": 0, "Max_ExperiencePoint": 0},
+    {"mapName":"Shop","pokemons":[[],[],[],[]],"MIN_ExperiencePoint": 0, "Max_ExperiencePoint": 0},
+    {"mapName":"Wasteland","pokemons":[[],[],[],["Fir"]],"MIN_ExperiencePoint": 0, "Max_ExperiencePoint": 10},
+    {"mapName":"River","pokemons":[[],[],[],["Walter"]],"MIN_ExperiencePoint": 0, "Max_ExperiencePoint": 10},
+    {"mapName":"Abandoned Factory","pokemons":[[],[],[],["Elect"]],"MIN_ExperiencePoint": 0, "Max_ExperiencePoint": 10},
+    {"mapName":"Plain","pokemons":[[],[],[],["Gras"]],"MIN_ExperiencePoint": 0, "Max_ExperiencePoint": 10}
+]}

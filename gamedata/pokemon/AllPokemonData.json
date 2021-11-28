@@ -1,0 +1,30 @@
+{"pokemonBook":[
+  {"name":"Walter",
+    "basePokemonData":
+    {"pokemonType":"WATER",
+      "maxHitPoint":10,
+      "attackPoint":3,
+      "defencePoint":2,
+      "speed":1}},
+  {"name":"Gras",
+    "basePokemonData":
+    {"pokemonType":"GRASS",
+      "maxHitPoint":7,
+      "attackPoint":5,
+      "defencePoint":1,
+      "speed":3}},
+  {"name":"Elect",
+    "basePokemonData":
+    {"pokemonType":"ELECTRICITY",
+      "maxHitPoint":6,
+      "attackPoint":5,
+      "defencePoint":3,
+      "speed":5}},
+  {"name":"Fir",
+    "basePokemonData":
+    {"pokemonType":"FIRE",
+      "maxHitPoint":6,
+      "attackPoint":7,
+      "defencePoint":1,
+      "speed":2}}
+]}
