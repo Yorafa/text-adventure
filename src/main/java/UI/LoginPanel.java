@@ -1,24 +1,25 @@
 package UI;
 
-import gateway.*;
-
 import javax.swing.*;
 import java.awt.*;
 
 public class LoginPanel extends JPanel {
+
     public LoginPanel(TextAdventureFrame taf) {
-        taf.setContentPane(this);
+
+        this.setLayout(new BorderLayout());
         // Setup mainPanel
-        this.setBorder(BorderFactory.createEmptyBorder(200, 400, 200, 400));
-        this.setLayout(new GridLayout(3, 1));
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new GridLayout(3, 1));
+        setBoard();
 
         // Setup Text Field
         JTextField username = new JTextField();
         JPanel userPanel = createLine("Username: ", username);
         JTextField password = new JTextField();
         JPanel passPanel = createLine("Password: ", password);
-        this.add(userPanel);
-        this.add(passPanel);
+        mainPanel.add(userPanel);
+        mainPanel.add(passPanel);
 
         // Setup Button Field
         JPanel buttonPanel = new JPanel();
@@ -45,24 +46,40 @@ public class LoginPanel extends JPanel {
             } else {
                 String message = "You are successful registered";
                 JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
-                UserGate.writeUM(taf.getUserManager());
                 taf.remove(this);
-                taf.setContentPane(new MapPanel(taf));
-            }
-        });
+                taf.setMap("Home");
+                InitialPanel initialPanel = new InitialPanel(taf);
+                taf.setContentPane(initialPanel);
+            }});
         buttonPanel.add(login);
         buttonPanel.add(register);
 
-        this.add(buttonPanel);
+        mainPanel.add(buttonPanel);
+        this.add(mainPanel, BorderLayout.CENTER);
+        taf.setContentPane(this);
         taf.pack();
     }
 
     public JPanel createLine(String itemName, JTextField field) {
         JPanel panel = new JPanel();
-        field.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 0));
         panel.setLayout(new GridLayout(1, 2));
         panel.add(new JLabel(itemName));
         panel.add(field);
         return panel;
+    }
+
+    public void setBoard(){
+        JLabel emptyLabel1 = new JLabel("");
+        emptyLabel1.setPreferredSize(new Dimension(0,280));
+        JLabel emptyLabel2 = new JLabel("");
+        emptyLabel2.setPreferredSize(new Dimension(0,290));
+        JLabel emptyLabel3 = new JLabel("");
+        emptyLabel3.setPreferredSize(new Dimension(300,0));
+        JLabel emptyLabel4 = new JLabel("");
+        emptyLabel4.setPreferredSize(new Dimension(300,0));
+        this.add(emptyLabel1, BorderLayout.NORTH);
+        this.add(emptyLabel2, BorderLayout.SOUTH);
+        this.add(emptyLabel3, BorderLayout.WEST);
+        this.add(emptyLabel4, BorderLayout.EAST);
     }
 }

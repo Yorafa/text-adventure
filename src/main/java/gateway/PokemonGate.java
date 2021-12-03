@@ -40,8 +40,7 @@ public class PokemonGate {
             while (scanner.hasNext()){pokemonData.append(scanner.next().strip());}
             String pokemonDataJson = pokemonData.toString();
             Gson gson = new Gson();
-            Type dataType = new TypeToken<HashMap<String, HashMap<String, Integer>>>(){}.getType();
-            return gson.fromJson(pokemonDataJson, dataType);
+            return gson.fromJson(pokemonDataJson, PokemonBook.class);
         }
         catch (IOException e){
             e.printStackTrace();

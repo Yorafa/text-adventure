@@ -8,9 +8,19 @@ import java.util.List;
 
 public class UserManager implements Serializable{
     private List<User> users;
+    private User currentUser;
 
     public UserManager() {
         users = new ArrayList<>();
+        currentUser = null;
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
     }
 
     public void setUsers(List<User> users) {

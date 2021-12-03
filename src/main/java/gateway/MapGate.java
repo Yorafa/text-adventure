@@ -13,7 +13,7 @@ public class MapGate {
         Gson gson = new Gson();
         String mapManagerJson = gson.toJson(mapManager);
         try {
-            FileWriter mapFile = new FileWriter("gamedata/mapdata.json");
+            FileWriter mapFile = new FileWriter("gamedata/map/mapdata.json");
             mapFile.write(mapManagerJson);
             mapFile.close();}
         catch (IOException e) {
@@ -22,7 +22,7 @@ public class MapGate {
     }
     public static MapManager readMM(){
         try {
-            File mapFile = new File("gamedata/mapdata.json");
+            File mapFile = new File("gamedata/map/mapdata.json");
             Scanner scanner = new Scanner(mapFile);
             StringBuilder mapString = new StringBuilder();
             while (scanner.hasNext()){
