@@ -2,6 +2,7 @@ package usecase;
 
 import entity.User;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +10,16 @@ import java.util.List;
 public class UserManager implements Serializable {
     private List<User> users;
     private User currentUser;
+    private IReadWriter readWriter;
 
-    public UserManager() {
-        this.users = new ArrayList<>();
+    public UserManager(IReadWriter readWriter) {
+        try {
+            users = (List<User>) readWriter.read();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            users = new ArrayList<>();
+        }
+        this.readWriter = readWriter;
     }
 
     public void setUsers(List<User> users) {
@@ -89,6 +97,11 @@ public class UserManager implements Serializable {
             User user = new User(username, password);
             currentUser = user;
             addUser(user);
+            try {
+                readWriter.write(users);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             return true;
         }
     }

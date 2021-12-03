@@ -3,6 +3,7 @@ package UISimple;
 import entity.User;
 import usecase.UserManager;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class TextLoginPanel extends TextPanel implements PanelState {

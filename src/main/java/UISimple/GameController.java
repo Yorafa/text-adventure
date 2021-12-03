@@ -1,11 +1,8 @@
 package UISimple;
 
-import entity.GameData;
-import entity.Pmap;
-import entity.Pocket;
-import usecase.GameDataManager;
 import usecase.MapManager;
 import usecase.PokemonManager;
+import usecase.IReadWriter;
 import usecase.UserManager;
 
 import java.util.Scanner;
@@ -19,7 +16,8 @@ public class GameController {
     private boolean gaming;
 
     public GameController() {
-        this.userManager = new UserManager();
+        IReadWriter userReadWriter = new UserReadWriter();
+        this.userManager = new UserManager(userReadWriter);
         this.pokemonManager = new PokemonManager();
         this.mapManager = new MapManager();
         this.state = new TextLoginPanel(input, this ,userManager);
