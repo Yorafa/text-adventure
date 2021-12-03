@@ -6,7 +6,7 @@ import usecase.PokemonManager;
 import java.util.List;
 import java.util.Scanner;
 
-public class TextChangePokemonPanel extends TextPanel {
+public class TextChangePokemonPanel extends TextPanel implements PanelState {
     private Pokemon newPokemon;
     private List<Pokemon> battlePokemons;
 
@@ -31,7 +31,7 @@ public class TextChangePokemonPanel extends TextPanel {
             }
         } catch (NumberFormatException | IndexOutOfBoundsException e) {
             System.out.println("Not valid.");
-            runPanel();
+            run();
         }
     }
 

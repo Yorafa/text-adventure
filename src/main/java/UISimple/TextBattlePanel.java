@@ -5,9 +5,8 @@ import usecase.BattleManager;
 import usecase.PokemonManager;
 
 import java.util.Scanner;
-import java.util.Random;
 
-public class TextBattlePanel extends TextPanel {
+public class TextBattlePanel extends TextPanel implements PanelState {
     private PokemonManager pokemonManager;
     private BattleManager battleManager;
 
@@ -72,7 +71,7 @@ public class TextBattlePanel extends TextPanel {
                 System.out.println("Not Valid");
         }
         if (battleManager.isBattling()) {
-            runPanel();
+            run();
         } else if (battleManager.youLose()) {
             System.out.println("You lose.");
         } else if (battleManager.youWin()) {
@@ -88,7 +87,7 @@ public class TextBattlePanel extends TextPanel {
     private void changePokemon() {
         TextChangePokemonPanel changePokemonPanel = new TextChangePokemonPanel(input, battleManager.getBattlePokemons(),
                 pokemonManager);
-        changePokemonPanel.runPanel();
+        changePokemonPanel.run();
         Pokemon newPokemon = changePokemonPanel.getNewPokemon();
         if (newPokemon != null) {
             battleManager.changePokemon(changePokemonPanel.getNewPokemon());
@@ -99,4 +98,13 @@ public class TextBattlePanel extends TextPanel {
         return battleManager.isBattling();
     }
 
+    @Override
+    public void execute() {
+
+    }
+
+    @Override
+    public void printMenu() {
+
+    }
 }

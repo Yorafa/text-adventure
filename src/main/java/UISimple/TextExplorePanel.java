@@ -8,7 +8,7 @@ import usecase.PokemonManager;
 import java.util.List;
 import java.util.Scanner;
 
-public class TextExplorePanel extends TextPanel {
+public class TextExplorePanel extends TextPanel implements PanelState {
     private MapManager mapManager;
     private PokemonManager pokemonManager;
     private Pokemon pokemon;
@@ -34,7 +34,7 @@ public class TextExplorePanel extends TextPanel {
                 pokemon = mapManager.walkAround();
                 if (pokemon == null) {
                     System.out.println("Nothing happens.");
-                    runPanel();
+                    run();
                 } else {
                     exploring = false;
                 }
@@ -46,7 +46,7 @@ public class TextExplorePanel extends TextPanel {
             case "3":
                 System.out.println("Where do you want to go?");
                 changePlace();
-                runPanel();
+                run();
                 break;
             case "4":
                 System.out.println("You are logged out.");
@@ -54,14 +54,14 @@ public class TextExplorePanel extends TextPanel {
                 break;
             default:
                 System.out.println("Not valid");
-                runPanel();
+                run();
         }
     }
 
     public void changePlace() {
         List<Pmap> maps = mapManager.getMaps();
         TextChangePlacePanel changePlacePanel = new TextChangePlacePanel(input, maps, mapManager);
-        changePlacePanel.runPanel();
+        changePlacePanel.run();
         mapManager.setCurrentPlace(changePlacePanel.getNewPlace());
     }
 

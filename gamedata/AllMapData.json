@@ -10,5 +10,3 @@
     "levels": [11, 14]
   }
 }
-
-HashMap<mapName, HashMap<attribute, ArrayList<value>>>

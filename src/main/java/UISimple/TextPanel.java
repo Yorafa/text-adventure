@@ -4,27 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public abstract class TextPanel {
+public abstract class TextPanel implements PanelState {
     protected Scanner input;
-    protected List<String> options;
-    protected boolean panelEnded;
+    protected GameController gameController;
 
-    public TextPanel(Scanner input) {
+    public TextPanel(Scanner input, GameController gameController) {
         this.input = input;
-        this.options = new ArrayList<>();
-        this.panelEnded = false;
+        this.gameController = gameController;
     }
 
-    public void runPanel() {
+    public void run() {
         printMenu();
         execute(input.nextLine());
     }
 
-    protected void printMenu() {
-        for (String option : options) {
-            System.out.println(option);
-        }
-    }
+    protected abstract void printMenu();
 
     protected abstract void execute(String choice);
 

@@ -6,7 +6,7 @@ import usecase.MapManager;
 import java.util.List;
 import java.util.Scanner;
 
-public class TextChangePlacePanel extends TextPanel {
+public class TextChangePlacePanel extends TextPanel implements PanelState {
     private Pmap newPlace;
     private List<Pmap> maps;
 
@@ -31,7 +31,7 @@ public class TextChangePlacePanel extends TextPanel {
             }
         } catch (NumberFormatException | IndexOutOfBoundsException e) {
             System.out.println("Not valid.");
-            runPanel();
+            run();
         }
     }
 
