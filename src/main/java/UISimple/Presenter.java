@@ -10,7 +10,7 @@ public class Presenter {
         this.messageQueue = new ArrayDeque<>();
     }
 
-    protected void addToQueue(String s) {
+    public void addToQueue(String s) {
         messageQueue.add(s);
     }
 

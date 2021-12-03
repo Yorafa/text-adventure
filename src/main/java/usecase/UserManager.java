@@ -91,8 +91,8 @@ public class UserManager implements Serializable {
     public boolean register(String username, String password) {
         if (hasUser(username)) {
             return false;
-        } else if (!password.matches("^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$")) {
-            return false;
+//        } else if (!password.matches("^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$")) {
+//            return false;
         } else {
             User user = new User(username, password);
             currentUser = user;

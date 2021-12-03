@@ -30,11 +30,23 @@ public class GameController {
         }
     }
 
-    private void changeState(PanelState state) {
+    public void changeState(PanelState state) {
         this.state = state;
     }
 
     public void endGame() {
         this.gaming = false;
+    }
+
+    public UserManager getUserManager() {
+        return userManager;
+    }
+
+    public MapManager getMapManager() {
+        return mapManager;
+    }
+
+    public PokemonManager getPokemonManager() {
+        return pokemonManager;
     }
 }

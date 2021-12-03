@@ -1,11 +1,8 @@
 package UISimple;
 
-import entity.User;
 import usecase.IReadWriter;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class UserReadWriter implements IReadWriter {
     private final String filePath = "gamedata/userinfo.ser";

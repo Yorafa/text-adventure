@@ -10,15 +10,10 @@ public class TextBattlePanel extends TextPanel implements PanelState {
     private PokemonManager pokemonManager;
     private BattleManager battleManager;
 
-    public TextBattlePanel(Scanner input, PokemonManager pokemonManager, Pokemon opponent) {
-        super(input);
-        options.add("1. Attack");
-        options.add("2. Defense");
-        options.add("3. Capture");
-        options.add("4. Change pokemon");
-        options.add("5. Escape");
+    public TextBattlePanel(Scanner input, GameController gameController, PokemonManager pokemonManager, BattleManager battleManager) {
+        super(input, gameController);
         this.pokemonManager = pokemonManager;
-        this.battleManager = new BattleManager(pokemonManager.getBattlePokemons(), opponent);
+        this.battleManager = battleManager;
 
         System.out.println("You bumped into " + battleManager.getP2Name() + ".");
         if (!battleManager.isFaster()) {
@@ -85,7 +80,7 @@ public class TextBattlePanel extends TextPanel implements PanelState {
     }
 
     private void changePokemon() {
-        TextChangePokemonPanel changePokemonPanel = new TextChangePokemonPanel(input, battleManager.getBattlePokemons(),
+        TextChangePokemonPanel changePokemonPanel = new TextChangePokemonPanel(input, gameController, battleManager.getBattlePokemons(),
                 pokemonManager);
         changePokemonPanel.run();
         Pokemon newPokemon = changePokemonPanel.getNewPokemon();
@@ -98,10 +93,6 @@ public class TextBattlePanel extends TextPanel implements PanelState {
         return battleManager.isBattling();
     }
 
-    @Override
-    public void execute() {
-
-    }
 
     @Override
     public void printMenu() {

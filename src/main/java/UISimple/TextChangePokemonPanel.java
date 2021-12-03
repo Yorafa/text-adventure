@@ -10,29 +10,34 @@ public class TextChangePokemonPanel extends TextPanel implements PanelState {
     private Pokemon newPokemon;
     private List<Pokemon> battlePokemons;
 
-    public TextChangePokemonPanel(Scanner input, List<Pokemon> battlePokemons, PokemonManager pokemonManager) {
-        super(input);
-        this.battlePokemons = battlePokemons;
-        int i = 1;
-        for (Pokemon pokemon : battlePokemons) {
-            options.add(i + ". " + pokemonManager.getName(pokemon));
-            i++;
-        }
-        options.add(i + ". Cancel");
+    public TextChangePokemonPanel(Scanner input, GameController gameController, List<Pokemon> battlePokemons, PokemonManager pokemonManager) {
+        super(input, gameController);
+//        this.battlePokemons = battlePokemons;
+//        int i = 1;
+//        for (Pokemon pokemon : battlePokemons) {
+//            options.add(i + ". " + pokemonManager.getName(pokemon));
+//            i++;
+//        }
+//        options.add(i + ". Cancel");
+    }
+
+    @Override
+    protected void printMenu() {
+
     }
 
     @Override
     protected void execute(String choice) {
-        try {
-            int choiceIndex = Integer.parseInt(choice) - 1;
-            options.get(choiceIndex);
-            if (choiceIndex != options.size() - 1) {
-                newPokemon = battlePokemons.get(choiceIndex);
-            }
-        } catch (NumberFormatException | IndexOutOfBoundsException e) {
-            System.out.println("Not valid.");
-            run();
-        }
+//        try {
+//            int choiceIndex = Integer.parseInt(choice) - 1;
+//            options.get(choiceIndex);
+//            if (choiceIndex != options.size() - 1) {
+//                newPokemon = battlePokemons.get(choiceIndex);
+//            }
+//        } catch (NumberFormatException | IndexOutOfBoundsException e) {
+//            System.out.println("Not valid.");
+//            run();
+//        }
     }
 
     public Pokemon getNewPokemon() {

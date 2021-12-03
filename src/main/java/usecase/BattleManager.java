@@ -23,7 +23,7 @@ public class BattleManager {
         this.hasDefenseP2 = false;
         this.hasCounterattackP1 = false;
         this.hasCounterattackP2 = false;
-        this.battling = true;
+        this.battling = (p2 != null);
     }
 
     public String getP1Name() {

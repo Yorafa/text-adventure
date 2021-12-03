@@ -10,11 +10,11 @@ public class LoginPresenter extends Presenter {
     }
 
     public void askForUsername() {
-        System.out.println("Username: ");
+        System.out.print("Username: ");
     }
 
     public void askForPassword() {
-        System.out.println("Password: ");
+        System.out.print("Password: ");
     }
 
     public void printInvalidUsernameOrPassword() {
