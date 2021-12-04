@@ -3,10 +3,12 @@ package usecase;
 import entity.*;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Queue;
 
 public class MapManager {
     private PokemonDataManager pokemonDataManager;
-    private ArrayList<Pmap> pmaps;
+    private List<Pmap> pmaps;
     private Pmap currentPlace;
 
     public MapManager() {
@@ -18,7 +20,7 @@ public class MapManager {
         this.currentPlace = currentPlace;
     }
 
-    public ArrayList<Pmap> getMaps() {
+    public List<Pmap> getMaps() {
         return pmaps;
     }
 
@@ -37,6 +39,14 @@ public class MapManager {
             }
         }
         return null;
+    }
+
+    public List<String> getMapNames() {
+        List<String> mapNames = new ArrayList<>();
+        for (Pmap pmap : pmaps) {
+            mapNames.add(pmap.getMapName());
+        }
+        return mapNames;
     }
 
     public Pokemon walkAround() {
@@ -62,6 +72,10 @@ public class MapManager {
 
     public void setCurrentPlace(Pmap currentPlace) {
         this.currentPlace = currentPlace;
+    }
+
+    public void setCurrentPlace(int i) {
+        currentPlace = pmaps.get(i);
     }
 
     public String getName(Pmap map) {

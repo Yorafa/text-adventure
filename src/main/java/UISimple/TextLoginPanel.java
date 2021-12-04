@@ -1,9 +1,7 @@
 package UISimple;
 
-import entity.User;
 import usecase.UserManager;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class TextLoginPanel extends TextPanel implements PanelState {
@@ -20,6 +18,7 @@ public class TextLoginPanel extends TextPanel implements PanelState {
     protected void printMenu() {
         loginPresenter.addLogin();
         loginPresenter.addSignup();
+        loginPresenter.addQuit();
         loginPresenter.printAllEnum();
     }
 
@@ -31,6 +30,9 @@ public class TextLoginPanel extends TextPanel implements PanelState {
                 break;
             case "2":
                 signup();
+                break;
+            case "3":
+                gameController.endGame();
                 break;
             default:
                 loginPresenter.notValid();

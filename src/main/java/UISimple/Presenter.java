@@ -1,6 +1,7 @@
 package UISimple;
 
 import java.util.ArrayDeque;
+import java.util.List;
 import java.util.Queue;
 
 public class Presenter {
@@ -12,6 +13,10 @@ public class Presenter {
 
     public void addToQueue(String s) {
         messageQueue.add(s);
+    }
+
+    public void addToQueue(List<String> strings) {
+        messageQueue.addAll(strings);
     }
 
     public void print() {

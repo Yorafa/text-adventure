@@ -1,44 +1,41 @@
 package UISimple;
 
-import entity.Pmap;
 import usecase.MapManager;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class TextChangePlacePanel extends TextPanel implements PanelState {
-    private Pmap newPlace;
-    private List<Pmap> maps;
+    private MapManager mapManager;
+    private ChangePlacePresenter changePlacePresenter;
 
-    public TextChangePlacePanel(Scanner input, GameController gameController, List<Pmap> maps, MapManager mapManager) {
+    public TextChangePlacePanel(Scanner input, GameController gameController, MapManager mapManager) {
         super(input, gameController);
-        this.maps = maps;
-        int i = 1;
-        for (Pmap map : maps) {
-            i++;
-        }
+        this.mapManager = mapManager;
+        this.changePlacePresenter = new ChangePlacePresenter();
     }
 
     @Override
     protected void printMenu() {
-
+        changePlacePresenter.addToQueue(mapManager.getMapNames());
+        changePlacePresenter.addCancel();
+        changePlacePresenter.printAllEnum();
     }
 
     @Override
     protected void execute(String choice) {
-//        try {
-//            int choiceIndex = Integer.parseInt(choice) - 1;
-//            options.get(choiceIndex);
-//            if (choiceIndex != options.size() - 1) {
-//                newPlace = maps.get(choiceIndex);
-//            }
-//        } catch (NumberFormatException | IndexOutOfBoundsException e) {
-//            System.out.println("Not valid.");
-//            run();
-//        }
-    }
-
-    public Pmap getNewPlace() {
-        return newPlace;
+        try {
+            int numChoice = Integer.parseInt(choice) - 1;
+            if (numChoice >= 0 && numChoice < mapManager.getMapNames().size()) {
+                mapManager.setCurrentPlace(numChoice);
+            } else if (numChoice == mapManager.getMapNames().size()) {
+                gameController.changeState(new TextExplorePanel(input, gameController, mapManager,
+                        gameController.getPokemonManager()));
+            } else {
+                changePlacePresenter.notValid();
+            }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            changePlacePresenter.notValid();
+        }
     }
 }

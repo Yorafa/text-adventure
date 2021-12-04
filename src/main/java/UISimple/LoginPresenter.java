@@ -9,6 +9,10 @@ public class LoginPresenter extends Presenter {
         addToQueue("Signup");
     }
 
+    public void addQuit() {
+        addToQueue("Quit");
+    }
+
     public void askForUsername() {
         System.out.print("Username: ");
     }

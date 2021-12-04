@@ -14,7 +14,8 @@ public class TextExplorePanel extends TextPanel implements PanelState {
     private PokemonManager pokemonManager;
     private ExplorePresenter explorePresenter;
 
-    public TextExplorePanel(Scanner input, GameController gameController, MapManager mapManager, PokemonManager pokemonManager) {
+    public TextExplorePanel(Scanner input, GameController gameController, MapManager mapManager,
+                            PokemonManager pokemonManager) {
         super(input, gameController);
         this.mapManager = mapManager;
         this.pokemonManager = pokemonManager;
@@ -48,21 +49,15 @@ public class TextExplorePanel extends TextPanel implements PanelState {
                 explorePresenter.printHealed();
                 break;
             case "3":
-                explorePresenter.printChangePlace();
-                changePlace();
+                gameController.changeState(new TextChangePlacePanel(input, gameController,
+                        gameController.getMapManager()));
                 break;
             case "4":
                 explorePresenter.printLogout();
+                gameController.changeState(new TextLoginPanel(input, gameController, gameController.getUserManager()));
                 break;
             default:
                 explorePresenter.notValid();
         }
-    }
-
-    public void changePlace() {
-        List<Pmap> maps = mapManager.getMaps();
-        TextChangePlacePanel changePlacePanel = new TextChangePlacePanel(input, gameController, maps, mapManager);
-        changePlacePanel.run();
-        mapManager.setCurrentPlace(changePlacePanel.getNewPlace());
     }
 }

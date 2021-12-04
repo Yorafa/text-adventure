@@ -2,27 +2,31 @@ package UISimple;
 
 public class ExplorePresenter extends Presenter {
     public void addWalkAround() {
-
-    }
-
-    public void printNothingHappens() {
-    }
-
-    public void printLogout() {
-    }
-
-    public void printHealed() {
-    }
-
-    public void printChangePlace() {
+        addToQueue("Walk around");
     }
 
     public void addHeal() {
+        addToQueue("Heal");
     }
 
     public void addChangePlace() {
+        addToQueue("Change place");
     }
 
     public void addLogout() {
+        addToQueue("Log out");
     }
+
+    public void printNothingHappens() {
+        System.out.println("Nothing happens.");
+    }
+
+    public void printLogout() {
+        System.out.println("You are logged out.");
+    }
+
+    public void printHealed() {
+        System.out.println("All pokemons are healed.");
+    }
+
 }
