@@ -2,18 +2,22 @@ package usecase;
 
 import entity.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Queue;
 
 public class MapManager {
     private PokemonDataManager pokemonDataManager;
     private List<Pmap> pmaps;
     private Pmap currentPlace;
 
-    public MapManager() {
+    public MapManager(IJsonReader<List<Pmap>> reader) {
         this.pokemonDataManager = new PokemonDataManager();
-        this.pmaps = new ArrayList<>();
+        try {
+            this.pmaps = reader.read();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public MapManager(Pmap currentPlace) {

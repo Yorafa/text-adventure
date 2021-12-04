@@ -1,12 +1,9 @@
 package UISimple;
 
-import entity.Pmap;
-import entity.Pokemon;
 import usecase.BattleManager;
 import usecase.MapManager;
 import usecase.PokemonManager;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class TextExplorePanel extends TextPanel implements PanelState {

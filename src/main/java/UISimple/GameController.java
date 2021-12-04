@@ -15,8 +15,8 @@ public class GameController {
     public GameController() {
         IReadWriter userReadWriter = new UserReadWriter();
         this.userManager = new UserManager(userReadWriter);
-        this.pokemonManager = new PokemonManager();
-        this.mapManager = new MapManager();
+        this.pokemonManager = new PokemonManager(new PokemonJsonReader());
+        this.mapManager = new MapManager(new MapJsonReader());
         this.state = new TextLoginPanel(input, this ,userManager);
         this.gaming = true;
     }

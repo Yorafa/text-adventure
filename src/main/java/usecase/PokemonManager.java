@@ -2,6 +2,7 @@ package usecase;
 
 import entity.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,8 +10,12 @@ public class PokemonManager {
     private PokemonBook pokemonBook;
     private Pocket pocket;
 
-    public PokemonManager() {
-        this.pokemonBook = new PokemonBook();
+    public PokemonManager(IJsonReader<PokemonBook> reader) {
+        try {
+            this.pokemonBook = reader.read();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         this.pocket = new Pocket();
         initialize();
     }
