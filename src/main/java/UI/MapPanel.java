@@ -6,7 +6,6 @@ import java.awt.*;
 public class MapPanel extends JPanel {
 
     public MapPanel(TextAdventureFrame taf) {
-        taf.setContentPane(this);
 
         this.setLayout(new GridLayout(2, 1, 10, 10));
 
@@ -28,19 +27,21 @@ public class MapPanel extends JPanel {
         {
             taf.remove(this);
             taf.setContentPane(new MapChangingPanel(taf));
+            taf.pack();
         });
 
         JButton browsePokemon = new JButton("Browse pokemon");
         browsePokemon.addActionListener((e) -> {
-            // TODO: Pokemon Panel
+            taf.setContentPane(new BrowsePokemonPanel(taf));
+            taf.pack();
         });
 
         JButton logOut = new JButton("Log out");
         logOut.addActionListener((e) -> {
             taf.remove(this);
-            LoginPanel loginPanel = new LoginPanel(taf);
-            taf.setContentPane(loginPanel);
+            taf.setContentPane(new LoginPanel(taf));
             taf.setUser(null);
+            taf.pack();
         });
 
         buttonPanel.add(search);

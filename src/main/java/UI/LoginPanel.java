@@ -1,5 +1,8 @@
 package UI;
 
+import entity.GameData;
+import gateway.GameDataGate;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -31,7 +34,11 @@ public class LoginPanel extends JPanel {
                 JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
             } else {
                 taf.remove(this);
+                GameData gameData = GameDataGate.readGameData(taf.getUser());
+                taf.setMap(gameData.getCurrentPlace());
+                taf.setPocket(gameData.getPocket());
                 taf.setContentPane(new MapPanel(taf));
+                taf.pack();
             }
         });
 
@@ -48,16 +55,14 @@ public class LoginPanel extends JPanel {
                 JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
                 taf.remove(this);
                 taf.setMap("Home");
-                InitialPanel initialPanel = new InitialPanel(taf);
-                taf.setContentPane(initialPanel);
+                taf.setContentPane(new InitialPanel(taf));
+                taf.pack();
             }});
         buttonPanel.add(login);
         buttonPanel.add(register);
 
         mainPanel.add(buttonPanel);
         this.add(mainPanel, BorderLayout.CENTER);
-        taf.setContentPane(this);
-        taf.pack();
     }
 
     public JPanel createLine(String itemName, JTextField field) {

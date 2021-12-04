@@ -25,6 +25,11 @@ public class Pocket implements Serializable {
         this.battlePokemons = battlePokemons;
     }
 
+    public void setFirstPokemon(Pokemon pokemon){
+        battlePokemons.remove(pokemon);
+        battlePokemons.set(0, pokemon);
+    }
+
     public List<Pokemon> getBattlePokemons() {
         return battlePokemons;
     }

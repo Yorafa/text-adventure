@@ -26,7 +26,6 @@ public class InitialPanel extends JPanel {
         }
 
         this.add(buttonPanel);
-        taf.pack();
     }
     public JButton createButton(String pokemonName, TextAdventureFrame taf){
         JButton button = new JButton(pokemonName);
@@ -43,6 +42,7 @@ public class InitialPanel extends JPanel {
         if (pokemonDialog.isAcceptable()){
             taf.remove(this);
             taf.setContentPane(new MapPanel(taf));
+            taf.pack();
         }
     }
 }

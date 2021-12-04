@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class RandomAlgorithm {
     private Pmap pmap;
-    private Random random;
+    private final Random random;
 
     public RandomAlgorithm(Pmap pmap){
         this.pmap = pmap;

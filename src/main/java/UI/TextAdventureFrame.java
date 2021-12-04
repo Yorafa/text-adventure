@@ -5,6 +5,7 @@ import entity.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 
 public class TextAdventureFrame extends JFrame {
     private UserManager userManager;
@@ -15,11 +16,11 @@ public class TextAdventureFrame extends JFrame {
     private Pocket pocket;
 
 
-    public TextAdventureFrame(UserManager userManager, MapManager mapManager, PokemonBook pokemonBook, Pocket pocket) {
+    public TextAdventureFrame(UserManager userManager, MapManager mapManager, PokemonBook pokemonBook) {
         this.userManager = userManager;
         this.mapManager = mapManager;
         this.pokemonBook = pokemonBook;
-        this.pocket = pocket;
+        this.pocket = null;
         this.wildPokemon = null;
         // Setup frame
         this.setTitle("Text Adventure");
@@ -44,12 +45,8 @@ public class TextAdventureFrame extends JFrame {
         mapManager.setCurrentPlace(mapManager.find(mapName));
     }
 
-    public User getUser() {
-        return userManager.getCurrentUser();
-    }
-
-    public Pmap getMap() {
-        return mapManager.getCurrentPlace();
+    public void setPocket(Pocket pocket) {
+        this.pocket = pocket;
     }
 
     public void setUserManager(UserManager userManager) {
@@ -64,12 +61,43 @@ public class TextAdventureFrame extends JFrame {
         this.pokemonBook = pokemonBook;
     }
 
+    public PokemonBook getPokemonBook() {
+        return pokemonBook;
+    }
+
+    public List<Pokemon> getBattlePokemons(){
+        return this.pocket.getBattlePokemons();
+    }
+    public User getUser() {
+        return userManager.getCurrentUser();
+    }
+
+    public Pmap getMap() {
+        return mapManager.getCurrentPlace();
+    }
+
+    public Pocket getPocket() {
+        return pocket;
+    }
+
     public UserManager getUserManager() {
         return this.userManager;
     }
 
     public MapManager getMapManager() {
         return mapManager;
+    }
+
+    public GameData getGameData(){
+        return new GameData(this.pocket, this.mapManager.getCurrentPlace());
+    }
+
+    public void setFirstPokemon(Pokemon pokemon){
+        this.pocket.setFirstPokemon(pokemon);
+    }
+
+    public List<BasePokemon> getAllBasePokemon(){
+        return this.pokemonBook.getPokemonBook();
     }
 
     public void fight(){}
@@ -87,6 +115,15 @@ public class TextAdventureFrame extends JFrame {
                 basePokemon.getSpeed());
         return new Pokemon(basePokemon.getName(),basePokemon.getBasePokemonData(),
                 1,0, basePokemon.getMaxHitPoint(), pokemonData);
+    }
 
+    public Pokemon getPokemon(BasePokemon basePokemon){
+        PokemonData pokemonData = new PokemonData(basePokemon.getPokemonType(),
+                basePokemon.getMaxHitPoint(),
+                basePokemon.getAttackPoint(),
+                basePokemon.getDefencePoint(),
+                basePokemon.getSpeed());
+        return new Pokemon(basePokemon.getName(),basePokemon.getBasePokemonData(),
+                1,0, basePokemon.getMaxHitPoint(), pokemonData);
     }
 }

@@ -48,4 +48,9 @@ public class Pokemon extends BasePokemon implements Serializable {
     public void setPokemonData(PokemonData pokemonData) {
         this.pokemonData = pokemonData;
     }
+
+    @Override
+    public String toString() {
+        return this.getName();
+    }
 }
