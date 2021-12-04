@@ -41,6 +41,7 @@ public class InitialPanel extends JPanel {
         pokemonDialog.setVisible(true);
         if (pokemonDialog.isAcceptable()){
             taf.remove(this);
+            taf.addPokemon(pokemon);
             taf.setContentPane(new MapPanel(taf));
             taf.pack();
         }

@@ -1,5 +1,6 @@
 package UI;
 
+import gateway.GameDataGate;
 import usecase.*;
 import entity.*;
 
@@ -49,6 +50,12 @@ public class TextAdventureFrame extends JFrame {
         this.pocket = pocket;
     }
 
+    public void setUp(){
+        GameData gameData = GameDataGate.readGameData(this.getUser());
+        this.setMap(gameData.getCurrentPlace());
+        this.setPocket(gameData.getPocket());
+    }
+
     public void setUserManager(UserManager userManager) {
         this.userManager = userManager;
     }
@@ -68,6 +75,11 @@ public class TextAdventureFrame extends JFrame {
     public List<Pokemon> getBattlePokemons(){
         return this.pocket.getBattlePokemons();
     }
+
+    public List<Pokemon> getPockePokemons(){
+        return  this.pocket.getPokemons();
+    }
+
     public User getUser() {
         return userManager.getCurrentUser();
     }
@@ -100,6 +112,15 @@ public class TextAdventureFrame extends JFrame {
         return this.pokemonBook.getPokemonBook();
     }
 
+    public void intoLib(Pokemon pokemon){
+        if (this.pocket.getBattlePokemons().size() > 1){
+        this.pocket.intoLib(pokemon);}
+        else{
+            String message = "Invalid action: only 1 pokemon in your Battle pocket";
+            JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
     public void fight(){}
 
     public void walkAround() {
@@ -125,5 +146,29 @@ public class TextAdventureFrame extends JFrame {
                 basePokemon.getSpeed());
         return new Pokemon(basePokemon.getName(),basePokemon.getBasePokemonData(),
                 1,0, basePokemon.getMaxHitPoint(), pokemonData);
+    }
+
+    public void newStart() {
+        this.setMap("Home");
+        this.setPocket(new Pocket());
+    }
+
+    public void addPokemon(Pokemon pokemon){
+        if (this.pocket.getBattlePokemons().size() >=6){
+            this.pocket.addPokemon(pokemon);
+        }
+        else{
+            this.pocket.addBattlePokemon(pokemon);
+        }
+    }
+
+    public void intoPocket(Pokemon pokemon) {
+        if (this.pocket.getBattlePokemons().size() >= 6){
+            String message = "Invalid action: your Battle pocket is full";
+            JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            this.pocket.addBattlePokemon(pokemon);
+        }
     }
 }

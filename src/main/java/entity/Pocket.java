@@ -27,7 +27,12 @@ public class Pocket implements Serializable {
 
     public void setFirstPokemon(Pokemon pokemon){
         battlePokemons.remove(pokemon);
-        battlePokemons.set(0, pokemon);
+        battlePokemons.add(0, pokemon);
+    }
+
+    public void intoLib(Pokemon pokemon){
+        battlePokemons.remove(pokemon);
+        addPokemon(pokemon);
     }
 
     public List<Pokemon> getBattlePokemons() {
@@ -38,7 +43,11 @@ public class Pocket implements Serializable {
         return battlePokemons.get(0);
     }
 
-    public void add(Pokemon pokemon) {
+    public void addBattlePokemon(Pokemon pokemon){
+        battlePokemons.add(pokemon);
+    }
+
+    public void addPokemon(Pokemon pokemon) {
         pokemons.add(pokemon);
     }
 

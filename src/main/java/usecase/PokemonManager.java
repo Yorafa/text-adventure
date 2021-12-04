@@ -56,14 +56,14 @@ public class PokemonManager {
         BasePokemon basePokemon = new BasePokemon("Pikachu", basePokemonData);
         PokemonFactory pf = new PokemonFactory();
         Pokemon pikachu = pf.getPokemon(basePokemon, 0, 1000);
-        pocket.add(pikachu);
+        pocket.addPokemon(pikachu);
         List<Pokemon> dp = new ArrayList<>();
         dp.add(pikachu);
         pocket.setBattlePokemons(dp);
     }
 
     public void add(Pokemon pokemon) {
-        pocket.add(pokemon);
+        pocket.addPokemon(pokemon);
     }
 
     public String getName(Pokemon pokemon) {

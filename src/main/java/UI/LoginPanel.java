@@ -1,8 +1,5 @@
 package UI;
 
-import entity.GameData;
-import gateway.GameDataGate;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -34,9 +31,7 @@ public class LoginPanel extends JPanel {
                 JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
             } else {
                 taf.remove(this);
-                GameData gameData = GameDataGate.readGameData(taf.getUser());
-                taf.setMap(gameData.getCurrentPlace());
-                taf.setPocket(gameData.getPocket());
+                taf.setUp();
                 taf.setContentPane(new MapPanel(taf));
                 taf.pack();
             }
@@ -54,7 +49,7 @@ public class LoginPanel extends JPanel {
                 String message = "You are successful registered";
                 JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
                 taf.remove(this);
-                taf.setMap("Home");
+                taf.newStart();
                 taf.setContentPane(new InitialPanel(taf));
                 taf.pack();
             }});

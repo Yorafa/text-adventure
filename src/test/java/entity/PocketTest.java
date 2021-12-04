@@ -41,7 +41,7 @@ public class PocketTest {
         BasePokemonData basePokemonData = new BasePokemonData(PokemonType.ELECTRICITY, 1,1,1,1);
         PokemonData pokemonData = new PokemonData(PokemonType.ELECTRICITY, 1,1,1,1);
         Pokemon pokemon = new Pokemon("test", basePokemonData, 1, 0, 1, pokemonData);
-        pocket.add(pokemon);
+        pocket.addPokemon(pokemon);
         assertEquals(pocket.getPokemons().get(0), pokemon);
     }
     @Test(timeout = 50)
