@@ -27,9 +27,10 @@ public class TextChangePlacePanel extends TextPanel implements PanelState {
             int numChoice = Integer.parseInt(choice) - 1;
             if (numChoice >= 0 && numChoice < mapManager.getMapNames().size()) {
                 mapManager.setCurrentPlace(numChoice);
-            } else if (numChoice == mapManager.getMapNames().size()) {
-                gameController.changeState(new TextExplorePanel(input, gameController, mapManager,
-                        gameController.getPokemonManager()));
+                changePlacePresenter.printMapChanged(mapManager.getMapNames().get(numChoice));
+                gameController.changeStateExplore();
+            } else if (numChoice == mapManager.getMapNames().size()) { // Cancel
+                gameController.changeStateExplore();
             } else {
                 changePlacePresenter.notValid();
             }

@@ -48,8 +48,7 @@ public class TextLoginPanel extends TextPanel implements PanelState {
         password = input.nextLine();
         boolean loggedIn = userManager.login(username, password);
         if (loggedIn) {
-            gameController.changeState(new TextExplorePanel(input, gameController, gameController.getMapManager(),
-                    gameController.getPokemonManager()));
+            gameController.changeStateExplore();
         } else {
             loginPresenter.printInvalidUsernameOrPassword();
         }
@@ -66,8 +65,7 @@ public class TextLoginPanel extends TextPanel implements PanelState {
             password = input.nextLine();
             boolean loggedIn = userManager.register(username, password);
             if (loggedIn) {
-                gameController.changeState(new TextExplorePanel(input, gameController, gameController.getMapManager(),
-                        gameController.getPokemonManager()));
+                gameController.changeStateExplore();
             } else {
                 loginPresenter.printInvalidPassword();
             }

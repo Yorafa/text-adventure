@@ -38,8 +38,7 @@ public class TextExplorePanel extends TextPanel implements PanelState {
                 BattleManager battleManager = new BattleManager(pokemonManager.getBattlePokemons(),
                         mapManager.walkAround());
                 if (battleManager.isBattling()) {
-                    gameController.changeState(new TextBattlePanel(input, gameController, pokemonManager,
-                            battleManager));
+                    gameController.changeStateBattle(battleManager);
                 } else {
                     explorePresenter.printNothingHappens();
                 }
@@ -49,12 +48,11 @@ public class TextExplorePanel extends TextPanel implements PanelState {
                 explorePresenter.printHealed();
                 break;
             case "3":
-                gameController.changeState(new TextChangePlacePanel(input, gameController,
-                        gameController.getMapManager()));
+                gameController.changeState(new TextChangePlacePanel(input, gameController, mapManager));
                 break;
             case "4":
                 explorePresenter.printLogout();
-                gameController.changeState(new TextLoginPanel(input, gameController, gameController.getUserManager()));
+                gameController.changeStateLogin();
                 break;
             default:
                 explorePresenter.notValid();

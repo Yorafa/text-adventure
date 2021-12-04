@@ -2,6 +2,7 @@ package usecase;
 
 import entity.Pokemon;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -34,8 +35,16 @@ public class BattleManager {
         return p2.getName();
     }
 
-    public List<Pokemon> getBattlePokemons() {
-        return battlePokemons;
+    public List<String> getBattlePokemonNames() {
+        List<String> names = new ArrayList<>();
+        for (Pokemon pokemon : battlePokemons) {
+            names.add(pokemon.getName());
+        }
+        return names;
+    }
+
+    public void setP1(int i) {
+        p1 = battlePokemons.get(i);
     }
 
     public int attack() {

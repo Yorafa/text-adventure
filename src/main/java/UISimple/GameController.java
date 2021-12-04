@@ -1,9 +1,6 @@
 package UISimple;
 
-import usecase.MapManager;
-import usecase.PokemonManager;
-import usecase.IReadWriter;
-import usecase.UserManager;
+import usecase.*;
 
 import java.util.Scanner;
 
@@ -32,6 +29,18 @@ public class GameController {
 
     public void changeState(PanelState state) {
         this.state = state;
+    }
+
+    public void changeStateLogin() {
+        changeState(new TextLoginPanel(input, this, userManager));
+    }
+
+    public void changeStateExplore() {
+        changeState(new TextExplorePanel(input, this, mapManager, pokemonManager));
+    }
+
+    public void changeStateBattle(BattleManager battleManager) {
+        changeState(new TextBattlePanel(input, this, pokemonManager, battleManager));
     }
 
     public void endGame() {

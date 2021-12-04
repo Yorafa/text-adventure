@@ -1,46 +1,41 @@
 package UISimple;
 
-import entity.Pokemon;
-import usecase.PokemonManager;
+import usecase.BattleManager;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class TextChangePokemonPanel extends TextPanel implements PanelState {
-    private Pokemon newPokemon;
-    private List<Pokemon> battlePokemons;
+    private BattleManager battleManager;
+    private ChangePokemonPresenter changePokemonPresenter;
 
-    public TextChangePokemonPanel(Scanner input, GameController gameController, List<Pokemon> battlePokemons, PokemonManager pokemonManager) {
+    public TextChangePokemonPanel(Scanner input, GameController gameController, BattleManager battleManager) {
         super(input, gameController);
-//        this.battlePokemons = battlePokemons;
-//        int i = 1;
-//        for (Pokemon pokemon : battlePokemons) {
-//            options.add(i + ". " + pokemonManager.getName(pokemon));
-//            i++;
-//        }
-//        options.add(i + ". Cancel");
+        this.battleManager = battleManager;
+        this.changePokemonPresenter = new ChangePokemonPresenter();
     }
 
     @Override
     protected void printMenu() {
-
+        changePokemonPresenter.addToQueue(battleManager.getBattlePokemonNames());
+        changePokemonPresenter.addCancel();
+        changePokemonPresenter.printAllEnum();
     }
 
     @Override
     protected void execute(String choice) {
-//        try {
-//            int choiceIndex = Integer.parseInt(choice) - 1;
-//            options.get(choiceIndex);
-//            if (choiceIndex != options.size() - 1) {
-//                newPokemon = battlePokemons.get(choiceIndex);
-//            }
-//        } catch (NumberFormatException | IndexOutOfBoundsException e) {
-//            System.out.println("Not valid.");
-//            run();
-//        }
-    }
-
-    public Pokemon getNewPokemon() {
-        return newPokemon;
+        try {
+            int numChoice = Integer.parseInt(choice) - 1;
+            if (numChoice >= 0 && numChoice < battleManager.getBattlePokemonNames().size()) {
+                battleManager.setP1(numChoice);
+                gameController.changeStateBattle(battleManager);
+            } else if (numChoice == battleManager.getBattlePokemonNames().size()) {
+                gameController.changeStateBattle(battleManager);
+            } else {
+                changePokemonPresenter.notValid();
+            }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            changePokemonPresenter.notValid();
+        }
     }
 }
