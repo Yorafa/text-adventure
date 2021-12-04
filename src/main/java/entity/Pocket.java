@@ -30,6 +30,10 @@ public class Pocket implements Serializable {
         pokemons.add(pokemon);
     }
 
+    public void addBattlePokemon(Pokemon pokemon) {
+        battlePokemons.add(pokemon);
+    }
+
     public List<Pokemon> getPokemons() {
         return pokemons;
     }

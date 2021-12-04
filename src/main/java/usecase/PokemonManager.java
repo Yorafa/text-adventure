@@ -16,14 +16,12 @@ public class PokemonManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        this.pocket = new Pocket();
-        initialize();
     }
 
-    public PokemonManager(Pocket pocket) {
-        this.pokemonBook = new PokemonBook();
-        this.pocket = pocket;
-    }
+//    public PokemonManager(Pocket pocket) {
+//        this.pokemonBook = new PokemonBook();
+//        this.pocket = pocket;
+//    }
 
     public void levelChange(Pokemon pokemon, int level) {
         PokemonDataManager pokemonDataManager = new PokemonDataManager();
@@ -34,7 +32,7 @@ public class PokemonManager {
     public void addExperiencePoint(Pokemon pokemon, int increment) {
         LevelCalculator levelCalculator = new LevelCalculator();
         pokemon.setExperiencePoint(pokemon.getExperiencePoint() + increment);
-        int level = levelCalculator.calculate(pokemon.getExperiencePoint());
+        int level = levelCalculator.calculateLevel(pokemon.getExperiencePoint());
         if (level != pokemon.getLevel()) {
             levelChange(pokemon, level);
         }
@@ -45,7 +43,14 @@ public class PokemonManager {
     }
 
     public void setPocket(Pocket pocket) {
-        this.pocket = pocket;
+        if (pocket != null) {
+            this.pocket = pocket;
+        } else {
+            this.pocket = new Pocket();
+            Pokemon pokemon = new PokemonFactory().getPokemon(pokemonBook.get(0), 15);
+            this.pocket.add(pokemon);
+            this.pocket.addBattlePokemon(pokemon);
+        }
     }
 
     public List<Pokemon> getBattlePokemons() {
@@ -56,16 +61,16 @@ public class PokemonManager {
         return pocket.getDefaultPokemon();
     }
 
-    public void initialize() {
-        BasePokemonData basePokemonData = new BasePokemonData(PokemonType.ELECTRICITY, 1000, 1000, 1000, 1000);
-        BasePokemon basePokemon = new BasePokemon("Pikachu", basePokemonData);
-        PokemonFactory pf = new PokemonFactory();
-        Pokemon pikachu = pf.getPokemon(basePokemon, 0, 1000);
-        pocket.add(pikachu);
-        List<Pokemon> dp = new ArrayList<>();
-        dp.add(pikachu);
-        pocket.setBattlePokemons(dp);
-    }
+//    public void initialize() {
+//        BasePokemonData basePokemonData = new BasePokemonData(PokemonType.ELECTRICITY, 1000, 1000, 1000, 1000);
+//        BasePokemon basePokemon = new BasePokemon("Pikachu", basePokemonData);
+//        PokemonFactory pf = new PokemonFactory();
+//        Pokemon pikachu = pf.getPokemon(basePokemon, 0, 1000);
+//        pocket.add(pikachu);
+//        List<Pokemon> dp = new ArrayList<>();
+//        dp.add(pikachu);
+//        pocket.setBattlePokemons(dp);
+//    }
 
     public void add(Pokemon pokemon) {
         pocket.add(pokemon);

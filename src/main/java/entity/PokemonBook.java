@@ -23,4 +23,7 @@ public class PokemonBook implements Serializable {
         return pokemonBook;
     }
 
+    public BasePokemon get(int i) {
+        return pokemonBook.get(i);
+    }
 }

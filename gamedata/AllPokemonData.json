@@ -1,19 +1,25 @@
 {
-  "pokemon1Name" :
-  {
-    "pokemonType": "GRASS",
-    "maxHitPoint": 10,
-    "attackPoint": 10,
-    "defencePoint": 10,
-    "speed": 10
-  },
-
-  "pokemon2Name":
-  {
-    "pokemonType": "FIRE",
-    "maxHitPoint": 12,
-    "attackPoint": 13,
-    "defencePoint": 14,
-    "speed": 15
-  }
+  "pokemonBook" :
+  [
+    {
+      "name": "Pikachu",
+      "basePokemonData" : {
+        "pokemonType": "ELECTRICITY",
+        "maxHitPoint": 1000,
+        "attackPoint": 1000,
+        "defencePoint": 1000,
+        "speed": 1000
+      }
+    },
+    {
+      "name": "Pokemon2",
+      "basePokemonData" : {
+        "pokemonType": "FIRE",
+        "maxHitPoint": 500,
+        "attackPoint": 500,
+        "defencePoint": 500,
+        "speed": 500
+      }
+    }
+  ]
 }

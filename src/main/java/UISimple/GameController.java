@@ -9,15 +9,16 @@ public class GameController {
     private UserManager userManager;
     private PokemonManager pokemonManager;
     private MapManager mapManager;
+    private GameDataManager gameDataManager;
     private PanelState state;
     private boolean gaming;
 
     public GameController() {
-        IReadWriter userReadWriter = new UserReadWriter();
-        this.userManager = new UserManager(userReadWriter);
+        this.userManager = new UserManager(new UserReadWriter());
         this.pokemonManager = new PokemonManager(new PokemonJsonReader());
         this.mapManager = new MapManager(new MapJsonReader());
-        this.state = new TextLoginPanel(input, this ,userManager);
+        this.gameDataManager = new GameDataManager();
+        this.state = new TextLoginPanel(input, this, userManager, gameDataManager);
         this.gaming = true;
     }
 
@@ -32,11 +33,18 @@ public class GameController {
     }
 
     public void changeStateLogin() {
-        changeState(new TextLoginPanel(input, this, userManager));
+        changeState(new TextLoginPanel(input, this, userManager, gameDataManager));
     }
 
     public void changeStateExplore() {
-        changeState(new TextExplorePanel(input, this, mapManager, pokemonManager));
+        changeState(new TextExplorePanel(input, this, mapManager, pokemonManager, gameDataManager));
+    }
+
+    public void changeStateExplore(String username) {
+        gameDataManager.setReadWriter(new GameDataReadWriter(username));
+        mapManager.setCurrentPlace(gameDataManager.getCurrentPlace());
+        pokemonManager.setPocket(gameDataManager.getPocket());
+        changeState(new TextExplorePanel(input, this, mapManager, pokemonManager, gameDataManager));
     }
 
     public void changeStateBattle(BattleManager battleManager) {

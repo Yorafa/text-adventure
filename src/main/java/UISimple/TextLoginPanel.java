@@ -1,16 +1,19 @@
 package UISimple;
 
+import usecase.GameDataManager;
 import usecase.UserManager;
 
 import java.util.Scanner;
 
 public class TextLoginPanel extends TextPanel implements PanelState {
     private UserManager userManager;
+    private GameDataManager gameDataManager;
     private LoginPresenter loginPresenter;
 
-    public TextLoginPanel(Scanner input, GameController gameController, UserManager userManager) {
+    public TextLoginPanel(Scanner input, GameController gameController, UserManager userManager, GameDataManager gameDataManager) {
         super(input, gameController);
         this.userManager = userManager;
+        this.gameDataManager = gameDataManager;
         this.loginPresenter = new LoginPresenter();
     }
 
@@ -48,7 +51,7 @@ public class TextLoginPanel extends TextPanel implements PanelState {
         password = input.nextLine();
         boolean loggedIn = userManager.login(username, password);
         if (loggedIn) {
-            gameController.changeStateExplore();
+            gameController.changeStateExplore(username);
         } else {
             loginPresenter.printInvalidUsernameOrPassword();
         }
@@ -65,7 +68,7 @@ public class TextLoginPanel extends TextPanel implements PanelState {
             password = input.nextLine();
             boolean loggedIn = userManager.register(username, password);
             if (loggedIn) {
-                gameController.changeStateExplore();
+                gameController.changeStateExplore(username);
             } else {
                 loginPresenter.printInvalidPassword();
             }

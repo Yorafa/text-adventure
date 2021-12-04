@@ -1,6 +1,7 @@
 package UISimple;
 
 import usecase.BattleManager;
+import usecase.GameDataManager;
 import usecase.MapManager;
 import usecase.PokemonManager;
 
@@ -9,13 +10,15 @@ import java.util.Scanner;
 public class TextExplorePanel extends TextPanel implements PanelState {
     private MapManager mapManager;
     private PokemonManager pokemonManager;
+    private GameDataManager gameDataManager;
     private ExplorePresenter explorePresenter;
 
     public TextExplorePanel(Scanner input, GameController gameController, MapManager mapManager,
-                            PokemonManager pokemonManager) {
+                            PokemonManager pokemonManager, GameDataManager gameDataManager) {
         super(input, gameController);
         this.mapManager = mapManager;
         this.pokemonManager = pokemonManager;
+        this.gameDataManager = gameDataManager;
         this.explorePresenter = new ExplorePresenter();
     }
 
@@ -49,6 +52,7 @@ public class TextExplorePanel extends TextPanel implements PanelState {
                 break;
             case "4":
                 explorePresenter.printLogout();
+                gameDataManager.saveGameData(pokemonManager.getPocket(), mapManager.getCurrentPlace());
                 gameController.changeStateLogin();
                 break;
             default:

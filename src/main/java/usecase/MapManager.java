@@ -7,12 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MapManager {
-    private PokemonDataManager pokemonDataManager;
     private List<Pmap> pmaps;
     private Pmap currentPlace;
 
     public MapManager(IJsonReader<List<Pmap>> reader) {
-        this.pokemonDataManager = new PokemonDataManager();
         try {
             this.pmaps = reader.read();
         } catch (IOException e) {
@@ -75,7 +73,11 @@ public class MapManager {
     }
 
     public void setCurrentPlace(Pmap currentPlace) {
-        this.currentPlace = currentPlace;
+        if (currentPlace != null) {
+            this.currentPlace = currentPlace;
+        } else {
+            this.currentPlace = pmaps.get(0);
+        }
     }
 
     public void setCurrentPlace(int i) {

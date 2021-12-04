@@ -13,16 +13,13 @@ public class GameDataReadWriter implements IReadWriter {
         this.filePath = "gamedata/game/" + username + ".ser";
     }
 
+    @Override
     public GameData read() throws IOException, ClassNotFoundException {
         return (GameData) rw.read(filePath);
     }
 
     @Override
     public void write(Object o) throws IOException {
-
-    }
-
-    public void write(GameData gameData) throws IOException {
-        rw.write(filePath, gameData);
+        rw.write(filePath, o);
     }
 }

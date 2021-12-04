@@ -1,12 +1,14 @@
-{
-  "map1Name": {
+[
+  {
+    "mapName" : "map1",
     "pokemons": ["pokemon1Name", "pokemon2Name"],
-    "probabilities": [0.5, 0.3],
+    "probabilities": [50, 30],
     "levels": [15, 13]
   },
-  "map2Name": {
+  {
+    "mapName" : "map2",
     "pokemons": ["pokemon3Name", "pokemon4Name"],
-    "probabilities": [0.3, 0.2],
+    "probabilities": [30, 20],
     "levels": [11, 14]
   }
-}
+]
