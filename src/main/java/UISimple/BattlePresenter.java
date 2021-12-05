@@ -1,6 +1,5 @@
 package UISimple;
 
-import entity.Pokemon;
 import usecase.IBattlePresenter;
 
 public class BattlePresenter extends Presenter implements IBattlePresenter {

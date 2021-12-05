@@ -15,7 +15,6 @@ public class GameDataManager {
         try {
             gameData = (GameData) readWriter.read();
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
             gameData = new GameData();
         }
     }

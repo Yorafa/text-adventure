@@ -11,12 +11,14 @@ public class BattleManager {
     private boolean hasCounterattackP2;
     private IBattlePresenter presenter;
     private BattleAction battleAction;
+    private boolean battling;
 
     public BattleManager(Pokemon p1, Pokemon p2) {
         this.p1 = p1;
         this.p2 = p2;
         this.hasCounterattackP1 = false;
         this.hasCounterattackP2 = false;
+        this.battling = true;
     }
 
     public void setPresenter(IBattlePresenter presenter) {
@@ -74,11 +76,11 @@ public class BattleManager {
     }
 
     public boolean isBattling() {
-        return !(p2 == null || p1.getHitPoint() == 0 || p2.getHitPoint() == 0);
+        return battling && !(p2 == null || p1.getHitPoint() == 0 || p2.getHitPoint() == 0);
     }
 
     public void endBattle() {
-        p2 = null;
+        battling = false;
     }
 
     public void printBattleResult() {
