@@ -1,4 +1,4 @@
-package usecase;
+package GUI_Controller;
 
 import entity.User;
 
@@ -6,11 +6,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserManager implements Serializable{
+public class UserController implements Serializable {
     private List<User> users;
     private User currentUser;
 
-    public UserManager() {
+    public UserController() {
         users = new ArrayList<>();
         currentUser = null;
     }

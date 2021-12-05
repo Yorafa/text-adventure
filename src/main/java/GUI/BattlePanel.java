@@ -1,4 +1,4 @@
-package UI;
+package GUI;
 
 import entity.Pokemon;
 import usecase.BattleManager;

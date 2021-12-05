@@ -1,9 +1,7 @@
-package UI;
+package GUI;
 
-import entity.BasePokemonData;
 import entity.Pokemon;
 import entity.PokemonData;
-import entity.PokemonType;
 
 import javax.swing.*;
 import java.awt.*;

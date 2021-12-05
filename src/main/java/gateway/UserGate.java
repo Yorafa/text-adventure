@@ -1,36 +1,36 @@
 package gateway;
 
-import usecase.*;
+import GUI_Controller.*;
 
 import java.io.*;
 
 public class UserGate {
-    public static void writeUM(UserManager userManager) {
+    public static void writeUM(UserController userController) {
         try {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(
                     new FileOutputStream("gamedata/userinfo.ser"));
-            objectOutputStream.writeObject(userManager);
+            objectOutputStream.writeObject(userController);
             objectOutputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static UserManager readUM() {
-        UserManager userManager;
+    public static UserController readUM() {
+        UserController userController;
         try {
             ObjectInputStream objectInputStream = new ObjectInputStream(
                     new FileInputStream("gamedata/userinfo.ser"));
             try {
-                userManager = (UserManager) objectInputStream.readObject();
+                userController = (UserController) objectInputStream.readObject();
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
-                userManager = new UserManager();
+                userController = new UserController();
             }
         } catch (IOException e) {
             e.printStackTrace();
-            userManager = new UserManager();
+            userController = new UserController();
         }
-        return userManager;
+        return userController;
     }
 }

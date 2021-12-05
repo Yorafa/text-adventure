@@ -1,9 +1,8 @@
-package UI;
+package GUI;
 
 import entity.Pmap;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class MapChangingPanel extends JPanel {
     public MapChangingPanel(TextAdventureFrame taf) {

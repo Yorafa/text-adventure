@@ -1,4 +1,4 @@
-package usecase;
+package GUI_Controller;
 
 import entity.*;
 

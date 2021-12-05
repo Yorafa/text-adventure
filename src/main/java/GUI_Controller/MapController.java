@@ -1,23 +1,24 @@
-package usecase;
+package GUI_Controller;
 
 import entity.*;
-
+import usecase.PokemonDataManager;
+import usecase.PokemonFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapManager{
+public class MapController{
     private PokemonDataManager pokemonDataManager;
     private List<Pmap> pmaps;
     private Pmap currentPlace;
 
-    public MapManager() {
+    public MapController() {
         this.pokemonDataManager = new PokemonDataManager();
         this.pmaps = new ArrayList<>();
         this.currentPlace = null;
     }
 
-    public MapManager(Pmap currentPlace) {
+    public MapController(Pmap currentPlace) {
         this.pokemonDataManager = new PokemonDataManager();
         this.pmaps = new ArrayList<>();
         this.currentPlace = currentPlace;
@@ -80,6 +81,5 @@ public class MapManager{
     public String getName(Pmap map) {
         return map.getMapName();
     }
-
 
 }

@@ -2,16 +2,16 @@ package gateway;
 
 
 import com.google.gson.*;
-import usecase.MapManager;
+import GUI_Controller.MapController;
 
 
 import java.io.*;
 import java.util.Scanner;
 
 public class MapGate {
-    public static void writeMM(MapManager mapManager){
+    public static void writeMM(MapController mapController){
         Gson gson = new Gson();
-        String mapManagerJson = gson.toJson(mapManager);
+        String mapManagerJson = gson.toJson(mapController);
         try {
             FileWriter mapFile = new FileWriter("gamedata/map/mapdata.json");
             mapFile.write(mapManagerJson);
@@ -20,7 +20,7 @@ public class MapGate {
             e.printStackTrace();}
 
     }
-    public static MapManager readMM(){
+    public static MapController readMM(){
         try {
             File mapFile = new File("gamedata/map/mapdata.json");
             Scanner scanner = new Scanner(mapFile);
@@ -30,7 +30,7 @@ public class MapGate {
             }
             String mapManagerJson = mapString.toString();
             Gson gson = new Gson();
-            return gson.fromJson(mapManagerJson, MapManager.class);}
+            return gson.fromJson(mapManagerJson, MapController.class);}
         catch (IOException e) {
             e.printStackTrace();}
         return null;

@@ -1,6 +1,7 @@
-package UI;
+package GUI;
 
-import gateway.GameDataGate;
+import GUI_Controller.*;
+import gateway.*;
 import usecase.*;
 import entity.*;
 
@@ -9,17 +10,17 @@ import java.awt.*;
 import java.util.List;
 
 public class TextAdventureFrame extends JFrame {
-    private UserManager userManager;
-    private MapManager mapManager;
+    private UserController userController;
+    private MapController mapController;
     private BattleManager battleManager;
     private PokemonBook pokemonBook;
     private Pokemon wildPokemon;
     private Pocket pocket;
 
 
-    public TextAdventureFrame(UserManager userManager, MapManager mapManager, PokemonBook pokemonBook) {
-        this.userManager = userManager;
-        this.mapManager = mapManager;
+    public TextAdventureFrame(UserController userController, MapController mapController, PokemonBook pokemonBook) {
+        this.userController = userController;
+        this.mapController = mapController;
         this.pokemonBook = pokemonBook;
         this.pocket = null;
         this.wildPokemon = null;
@@ -35,15 +36,15 @@ public class TextAdventureFrame extends JFrame {
     }
 
     public void setUser(User user) {
-        userManager.setCurrentUser(user);
+        userController.setCurrentUser(user);
     }
 
     public void setMap(Pmap pmap) {
-        mapManager.setCurrentPlace(pmap);
+        mapController.setCurrentPlace(pmap);
     }
 
     public void setMap(String mapName) {
-        mapManager.setCurrentPlace(mapManager.find(mapName));
+        mapController.setCurrentPlace(mapController.find(mapName));
     }
 
     public void setPocket(Pocket pocket) {
@@ -56,12 +57,12 @@ public class TextAdventureFrame extends JFrame {
         this.setPocket(gameData.getPocket());
     }
 
-    public void setUserManager(UserManager userManager) {
-        this.userManager = userManager;
+    public void setUserManager(UserController userController) {
+        this.userController = userController;
     }
 
-    public void setMapManager(MapManager mapManager) {
-        this.mapManager = mapManager;
+    public void setMapManager(MapController mapController) {
+        this.mapController = mapController;
     }
 
     public void setPokemonBook(PokemonBook pokemonBook) {
@@ -89,27 +90,27 @@ public class TextAdventureFrame extends JFrame {
     }
 
     public User getUser() {
-        return userManager.getCurrentUser();
+        return userController.getCurrentUser();
     }
 
     public Pmap getMap() {
-        return mapManager.getCurrentPlace();
+        return mapController.getCurrentPlace();
     }
 
     public Pocket getPocket() {
         return pocket;
     }
 
-    public UserManager getUserManager() {
-        return this.userManager;
+    public UserController getUserManager() {
+        return this.userController;
     }
 
-    public MapManager getMapManager() {
-        return mapManager;
+    public MapController getMapManager() {
+        return mapController;
     }
 
     public GameData getGameData(){
-        return new GameData(this.pocket, this.mapManager.getCurrentPlace());
+        return new GameData(this.pocket, this.mapController.getCurrentPlace());
     }
 
     public void setFirstPokemon(Pokemon pokemon){
@@ -132,7 +133,7 @@ public class TextAdventureFrame extends JFrame {
     public void fight(){}
 
     public void walkAround() {
-        this.wildPokemon = this.mapManager.walkAround(pokemonBook);
+        this.wildPokemon = this.mapController.walkAround(pokemonBook);
     }
 
     public Pokemon getPokemon(String pokemonName){

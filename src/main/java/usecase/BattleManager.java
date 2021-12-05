@@ -159,4 +159,41 @@ public class BattleManager {
     public boolean youWin() {
         return !isBattling() && p2.getHitPoint() == 0;
     }
+
+    public boolean isHasCounterattackP1() {
+        return hasCounterattackP1;
+    }
+
+    public boolean isHasDefenseP1() {
+        return hasDefenseP1;
+    }
+
+    public boolean isHasDefenseP2() {
+        return hasDefenseP2;
+    }
+
+    public boolean isHasCounterattackP2() {
+        return hasCounterattackP2;
+    }
+
+    public void setHasCounterattackP1(boolean hasCounterattackP1) {
+        this.hasCounterattackP1 = hasCounterattackP1;
+    }
+
+    public void setBattling(boolean battling) {
+        this.battling = battling;
+    }
+
+    public void setHasDefenseP1(boolean hasDefenseP1) {
+        this.hasDefenseP1 = hasDefenseP1;
+    }
+
+    public void setHasCounterattackP2(boolean hasCounterattackP2) {
+        this.hasCounterattackP2 = hasCounterattackP2;
+    }
+
+    public void setHasDefenseP2(boolean hasDefenseP2) {
+        this.hasDefenseP2 = hasDefenseP2;
+    }
+
 }
