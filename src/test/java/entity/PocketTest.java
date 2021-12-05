@@ -21,15 +21,15 @@ public class PocketTest {
     public void testSetAndGetBattlePokemonsAndGetDefaultPokemon(){
         // Test empty
         List<Pokemon> pokemonList = new ArrayList<>();
-        pocket.setBattlePokemons(pokemonList);
-        assertEquals(pocket.getBattlePokemons(), pokemonList);
+        pocket.setBattlePokemon(pokemonList);
+        assertEquals(pocket.getBattlePokemon(), pokemonList);
         // Test one element
         BasePokemonData basePokemonData = new BasePokemonData(PokemonType.ELECTRICITY, 1,1,1,1);
         PokemonData pokemonData = new PokemonData(PokemonType.ELECTRICITY, 1,1,1,1);
         Pokemon pokemon = new Pokemon("test", basePokemonData, 1, 0, 1, pokemonData);
         pokemonList.add(pokemon);
-        pocket.setBattlePokemons(pokemonList);
-        assertEquals(pocket.getBattlePokemons(), pokemonList);
+        pocket.setBattlePokemon(pokemonList);
+        assertEquals(pocket.getBattlePokemon(), pokemonList);
         assertEquals(pocket.getDefaultPokemon(), pokemon);
     }
 

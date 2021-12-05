@@ -1,10 +1,9 @@
 package entity;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PokemonBook implements Serializable {
+public class PokemonBook {
     private List<BasePokemon> pokemonBook;
 
     public PokemonBook() {
@@ -23,4 +22,16 @@ public class PokemonBook implements Serializable {
         return pokemonBook;
     }
 
+    public BasePokemon get(int i) {
+        return pokemonBook.get(i);
+    }
+
+    public BasePokemon get(String name) {
+        for (BasePokemon basePokemon : pokemonBook) {
+            if (basePokemon.getName().equals(name)) {
+                return basePokemon;
+            }
+        }
+        return null;
+    }
 }

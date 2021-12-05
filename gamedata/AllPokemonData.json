@@ -1,21 +1,75 @@
 {
-  "pokemon1Name" :
-  {
-    "pokemonType": "GRASS",
-    "maxHitPoint": 10,
-    "attackPoint": 10,
-    "defencePoint": 10,
-    "speed": 10
-  },
-
-  "pokemon2Name":
-  {
-    "pokemonType": "FIRE",
-    "maxHitPoint": 12,
-    "attackPoint": 13,
-    "defencePoint": 14,
-    "speed": 15
-  }
+  "pokemonBook" :
+  [
+    {
+      "name": "Pikachu",
+      "basePokemonData" : {
+        "pokemonType": "ELECTRICITY",
+        "maxHitPoint": 1000,
+        "attackPoint": 1000,
+        "defencePoint": 1000,
+        "speed": 1000
+      }
+    },
+    {
+      "name": "Bulbasaur",
+      "basePokemonData" : {
+        "pokemonType": "GRASS",
+        "maxHitPoint": 500,
+        "attackPoint": 500,
+        "defencePoint": 500,
+        "speed": 500
+      }
+    },
+    {
+      "name": "Oddish",
+      "basePokemonData" : {
+        "pokemonType": "GRASS",
+        "maxHitPoint": 500,
+        "attackPoint": 500,
+        "defencePoint": 500,
+        "speed": 500
+      }
+    },
+    {
+      "name": "Charmander",
+      "basePokemonData" : {
+        "pokemonType": "FIRE",
+        "maxHitPoint": 700,
+        "attackPoint": 700,
+        "defencePoint": 700,
+        "speed": 700
+      }
+    },
+    {
+      "name": "Vulpix",
+      "basePokemonData" : {
+        "pokemonType": "FIRE",
+        "maxHitPoint": 800,
+        "attackPoint": 800,
+        "defencePoint": 800,
+        "speed": 800
+      }
+    },
+    {
+      "name": "Squirtle",
+      "basePokemonData" : {
+        "pokemonType": "WATER",
+        "maxHitPoint": 600,
+        "attackPoint": 600,
+        "defencePoint": 600,
+        "speed": 600
+      }
+    },
+    {
+      "name": "Psyduck",
+      "basePokemonData" : {
+        "pokemonType": "WATER",
+        "maxHitPoint": 300,
+        "attackPoint": 300,
+        "defencePoint": 300,
+        "speed": 300
+      }
+    }
+  ]
 }
-
-HashMap<pokemonName, HashMap<attribute, value>>

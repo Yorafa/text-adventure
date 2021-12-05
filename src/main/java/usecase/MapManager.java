@@ -2,60 +2,40 @@ package usecase;
 
 import entity.*;
 
-import java.io.Serializable;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MapManager {
-    private PokemonDataManager pokemonDataManager;
-    private ArrayList<Pmap> pmaps;
+    private List<Pmap> pmaps;
     private Pmap currentPlace;
 
-    public MapManager() {
-        this.pokemonDataManager = new PokemonDataManager();
-        this.pmaps = new ArrayList<>();
-    }
-
-    public MapManager(Pmap currentPlace) {
-        this.currentPlace = currentPlace;
-    }
-
-    public ArrayList<Pmap> getMaps() {
-        return pmaps;
-    }
-
-    public void addMap(Pmap pmap) {
-        pmaps.add(pmap);
-    }
-
-    public Pmap start() {
-        return pmaps.get(0);
-    }
-
-    public Pmap find(String mapName) {
-        for (Pmap pmap : pmaps) {
-            if (pmap.getMapName().equals(mapName)) {
-                return pmap;
-            }
+    public MapManager(IJsonReader<List<Pmap>> reader) {
+        try {
+            this.pmaps = reader.read();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return null;
     }
 
-    public Pokemon walkAround() {
-        // TODO: return a random (according to the probability of currentPlace) pokemon.
-        BasePokemonData basePokemonData = new BasePokemonData(PokemonType.ELECTRICITY, 1000, 1000, 1000, 1000);
-        BasePokemon basePokemon = new BasePokemon("Pikachu", basePokemonData);
-        PokemonFactory pf = new PokemonFactory();
-        return pf.getPokemon(basePokemon, 0, 1000);
-    }
-
-    private Pmap getMap(String placeName) {
+    public List<String> getMapNames() {
+        List<String> mapNames = new ArrayList<>();
         for (Pmap pmap : pmaps) {
-            if (pmap.getMapName().equals(placeName)) {
-                return pmap;
-            }
+            mapNames.add(pmap.getMapName());
         }
-        return null;
+        return mapNames;
+    }
+
+    public Pokemon walkAround(PokemonManager pokemonManager) {
+        ProbabilityCalculator probabilityCalculator = new ProbabilityCalculator();
+        int index = probabilityCalculator.calculate(currentPlace.getProbabilities());
+        if (index == -1) {
+            return null;
+        } else {
+            String name = currentPlace.getPokemons().get(index);
+            int level = currentPlace.getLevels().get(index);
+            return pokemonManager.getPokemon(name, level);
+        }
     }
 
     public Pmap getCurrentPlace() {
@@ -63,12 +43,14 @@ public class MapManager {
     }
 
     public void setCurrentPlace(Pmap currentPlace) {
-        this.currentPlace = currentPlace;
+        if (currentPlace != null) {
+            this.currentPlace = currentPlace;
+        } else {
+            this.currentPlace = pmaps.get(0);
+        }
     }
 
-    public String getName(Pmap map) {
-        return map.getMapName();
+    public void setCurrentPlace(int i) {
+        currentPlace = pmaps.get(i);
     }
-
-
 }
