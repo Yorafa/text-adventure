@@ -1,6 +1,7 @@
 package UISimple;
 
 import usecase.BattleManager;
+import usecase.ExperiencePointCalculator;
 import usecase.PokemonManager;
 
 import java.util.Scanner;
@@ -15,29 +16,30 @@ public class TextBattlePanel extends TextPanel implements PanelState {
         this.pokemonManager = pokemonManager;
         this.battleManager = battleManager;
         this.battlePresenter = new BattlePresenter();
+        this.battleManager.setPresenter(battlePresenter);
     }
 
     @Override
     public void run() {
-        battlePresenter.printOpponent(battleManager.getP2Name());
-        if (!battleManager.isFaster()) {
-            opponentAction();
-            if (battleManager.youLose()) {
-                battlePresenter.printLose();
-            } else if (battleManager.youWin()) {
-                battlePresenter.printWin();
-            }
+        if (battleManager.isBattling()) {
+            battleManager.printStatus();
+            super.run();
+        } else {
+            battleManager.printBattleResult();
+            ExperiencePointCalculator experiencePointCalculator = new ExperiencePointCalculator();
+            int experiencePointGained = experiencePointCalculator.calculate(battleManager.getP2());
+            pokemonManager.addExperiencePoint(battleManager.getP1(), experiencePointGained);
+            battlePresenter.printGainExperiencePoint(battleManager.getP1Name(), experiencePointGained);
+            gameController.changeStateExplore();
         }
-        printMenu();
-        execute(input.nextLine());
     }
 
     @Override
     public void printMenu() {
         battlePresenter.addAttack();
         battlePresenter.addDefense();
+        battlePresenter.addHeal();
         battlePresenter.addCapture();
-        battlePresenter.addChangePokemon();
         battlePresenter.addEscape();
         battlePresenter.printAllEnum();
     }
@@ -46,31 +48,19 @@ public class TextBattlePanel extends TextPanel implements PanelState {
     protected void execute(String choice) {
         switch (choice) {
             case "1": // Attack
-                int damage = battleManager.attack();
-                System.out.println("You made " + damage + " damage to " +
-                        battleManager.getP2Name());
-                if (battleManager.isBattling()) {
-                    opponentAction();
-                }
+                battleManager.attack();
                 break;
             case "2": // Defense
                 battleManager.defense();
-                System.out.println("You are defending.");
-                opponentAction();
                 break;
-            case "3": // Capture
-                boolean captured = battleManager.capture();
-                if (captured) {
-                    pokemonManager.add(battleManager.getOpponent());
-                    System.out.println("You captured " + battleManager.getP2Name() + ".");
+            case "3": // Heal
+                battleManager.heal();
+                break;
+            case "4": // Capture
+                if (battleManager.capture()) {
+                    pokemonManager.add(battleManager.getP2());
                     battleManager.endBattle();
-                } else {
-                    System.out.println("Not captured.");
-                    opponentAction();
                 }
-                break;
-            case "4": // Change pokemon
-                gameController.changeState(new TextChangePokemonPanel(input, gameController, battleManager));
                 break;
             case "5": // Escape
                 gameController.changeStateExplore();
@@ -79,10 +69,5 @@ public class TextBattlePanel extends TextPanel implements PanelState {
             default:
                 battlePresenter.notValid();
         }
-    }
-
-    private void opponentAction() {
-        String message = battleManager.opponentAction();
-        System.out.println(message);
     }
 }

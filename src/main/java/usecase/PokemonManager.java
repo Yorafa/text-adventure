@@ -3,7 +3,6 @@ package usecase;
 import entity.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class PokemonManager {
@@ -18,10 +17,11 @@ public class PokemonManager {
         }
     }
 
-//    public PokemonManager(Pocket pocket) {
-//        this.pokemonBook = new PokemonBook();
-//        this.pocket = pocket;
-//    }
+    public Pokemon getPokemon(String name, int level) {
+        BasePokemon basePokemon = pokemonBook.get(name);
+        PokemonFactory pokemonFactory = new PokemonFactory();
+        return pokemonFactory.getPokemon(basePokemon, level);
+    }
 
     public void levelChange(Pokemon pokemon, int level) {
         PokemonDataManager pokemonDataManager = new PokemonDataManager();
@@ -49,16 +49,12 @@ public class PokemonManager {
             this.pocket = new Pocket();
             Pokemon pokemon = new PokemonFactory().getPokemon(pokemonBook.get(0), 15);
             this.pocket.add(pokemon);
-            this.pocket.addBattlePokemon(pokemon);
+            this.pocket.setBattlePokemon(pokemon);
         }
     }
 
-    public List<Pokemon> getBattlePokemons() {
-        return pocket.getBattlePokemons();
-    }
-
-    public Pokemon getDefaultPokemon() {
-        return pocket.getDefaultPokemon();
+    public Pokemon getBattlePokemon() {
+        return pocket.getBattlePokemon();
     }
 
 //    public void initialize() {

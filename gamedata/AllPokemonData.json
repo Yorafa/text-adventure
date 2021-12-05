@@ -12,13 +12,63 @@
       }
     },
     {
-      "name": "Pokemon2",
+      "name": "Bulbasaur",
       "basePokemonData" : {
-        "pokemonType": "FIRE",
+        "pokemonType": "GRASS",
         "maxHitPoint": 500,
         "attackPoint": 500,
         "defencePoint": 500,
         "speed": 500
+      }
+    },
+    {
+      "name": "Oddish",
+      "basePokemonData" : {
+        "pokemonType": "GRASS",
+        "maxHitPoint": 500,
+        "attackPoint": 500,
+        "defencePoint": 500,
+        "speed": 500
+      }
+    },
+    {
+      "name": "Charmander",
+      "basePokemonData" : {
+        "pokemonType": "FIRE",
+        "maxHitPoint": 700,
+        "attackPoint": 700,
+        "defencePoint": 700,
+        "speed": 700
+      }
+    },
+    {
+      "name": "Vulpix",
+      "basePokemonData" : {
+        "pokemonType": "FIRE",
+        "maxHitPoint": 800,
+        "attackPoint": 800,
+        "defencePoint": 800,
+        "speed": 800
+      }
+    },
+    {
+      "name": "Squirtle",
+      "basePokemonData" : {
+        "pokemonType": "WATER",
+        "maxHitPoint": 600,
+        "attackPoint": 600,
+        "defencePoint": 600,
+        "speed": 600
+      }
+    },
+    {
+      "name": "Psyduck",
+      "basePokemonData" : {
+        "pokemonType": "WATER",
+        "maxHitPoint": 300,
+        "attackPoint": 300,
+        "defencePoint": 300,
+        "speed": 300
       }
     }
   ]

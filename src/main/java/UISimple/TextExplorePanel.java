@@ -34,23 +34,24 @@ public class TextExplorePanel extends TextPanel implements PanelState {
     @Override
     protected void execute(String choice) {
         switch (choice) {
-            case "1":
-                BattleManager battleManager = new BattleManager(pokemonManager.getBattlePokemons(),
-                        mapManager.walkAround());
+            case "1": // Walk around
+                BattleManager battleManager = new BattleManager(pokemonManager.getBattlePokemon(),
+                        mapManager.walkAround(pokemonManager));
                 if (battleManager.isBattling()) {
                     gameController.changeStateBattle(battleManager);
+                    explorePresenter.printOpponent(battleManager.getP2Name());
                 } else {
                     explorePresenter.printNothingHappens();
                 }
                 break;
-            case "2":
+            case "2": // Heal
                 pokemonManager.healAll();
                 explorePresenter.printHealed();
                 break;
-            case "3":
+            case "3": // Change place
                 gameController.changeState(new TextChangePlacePanel(input, gameController, mapManager));
                 break;
-            case "4":
+            case "4": // Logout
                 explorePresenter.printLogout();
                 gameDataManager.saveGameData(pokemonManager.getPocket(), mapManager.getCurrentPlace());
                 gameController.changeStateLogin();

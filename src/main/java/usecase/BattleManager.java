@@ -2,29 +2,94 @@ package usecase;
 
 import entity.Pokemon;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class BattleManager {
-    private List<Pokemon> battlePokemons;
     private Pokemon p1;
     private Pokemon p2;
-    private boolean hasDefenseP1;
-    private boolean hasDefenseP2;
     private boolean hasCounterattackP1;
     private boolean hasCounterattackP2;
-    private boolean battling;
+    private IBattlePresenter presenter;
+    private BattleAction battleAction;
 
-    public BattleManager(List<Pokemon> battlePokemons, Pokemon p2) {
-        this.battlePokemons = battlePokemons;
-        this.p1 = battlePokemons.get(0);
+    public BattleManager(Pokemon p1, Pokemon p2) {
+        this.p1 = p1;
         this.p2 = p2;
-        this.hasDefenseP1 = false;
-        this.hasDefenseP2 = false;
         this.hasCounterattackP1 = false;
         this.hasCounterattackP2 = false;
-        this.battling = (p2 != null);
+    }
+
+    public void setPresenter(IBattlePresenter presenter) {
+        this.presenter = presenter;
+    }
+
+    public void printStatus() {
+        presenter.printStatus(p1.getName(), p1.getLevel(), p1.getHitPoint(), p1.getMaxHitPoint());
+        presenter.printStatus(p2.getName(), p2.getLevel(), p2.getHitPoint(), p2.getMaxHitPoint());
+    }
+
+    public void attack() {
+        opponentAction();
+        battleAction.attack();
+        boundHitPoint();
+    }
+
+    public void defense() {
+        opponentAction();
+        battleAction.defense();
+        boundHitPoint();
+    }
+
+    public void heal() {
+        opponentAction();
+        battleAction.heal();
+        boundHitPoint();
+    }
+
+    public boolean capture() {
+        opponentAction();
+        boolean captured = battleAction.capture();
+        boundHitPoint();
+        return captured;
+    }
+
+    public void opponentAction() {
+        Random r = new Random();
+        int i = r.nextInt(100);
+        if (i < 50) {
+            setBattleAction(new BattleActionWhenAttacked(this));
+        } else {
+            setBattleAction(new BattleActionWhenDefensed(this));
+        }
+    }
+
+    private void boundHitPoint() {
+        boundHitPoint(p1);
+        boundHitPoint(p2);
+    }
+
+    private void boundHitPoint(Pokemon pokemon) {
+        pokemon.setHitPoint(Math.max(pokemon.getHitPoint(), 0));
+        pokemon.setHitPoint(Math.min(pokemon.getHitPoint(), pokemon.getMaxHitPoint()));
+    }
+
+    public boolean isBattling() {
+        return !(p2 == null || p1.getHitPoint() == 0 || p2.getHitPoint() == 0);
+    }
+
+    public void endBattle() {
+        p2 = null;
+    }
+
+    public void printBattleResult() {
+        presenter.printBattleEnded();
+        if (p1.getHitPoint() == 0 && p2.getHitPoint() == 0) {
+            presenter.printDraw();
+        } else if (p1.getHitPoint() == 0) {
+            presenter.printLose();
+        } else if (p2.getHitPoint() == 0) {
+            presenter.printWin();
+        }
     }
 
     public String getP1Name() {
@@ -35,126 +100,43 @@ public class BattleManager {
         return p2.getName();
     }
 
-    public List<String> getBattlePokemonNames() {
-        List<String> names = new ArrayList<>();
-        for (Pokemon pokemon : battlePokemons) {
-            names.add(pokemon.getName());
-        }
-        return names;
+    public Pokemon getP1() {
+        return p1;
     }
 
-    public void setP1(int i) {
-        p1 = battlePokemons.get(i);
+    public void setP1(Pokemon p1) {
+        this.p1 = p1;
     }
 
-    public int attack() {
-        this.hasDefenseP1 = false;
-        if (hasDefenseP2) {
-            hasCounterattackP2 = true;
-        }
-        int damage = attack(p1, hasCounterattackP1, p2, hasDefenseP2);
-        hasCounterattackP1 = false;
-        return damage;
+    public Pokemon getP2() {
+        return p2;
     }
 
-    public void defense() {
-        this.hasDefenseP1 = true;
+    public void setP2(Pokemon p2) {
+        this.p2 = p2;
     }
 
-    private int attack(Pokemon attacker, boolean hasCounterattack, Pokemon attackee, boolean hasDefense) {
-        DamageCalculator damageCalculator = new DamageCalculator();
-        int attackPoint = attacker.getAttackPoint();
-        if (hasCounterattack) {
-            attackPoint *= 2;
-        }
-        int defencePoint = attackee.getDefencePoint();
-        if (hasDefense) {
-            defencePoint *= 2;
-        }
-        int damage = damageCalculator.calculate(attackPoint, defencePoint);
-        attackee.setHitPoint(Math.max(attackee.getHitPoint() - damage, 0));
-        return damage;
+    public boolean isHasCounterattackP1() {
+        return hasCounterattackP1;
     }
 
-    public boolean capture() {
-        this.hasDefenseP1 = false;
-        Random r = new Random();
-        double d = r.nextDouble();
-        double percentHitPoint = (double) p2.getHitPoint() / p2.getMaxHitPoint();
-        double threshold = 1 - 0.8 * percentHitPoint;
-        return d < threshold;
+    public void setHasCounterattackP1(boolean hasCounterattackP1) {
+        this.hasCounterattackP1 = hasCounterattackP1;
     }
 
-    public void changePokemon(Pokemon pokemon) {
-        this.hasDefenseP1 = false;
-        this.p1 = pokemon;
+    public boolean isHasCounterattackP2() {
+        return hasCounterattackP2;
     }
 
-    public boolean isFaster() {
-        int speedP1 = p1.getSpeed();
-        int speedP2 = p2.getSpeed();
-        if (speedP1 < speedP2) {
-            return false;
-        } else if (speedP1 > speedP2) {
-            return true;
-        } else {
-            Random r = new Random();
-            return r.nextBoolean();
-        }
+    public void setHasCounterattackP2(boolean hasCounterattackP2) {
+        this.hasCounterattackP2 = hasCounterattackP2;
     }
 
-    public String opponentAction() {
-        this.hasDefenseP2 = false;
-        String message;
-        Random r = new Random();
-        int i = r.nextInt(100);
-        if (i < 70) {
-            if (hasDefenseP1) {
-                hasCounterattackP1 = true;
-            }
-            int damage = attack(p2, hasCounterattackP2, p1, hasDefenseP1);
-            hasCounterattackP2 = false;
-            message = getP2Name() + " attacked. " + getP2Name() + " made " + damage + " damage to you.";
-        } else {
-            hasDefenseP2 = true;
-            message = getP2Name() + " defended.";
-        }
-        return message;
+    public IBattlePresenter getPresenter() {
+        return presenter;
     }
 
-    public Pokemon getOpponent() {
-        return this.p2;
-    }
-
-    public boolean isBattling() {
-        if (p2.getHitPoint() == 0) {
-            battling = false;
-        }
-        boolean notAllDead = false;
-        for (Pokemon pokemon : battlePokemons) {
-            if (pokemon.getHitPoint() != 0) {
-                notAllDead = true;
-            }
-        }
-        battling = battling && notAllDead;
-        return battling;
-    }
-
-    public void endBattle() {
-        this.battling = false;
-    }
-
-    public boolean youLose() {
-        boolean notAllDead = false;
-        for (Pokemon pokemon : battlePokemons) {
-            if (pokemon.getHitPoint() != 0) {
-                notAllDead = true;
-            }
-        }
-        return !isBattling() && !notAllDead;
-    }
-
-    public boolean youWin() {
-        return !isBattling() && p2.getHitPoint() == 0;
+    public void setBattleAction(BattleAction battleAction) {
+        this.battleAction = battleAction;
     }
 }

@@ -8,6 +8,7 @@ import java.util.Random;
 
 public class RandomAlgorithm {
 //    private Pmap pmap;
+//
 //    public RandomAlgorithm(Pmap pmap){
 //        this.pmap = pmap;
 //    }

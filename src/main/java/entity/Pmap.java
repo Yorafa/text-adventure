@@ -11,7 +11,23 @@ public class Pmap implements Serializable {
     private List<Integer> probabilities;
     private List<Integer> levels;
 
-//    public Pmap(){
+    public String getMapName() {
+        return mapName;
+    }
+
+    public List<String> getPokemons() {
+        return pokemons;
+    }
+
+    public List<Integer> getProbabilities() {
+        return probabilities;
+    }
+
+    public List<Integer> getLevels() {
+        return levels;
+    }
+
+    //    public Pmap(){
 //        this.mapName = "";
 //        this.pokemons = new ArrayList<>();
 //    }
@@ -28,10 +44,6 @@ public class Pmap implements Serializable {
 //    public void setPokemons(List<Pokemon> pokemons) {
 //        this.pokemons = pokemons;
 //    }
-
-    public String getMapName() {
-        return mapName;
-    }
 
 //    public List<Pokemon> getPokemons() {
 //        return pokemons;

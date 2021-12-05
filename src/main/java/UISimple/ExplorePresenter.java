@@ -29,4 +29,7 @@ public class ExplorePresenter extends Presenter {
         System.out.println("All pokemons are healed.");
     }
 
+    public void printOpponent(String opponentName) {
+        System.out.println("You bumped into " + opponentName + ".");
+    }
 }
