@@ -60,7 +60,13 @@ public class MapManager{
     public Pokemon walkAround(PokemonBook pokemonBook) {
         RandomAlgorithm ra = new RandomAlgorithm(this.currentPlace);
         PokemonFactory pokemonFactory = new PokemonFactory();
-        return pokemonFactory.getPokemon(ra.encounter(pokemonBook), ra.randomExp());
+        BasePokemon basePokemon = ra.encounter(pokemonBook);
+        if (basePokemon != null) {
+            return pokemonFactory.getPokemon(basePokemon, ra.randomExp());
+        }
+        else{
+            return null;
+        }
     }
 
     public Pmap getCurrentPlace() {

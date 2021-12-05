@@ -1,9 +1,6 @@
 package usecase;
 
-import entity.BasePokemon;
-import entity.Pmap;
-import entity.Pokemon;
-import entity.PokemonBook;
+import entity.*;
 
 import java.util.List;
 import java.util.Random;
@@ -28,14 +25,17 @@ public class RandomAlgorithm {
     public BasePokemon encounter(PokemonBook pokemonBook){
         List<List<String>> pokemons = pmap.getPokemons();
         int rarity = getRarity();
-        List<String> rarityPokemons = pokemons.get(rarity);
-        String pokemonName = rarityPokemons.get(random.nextInt(rarityPokemons.size()));
-        return pokemonBook.getPokemon(pokemonName);
+        if (pokemons.get(rarity).size() > 0){
+            List<String> rarityPokemons = pokemons.get(rarity);
+            String pokemonName = rarityPokemons.get(random.nextInt(rarityPokemons.size()));
+            return pokemonBook.getPokemon(pokemonName);
+        }
+        return null;
     }
 
     public int randomExp(){
         int diff = pmap.getMAX_ExperiencePoint() - pmap.getMIN_ExperiencePoint();
-        return random.nextInt(diff) + pmap.getMIN_ExperiencePoint();
+        return random.nextInt(diff+1) + pmap.getMIN_ExperiencePoint();
     }
 
     public int getRarity(){

@@ -20,6 +20,15 @@ public class MapPanel extends JPanel {
         JButton search = new JButton("Walk around");
         search.addActionListener((e) -> {
             taf.walkAround();
+            if (taf.getWildPokemon() == null){
+                String message = "Oof, nothing here, may next time will find somethings";
+                JOptionPane.showMessageDialog(this, message, "Search", JOptionPane.WARNING_MESSAGE);
+            }
+            else{
+                taf.remove(this);
+                taf.setContentPane(new BattlePanel(taf));
+                taf.pack();
+            }
         });
 
         JButton mapButton = new JButton("Change place");

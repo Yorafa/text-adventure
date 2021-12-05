@@ -68,6 +68,14 @@ public class TextAdventureFrame extends JFrame {
         this.pokemonBook = pokemonBook;
     }
 
+    public Pokemon getFirstPokemon(){
+        return this.pocket.getDefaultPokemon();
+    }
+
+    public Pokemon getWildPokemon() {
+        return wildPokemon;
+    }
+
     public PokemonBook getPokemonBook() {
         return pokemonBook;
     }
