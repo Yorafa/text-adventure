@@ -6,16 +6,6 @@ public class GameData implements Serializable {
     private Pocket pocket;
     private Pmap currentPlace;
 
-    public GameData(Pocket pocket, Pmap currentPlace) {
-        this.pocket = pocket;
-        this.currentPlace = currentPlace;
-    }
-
-    public GameData(){
-        this.pocket = new Pocket();
-        this.currentPlace = null;
-    }
-
     public Pocket getPocket() {
         return pocket;
     }
