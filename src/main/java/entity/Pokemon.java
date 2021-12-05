@@ -50,7 +50,22 @@ public class Pokemon extends BasePokemon implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return this.getName();
+    public int getMaxHitPoint() {
+        return pokemonData.getMaxHitPoint();
+    }
+
+    @Override
+    public int getAttackPoint() {
+        return pokemonData.getAttackPoint();
+    }
+
+    @Override
+    public int getDefencePoint() {
+        return pokemonData.getDefencePoint();
+    }
+
+    @Override
+    public int getSpeed() {
+        return pokemonData.getSpeed();
     }
 }

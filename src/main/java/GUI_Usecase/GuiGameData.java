@@ -1,29 +1,27 @@
-package entity;
-
-import GUI_Usecase.TextAdventureMap;
+package GUI_Usecase;
 
 import java.io.Serializable;
 
 public class GuiGameData implements Serializable {
-    private Pocket pocket;
+    private GuiPlayerPokemons playerPokemons;
     private TextAdventureMap currentPlace;
 
-    public GuiGameData(Pocket pocket, TextAdventureMap currentPlace) {
-        this.pocket = pocket;
+    public GuiGameData(GuiPlayerPokemons playerPokemons, TextAdventureMap currentPlace) {
+        this.playerPokemons = playerPokemons;
         this.currentPlace = currentPlace;
     }
 
     public GuiGameData(){
-        this.pocket = new Pocket();
+        this.playerPokemons = new GuiPlayerPokemons();
         this.currentPlace = null;
     }
 
-    public Pocket getPocket() {
-        return pocket;
+    public GuiPlayerPokemons getPlayerPokemons() {
+        return playerPokemons;
     }
 
-    public void setPocket(Pocket pocket) {
-        this.pocket = pocket;
+    public void setPlayerPokemons(GuiPlayerPokemons playerPokemons) {
+        this.playerPokemons = playerPokemons;
     }
 
     public TextAdventureMap getCurrentPlace() {

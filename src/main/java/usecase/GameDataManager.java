@@ -1,5 +1,6 @@
 package usecase;
 
+import entity.GameData;
 import entity.Pmap;
 import entity.Pocket;
 

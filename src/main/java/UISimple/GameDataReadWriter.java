@@ -1,5 +1,6 @@
 package UISimple;
 
+import entity.GameData;
 import usecase.IReadWriter;
 
 import java.io.*;

@@ -1,4 +1,4 @@
-package gateway;
+package Gui_gateway;
 
 import GUI_Controller.*;
 

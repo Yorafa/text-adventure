@@ -15,11 +15,11 @@ public class RandomAlgorithm {
         this.random = new Random();
     }
 
-    public void setPmap(TextAdventureMap textAdventureMap) {
+    public void setTextAdventureMap(TextAdventureMap textAdventureMap) {
         this.textAdventureMap = textAdventureMap;
     }
 
-    public TextAdventureMap getPmap() {
+    public TextAdventureMap getTextAdventureMap() {
         return textAdventureMap;
     }
 

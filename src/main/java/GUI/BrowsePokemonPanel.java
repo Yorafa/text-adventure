@@ -40,7 +40,7 @@ public class BrowsePokemonPanel extends JPanel {
         JPanel pocketLibPanel = new JPanel();
         JLabel pocketLibLabel = new JLabel("My Pokemon Library");
         JComboBox<Pokemon> pokemonLib = new JComboBox<>();
-        for (Pokemon pokemon: taf.getPockePokemons()){
+        for (Pokemon pokemon: taf.getPocketPokemons()){
             pokemonLib.addItem(pokemon);
         }
         JPanel buttonPanel = new JPanel();
@@ -49,7 +49,7 @@ public class BrowsePokemonPanel extends JPanel {
         searchButton.addActionListener(e -> pokemonInfo(taf,
                 (Pokemon) pokemonLib.getSelectedItem(),
                 " Information"));
-        JButton intoPocketButton = new JButton("Put Into Battle Pocket");
+        JButton intoPocketButton = new JButton("Put Into Pocket");
         intoPocketButton.addActionListener(e ->
                 taf.intoPocket((Pokemon) pokemonLib.getSelectedItem()));
         buttonPanel.add(searchButton);
@@ -65,7 +65,7 @@ public class BrowsePokemonPanel extends JPanel {
         JPanel BattlePokemonPanel = new JPanel();
         JLabel BattlePokemonLabel = new JLabel("Battle Pokemon");
         JComboBox<Pokemon> BattlePokemonField = new JComboBox<>();
-        for (Pokemon Pokemon: taf.getBattlePokemons()){
+        for (Pokemon Pokemon: taf.getPocketPokemons()){
             BattlePokemonField.addItem(Pokemon);
         }
         BattlePokemonPanel.add(BattlePokemonLabel);

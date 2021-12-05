@@ -12,7 +12,7 @@ public class BattlePanel extends JPanel {
         this.setLayout(new GridLayout(2,1,10,10));
         pokemonPanel(taf);
         buttonPanel(taf);
-        this.battleManager = new BattleManager(taf.getBattlePokemons(), taf.getWildPokemon());
+        this.battleManager = new BattleManager(taf.getFirstPokemon(), taf.getWildPokemon());
     }
 
     public JPanel pokemonInfoPanel(Pokemon pokemon, String info){

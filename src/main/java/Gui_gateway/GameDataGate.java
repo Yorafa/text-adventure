@@ -1,4 +1,4 @@
-package gateway;
+package Gui_gateway;
 
 
 import GUI_Usecase.GuiGameData;
@@ -22,7 +22,7 @@ public class GameDataGate {
         GuiGameData gameData;
         try {
             ObjectInputStream objectInputStream = new ObjectInputStream(
-                    new FileInputStream("user/" + user.getUsername() + ".ser"));
+                    new FileInputStream("GUI_Data/user/"  + user.getUsername() + ".ser"));
             try {
                 gameData = (GuiGameData) objectInputStream.readObject();
             } catch (ClassNotFoundException e) {

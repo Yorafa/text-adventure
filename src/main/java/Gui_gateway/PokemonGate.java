@@ -1,11 +1,8 @@
-package gateway;
+package Gui_gateway;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import entity.BasePokemon;
-import entity.BasePokemonData;
 import entity.PokemonBook;
-import entity.PokemonType;
 
 import java.io.File;
 import java.io.FileWriter;

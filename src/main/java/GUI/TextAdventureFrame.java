@@ -2,8 +2,7 @@ package GUI;
 
 import GUI_Controller.*;
 import GUI_Usecase.*;
-import gateway.*;
-import usecase.*;
+import Gui_gateway.*;
 import entity.*;
 
 import javax.swing.*;
@@ -13,17 +12,16 @@ import java.util.List;
 public class TextAdventureFrame extends JFrame {
     private UserController userController;
     private MapController mapController;
-    private BattleManager battleManager;
     private PokemonBook pokemonBook;
     private Pokemon wildPokemon;
-    private Pocket pocket;
+    private PlayerPokemonController playerPokemonController;
 
 
     public TextAdventureFrame(UserController userController, MapController mapController, PokemonBook pokemonBook) {
         this.userController = userController;
         this.mapController = mapController;
         this.pokemonBook = pokemonBook;
-        this.pocket = null;
+        this.playerPokemonController = null;
         this.wildPokemon = null;
         // Setup frame
         this.setTitle("Text Adventure");
@@ -36,6 +34,7 @@ public class TextAdventureFrame extends JFrame {
         this.setVisible(true);
     }
 
+    // setter function
     public void setUser(User user) {
         userController.setCurrentUser(user);
     }
@@ -48,21 +47,17 @@ public class TextAdventureFrame extends JFrame {
         mapController.setCurrentPlace(mapController.find(mapName));
     }
 
-    public void setPocket(Pocket pocket) {
-        this.pocket = pocket;
-    }
-
     public void setUp(){
-        GuiGameData gameData = GameDataGate.readGameData(this.getUser());
-        this.setMap(gameData.getCurrentPlace());
-        this.setPocket(gameData.getPocket());
+        GuiGameData guiGameData = GameDataGate.readGameData(this.getUser());
+        this.setMap(guiGameData.getCurrentPlace());
+
     }
 
-    public void setUserManager(UserController userController) {
+    public void setUserController(UserController userController) {
         this.userController = userController;
     }
 
-    public void setMapManager(MapController mapController) {
+    public void setMapController(MapController mapController) {
         this.mapController = mapController;
     }
 
@@ -70,8 +65,13 @@ public class TextAdventureFrame extends JFrame {
         this.pokemonBook = pokemonBook;
     }
 
+    public void setPlayerPokemonController(PlayerPokemonController playerPokemonController) {
+        this.playerPokemonController = playerPokemonController;
+    }
+
+    // getter functions
     public Pokemon getFirstPokemon(){
-        return this.pocket.getDefaultPokemon();
+        return this.playerPokemonController.getFirstPokemon();
     }
 
     public Pokemon getWildPokemon() {
@@ -82,12 +82,12 @@ public class TextAdventureFrame extends JFrame {
         return pokemonBook;
     }
 
-    public List<Pokemon> getBattlePokemons(){
-        return this.pocket.getBattlePokemons();
+    public List<Pokemon> getPocketPokemons(){
+        return this.playerPokemonController.getPocketPokemons();
     }
 
-    public List<Pokemon> getPockePokemons(){
-        return  this.pocket.getPokemons();
+    public List<Pokemon> getLibraryPokemons(){
+        return  this.playerPokemonController.getLibraryPokemons();
     }
 
     public User getUser() {
@@ -96,10 +96,6 @@ public class TextAdventureFrame extends JFrame {
 
     public TextAdventureMap getMap() {
         return mapController.getCurrentPlace();
-    }
-
-    public Pocket getPocket() {
-        return pocket;
     }
 
     public UserController getUserManager() {
@@ -111,11 +107,16 @@ public class TextAdventureFrame extends JFrame {
     }
 
     public GuiGameData getGameData(){
-        return new GuiGameData(this.pocket, this.mapController.getCurrentPlace());
+        return new GuiGameData(this.playerPokemonController.getPlayerPokemons(), this.mapController.getCurrentPlace());
+    }
+
+    // Controller usage function
+    public PlayerPokemonController getPlayerPokemonController() {
+        return playerPokemonController;
     }
 
     public void setFirstPokemon(Pokemon pokemon){
-        this.pocket.setFirstPokemon(pokemon);
+        this.playerPokemonController.setFirstPokemon(pokemon);
     }
 
     public List<BasePokemon> getAllBasePokemon(){
@@ -123,12 +124,11 @@ public class TextAdventureFrame extends JFrame {
     }
 
     public void intoLib(Pokemon pokemon){
-        if (this.pocket.getBattlePokemons().size() > 1){
-        this.pocket.intoLib(pokemon);}
-        else{
-            String message = "Invalid action: only 1 pokemon in your Battle pocket";
-            JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
-        }
+        if (! playerPokemonController.intoLib(pokemon)){
+                String message = "Invalid action: only 1 pokemon in your pocket";
+                JOptionPane.showMessageDialog(this, message,
+                        "Warning", JOptionPane.WARNING_MESSAGE);
+            }
     }
 
     public void fight(){}
@@ -160,25 +160,22 @@ public class TextAdventureFrame extends JFrame {
 
     public void newStart() {
         this.setMap("Home");
-        this.setPocket(new Pocket());
+        this.setPlayerPokemonController(new PlayerPokemonController(new GuiPlayerPokemons()));
     }
 
     public void addPokemon(Pokemon pokemon){
-        if (this.pocket.getBattlePokemons().size() >=6){
-            this.pocket.addPokemon(pokemon);
-        }
-        else{
-            this.pocket.addBattlePokemon(pokemon);
+        if (playerPokemonController.addPocketPokemon(pokemon)){
+            String message = "Since your pocket is full, your pokemon is moved into library";
+            JOptionPane.showMessageDialog(this, message,
+                    "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }
 
     public void intoPocket(Pokemon pokemon) {
-        if (this.pocket.getBattlePokemons().size() >= 6){
-            String message = "Invalid action: your Battle pocket is full";
-            JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
-        }
-        else{
-            this.pocket.addBattlePokemon(pokemon);
+        if (! playerPokemonController.moveIntoPocket(pokemon)){
+            String message = "Since your pocket is full, your pokemon is moved back library";
+            JOptionPane.showMessageDialog(this, message,
+                    "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }
 }
