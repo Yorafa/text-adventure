@@ -1,7 +1,6 @@
 package UISimple;
 
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 public class PocketPresenter extends Presenter {

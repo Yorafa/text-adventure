@@ -1,6 +1,5 @@
 package UISimple;
 
-import usecase.GameDataManager;
 import usecase.UserManager;
 
 import java.util.Scanner;
@@ -38,7 +37,6 @@ public class TextLoginPanel extends TextPanel implements PanelState {
             default:
                 loginPresenter.notValid();
         }
-
     }
 
     private void login() {

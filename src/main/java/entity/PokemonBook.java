@@ -1,10 +1,9 @@
 package entity;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PokemonBook implements Serializable {
+public class PokemonBook {
     private List<BasePokemon> pokemonBook;
 
     public PokemonBook() {

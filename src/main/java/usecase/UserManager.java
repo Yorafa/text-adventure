@@ -16,7 +16,6 @@ public class UserManager implements Serializable {
         try {
             users = (List<User>) readWriter.read();
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
             users = new ArrayList<>();
         }
         this.readWriter = readWriter;

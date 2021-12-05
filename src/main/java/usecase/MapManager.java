@@ -18,31 +18,6 @@ public class MapManager {
         }
     }
 
-//    public MapManager(Pmap currentPlace) {
-//        this.currentPlace = currentPlace;
-//    }
-//
-//    public List<Pmap> getMaps() {
-//        return pmaps;
-//    }
-//
-//    public void addMap(Pmap pmap) {
-//        pmaps.add(pmap);
-//    }
-//
-//    public Pmap start() {
-//        return pmaps.get(0);
-//    }
-//
-//    public Pmap find(String mapName) {
-//        for (Pmap pmap : pmaps) {
-//            if (pmap.getMapName().equals(mapName)) {
-//                return pmap;
-//            }
-//        }
-//        return null;
-//    }
-
     public List<String> getMapNames() {
         List<String> mapNames = new ArrayList<>();
         for (Pmap pmap : pmaps) {
@@ -63,15 +38,6 @@ public class MapManager {
         }
     }
 
-//    private Pmap getMap(String placeName) {
-//        for (Pmap pmap : pmaps) {
-//            if (pmap.getMapName().equals(placeName)) {
-//                return pmap;
-//            }
-//        }
-//        return null;
-//    }
-
     public Pmap getCurrentPlace() {
         return currentPlace;
     }
@@ -87,10 +53,4 @@ public class MapManager {
     public void setCurrentPlace(int i) {
         currentPlace = pmaps.get(i);
     }
-
-//    public String getName(Pmap map) {
-//        return map.getMapName();
-//    }
-
-
 }
