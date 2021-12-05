@@ -23,6 +23,18 @@ public class PokemonBook implements Serializable {
         return pokemonBook;
     }
 
+    public BasePokemon get(int i) {
+        return pokemonBook.get(i);
+    }
+
+    public BasePokemon get(String name) {
+        for (BasePokemon basePokemon : pokemonBook) {
+            if (basePokemon.getName().equals(name)) {
+                return basePokemon;
+            }
+        }
+        return null;
+    }
     public BasePokemon getPokemon(String pokemonName){
         for (BasePokemon basePokemon: pokemonBook){
             if (basePokemon.getName().equals(pokemonName)){return basePokemon;}

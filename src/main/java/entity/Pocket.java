@@ -2,52 +2,27 @@ package entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
-public class Pocket implements Serializable {
+public class Pocket implements Serializable, Iterable<Pokemon> {
     private List<Pokemon> pokemons;
-    private List<Pokemon> battlePokemons;
-    private HashMap<String, Integer> items;
+    private Pokemon battlePokemon;
 
     public Pocket() {
         pokemons = new ArrayList<>();
-        battlePokemons = new ArrayList<>();
-        items = new HashMap<>();
     }
 
-    public HashMap<String, Integer> getItems() {
-        return items;
+    public void setBattlePokemon(Pokemon battlePokemon) {
+        this.battlePokemon = battlePokemon;
     }
 
-    public void setBattlePokemons(List<Pokemon> battlePokemons) {
-        this.battlePokemons = battlePokemons;
+    public Pokemon getBattlePokemon() {
+        return battlePokemon;
     }
 
-    public void setFirstPokemon(Pokemon pokemon){
-        battlePokemons.remove(pokemon);
-        battlePokemons.add(0, pokemon);
-    }
-
-    public void intoLib(Pokemon pokemon){
-        battlePokemons.remove(pokemon);
-        addPokemon(pokemon);
-    }
-
-    public List<Pokemon> getBattlePokemons() {
-        return battlePokemons;
-    }
-
-    public Pokemon getDefaultPokemon() {
-        return battlePokemons.get(0);
-    }
-
-    public void addBattlePokemon(Pokemon pokemon){
-        battlePokemons.add(pokemon);
-    }
-
-    public void addPokemon(Pokemon pokemon) {
+    public void add(Pokemon pokemon) {
         pokemons.add(pokemon);
     }
 
@@ -60,11 +35,24 @@ public class Pocket implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pocket pocket = (Pocket) o;
-        return getPokemons().equals(pocket.getPokemons()) && getBattlePokemons().equals(pocket.getBattlePokemons());
+        return getPokemons().equals(pocket.getPokemons()) && getBattlePokemon().equals(pocket.getBattlePokemon());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getPokemons(), getBattlePokemons());
+        return Objects.hash(getPokemons(), getBattlePokemon());
+    }
+
+    @Override
+    public Iterator<Pokemon> iterator() {
+        return pokemons.iterator();
+    }
+
+    public int size() {
+        return pokemons.size();
+    }
+
+    public Pokemon get(int i) {
+        return pokemons.get(i);
     }
 }

@@ -1,41 +1,42 @@
 package UISimple;
 
-import entity.Pmap;
 import usecase.MapManager;
 
-import java.util.List;
 import java.util.Scanner;
 
-public class TextChangePlacePanel extends TextPanel {
-    private Pmap newPlace;
-    private List<Pmap> maps;
+public class TextChangePlacePanel extends TextPanel implements PanelState {
+    private MapManager mapManager;
+    private ChangePlacePresenter changePlacePresenter;
 
-    public TextChangePlacePanel(Scanner input, List<Pmap> maps, MapManager mapManager) {
-        super(input);
-        this.maps = maps;
-        int i = 1;
-        for (Pmap map : maps) {
-            options.add(mapManager.getName(map));
-            i++;
-        }
-        options.add(i + ". " + "Cancel");
+    public TextChangePlacePanel(Scanner input, GameController gameController, MapManager mapManager) {
+        super(input, gameController);
+        this.mapManager = mapManager;
+        this.changePlacePresenter = new ChangePlacePresenter();
+    }
+
+    @Override
+    protected void printMenu() {
+        changePlacePresenter.addToQueue(mapManager.getMapNames());
+        changePlacePresenter.addCancel();
+        changePlacePresenter.printAllEnum();
     }
 
     @Override
     protected void execute(String choice) {
         try {
-            int choiceIndex = Integer.parseInt(choice) - 1;
-            options.get(choiceIndex);
-            if (choiceIndex != options.size() - 1) {
-                newPlace = maps.get(choiceIndex);
+            int numChoice = Integer.parseInt(choice) - 1;
+            if (numChoice >= 0 && numChoice < mapManager.getMapNames().size()) {
+                mapManager.setCurrentPlace(numChoice);
+                changePlacePresenter.printMapChanged(mapManager.getMapNames().get(numChoice));
+                gameController.changeStateExplore();
+            } else if (numChoice == mapManager.getMapNames().size()) { // Cancel
+                gameController.changeStateExplore();
+            } else {
+                changePlacePresenter.notValid();
             }
-        } catch (NumberFormatException | IndexOutOfBoundsException e) {
-            System.out.println("Not valid.");
-            runPanel();
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            changePlacePresenter.notValid();
         }
-    }
-
-    public Pmap getNewPlace() {
-        return newPlace;
     }
 }

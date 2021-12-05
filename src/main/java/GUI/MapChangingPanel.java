@@ -1,6 +1,6 @@
 package GUI;
 
-import entity.Pmap;
+import GUI_Usecase.TextAdventureMap;
 
 import javax.swing.*;
 
@@ -9,8 +9,8 @@ public class MapChangingPanel extends JPanel {
         taf.setContentPane(this);
         this.setBorder(BorderFactory.createEmptyBorder(200, 400, 200, 400));
 
-        for (Pmap pmap : taf.getMapManager().getMaps()) {
-            showMap(pmap.getMapName(), taf);
+        for (TextAdventureMap textAdventureMap : taf.getMapManager().getMaps()) {
+            showMap(textAdventureMap.getMapName(), taf);
         }
     }
     public void showMap(String name, TextAdventureFrame taf){

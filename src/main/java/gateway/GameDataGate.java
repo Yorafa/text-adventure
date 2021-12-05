@@ -1,14 +1,16 @@
 package gateway;
 
-import entity.*;
+
+import GUI_Usecase.GuiGameData;
+import entity.User;
 
 import java.io.*;
 
 public class GameDataGate {
-    public static void writeGameData(User user, GameData gameData) {
+    public static void writeGameData(User user, GuiGameData gameData) {
         try {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(
-                    new FileOutputStream("user/" + user.getUsername() + ".ser"));
+                    new FileOutputStream("GUI_Data/user/" + user.getUsername() + ".ser"));
             objectOutputStream.writeObject(gameData);
             objectOutputStream.close();
         } catch (IOException e) {
@@ -16,20 +18,20 @@ public class GameDataGate {
         }
     }
 
-    public static GameData readGameData(User user) {
-        GameData gameData;
+    public static GuiGameData readGameData(User user) {
+        GuiGameData gameData;
         try {
             ObjectInputStream objectInputStream = new ObjectInputStream(
                     new FileInputStream("user/" + user.getUsername() + ".ser"));
             try {
-                gameData = (GameData) objectInputStream.readObject();
+                gameData = (GuiGameData) objectInputStream.readObject();
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
-                gameData = new GameData();
+                gameData = new GuiGameData();
             }
         } catch (IOException e) {
             e.printStackTrace();
-            gameData = new GameData();
+            gameData = new GuiGameData();
         }
         return gameData;
     }

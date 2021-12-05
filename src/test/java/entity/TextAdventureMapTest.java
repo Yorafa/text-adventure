@@ -1,5 +1,6 @@
 package entity;
 
+import GUI_Usecase.TextAdventureMap;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,18 +10,18 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class PmapTest {
-    Pmap pmap;
+public class TextAdventureMapTest {
+    TextAdventureMap textAdventureMap;
 
     @Before
     public void setPmap(){
-        pmap = new Pmap();
+        textAdventureMap = new TextAdventureMap();
     }
 
     @Test(timeout = 50)
     public void testSetMapNameAndGetMapName(){
-       this.pmap.setMapName("MAP");
-       assertEquals("MAP",pmap.getMapName());
+       this.textAdventureMap.setMapName("MAP");
+       assertEquals("MAP", textAdventureMap.getMapName());
     }
 
     @Test(timeout = 50)
@@ -29,19 +30,19 @@ public class PmapTest {
         List<String> rarity = new ArrayList<>();
         rarity.add("pokemonName");
         pokemonList.add(rarity);
-        this.pmap.setPokemons(pokemonList);
-        assertEquals(pokemonList, pmap.getPokemons());
+        this.textAdventureMap.setPokemons(pokemonList);
+        assertEquals(pokemonList, textAdventureMap.getPokemons());
     }
 
     @Test(timeout = 50)
     public void testConstant(){
-        assertEquals(0, pmap.getMAX_ExperiencePoint());
-        assertEquals(0, pmap.getMIN_ExperiencePoint());
+        assertEquals(0, textAdventureMap.getMAX_ExperiencePoint());
+        assertEquals(0, textAdventureMap.getMIN_ExperiencePoint());
     }
 
     @Test(timeout = 50)
     public void testEqual(){
-        Pmap pmapTest = new Pmap();
-        assertTrue(pmap.equals(pmapTest));
+        TextAdventureMap textAdventureMapTest = new TextAdventureMap();
+        assertTrue(textAdventureMap.equals(textAdventureMapTest));
     }
 }

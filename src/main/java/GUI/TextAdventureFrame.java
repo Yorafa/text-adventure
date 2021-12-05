@@ -1,6 +1,7 @@
 package GUI;
 
 import GUI_Controller.*;
+import GUI_Usecase.*;
 import gateway.*;
 import usecase.*;
 import entity.*;
@@ -39,8 +40,8 @@ public class TextAdventureFrame extends JFrame {
         userController.setCurrentUser(user);
     }
 
-    public void setMap(Pmap pmap) {
-        mapController.setCurrentPlace(pmap);
+    public void setMap(TextAdventureMap textAdventureMap) {
+        mapController.setCurrentPlace(textAdventureMap);
     }
 
     public void setMap(String mapName) {
@@ -52,7 +53,7 @@ public class TextAdventureFrame extends JFrame {
     }
 
     public void setUp(){
-        GameData gameData = GameDataGate.readGameData(this.getUser());
+        GuiGameData gameData = GameDataGate.readGameData(this.getUser());
         this.setMap(gameData.getCurrentPlace());
         this.setPocket(gameData.getPocket());
     }
@@ -93,7 +94,7 @@ public class TextAdventureFrame extends JFrame {
         return userController.getCurrentUser();
     }
 
-    public Pmap getMap() {
+    public TextAdventureMap getMap() {
         return mapController.getCurrentPlace();
     }
 
@@ -109,8 +110,8 @@ public class TextAdventureFrame extends JFrame {
         return mapController;
     }
 
-    public GameData getGameData(){
-        return new GameData(this.pocket, this.mapController.getCurrentPlace());
+    public GuiGameData getGameData(){
+        return new GuiGameData(this.pocket, this.mapController.getCurrentPlace());
     }
 
     public void setFirstPokemon(Pokemon pokemon){

@@ -7,18 +7,17 @@ public class PokemonFactory {
         LevelCalculator lc = new LevelCalculator();
         PokemonDataManager pdm = new PokemonDataManager();
 
-        int level = lc.calculate(experiencePoint);
+        int level = lc.calculateLevel(experiencePoint);
         PokemonData pokemonData = pdm.create(basePokemon.getBasePokemonData(), level);
         return new Pokemon(basePokemon.getName(), basePokemon.getBasePokemonData(), level, experiencePoint,
                 currentHitPoint, pokemonData);
     }
-    public Pokemon getPokemon(BasePokemon basePokemon, int experiencePoint) {
-        LevelCalculator lc = new LevelCalculator();
-        PokemonDataManager pdm = new PokemonDataManager();
 
-        int level = lc.calculate(experiencePoint);
-        PokemonData pokemonData = pdm.create(basePokemon.getBasePokemonData(), level);
-        return new Pokemon(basePokemon.getName(), basePokemon.getBasePokemonData(), level, experiencePoint,
-                basePokemon.getMaxHitPoint(), pokemonData);
+    public Pokemon getPokemon(BasePokemon basePokemon, int level) {
+        LevelCalculator lc = new LevelCalculator();
+        int experiencePoint = lc.calculateExperiencePoint(level);
+        Pokemon pokemon = getPokemon(basePokemon, experiencePoint, 0);
+        pokemon.setHitPoint(pokemon.getMaxHitPoint());
+        return pokemon;
     }
 }

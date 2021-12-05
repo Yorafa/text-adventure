@@ -1,21 +1,21 @@
 package UISimple;
 
-import entity.User;
-import usecase.UserManager;
+import usecase.IReadWriter;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
-public class UserReadWriter {
+public class UserReadWriter implements IReadWriter {
     private final String filePath = "gamedata/userinfo.ser";
     private final ReadWriter rw = new ReadWriter();
 
-    public ArrayList<User> read() throws IOException, ClassNotFoundException {
-        return (ArrayList<User>) rw.read(filePath);
+    @Override
+    public Object read() throws IOException, ClassNotFoundException {
+        return rw.read(filePath);
     }
 
-    public void write(List<User> users) throws IOException {
-        rw.write(filePath, users);
+    @Override
+    public void write(Object o) throws IOException {
+        rw.write(filePath, o);
     }
+
 }

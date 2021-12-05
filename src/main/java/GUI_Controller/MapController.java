@@ -1,5 +1,6 @@
 package GUI_Controller;
 
+import GUI_Usecase.TextAdventureMap;
 import entity.*;
 import usecase.PokemonDataManager;
 import usecase.PokemonFactory;
@@ -9,53 +10,45 @@ import java.util.List;
 
 public class MapController{
     private PokemonDataManager pokemonDataManager;
-    private List<Pmap> pmaps;
-    private Pmap currentPlace;
+    private List<TextAdventureMap> textAdventureMaps;
+    private TextAdventureMap currentPlace;
 
     public MapController() {
         this.pokemonDataManager = new PokemonDataManager();
-        this.pmaps = new ArrayList<>();
+        this.textAdventureMaps = new ArrayList<>();
         this.currentPlace = null;
     }
 
-    public MapController(Pmap currentPlace) {
+    public MapController(TextAdventureMap currentPlace) {
         this.pokemonDataManager = new PokemonDataManager();
-        this.pmaps = new ArrayList<>();
+        this.textAdventureMaps = new ArrayList<>();
         this.currentPlace = currentPlace;
     }
 
-    public void setPmaps(List<Pmap> pmaps){
-        this.pmaps = pmaps;
+    public void setTextAdventureMaps(List<TextAdventureMap> textAdventureMaps){
+        this.textAdventureMaps = textAdventureMaps;
     }
 
-    public List<Pmap> getMaps() {
-        return pmaps;
+    public List<TextAdventureMap> getMaps() {
+        return textAdventureMaps;
     }
 
-    public void addMap(Pmap pmap) {
-        pmaps.add(pmap);
+    public void addMap(TextAdventureMap textAdventureMap) {
+        textAdventureMaps.add(textAdventureMap);
     }
 
-    public Pmap start() {
-        if (!pmaps.isEmpty()){return pmaps.get(0);}
+    public TextAdventureMap start() {
+        if (!textAdventureMaps.isEmpty()){return textAdventureMaps.get(0);}
         return null;
     }
 
-    public Pmap find(String mapName) {
-        for (Pmap pmap : pmaps) {
-            if (pmap.getMapName().equals(mapName)) {
-                return pmap;
+    public TextAdventureMap find(String mapName) {
+        for (TextAdventureMap textAdventureMap : textAdventureMaps) {
+            if (textAdventureMap.getMapName().equals(mapName)) {
+                return textAdventureMap;
             }
         }
         return null;
-    }
-
-    public Pokemon walkAround() {
-        // TODO: return a random (according to the probability of currentPlace) pokemon.
-        BasePokemonData basePokemonData = new BasePokemonData(PokemonType.ELECTRICITY, 1000, 1000, 1000, 1000);
-        BasePokemon basePokemon = new BasePokemon("Pikachu", basePokemonData);
-        PokemonFactory pf = new PokemonFactory();
-        return pf.getPokemon(basePokemon, 0, 1000);
     }
 
     public Pokemon walkAround(PokemonBook pokemonBook) {
@@ -70,15 +63,15 @@ public class MapController{
         }
     }
 
-    public Pmap getCurrentPlace() {
+    public TextAdventureMap getCurrentPlace() {
         return currentPlace;
     }
 
-    public void setCurrentPlace(Pmap currentPlace) {
+    public void setCurrentPlace(TextAdventureMap currentPlace) {
         this.currentPlace = currentPlace;
     }
 
-    public String getName(Pmap map) {
+    public String getName(TextAdventureMap map) {
         return map.getMapName();
     }
 

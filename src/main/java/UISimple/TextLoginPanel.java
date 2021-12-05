@@ -1,20 +1,25 @@
 package UISimple;
 
-import entity.User;
-import usecase.PokemonManager;
 import usecase.UserManager;
 
 import java.util.Scanner;
 
-public class TextLoginPanel extends TextPanel {
+public class TextLoginPanel extends TextPanel implements PanelState {
     private UserManager userManager;
-    private String username;
+    private LoginPresenter loginPresenter;
 
-    public TextLoginPanel(Scanner input, UserManager userManager) {
-        super(input);
-        super.options.add("1. Login");
-        super.options.add("2. Signup");
+    public TextLoginPanel(Scanner input, GameController gameController, UserManager userManager) {
+        super(input, gameController);
         this.userManager = userManager;
+        this.loginPresenter = new LoginPresenter();
+    }
+
+    @Override
+    protected void printMenu() {
+        loginPresenter.addLogin();
+        loginPresenter.addSignup();
+        loginPresenter.addQuit();
+        loginPresenter.printAllEnum();
     }
 
     @Override
@@ -26,48 +31,43 @@ public class TextLoginPanel extends TextPanel {
             case "2":
                 signup();
                 break;
+            case "3":
+                gameController.endGame();
+                break;
             default:
-                System.out.println("Not valid");
-                runPanel();
+                loginPresenter.notValid();
         }
-
     }
 
-    public void login() {
-        User user = null;
-        String username = null, password;
-        while (user == null) {
-            System.out.print("Username: ");
-            username = input.nextLine();
-            System.out.print("Password: ");
-            password = input.nextLine();
-            user = userManager.login(username, password);
-            if (user == null) {
-                System.out.println("Not valid");
-            }
+    private void login() {
+        String username, password;
+        loginPresenter.askForUsername();
+        username = input.nextLine();
+        loginPresenter.askForPassword();
+        password = input.nextLine();
+        boolean loggedIn = userManager.login(username, password);
+        if (loggedIn) {
+            gameController.changeStateExplore(username);
+        } else {
+            loginPresenter.printInvalidUsernameOrPassword();
         }
-        this.username = username;
     }
 
     private void signup() {
-        User user = null;
-        String username = null, password;
-        while (user == null) {
-            System.out.print("Username: ");
-            username = input.nextLine();
-            if (userManager.hasUser(username)) {
-                System.out.println("Not valid");
+        String username, password;
+        loginPresenter.askForUsername();
+        username = input.nextLine();
+        if (userManager.hasUser(username)) {
+            loginPresenter.printUsernameExists();
+        } else {
+            loginPresenter.askForPassword();
+            password = input.nextLine();
+            boolean loggedIn = userManager.register(username, password);
+            if (loggedIn) {
+                gameController.changeStateExplore(username);
             } else {
-                System.out.print("Password: ");
-                password = input.nextLine();
-                user = userManager.register(username, password);
+                loginPresenter.printInvalidPassword();
             }
         }
-        this.username = username;
     }
-
-    public String getUsername() {
-        return username;
-    }
-
 }

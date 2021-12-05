@@ -1,83 +1,67 @@
 package UISimple;
 
-import entity.Pmap;
-import entity.Pokemon;
+import usecase.BattleManager;
+import usecase.GameDataManager;
 import usecase.MapManager;
 import usecase.PokemonManager;
 
-import java.util.List;
 import java.util.Scanner;
 
-public class TextExplorePanel extends TextPanel {
+public class TextExplorePanel extends TextPanel implements PanelState {
     private MapManager mapManager;
     private PokemonManager pokemonManager;
-    private Pokemon pokemon;
-    private boolean loggedOut;
-    private boolean exploring;
+    private GameDataManager gameDataManager;
+    private ExplorePresenter explorePresenter;
 
-    public TextExplorePanel(Scanner input, MapManager mapManager, PokemonManager pokemonManager) {
-        super(input);
-        options.add("1. Walk around");
-        options.add("2. Heal Pokemons");
-        options.add("3. Change place");
-        options.add("4. Logout");
+    public TextExplorePanel(Scanner input, GameController gameController, MapManager mapManager,
+                            PokemonManager pokemonManager, GameDataManager gameDataManager) {
+        super(input, gameController);
         this.mapManager = mapManager;
         this.pokemonManager = pokemonManager;
-        this.loggedOut = false;
-        this.exploring = true;
+        this.gameDataManager = gameDataManager;
+        this.explorePresenter = new ExplorePresenter();
+    }
+
+    @Override
+    protected void printMenu() {
+        explorePresenter.addWalkAround();
+        explorePresenter.addHeal();
+        explorePresenter.addChangePlace();
+        explorePresenter.addViewPocket();
+        explorePresenter.addLogout();
+        explorePresenter.printAllEnum();
     }
 
     @Override
     protected void execute(String choice) {
         switch (choice) {
-            case "1":
-                pokemon = mapManager.walkAround();
-                if (pokemon == null) {
-                    System.out.println("Nothing happens.");
-                    runPanel();
+            case "1": // Walk around
+                BattleManager battleManager = new BattleManager(pokemonManager.getBattlePokemon(),
+                        mapManager.walkAround(pokemonManager));
+                if (battleManager.isBattling()) {
+                    gameController.changeStateBattle(battleManager);
+                    explorePresenter.printOpponent(battleManager.getP2Name());
                 } else {
-                    exploring = false;
+                    explorePresenter.printNothingHappens();
                 }
                 break;
-            case "2":
+            case "2": // Heal
                 pokemonManager.healAll();
-                System.out.println("All pokemons are healed.");
+                explorePresenter.printHealed();
                 break;
-            case "3":
-                System.out.println("Where do you want to go?");
-                changePlace();
-                runPanel();
+            case "3": // Change place
+                gameController.changeState(new TextChangePlacePanel(input, gameController, mapManager));
                 break;
             case "4":
-                System.out.println("You are logged out.");
-                loggedOut = true;
+                gameController.changeState(new TextPocketPanel(input, gameController, pokemonManager));
+                break;
+            case "5": // Logout
+                explorePresenter.printLogout();
+                gameDataManager.saveGameData(pokemonManager.getPocket(), mapManager.getCurrentPlace());
+                gameController.changeStateLogin();
                 break;
             default:
-                System.out.println("Not valid");
-                runPanel();
+                explorePresenter.notValid();
         }
-    }
-
-    public void changePlace() {
-        List<Pmap> maps = mapManager.getMaps();
-        TextChangePlacePanel changePlacePanel = new TextChangePlacePanel(input, maps, mapManager);
-        changePlacePanel.runPanel();
-        mapManager.setCurrentPlace(changePlacePanel.getNewPlace());
-    }
-
-    public boolean isLoggedOut() {
-        return loggedOut;
-    }
-
-    public Pokemon getPokemon() {
-        return pokemon;
-    }
-
-    public void continueExploring() {
-        this.exploring = true;
-    }
-
-    public boolean isExploring() {
-        return exploring;
     }
 }
