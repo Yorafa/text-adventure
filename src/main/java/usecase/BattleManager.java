@@ -24,8 +24,7 @@ public class BattleManager {
 
     public BattleManager(List<Pokemon> battlePokemons, Pokemon wildPokemon) {
         this.battlePokemons = battlePokemons;
-        Pokemon userFirstPokemon = battlePokemons.get(0);
-        this.p1 = userFirstPokemon;
+        this.p1 = battlePokemons.get(0);
         this.p2 = wildPokemon;
         this.hasDefenseP1 = false;
         this.hasDefenseP2 = false;
