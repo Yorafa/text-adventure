@@ -18,7 +18,7 @@ public class GameController {
         this.pokemonManager = new PokemonManager(new PokemonJsonReader());
         this.mapManager = new MapManager(new MapJsonReader());
         this.gameDataManager = new GameDataManager();
-        this.state = new TextLoginPanel(input, this, userManager, gameDataManager);
+        this.state = new TextLoginPanel(input, this, userManager);
         this.gaming = true;
     }
 
@@ -33,7 +33,7 @@ public class GameController {
     }
 
     public void changeStateLogin() {
-        changeState(new TextLoginPanel(input, this, userManager, gameDataManager));
+        changeState(new TextLoginPanel(input, this, userManager));
     }
 
     public void changeStateExplore() {
@@ -53,17 +53,5 @@ public class GameController {
 
     public void endGame() {
         this.gaming = false;
-    }
-
-    public UserManager getUserManager() {
-        return userManager;
-    }
-
-    public MapManager getMapManager() {
-        return mapManager;
-    }
-
-    public PokemonManager getPokemonManager() {
-        return pokemonManager;
     }
 }

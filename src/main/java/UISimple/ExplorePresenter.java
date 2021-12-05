@@ -13,6 +13,10 @@ public class ExplorePresenter extends Presenter {
         addToQueue("Change place");
     }
 
+    public void addViewPocket() {
+        addToQueue("View Pocket");
+    }
+
     public void addLogout() {
         addToQueue("Log out");
     }
@@ -32,4 +36,5 @@ public class ExplorePresenter extends Presenter {
     public void printOpponent(String opponentName) {
         System.out.println("You bumped into " + opponentName + ".");
     }
+
 }

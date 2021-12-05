@@ -1,15 +1,39 @@
-{"pmaps":[
-    {"mapName":"Home","mapId":0,"pokemons":[
-        {"level":1,
-        "experiencePoint":0,
-        "hitPoint":1,
-        "pokemonData":{
-            "pokemonType":"ELECTRICITY",
-            "maxHitPoint":1,
-            "attackPoint":1,
-            "defencePoint":1,
-            "speed":1},
-        "name":"Test Pokemon",
-        "basePokemonData":{"pokemonType":"ELECTRICITY","maxHitPoint":1,"attackPoint":1,"defencePoint":1,"speed":1}}],
-    "probability":[1]},
-  {"mapName":"Shop","mapId":1,"pokemons":[],"probability":[]}]}
+{
+  "pmaps": [
+    {
+      "mapName": "Home",
+      "mapId": 0,
+      "pokemons": [
+        {
+          "level": 1,
+          "experiencePoint": 0,
+          "hitPoint": 1,
+          "pokemonData": {
+            "pokemonType": "ELECTRICITY",
+            "maxHitPoint": 1,
+            "attackPoint": 1,
+            "defencePoint": 1,
+            "speed": 1
+          },
+          "name": "Test Pokemon",
+          "basePokemonData": {
+            "pokemonType": "ELECTRICITY",
+            "maxHitPoint": 1,
+            "attackPoint": 1,
+            "defencePoint": 1,
+            "speed": 1
+          }
+        }
+      ],
+      "probability": [
+        1
+      ]
+    },
+    {
+      "mapName": "Shop",
+      "mapId": 1,
+      "pokemons": [],
+      "probability": []
+    }
+  ]
+}

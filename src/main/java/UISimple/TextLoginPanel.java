@@ -7,13 +7,11 @@ import java.util.Scanner;
 
 public class TextLoginPanel extends TextPanel implements PanelState {
     private UserManager userManager;
-    private GameDataManager gameDataManager;
     private LoginPresenter loginPresenter;
 
-    public TextLoginPanel(Scanner input, GameController gameController, UserManager userManager, GameDataManager gameDataManager) {
+    public TextLoginPanel(Scanner input, GameController gameController, UserManager userManager) {
         super(input, gameController);
         this.userManager = userManager;
-        this.gameDataManager = gameDataManager;
         this.loginPresenter = new LoginPresenter();
     }
 

@@ -3,7 +3,10 @@ package usecase;
 import entity.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PokemonManager {
     private PokemonBook pokemonBook;
@@ -53,8 +56,26 @@ public class PokemonManager {
         }
     }
 
+    public List<Map<String, String>> getPocketInfo(IPocketInfoAdder adder) {
+        List<Map<String, String>> pocketInfo = new ArrayList<>();
+        for (Pokemon pokemon : pocket) {
+            Map<String, String> pokemonInfo = new HashMap<>();
+            adder.add(pokemonInfo, pokemon);
+            pocketInfo.add(pokemonInfo);
+        }
+        return pocketInfo;
+    }
+
     public Pokemon getBattlePokemon() {
         return pocket.getBattlePokemon();
+    }
+
+    public String getBattlePokemonName() {
+        return pocket.getBattlePokemon().getName();
+    }
+
+    public void setBattlePokemon(int i) {
+        pocket.setBattlePokemon(pocket.get(i));
     }
 
     public void add(Pokemon pokemon) {

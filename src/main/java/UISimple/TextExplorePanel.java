@@ -27,6 +27,7 @@ public class TextExplorePanel extends TextPanel implements PanelState {
         explorePresenter.addWalkAround();
         explorePresenter.addHeal();
         explorePresenter.addChangePlace();
+        explorePresenter.addViewPocket();
         explorePresenter.addLogout();
         explorePresenter.printAllEnum();
     }
@@ -51,7 +52,10 @@ public class TextExplorePanel extends TextPanel implements PanelState {
             case "3": // Change place
                 gameController.changeState(new TextChangePlacePanel(input, gameController, mapManager));
                 break;
-            case "4": // Logout
+            case "4":
+                gameController.changeState(new TextPocketPanel(input, gameController, pokemonManager));
+                break;
+            case "5": // Logout
                 explorePresenter.printLogout();
                 gameDataManager.saveGameData(pokemonManager.getPocket(), mapManager.getCurrentPlace());
                 gameController.changeStateLogin();
