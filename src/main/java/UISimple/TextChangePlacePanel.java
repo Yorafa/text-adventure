@@ -35,7 +35,6 @@ public class TextChangePlacePanel extends TextPanel implements PanelState {
                 changePlacePresenter.notValid();
             }
         } catch (NumberFormatException e) {
-            e.printStackTrace();
             changePlacePresenter.notValid();
         }
     }

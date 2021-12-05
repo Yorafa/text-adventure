@@ -58,7 +58,7 @@ public class BattleManager {
     public void opponentAction() {
         Random r = new Random();
         int i = r.nextInt(100);
-        if (i < 50) {
+        if (i < 70) {
             setBattleAction(new BattleActionWhenAttacked(this));
         } else {
             setBattleAction(new BattleActionWhenDefensed(this));
@@ -108,19 +108,11 @@ public class BattleManager {
         return p1;
     }
 
-    public void setP1(Pokemon p1) {
-        this.p1 = p1;
-    }
-
     public Pokemon getP2() {
         return p2;
     }
 
-    public void setP2(Pokemon p2) {
-        this.p2 = p2;
-    }
-
-    public boolean isHasCounterattackP1() {
+    public boolean hasCounterattackP1() {
         return hasCounterattackP1;
     }
 
@@ -128,7 +120,7 @@ public class BattleManager {
         this.hasCounterattackP1 = hasCounterattackP1;
     }
 
-    public boolean isHasCounterattackP2() {
+    public boolean hasCounterattackP2() {
         return hasCounterattackP2;
     }
 
