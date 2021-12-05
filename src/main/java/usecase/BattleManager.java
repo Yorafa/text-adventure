@@ -83,12 +83,14 @@ public class BattleManager {
 
     public void printBattleResult() {
         presenter.printBattleEnded();
-        if (p1.getHitPoint() == 0 && p2.getHitPoint() == 0) {
-            presenter.printDraw();
-        } else if (p1.getHitPoint() == 0) {
-            presenter.printLose();
-        } else if (p2.getHitPoint() == 0) {
-            presenter.printWin();
+        if (p2 != null) {
+            if (p1.getHitPoint() == 0 && p2.getHitPoint() == 0) {
+                presenter.printDraw();
+            } else if (p1.getHitPoint() == 0) {
+                presenter.printLose();
+            } else if (p2.getHitPoint() == 0) {
+                presenter.printWin();
+            }
         }
     }
 
