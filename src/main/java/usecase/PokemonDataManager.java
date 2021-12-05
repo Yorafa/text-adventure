@@ -19,6 +19,6 @@ public class PokemonDataManager {
     }
 
     private int leveledPoint(int basePoint, int level) {
-        return (int) Math.round(basePoint * Math.sqrt(level));
+        return (int) Math.round(basePoint * (0.1 * (level - 1)) + 1);
     }
 }

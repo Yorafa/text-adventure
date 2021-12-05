@@ -38,7 +38,6 @@ public class TextChangeBattlePokemonPanel extends TextPanel {
                 pocketPresenter.notValid();
             }
         } catch (NumberFormatException e) {
-            e.printStackTrace();
             pocketPresenter.notValid();
         }
     }

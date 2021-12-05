@@ -2,19 +2,19 @@
   {
     "mapName" : "Ocean",
     "pokemons": ["Squirtle", "Psyduck"],
-    "probabilities": [50, 30],
+    "probabilities": [30, 30],
     "levels": [15, 13]
   },
   {
     "mapName" : "Volcano",
     "pokemons": ["Charmander", "Vulpix"],
-    "probabilities": [30, 20],
-    "levels": [11, 14]
+    "probabilities": [40, 20],
+    "levels": [15, 20]
   },
   {
     "mapName" : "Forest",
     "pokemons": ["Bulbasaur", "Oddish"],
-    "probabilities": [40, 20],
-    "levels": [15, 14]
+    "probabilities": [20, 40],
+    "levels": [17, 14]
   }
 ]

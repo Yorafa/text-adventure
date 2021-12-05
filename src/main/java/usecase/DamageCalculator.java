@@ -10,7 +10,7 @@ public class DamageCalculator {
     }
 
     public int calculate(int attackPoint, int defencePoint) {
-        double damage = (double) attackPoint / defencePoint * 100;
+        double damage = 0.9 * attackPoint / defencePoint * 100 + 0.1 * attackPoint;
         if (hasCounterattack) {
             damage *= 2;
         }

@@ -34,7 +34,7 @@ public class BattlePresenter extends Presenter implements IBattlePresenter {
 
     @Override
     public void printStatus(String name, int level, int hitPoint, int maxHitPoint) {
-        System.out.println(name + "    " + "Level: " + level + ", " + "Hit Point: " + hitPoint + "/" + maxHitPoint);
+        System.out.printf("%-20s%-20s%-20s%n", name, "Level: " + level, "Hit Point: " + hitPoint + "/" + maxHitPoint);
     }
 
     @Override

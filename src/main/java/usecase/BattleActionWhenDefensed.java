@@ -13,7 +13,7 @@ public class BattleActionWhenDefensed implements BattleAction {
         this.battleManager = battleManager;
         this.p1 = battleManager.getP1();
         this.p2 = battleManager.getP2();
-        this.hasCounterattackP1 = battleManager.isHasCounterattackP1();
+        this.hasCounterattackP1 = battleManager.hasCounterattackP1();
         this.presenter = battleManager.getPresenter();
     }
 
