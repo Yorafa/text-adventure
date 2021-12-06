@@ -10,10 +10,10 @@ public class BasePokemon implements Serializable {
      * Construct a BasePokemon, giving them the
      * given name and basePokemonData.
      *
-     * @param name BasePokemon's name
-     * @param basePokemonData  BasePokemon's data
-     *
-     * The relative classes
+     * @param name            BasePokemon's name
+     * @param basePokemonData BasePokemon's data
+     *                        <p>
+     *                        The relative classes
      * @see BasePokemonData
      */
 
@@ -48,6 +48,18 @@ public class BasePokemon implements Serializable {
 
     public int getSpeed() {
         return basePokemonData.getSpeed();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        else {
+            BasePokemon basepokemon = (BasePokemon) o;
+            return this.getMaxHitPoint() == basepokemon.getMaxHitPoint()
+                    && this.getAttackPoint() == basepokemon.getAttackPoint()
+                    && this.getDefencePoint() == basepokemon.getDefencePoint()
+                    && this.getSpeed() == basepokemon.getSpeed();
+        }
     }
 }
 

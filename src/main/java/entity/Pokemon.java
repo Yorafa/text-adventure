@@ -91,20 +91,6 @@ public class Pokemon extends BasePokemon implements Serializable {
         return name;
     }
 
-    /**
-     * @inheritDoc override the equal method to avoid conflict of pokemons
-     * @param o the object used to compare
-     * @return true if the o has exactly the same data of this pokemon
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        Pokemon pokemon = (Pokemon) o;
-        return getLevel() == pokemon.getLevel() && getExperiencePoint() == pokemon.getExperiencePoint() && getHitPoint() == pokemon.getHitPoint() && Objects.equals(getPokemonData(), pokemon.getPokemonData());
-    }
-
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), getLevel(), getExperiencePoint(), getHitPoint(), getPokemonData());
