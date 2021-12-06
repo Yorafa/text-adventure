@@ -12,11 +12,9 @@ import java.util.List;
 
 public class SaveLoadController {
     private List<GuiGameData> gameDataHistory;
-    private User relativeUser;
 
     /**
      * Construct a SaveLoadController, given them the given user
-     * @param user the player info
      *
      * @see User
      * @see GuiGameData
@@ -24,12 +22,10 @@ public class SaveLoadController {
      */
     public SaveLoadController(User user){
         this.gameDataHistory = new ArrayList<>();
-        relativeUser = user;
         initial(user);
     }
     public SaveLoadController(){
         this.gameDataHistory = new ArrayList<>();
-        relativeUser = null;
     }
 
     public void save(User user, GuiGameData gameData, UserController userController){
@@ -71,10 +67,6 @@ public class SaveLoadController {
 
     public GuiGameData load(){
         return lastModify();
-    }
-
-    public void setRelativeUser(User relativeUser) {
-        this.relativeUser = relativeUser;
     }
 
     public GuiGameData lastModify(){
