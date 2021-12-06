@@ -1,6 +1,9 @@
 package usecase_pokemon;
 
-import entity.*;
+import entity.BasePokemon;
+import entity.Pocket;
+import entity.Pokemon;
+import entity.PokemonBook;
 import usecase_data.IJsonReader;
 import usecase_pocket.IPocketInfoAdder;
 

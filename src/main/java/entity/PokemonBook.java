@@ -18,7 +18,7 @@ public class PokemonBook {
         pokemonBook.remove(i);
     }
 
-    public List<BasePokemon> getPokemonBook(){
+    public List<BasePokemon> getPokemonBook() {
         return pokemonBook;
     }
 

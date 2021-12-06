@@ -1,7 +1,6 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 public class BasePokemon implements Serializable {
     protected String name;

@@ -2,7 +2,7 @@ package gateway;
 
 import usecase_data.IReadWriter;
 
-import java.io.*;
+import java.io.IOException;
 
 public class UserReadWriter implements IReadWriter {
     private final String filePath = "gamedata/userinfo.ser";
