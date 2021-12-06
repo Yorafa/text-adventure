@@ -34,11 +34,6 @@ public class MapController{
         textAdventureMaps.add(textAdventureMap);
     }
 
-    public TextAdventureMap start() {
-        if (!textAdventureMaps.isEmpty()){return textAdventureMaps.get(0);}
-        return null;
-    }
-
     public TextAdventureMap find(String mapName) {
         for (TextAdventureMap textAdventureMap : textAdventureMaps) {
             if (textAdventureMap.getMapName().equals(mapName)) {

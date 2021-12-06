@@ -3,11 +3,14 @@ package GUI_Controller;
 import entity.Pokemon;
 
 import java.util.List;
+import java.util.Random;
 
 
 public class BattleController {
+    private List<Pokemon> playerPokemons;
     private Pokemon playerPokemon;
     private Pokemon wildPokemon;
+    private int playerPokemonIndex = 0;
     private boolean playerCounter;
     private boolean wildCounter;
     private boolean playerDefense;
@@ -17,8 +20,8 @@ public class BattleController {
 
 
     public BattleController(List<Pokemon> playerPokemons, Pokemon wildPokemon){
-
-        this.playerPokemon = playerPokemons.get(0) ;
+        this.playerPokemons = playerPokemons;
+        this.playerPokemon = playerPokemons.get(playerPokemonIndex) ;
         this.wildPokemon = wildPokemon;
         wildDefense = false;
         playerDefense = false;
@@ -53,7 +56,31 @@ public class BattleController {
         this.wildDefense = wildDefense;
     }
 
+    public void setPlayerPokemons(List<Pokemon> playerPokemons) {
+        this.playerPokemons = playerPokemons;
+    }
+
+    public void setBattling(boolean battling) {
+        isBattling = battling;
+    }
+
+    public void setPlayerPokemonIndex(int playerPokemonIndex) {
+        this.playerPokemonIndex = playerPokemonIndex;
+    }
+
+    public void setPlayerPokemonState(boolean playerPokemonState) {
+        this.playerPokemonState = playerPokemonState;
+    }
+
     // getter methods
+
+    public int getPlayerPokemonIndex() {
+        return playerPokemonIndex;
+    }
+
+    public List<Pokemon> getPlayerPokemons() {
+        return playerPokemons;
+    }
 
     public boolean isPlayerPokemonState() {
         return playerPokemonState;
@@ -91,10 +118,16 @@ public class BattleController {
     public boolean attack(){
         if (faster().equals(playerPokemon)){
             PokemonController.reduceHp(wildPokemon, playerAttack());
-            if (AIbattle.isAttack())PokemonController.reduceHp(playerPokemon, AiAttack());
+            checkState();
+            if (!isBattling()) return isBattling;
+            if (AIbattle.isAttack()){PokemonController.reduceHp(playerPokemon, AiAttack());
+                checkState();
+                if (!isBattling()) return isBattling;}
             else wildDefense = true;
         }
-        if (AIbattle.isAttack()) PokemonController.reduceHp(playerPokemon, AiAttack());
+        if (AIbattle.isAttack()){ PokemonController.reduceHp(playerPokemon, AiAttack());
+            checkState();
+            if (!isBattling()) return isBattling;}
         else wildDefense = true;
         PokemonController.reduceHp(wildPokemon, playerAttack());
         checkState();
@@ -104,13 +137,16 @@ public class BattleController {
     public boolean defend(){
         if (faster().equals(playerPokemon)){
             playerDefense = true;
-            if (AIbattle.isAttack())PokemonController.reduceHp(playerPokemon, AiAttack());
+            if (AIbattle.isAttack()){PokemonController.reduceHp(playerPokemon, AiAttack());
+                checkState();
+                if (!isBattling()) return isBattling;}
             else wildDefense = true;
-        }
-        if (AIbattle.isAttack()) PokemonController.reduceHp(playerPokemon, AiAttack());
+        }else{
+        if (AIbattle.isAttack()){ PokemonController.reduceHp(playerPokemon, AiAttack());
+            checkState();
+            if (!isBattling()) return isBattling;}
         else wildDefense = true;
-        playerDefense = true;
-        checkState();
+        playerDefense = true;}
         return isBattling;
     }
 
@@ -122,7 +158,7 @@ public class BattleController {
                 wildDefense = false;
             }
             else{
-                damage = wildPokemon.getAttackPoint() * 2;
+                damage = playerPokemon.getAttackPoint() * 2;
             }
             if (damage <= 0) return 1;
             return damage;
@@ -135,6 +171,7 @@ public class BattleController {
         }
         else{
             damage = playerPokemon.getAttackPoint();
+            if (damage <= 0) return 1;
             return damage;
         }
     }
@@ -144,6 +181,7 @@ public class BattleController {
         if (wildCounter){
             if (playerDefense){
                 damage = wildPokemon.getAttackPoint() * 2 - playerPokemon.getDefencePoint();
+                playerDefense = false;
             }
             else{
                 damage = wildPokemon.getAttackPoint() * 2;
@@ -153,11 +191,13 @@ public class BattleController {
         }
         else if (playerDefense){
             damage = wildPokemon.getAttackPoint() - playerPokemon.getDefencePoint();
+            playerDefense = false;
             if (damage <= 0) return 1;
             return damage;
         }
         else{
             damage = wildPokemon.getAttackPoint();
+            if (damage <= 0) return 1;
             return damage;
         }
     }
@@ -170,9 +210,29 @@ public class BattleController {
     }
 
     public void checkState(){
-        if (playerPokemon.getHitPoint() <= 0 || wildPokemon.getHitPoint() <= 0){
-            isBattling = false;
-            if (playerPokemon.getHitPoint() <= 0) playerPokemonState = false;
+        if (wildPokemon.getHitPoint() <= 0){
+            isBattling = false;}
+        if (playerPokemon.getHitPoint() <= 0 && playerPokemonIndex +1 != playerPokemons.size()) {
+            do {
+                playerPokemonIndex++;
+                playerPokemon = playerPokemons.get(playerPokemonIndex);
+            }while (playerPokemon.getHitPoint() <=0 && playerPokemonIndex +1 != playerPokemons.size());
         }
+        else if (playerPokemon.getHitPoint() <= 0 && playerPokemonIndex +1 == playerPokemons.size()){
+            playerPokemonState = false;
+            isBattling = false;
+        }
+    }
+    public boolean catching(){
+        if (capture()){return true;}
+        else{if (AIbattle.isAttack()){PokemonController.reduceHp(playerPokemon, AiAttack());}
+            else {wildDefense = true;}
+            checkState();
+            return false;}
+    }
+
+    public boolean capture() {
+        Random r = new Random();
+        return r.nextDouble() > 0.8 * wildPokemon.getHitPoint() / wildPokemon.getMaxHitPoint() + 0.1;
     }
 }

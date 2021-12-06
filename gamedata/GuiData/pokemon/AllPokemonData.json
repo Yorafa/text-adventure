@@ -5,7 +5,7 @@
       "maxHitPoint":10,
       "attackPoint":3,
       "defencePoint":2,
-      "speed":1}},
+      "speed":7}},
   {"name":"Gras",
     "basePokemonData":
     {"pokemonType":"GRASS",

@@ -1,5 +1,7 @@
 package GUI;
 
+import GUI_Controller.PokemonController;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -17,6 +19,15 @@ public class MapPanel extends JPanel {
         // Setup Button Field
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(2, 2, 10, 10));
+        if (taf.getCurrentMapName().equals("Home")){
+            JButton healAll = new JButton("Heal All");
+            healAll.addActionListener((e) -> {
+                PokemonController.healAll(taf.getPocketPokemons());
+                String message = "All of Your Pokemons are healed";
+                JOptionPane.showMessageDialog(this, message, "Notice", JOptionPane.WARNING_MESSAGE);
+                });
+            buttonPanel.add(healAll);}
+        else{
         JButton search = new JButton("Walk around");
         search.addActionListener((e) -> {
             taf.walkAround();
@@ -26,10 +37,16 @@ public class MapPanel extends JPanel {
             }
             else{
                 taf.remove(this);
+                if (PokemonController.canFight(taf.getPocketPokemons())){
                 taf.setContentPane(new BattlePanel(taf));
-                taf.pack();
+                taf.pack();}
+                else {
+                    String message = "Oof, Your first pokemon in your pocket can not fight now";
+                    JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
+                }
             }
         });
+            buttonPanel.add(search);}
 
         JButton mapButton = new JButton("Change place");
         mapButton.addActionListener((e) ->
@@ -52,8 +69,6 @@ public class MapPanel extends JPanel {
             taf.setUser(null);
             taf.pack();
         });
-
-        buttonPanel.add(search);
         buttonPanel.add(mapButton);
         buttonPanel.add(browsePokemon);
         buttonPanel.add(logOut);

@@ -136,12 +136,12 @@ public class TextAdventureFrame extends JFrame {
     }
 
     public void intoLib(Pokemon pokemon){
-        if (! playerPokemonController.intoLib(pokemon)){
-                String message = "Invalid action: only 1 pokemon in your pocket";
-                JOptionPane.showMessageDialog(this, message,
-                        "Warning", JOptionPane.WARNING_MESSAGE);
-            }
-    }
+        if (pokemon != null){
+            if (! playerPokemonController.intoLib(pokemon)){
+                    String message = "Invalid action: only 1 pokemon in your pocket";
+                    JOptionPane.showMessageDialog(this, message,
+                            "Warning", JOptionPane.WARNING_MESSAGE);
+                }}}
 
     public void fight(){}
 
@@ -184,10 +184,11 @@ public class TextAdventureFrame extends JFrame {
     }
 
     public void intoPocket(Pokemon pokemon) {
+        if (pokemon != null){
         if (! playerPokemonController.moveIntoPocket(pokemon)){
             String message = "Since your pocket is full, your pokemon is moved back library";
             JOptionPane.showMessageDialog(this, message,
                     "Warning", JOptionPane.WARNING_MESSAGE);
-        }
+        }}
     }
 }

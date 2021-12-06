@@ -50,8 +50,12 @@ public class BrowsePokemonPanel extends JPanel {
                 (Pokemon) pokemonLib.getSelectedItem(),
                 " Information"));
         JButton intoPocketButton = new JButton("Put Into Pocket");
-        intoPocketButton.addActionListener(e ->
-                taf.intoPocket((Pokemon) pokemonLib.getSelectedItem()));
+        intoPocketButton.addActionListener(e ->{
+                taf.intoPocket((Pokemon) pokemonLib.getSelectedItem());
+                taf.remove(this);
+                taf.setContentPane(new BrowsePokemonPanel(taf));
+                taf.pack();
+        });
         buttonPanel.add(searchButton);
         buttonPanel.add(intoPocketButton);
 
@@ -63,7 +67,7 @@ public class BrowsePokemonPanel extends JPanel {
 
     public void addBattlePokemon(TextAdventureFrame taf){
         JPanel BattlePokemonPanel = new JPanel();
-        JLabel BattlePokemonLabel = new JLabel("Battle Pokemon");
+        JLabel BattlePokemonLabel = new JLabel("Battle Pokemon Pocket");
         JComboBox<Pokemon> BattlePokemonField = new JComboBox<>();
         for (Pokemon Pokemon: taf.getPocketPokemons()){
             BattlePokemonField.addItem(Pokemon);
@@ -77,11 +81,19 @@ public class BrowsePokemonPanel extends JPanel {
                 (Pokemon) BattlePokemonField.getSelectedItem(),
                 " Information"));
         JButton setFirstButton = new JButton("Set As Starter");
-        setFirstButton.addActionListener(e ->
-                taf.setFirstPokemon((Pokemon) BattlePokemonField.getSelectedItem()));
+        setFirstButton.addActionListener(e ->{
+                taf.setFirstPokemon((Pokemon) BattlePokemonField.getSelectedItem());
+                taf.remove(this);
+                taf.setContentPane(new BrowsePokemonPanel(taf));
+                taf.pack();
+        });
         JButton intoLibButton = new JButton("Put Into Library");
-        intoLibButton.addActionListener(e ->
-                taf.intoLib((Pokemon) BattlePokemonField.getSelectedItem()));
+        intoLibButton.addActionListener(e ->{
+                taf.intoLib((Pokemon) BattlePokemonField.getSelectedItem());
+                taf.remove(this);
+                taf.setContentPane(new BrowsePokemonPanel(taf));
+                taf.pack();
+        });
         buttonPanel.add(searchButton);
         buttonPanel.add(setFirstButton);
         buttonPanel.add(intoLibButton);

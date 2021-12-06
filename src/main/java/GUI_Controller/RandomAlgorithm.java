@@ -36,7 +36,7 @@ public class RandomAlgorithm {
 
     public int randomExp(){
         int diff = textAdventureMap.getMAX_ExperiencePoint() - textAdventureMap.getMIN_ExperiencePoint();
-        return random.nextInt(diff+1) + textAdventureMap.getMIN_ExperiencePoint();
+        return random.nextInt(diff) + textAdventureMap.getMIN_ExperiencePoint();
     }
 
     public int getRarity(){
