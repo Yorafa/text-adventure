@@ -26,10 +26,14 @@ Open question & discussion
 - Update Specification
 - Finish Shell UI
 
+### Xi Chen
+
+- Brainstorming with regards to design patterns used in coordinating the panels
+- accessibility.md
+- Test
+- Bug fixing for the failed tests.
+
 
 ### Yucen Liu
-
-
-### Xi Chen
 
 
