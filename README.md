@@ -23,6 +23,7 @@
 - type `java` to see if you set up Java environment correctly
 - type `java -version` to see your java version
 - type `javac -version` to see your java compiler version
+- if your versions are different might cause error
 
 ## Documentation
 
