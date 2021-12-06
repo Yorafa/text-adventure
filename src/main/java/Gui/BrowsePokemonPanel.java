@@ -102,6 +102,7 @@ public class BrowsePokemonPanel extends JPanel {
     }
 
     public void pokemonInfo(TextAdventureFrame taf, Pokemon pokemon, String title){
+        if (pokemon != null){
         PokemonDialog pokemonDialog = new PokemonDialog(taf, pokemon);
         pokemonDialog.setTitle(pokemon.getName() + title);
         pokemonDialog.setModal(true);
@@ -109,7 +110,6 @@ public class BrowsePokemonPanel extends JPanel {
         pokemonDialog.setVisible(true);
         if (pokemonDialog.isAcceptable()){
             taf.remove(this);
-        }
+        }}
     }
-
 }

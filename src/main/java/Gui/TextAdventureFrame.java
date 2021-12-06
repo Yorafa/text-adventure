@@ -55,6 +55,9 @@ public class TextAdventureFrame extends JFrame {
 
     public void setUp(){
         saveLoadController = new SaveLoadController(getUser());
+        GuiGameData gameData = saveLoadController.load();
+        playerPokemonController = new PlayerPokemonController(gameData.getPlayerPokemons());
+        setCurrentMap(gameData.getCurrentPlace());
     }
 
     public void setUserController(UserController userController) {
@@ -115,7 +118,7 @@ public class TextAdventureFrame extends JFrame {
         return getCurrentMap().getMapName();
     }
 
-    public UserController getUserManager() {
+    public UserController getUserController() {
         return this.userController;
     }
 
@@ -144,8 +147,6 @@ public class TextAdventureFrame extends JFrame {
                     JOptionPane.showMessageDialog(this, message,
                             "Warning", JOptionPane.WARNING_MESSAGE);
                 }}}
-
-    public void fight(){}
 
     public void walkAround() {
         this.wildPokemon = this.mapController.walkAround(pokemonBook);
@@ -200,14 +201,18 @@ public class TextAdventureFrame extends JFrame {
     }
 
     public void save(){
-        saveLoadController.saveGameDataMemento(getUser(),
+        saveLoadController.save(getUser(),
                 new GuiGameData(this.playerPokemonController.getPlayerPokemons(),
-                this.mapController.getCurrentPlace()));
+                this.mapController.getCurrentPlace()), getUserController());
     }
 
-    public void load(String date){
-        GuiGameData guiGameData = saveLoadController.load(date);
+    public void load(GuiGameData guiGameData){
+        if (guiGameData != null){
         playerPokemonController.setPlayerPokemons(guiGameData.getPlayerPokemons());
-        mapController.setCurrentPlace(guiGameData.getCurrentPlace());
+        mapController.setCurrentPlace(guiGameData.getCurrentPlace());}
+    }
+
+    public List<GuiGameData> getAllSaves(){
+        return saveLoadController.getGameDataHistory();
     }
 }

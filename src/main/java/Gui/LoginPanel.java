@@ -39,7 +39,7 @@ public class LoginPanel extends JPanel {
 
         JButton register = new JButton("Register");
         register.addActionListener((e) -> {
-            taf.setUser(taf.getUserManager().register(username.getText(), password.getText()));
+            taf.setUser(taf.getUserController().register(username.getText(), password.getText()));
             if (taf.getUser() == null) {
                 String message = "Your name already been used or\n" +
                         "Your password is doesn't match requirement:\n" +

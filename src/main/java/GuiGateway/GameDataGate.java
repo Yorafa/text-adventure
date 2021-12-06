@@ -9,8 +9,11 @@ import java.io.*;
 public class GameDataGate {
     public static void writeGameData(User user, GuiGameData gameData, String date) {
         try {
+            String toFilePath = "gamedata/GuiData/user/" + user.getUsername();
+            File myPath = new File(toFilePath);
+            if (!myPath.exists())myPath.mkdir();
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(
-                    new FileOutputStream("gamedata/GuiData/user/" + user.getUsername() + "/"+ date +".ser"));
+                    new FileOutputStream(toFilePath +  "/" + date +".ser"));
             objectOutputStream.writeObject(gameData);
             objectOutputStream.close();
         } catch (IOException e) {

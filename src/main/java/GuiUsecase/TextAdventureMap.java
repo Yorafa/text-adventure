@@ -1,10 +1,11 @@
 package GuiUsecase;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class TextAdventureMap {
+public class TextAdventureMap implements Serializable {
     private String mapName;
     private List<List<String>> pokemons;
     private final int MIN_ExperiencePoint;
