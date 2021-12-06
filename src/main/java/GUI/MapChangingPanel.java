@@ -16,7 +16,7 @@ public class MapChangingPanel extends JPanel {
     public void showMap(String name, TextAdventureFrame taf){
         JButton button = new JButton(name);
         button.addActionListener(e -> {
-            taf.setMap(taf.getMapManager().find(name));
+            taf.setCurrentMap(taf.getMapManager().find(name));
             taf.setContentPane(new MapPanel(taf));
             taf.pack();
         });

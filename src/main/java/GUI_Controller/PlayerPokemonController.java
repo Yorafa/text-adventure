@@ -67,23 +67,9 @@ public class PlayerPokemonController {
         playerPokemons.addPocketPokemon(0, pokemon);
     }
 
-    /*public void setPlayerPokemons(GuiPlayerPokemons playerPokemons) {
-        this.playerPokemons = playerPokemons;
+    public Pokemon getNextPokemon(Pokemon pokemon) {
+        int index = playerPokemons.indexOfLibraryPokemon(pokemon);
+        if (index + 1 == playerPokemons.getPocketSize()) return null;
+        return playerPokemons.getPocketPokemon(index + 1);
     }
-
-    public void addPocketPokemon(Pokemon pokemon){
-        playerPokemons.addPocketPokemon(pokemon);
-    }
-
-    public void addLibraryPokemon(Pokemon pokemon){
-        playerPokemons.addLibraryPokemon(pokemon);
-    }
-
-    public void addPocketPokemon(int index, Pokemon pokemon){
-        playerPokemons.addPocketPokemon(index, pokemon);
-    }
-
-    public void addLibraryPokemon(int index,Pokemon pokemon){
-        playerPokemons.addLibraryPokemon(index, pokemon);
-    }*/
 }

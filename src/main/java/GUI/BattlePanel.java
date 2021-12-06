@@ -1,5 +1,6 @@
 package GUI;
 
+import GUI_Controller.BattleController;
 import entity.Pokemon;
 import usecase.BattleManager;
 
@@ -7,12 +8,12 @@ import javax.swing.*;
 import java.awt.*;
 
 public class BattlePanel extends JPanel {
-    private BattleManager battleManager;
+    private BattleController battleController;
     public BattlePanel(TextAdventureFrame taf){
         this.setLayout(new GridLayout(2,1,10,10));
+        this.battleController = new BattleController(taf.getPocketPokemons(), taf.getWildPokemon());
         pokemonPanel(taf);
         buttonPanel(taf);
-        this.battleManager = new BattleManager(taf.getFirstPokemon(), taf.getWildPokemon());
     }
 
     public JPanel pokemonInfoPanel(Pokemon pokemon, String info){
@@ -43,15 +44,15 @@ public class BattlePanel extends JPanel {
 
         JButton attackButton = new JButton("Attack");
         attackButton.addActionListener(e -> {
-            this.battleManager.attack();
+            boolean state = battleController.attack();
         });
         JButton defenseButton = new JButton("Defense");
         defenseButton.addActionListener(e -> {
-            this.battleManager.defense();
+            boolean state = battleController.defend();
+
         });
         JButton catchButton = new JButton("Catch");
         JButton escapeButton = new JButton("Escape");
-        JButton switchButton = new JButton("Switch Pokemon");
         escapeButton.addActionListener(e -> {
             String message = "Successful Escape";
             JOptionPane.showMessageDialog(this, message, "Escaping", JOptionPane.WARNING_MESSAGE);

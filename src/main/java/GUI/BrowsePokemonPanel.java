@@ -11,8 +11,8 @@ public class BrowsePokemonPanel extends JPanel {
     public BrowsePokemonPanel(TextAdventureFrame taf){
         this.setLayout(new GridLayout(4,1,20,20));
         addPokemonBookLine(taf);
-        addCheckBattlePokemon(taf);
-        addPocketLibraryLine(taf);
+        addBattlePokemon(taf);
+        addLibraryLine(taf);
         JButton returnButton = new JButton("Back");
         returnButton.addActionListener(e -> {taf.setContentPane(new MapPanel(taf));
         taf.pack();});
@@ -36,11 +36,11 @@ public class BrowsePokemonPanel extends JPanel {
         this.add(pokemonBookPanel);
     }
 
-    public void addPocketLibraryLine(TextAdventureFrame taf){
+    public void addLibraryLine(TextAdventureFrame taf){
         JPanel pocketLibPanel = new JPanel();
         JLabel pocketLibLabel = new JLabel("My Pokemon Library");
         JComboBox<Pokemon> pokemonLib = new JComboBox<>();
-        for (Pokemon pokemon: taf.getPocketPokemons()){
+        for (Pokemon pokemon: taf.getLibraryPokemons()){
             pokemonLib.addItem(pokemon);
         }
         JPanel buttonPanel = new JPanel();
@@ -61,7 +61,7 @@ public class BrowsePokemonPanel extends JPanel {
         this.add(pocketLibPanel);
     }
 
-    public void addCheckBattlePokemon(TextAdventureFrame taf){
+    public void addBattlePokemon(TextAdventureFrame taf){
         JPanel BattlePokemonPanel = new JPanel();
         JLabel BattlePokemonLabel = new JLabel("Battle Pokemon");
         JComboBox<Pokemon> BattlePokemonField = new JComboBox<>();

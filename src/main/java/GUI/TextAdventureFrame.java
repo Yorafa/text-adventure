@@ -34,23 +34,22 @@ public class TextAdventureFrame extends JFrame {
         this.setVisible(true);
     }
 
-    // setter function
+    // setter methods
     public void setUser(User user) {
         userController.setCurrentUser(user);
     }
 
-    public void setMap(TextAdventureMap textAdventureMap) {
+    public void setCurrentMap(TextAdventureMap textAdventureMap) {
         mapController.setCurrentPlace(textAdventureMap);
     }
 
-    public void setMap(String mapName) {
+    public void setCurrentMap(String mapName) {
         mapController.setCurrentPlace(mapController.find(mapName));
     }
 
     public void setUp(){
         GuiGameData guiGameData = GameDataGate.readGameData(this.getUser());
-        this.setMap(guiGameData.getCurrentPlace());
-
+        this.setCurrentMap(guiGameData.getCurrentPlace());
     }
 
     public void setUserController(UserController userController) {
@@ -69,9 +68,13 @@ public class TextAdventureFrame extends JFrame {
         this.playerPokemonController = playerPokemonController;
     }
 
-    // getter functions
+    // getter methods
     public Pokemon getFirstPokemon(){
         return this.playerPokemonController.getFirstPokemon();
+    }
+
+    public Pokemon getNextPokemon(Pokemon pokemon){
+        return this.playerPokemonController.getNextPokemon(pokemon);
     }
 
     public Pokemon getWildPokemon() {
@@ -94,8 +97,17 @@ public class TextAdventureFrame extends JFrame {
         return userController.getCurrentUser();
     }
 
-    public TextAdventureMap getMap() {
+    public String getUserName() {
+        return getUser().getUsername();
+    }
+
+
+    public TextAdventureMap getCurrentMap() {
         return mapController.getCurrentPlace();
+    }
+
+    public String getCurrentMapName() {
+        return getCurrentMap().getMapName();
     }
 
     public UserController getUserManager() {
@@ -110,7 +122,7 @@ public class TextAdventureFrame extends JFrame {
         return new GuiGameData(this.playerPokemonController.getPlayerPokemons(), this.mapController.getCurrentPlace());
     }
 
-    // Controller usage function
+    // Controller usage methods
     public PlayerPokemonController getPlayerPokemonController() {
         return playerPokemonController;
     }
@@ -159,12 +171,12 @@ public class TextAdventureFrame extends JFrame {
     }
 
     public void newStart() {
-        this.setMap("Home");
+        this.setCurrentMap("Home");
         this.setPlayerPokemonController(new PlayerPokemonController(new GuiPlayerPokemons()));
     }
 
     public void addPokemon(Pokemon pokemon){
-        if (playerPokemonController.addPocketPokemon(pokemon)){
+        if (! playerPokemonController.addPocketPokemon(pokemon)){
             String message = "Since your pocket is full, your pokemon is moved into library";
             JOptionPane.showMessageDialog(this, message,
                     "Warning", JOptionPane.WARNING_MESSAGE);

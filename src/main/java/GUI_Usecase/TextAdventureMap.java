@@ -16,6 +16,12 @@ public class TextAdventureMap {
         this.MIN_ExperiencePoint = 0;
         this.MAX_ExperiencePoint = 0;
     }
+    public TextAdventureMap(String mapName){
+        this.mapName = mapName;
+        this.pokemons = new ArrayList<>();
+        this.MIN_ExperiencePoint = 0;
+        this.MAX_ExperiencePoint = 0;
+    }
 
     public int getMAX_ExperiencePoint() {
         return MAX_ExperiencePoint;

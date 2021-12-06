@@ -10,7 +10,7 @@ public class GameDataGate {
     public static void writeGameData(User user, GuiGameData gameData) {
         try {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(
-                    new FileOutputStream("GUI_Data/user/" + user.getUsername() + ".ser"));
+                    new FileOutputStream("gamedata/GuiData/user/" + user.getUsername() + ".ser"));
             objectOutputStream.writeObject(gameData);
             objectOutputStream.close();
         } catch (IOException e) {
@@ -22,7 +22,7 @@ public class GameDataGate {
         GuiGameData gameData;
         try {
             ObjectInputStream objectInputStream = new ObjectInputStream(
-                    new FileInputStream("GUI_Data/user/"  + user.getUsername() + ".ser"));
+                    new FileInputStream("gamedata/GuiData/user/"  + user.getUsername() + ".ser"));
             try {
                 gameData = (GuiGameData) objectInputStream.readObject();
             } catch (ClassNotFoundException e) {

@@ -8,7 +8,7 @@ public class UserGate {
     public static void writeUM(UserController userController) {
         try {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(
-                    new FileOutputStream("gamedata/userinfo.ser"));
+                    new FileOutputStream("gamedata/GuiData/userinfo.ser"));
             objectOutputStream.writeObject(userController);
             objectOutputStream.close();
         } catch (IOException e) {
@@ -20,7 +20,7 @@ public class UserGate {
         UserController userController;
         try {
             ObjectInputStream objectInputStream = new ObjectInputStream(
-                    new FileInputStream("gamedata/userinfo.ser"));
+                    new FileInputStream("gamedata/GuiData/userinfo.ser"));
             try {
                 userController = (UserController) objectInputStream.readObject();
             } catch (ClassNotFoundException e) {
@@ -33,4 +33,5 @@ public class UserGate {
         }
         return userController;
     }
+
 }

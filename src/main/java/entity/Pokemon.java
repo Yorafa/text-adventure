@@ -68,4 +68,9 @@ public class Pokemon extends BasePokemon implements Serializable {
     public int getSpeed() {
         return pokemonData.getSpeed();
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

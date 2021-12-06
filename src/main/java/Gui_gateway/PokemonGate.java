@@ -12,26 +12,10 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class PokemonGate {
-    public static HashMap<String, HashMap<String, Integer>> readPokemonInfo(){
-        try{
-            File pokemonFile = new File("gamedata/AllPokemonData.json");
-            Scanner scanner = new Scanner(pokemonFile);
-            StringBuilder pokemonData = new StringBuilder();
-            while (scanner.hasNext()){pokemonData.append(scanner.next().strip());}
-            String pokemonDataJson = pokemonData.toString();
-            Gson gson = new Gson();
-            Type dataType = new TypeToken<HashMap<String, HashMap<String, Integer>>>(){}.getType();
-            return gson.fromJson(pokemonDataJson, dataType);
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
-    return null;
-    }
 
     public static PokemonBook toPokemonBook(){
         try{
-            File pokemonFile = new File("gamedata/pokemon/AllPokemonData.json");
+            File pokemonFile = new File("gamedata/GuiData/pokemon/AllPokemonData.json");
             Scanner scanner = new Scanner(pokemonFile);
             StringBuilder pokemonData = new StringBuilder();
             while (scanner.hasNext()){pokemonData.append(scanner.next().strip());}
@@ -49,7 +33,7 @@ public class PokemonGate {
         Gson gson = new Gson();
         String pokemonBookJson = gson.toJson(pokemonBook);
         try {
-            FileWriter mapFile = new FileWriter("gamedata/pokemon/AllPokemonData.json");
+            FileWriter mapFile = new FileWriter("gamedata/GuiData/pokemon/AllPokemonData.json");
             mapFile.write(pokemonBookJson);
             mapFile.close();}
         catch (IOException e) {

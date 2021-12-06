@@ -10,7 +10,7 @@ public class MapPanel extends JPanel {
         this.setLayout(new GridLayout(2, 1, 10, 10));
 
         JLabel label = new JLabel("Welcome to Text Adventure, " + taf.getUser().getUsername() +
-                ". You are currently at " + taf.getMap().getMapName() + "."
+                ". You are currently at " + taf.getCurrentMapName() + "."
                 );
 
         this.add(label);

@@ -3,6 +3,8 @@ package GUI_Controller;
 import java.util.Random;
 
 public class AIbattle {
-    Random random;
-
+    public static boolean isAttack(){
+        Random random = new Random();
+        return random.nextBoolean();
+    }
 }

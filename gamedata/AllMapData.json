@@ -1,14 +1,20 @@
-{
-  "map1Name": {
-    "pokemons": ["pokemon1Name", "pokemon2Name"],
-    "probabilities": [0.5, 0.3],
+[
+  {
+    "mapName" : "Ocean",
+    "pokemons": ["Squirtle", "Psyduck"],
+    "probabilities": [50, 30],
     "levels": [15, 13]
   },
-  "map2Name": {
-    "pokemons": ["pokemon3Name", "pokemon4Name"],
-    "probabilities": [0.3, 0.2],
+  {
+    "mapName" : "Volcano",
+    "pokemons": ["Charmander", "Vulpix"],
+    "probabilities": [30, 20],
     "levels": [11, 14]
+  },
+  {
+    "mapName" : "Forest",
+    "pokemons": ["Bulbasaur", "Oddish"],
+    "probabilities": [40, 20],
+    "levels": [15, 14]
   }
-}
-
-HashMap<mapName, HashMap<attribute, ArrayList<value>>>
+]

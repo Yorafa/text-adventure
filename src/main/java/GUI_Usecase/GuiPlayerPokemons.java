@@ -33,6 +33,11 @@ public class GuiPlayerPokemons implements Serializable, PokemonIterableCollectio
         return pocketPokemons.size();
     }
 
+    public int indexOfLibraryPokemon(Pokemon pokemon)
+    {
+        return pocketPokemons.indexOf(pokemon);
+    }
+
     public Pokemon getLibraryPokemon(int index){
         return libraryPokemons.get(index);
     }

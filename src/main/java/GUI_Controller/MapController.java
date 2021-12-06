@@ -9,18 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MapController{
-    private PokemonDataManager pokemonDataManager;
     private List<TextAdventureMap> textAdventureMaps;
     private TextAdventureMap currentPlace;
 
     public MapController() {
-        this.pokemonDataManager = new PokemonDataManager();
         this.textAdventureMaps = new ArrayList<>();
         this.currentPlace = null;
     }
 
     public MapController(TextAdventureMap currentPlace) {
-        this.pokemonDataManager = new PokemonDataManager();
         this.textAdventureMaps = new ArrayList<>();
         this.currentPlace = currentPlace;
     }
@@ -69,10 +66,6 @@ public class MapController{
 
     public void setCurrentPlace(TextAdventureMap currentPlace) {
         this.currentPlace = currentPlace;
-    }
-
-    public String getName(TextAdventureMap map) {
-        return map.getMapName();
     }
 
 }
