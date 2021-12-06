@@ -13,10 +13,16 @@ public class Pmap implements Serializable {
         return mapName;
     }
 
+    /**
+     * @return a list of Pokemon's name from this map
+     */
     public List<String> getPokemons() {
         return pokemons;
     }
 
+    /**
+     * @return a list of integer that represent of pokemon probability from this map
+     */
     public List<Integer> getProbabilities() {
         return probabilities;
     }

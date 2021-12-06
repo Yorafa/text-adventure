@@ -6,6 +6,12 @@ public class GameData implements Serializable {
     private Pocket pocket;
     private Pmap currentPlace;
 
+    /**
+     * The relative classes
+     * @see Pocket
+     * @see Pmap
+     */
+
     public Pocket getPocket() {
         return pocket;
     }
