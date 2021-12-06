@@ -25,8 +25,7 @@ public class BattleController {
         this.wildPokemon = wildPokemon;
         wildDefense = false;
         playerDefense = false;
-        wildCounter = CounterState.IsCounter(wildPokemon, playerPokemon);
-        playerCounter = CounterState.IsCounter(playerPokemon, wildPokemon);
+        counterCheck();
         isBattling = true;
         playerPokemonState = true;
     }
@@ -216,6 +215,7 @@ public class BattleController {
             do {
                 playerPokemonIndex++;
                 playerPokemon = playerPokemons.get(playerPokemonIndex);
+                counterCheck();
             }while (playerPokemon.getHitPoint() <=0 && playerPokemonIndex +1 != playerPokemons.size());
         }
         else if (playerPokemon.getHitPoint() <= 0 && playerPokemonIndex +1 == playerPokemons.size()){
@@ -234,5 +234,10 @@ public class BattleController {
     public boolean capture() {
         Random r = new Random();
         return r.nextDouble() > 0.8 * wildPokemon.getHitPoint() / wildPokemon.getMaxHitPoint() + 0.1;
+    }
+
+    public void counterCheck(){
+        wildCounter = CounterState.IsCounter(wildPokemon, playerPokemon);
+        playerCounter = CounterState.IsCounter(playerPokemon, wildPokemon);
     }
 }

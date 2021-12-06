@@ -1,7 +1,7 @@
 {"textAdventureMaps":[
   {"mapName":"Home","pokemons":[[],[],[],[]],"MIN_ExperiencePoint": 0, "MAX_ExperiencePoint": 0},
-  {"mapName":"Wasteland","pokemons":[[],[],[],["Fir"]],"MIN_ExperiencePoint": 1, "MAX_ExperiencePoint": 3},
-  {"mapName":"River","pokemons":[[],[],[],["Walter"]],"MIN_ExperiencePoint": 1, "MAX_ExperiencePoint": 3},
-  {"mapName":"Abandoned Factory","pokemons":[[],[],[],["Elect"]],"MIN_ExperiencePoint": 1, "MAX_ExperiencePoint": 3},
-  {"mapName":"Plain","pokemons":[[],[],[],["Gras"]],"MIN_ExperiencePoint": 1, "MAX_ExperiencePoint": 3}
+  {"mapName":"Wasteland","pokemons":[[],[],[],["Fir"]],"MIN_ExperiencePoint": 1, "MAX_ExperiencePoint": 60},
+  {"mapName":"River","pokemons":[[],[],[],["Walter"]],"MIN_ExperiencePoint": 1, "MAX_ExperiencePoint": 60},
+  {"mapName":"Abandoned Factory","pokemons":[[],[],[],["Elect"]],"MIN_ExperiencePoint": 1, "MAX_ExperiencePoint": 60},
+  {"mapName":"Plain","pokemons":[[],[],[],["Gras"]],"MIN_ExperiencePoint": 1, "MAX_ExperiencePoint": 60}
 ]}
