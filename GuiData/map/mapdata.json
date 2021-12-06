@@ -1,0 +1,23 @@
+{"textAdventureMaps":[
+  {"mapName":"Home","pokemons":[[],[],[],[]],"MIN_ExperiencePoint": 0, "MAX_ExperiencePoint": 0},
+  {"mapName":"Wasteland Intro","pokemons":[[],[],[],["Fir"]],"MIN_ExperiencePoint": 1, "MAX_ExperiencePoint": 10},
+  {"mapName":"Wasteland New Bee","pokemons":[[],[],[],["Fir"]],"MIN_ExperiencePoint": 10, "MAX_ExperiencePoint": 625},
+  {"mapName":"Wasteland Beginner","pokemons":[[],[],[],["Fir"]],"MIN_ExperiencePoint": 625, "MAX_ExperiencePoint": 2500},
+  {"mapName":"Wasteland Intermediate","pokemons":[[],[],[],["Fir"]],"MIN_ExperiencePoint": 2500, "MAX_ExperiencePoint": 5625},
+  {"mapName":"Wasteland Maseter","pokemons":[[],[],[],["Fir"]],"MIN_ExperiencePoint": 5625, "MAX_ExperiencePoint": 10000},
+  {"mapName":"River","pokemons":[[],[],[],["Walter"]],"MIN_ExperiencePoint": 1, "MAX_ExperiencePoint": 10},
+  {"mapName":"River New Bee","pokemons":[[],[],[],["Walter"]],"MIN_ExperiencePoint": 10, "MAX_ExperiencePoint": 625},
+  {"mapName":"River Beginner","pokemons":[[],[],[],["Walter"]],"MIN_ExperiencePoint": 625, "MAX_ExperiencePoint": 2500},
+  {"mapName":"River Intermediate","pokemons":[[],[],[],["Walter"]],"MIN_ExperiencePoint": 2500, "MAX_ExperiencePoint": 5625},
+  {"mapName":"River Maseter","pokemons":[[],[],[],["Walter"]],"MIN_ExperiencePoint": 5625, "MAX_ExperiencePoint": 10000},
+  {"mapName":"Abandoned Factory","pokemons":[[],[],[],["Elect"]],"MIN_ExperiencePoint": 1, "MAX_ExperiencePoint": 10},
+  {"mapName":"Abandoned Factory New Bee","pokemons":[[],[],[],["Elect"]],"MIN_ExperiencePoint": 10, "MAX_ExperiencePoint": 625},
+  {"mapName":"Abandoned Factory Beginner","pokemons":[[],[],[],["Elect"]],"MIN_ExperiencePoint": 625, "MAX_ExperiencePoint": 2500},
+  {"mapName":"Abandoned Factory Intermediate","pokemons":[[],[],[],["Elect"]],"MIN_ExperiencePoint": 2500, "MAX_ExperiencePoint": 5625},
+  {"mapName":"Abandoned Factory Maseter","pokemons":[[],[],[],["Elect"]],"MIN_ExperiencePoint": 5625, "MAX_ExperiencePoint": 10000},
+  {"mapName":"Plain","pokemons":[[],[],[],["Gras"]],"MIN_ExperiencePoint": 1, "MAX_ExperiencePoint": 10},
+  {"mapName":"Plain New Bee","pokemons":[[],[],[],["Walter"]],"MIN_ExperiencePoint": 10, "MAX_ExperiencePoint": 625},
+  {"mapName":"Plain Beginner","pokemons":[[],[],[],["Walter"]],"MIN_ExperiencePoint": 625, "MAX_ExperiencePoint": 2500},
+  {"mapName":"Plain Intermediate","pokemons":[[],[],[],["Walter"]],"MIN_ExperiencePoint": 2500, "MAX_ExperiencePoint": 5625},
+  {"mapName":"Plain Maseter","pokemons":[[],[],[],["Walter"]],"MIN_ExperiencePoint": 5625, "MAX_ExperiencePoint": 10000}
+]}

@@ -1,9 +1,10 @@
 package entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PokemonBook {
+public class PokemonBook implements Serializable {
     private final List<BasePokemon> pokemonBook;
 
     public PokemonBook() {
@@ -18,7 +19,7 @@ public class PokemonBook {
         pokemonBook.remove(i);
     }
 
-    public List<BasePokemon> getPokemonBook() {
+    public List<BasePokemon> getPokemonBook(){
         return pokemonBook;
     }
 
@@ -31,6 +32,13 @@ public class PokemonBook {
             if (basePokemon.getName().equals(name)) {
                 return basePokemon;
             }
+        }
+        return null;
+    }
+
+    public BasePokemon getPokemon(String pokemonName){
+        for (BasePokemon basePokemon: pokemonBook){
+            if (basePokemon.getName().equals(pokemonName)){return basePokemon;}
         }
         return null;
     }

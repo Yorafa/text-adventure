@@ -1,6 +1,7 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Pokemon extends BasePokemon implements Serializable {
     private int level;
@@ -67,5 +68,24 @@ public class Pokemon extends BasePokemon implements Serializable {
     @Override
     public int getSpeed() {
         return pokemonData.getSpeed();
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Pokemon pokemon = (Pokemon) o;
+        return getLevel() == pokemon.getLevel() && getExperiencePoint() == pokemon.getExperiencePoint() && getHitPoint() == pokemon.getHitPoint() && Objects.equals(getPokemonData(), pokemon.getPokemonData());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getLevel(), getExperiencePoint(), getHitPoint(), getPokemonData());
     }
 }

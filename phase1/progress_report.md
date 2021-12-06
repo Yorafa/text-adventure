@@ -16,7 +16,7 @@ Open question & discussion
 - Design Document
 - Map & its related
 - User & its related
-- GUI
+- Gui
 - Data Access Object (Read & write local document)
 
 
@@ -43,7 +43,7 @@ Open question & discussion
 
 ### Tianle Wang
 
-- GUI
+- Gui
 
 ### Jerry Wei
 

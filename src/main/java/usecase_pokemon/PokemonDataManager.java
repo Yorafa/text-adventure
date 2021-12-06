@@ -3,6 +3,8 @@ package usecase_pokemon;
 import entity.BasePokemonData;
 import entity.PokemonData;
 
+import java.io.Serializable;
+
 public class PokemonDataManager {
     public PokemonData create(BasePokemonData basePokemonData, int level) {
         int maxHitPoint = leveledPoint(basePokemonData.getMaxHitPoint(), level);
