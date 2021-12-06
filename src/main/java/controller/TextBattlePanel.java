@@ -13,6 +13,20 @@ public class TextBattlePanel extends TextPanel implements PanelState {
     private final BattleManager battleManager;
     private final BattlePresenter battlePresenter;
 
+    /**
+     * Construct a TextBattlePanel, given them the given input, gameDriver,
+     * pokemonManager and battleManger
+     * @param input the player input
+     * @param gameDriver the main driver of game
+     * @param pokemonManager the manager of pokemon
+     * @param battleManager the battle manager of pokemon
+     * The relative class
+     * @see GameDriver
+     * @see PokemonManager
+     * @see BattleManager
+     * @see PanelState
+     * @see TextPanel
+     */
     public TextBattlePanel(Scanner input, GameDriver gameDriver, PokemonManager pokemonManager, BattleManager battleManager) {
         super(input, gameDriver);
         this.pokemonManager = pokemonManager;

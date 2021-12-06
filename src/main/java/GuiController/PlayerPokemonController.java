@@ -8,6 +8,12 @@ import java.util.List;
 public class PlayerPokemonController {
     private GuiPlayerPokemons playerPokemons;
 
+    /**
+     * Construct a PlayerPokemonController, given them the playerPokemons
+     * @param playerPokemons all pokemons that player has
+     *
+     * @see GuiPlayerPokemons
+     */
     public PlayerPokemonController(GuiPlayerPokemons playerPokemons){
         this.playerPokemons = playerPokemons;
     }

@@ -7,6 +7,13 @@ import java.util.List;
 public class PokemonBook implements Serializable {
     private final List<BasePokemon> pokemonBook;
 
+    /**
+     * Construct a PokemonBook give them a new arraylist
+     *
+     * The relative classes
+     * @see BasePokemon
+     */
+
     public PokemonBook() {
         this.pokemonBook = new ArrayList<>();
     }

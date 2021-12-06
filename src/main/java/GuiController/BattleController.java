@@ -18,7 +18,14 @@ public class BattleController {
     private boolean isBattling;
     private boolean playerPokemonState;
 
-
+    /**
+     * Construct BattleController, given them the given playerPokemons and wildPokemon
+     * @param playerPokemons the pokemons of player
+     * @param wildPokemon the wild pokemon faced by walk around
+     *
+     * The relative classes
+     * @see Pokemon
+     */
     public BattleController(List<Pokemon> playerPokemons, Pokemon wildPokemon){
         this.playerPokemons = playerPokemons;
         this.playerPokemon = playerPokemons.get(playerPokemonIndex) ;

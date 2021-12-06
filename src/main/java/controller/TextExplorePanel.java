@@ -15,6 +15,22 @@ public class TextExplorePanel extends TextPanel implements PanelState {
     private final GameDataManager gameDataManager;
     private final ExplorePresenter explorePresenter;
 
+    /**
+     * Construct a TextExplorePanel, given them the given input, gameDriver, mapManager,
+     * pokemonManager and gameDataManager
+     * @param input the player input
+     * @param gameDriver the main driver of game
+     * @param mapManager the manager of map
+     * @param pokemonManager the manager of pokemon
+     * @param gameDataManager the manager of game data
+     *
+     * The relative classes
+     * @see GameDriver
+     * @see MapManager
+     * @see PokemonManager
+     * @see GameDataManager
+     * @see PanelState
+     */
     public TextExplorePanel(Scanner input, GameDriver gameDriver, MapManager mapManager,
                             PokemonManager pokemonManager, GameDataManager gameDataManager) {
         super(input, gameDriver);

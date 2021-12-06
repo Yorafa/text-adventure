@@ -9,6 +9,7 @@ import java.awt.*;
 public class PokemonDialog extends JDialog {
     private boolean acceptable = false;
     private final Pokemon pokemon;
+
     public PokemonDialog(TextAdventureFrame owner, Pokemon pokemon){
         super(owner);
         this.pokemon = pokemon;

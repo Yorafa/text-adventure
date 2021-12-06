@@ -9,6 +9,9 @@ import java.io.*;
 import java.util.Scanner;
 
 public class MapGate {
+    /**
+     * @param mapController the controller of map
+     */
     public static void writeMapController(MapController mapController){
         Gson gson = new Gson();
         String mapManagerJson = gson.toJson(mapController);

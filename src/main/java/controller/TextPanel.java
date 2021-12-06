@@ -8,6 +8,15 @@ public abstract class TextPanel implements PanelState {
     protected Scanner input;
     protected GameDriver gameDriver;
 
+    /**
+     * Construct a TextPanel, given them the given input and gameDriver
+     *
+     * @param input the player input
+     * @param gameDriver the main driver of game
+     * The relative classes
+     * @see GameDriver
+     * @see PanelState
+     */
     public TextPanel(Scanner input, GameDriver gameDriver) {
         this.input = input;
         this.gameDriver = gameDriver;

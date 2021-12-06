@@ -17,17 +17,7 @@ public class MapPanel extends JPanel {
                 );
 
         this.add(label);
-        // Setup Button Field
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(2, 3, 10, 10));
-        if (parent.getCurrentMapName().equals("Home")) buttonPanel.add(healAllButton());
-        else buttonPanel.add(walkAroundButton());
-        buttonPanel.add(mapButton());
-        buttonPanel.add(saveButton());
-        buttonPanel.add(browsePokemonButton());
-        buttonPanel.add(logOutButton());
-        buttonPanel.add(loadButton());
-        this.add(buttonPanel);
+        setButtonFild();
         parent.pack();
     }
     public JButton healAllButton(){
@@ -112,5 +102,19 @@ public class MapPanel extends JPanel {
             loadDataDialog.setVisible(true);
         });
         return load;
+    }
+
+    public void setButtonFild(){
+        // Setup Button Field
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new GridLayout(2, 3, 10, 10));
+        if (parent.getCurrentMapName().equals("Home")) buttonPanel.add(healAllButton());
+        else buttonPanel.add(walkAroundButton());
+        buttonPanel.add(mapButton());
+        buttonPanel.add(saveButton());
+        buttonPanel.add(browsePokemonButton());
+        buttonPanel.add(logOutButton());
+        buttonPanel.add(loadButton());
+        this.add(buttonPanel);
     }
 }

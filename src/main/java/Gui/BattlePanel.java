@@ -8,9 +8,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class BattlePanel extends JPanel {
-    private BattleController battleController;
+    private final BattleController battleController;
+    private final Pokemon wildPokemon;
 
-    private Pokemon wildPokemon;
     public BattlePanel(TextAdventureFrame taf){
         this.setLayout(new GridLayout(2,1,10,10));
         this.battleController = new BattleController(taf.getPocketPokemons(), taf.getWildPokemon());

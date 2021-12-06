@@ -9,6 +9,13 @@ public class Pocket implements Serializable, Iterable<Pokemon> {
     private final List<Pokemon> pokemons;
     private Pokemon battlePokemon;
 
+    /**
+     * The relative classes
+     * @see Pokemon
+     * @see Iterator
+     * @see Iterable
+     */
+
     public Pocket() {
         pokemons = new ArrayList<>();
     }
@@ -28,6 +35,11 @@ public class Pocket implements Serializable, Iterable<Pokemon> {
     public List<Pokemon> getPokemons() {
         return pokemons;
     }
+
+    /**
+     * @inheritDoc implement the interface of iterable
+     * @return the iterator of pokemons
+     */
 
     @Override
     public Iterator<Pokemon> iterator() {

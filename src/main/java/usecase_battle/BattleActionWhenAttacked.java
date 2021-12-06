@@ -10,6 +10,15 @@ public class BattleActionWhenAttacked implements BattleAction {
     private final boolean hasCounterattackP2;
     private final IBattlePresenter presenter;
 
+    /**
+     * Construct BattleActionWhenAttacked, given them the given battleManager
+     * @param battleManager the manager of battle
+     *
+     * @see BattleManager
+     * @see Pokemon
+     * @see BattleAction
+     * @see IBattlePresenter
+     */
     public BattleActionWhenAttacked(BattleManager battleManager) {
         this.battleManager = battleManager;
         this.p1 = battleManager.getP1();

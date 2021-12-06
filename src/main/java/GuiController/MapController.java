@@ -13,10 +13,25 @@ public class MapController{
     private List<TextAdventureMap> textAdventureMaps;
     private TextAdventureMap currentPlace;
 
+    /**
+     * Construct MapController, given them the new list and null value
+     */
+
     public MapController() {
         this.textAdventureMaps = new ArrayList<>();
         this.currentPlace = null;
     }
+
+    /**
+     * Construct MapController, given them the new list and currentPlace
+     * @param currentPlace the currentPlace that player in
+     *
+     * @see TextAdventureMap
+     * @see RandomAlgorithm
+     * @see PokemonBook
+     * @see PokemonFactory
+     * @see BasePokemon
+     */
 
     public MapController(TextAdventureMap currentPlace) {
         this.textAdventureMaps = new ArrayList<>();

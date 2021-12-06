@@ -5,6 +5,9 @@ import GuiController.*;
 import java.io.*;
 
 public class UserGate {
+    /**
+     * @param userController the controller of user
+     */
     public static void writeUM(UserController userController) {
         try {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(

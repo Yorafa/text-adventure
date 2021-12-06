@@ -7,27 +7,29 @@ import javax.swing.*;
 import java.awt.*;
 
 public class BrowsePokemonPanel extends JPanel {
+    private final TextAdventureFrame parent;
 
-    public BrowsePokemonPanel(TextAdventureFrame taf){
+    public BrowsePokemonPanel(TextAdventureFrame parent){
         this.setLayout(new GridLayout(4,1,20,20));
-        addPokemonBookLine(taf);
-        addBattlePokemon(taf);
-        addLibraryLine(taf);
+        this.parent = parent;
+        addPokemonBookLine();
+        addBattlePokemon();
+        addLibraryLine();
         JButton returnButton = new JButton("Back");
-        returnButton.addActionListener(e -> {taf.setContentPane(new MapPanel(taf));
-        taf.pack();});
+        returnButton.addActionListener(e -> {parent.setContentPane(new MapPanel(parent));
+        parent.pack();});
         this.add(returnButton);
     }
 
-    public void addPokemonBookLine(TextAdventureFrame taf){
+    public void addPokemonBookLine(){
         JPanel pokemonBookPanel = new JPanel();
         JLabel pokemonBookLabel = new JLabel("Pokemon Index");
         JComboBox<Pokemon> pokemonBookField = new JComboBox<>();
-        for (BasePokemon basePokemon: taf.getAllBasePokemon()){
-            pokemonBookField.addItem(taf.getPokemon(basePokemon));
+        for (BasePokemon basePokemon: parent.getAllBasePokemon()){
+            pokemonBookField.addItem(parent.getPokemon(basePokemon));
         }
         JButton searchButton = new JButton("Search");
-        searchButton.addActionListener(e -> pokemonInfo(taf,
+        searchButton.addActionListener(e -> pokemonInfo(
                 (Pokemon) pokemonBookField.getSelectedItem(),
                 " Basic Information"));
         pokemonBookPanel.add(pokemonBookLabel);
@@ -36,25 +38,25 @@ public class BrowsePokemonPanel extends JPanel {
         this.add(pokemonBookPanel);
     }
 
-    public void addLibraryLine(TextAdventureFrame taf){
+    public void addLibraryLine(){
         JPanel pocketLibPanel = new JPanel();
         JLabel pocketLibLabel = new JLabel("My Pokemon Library");
         JComboBox<Pokemon> pokemonLib = new JComboBox<>();
-        for (Pokemon pokemon: taf.getLibraryPokemons()){
+        for (Pokemon pokemon: parent.getLibraryPokemons()){
             pokemonLib.addItem(pokemon);
         }
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(2,1,10,10));
         JButton searchButton = new JButton("Search");
-        searchButton.addActionListener(e -> pokemonInfo(taf,
+        searchButton.addActionListener(e -> pokemonInfo(
                 (Pokemon) pokemonLib.getSelectedItem(),
                 " Information"));
         JButton intoPocketButton = new JButton("Put Into Pocket");
         intoPocketButton.addActionListener(e ->{
-                taf.intoPocket((Pokemon) pokemonLib.getSelectedItem());
-                taf.remove(this);
-                taf.setContentPane(new BrowsePokemonPanel(taf));
-                taf.pack();
+                parent.intoPocket((Pokemon) pokemonLib.getSelectedItem());
+                parent.remove(this);
+                parent.setContentPane(new BrowsePokemonPanel(parent));
+                parent.pack();
         });
         buttonPanel.add(searchButton);
         buttonPanel.add(intoPocketButton);
@@ -65,11 +67,11 @@ public class BrowsePokemonPanel extends JPanel {
         this.add(pocketLibPanel);
     }
 
-    public void addBattlePokemon(TextAdventureFrame taf){
+    public void addBattlePokemon(){
         JPanel BattlePokemonPanel = new JPanel();
         JLabel BattlePokemonLabel = new JLabel("Battle Pokemon Pocket");
         JComboBox<Pokemon> BattlePokemonField = new JComboBox<>();
-        for (Pokemon Pokemon: taf.getPocketPokemons()){
+        for (Pokemon Pokemon: parent.getPocketPokemons()){
             BattlePokemonField.addItem(Pokemon);
         }
         BattlePokemonPanel.add(BattlePokemonLabel);
@@ -77,22 +79,22 @@ public class BrowsePokemonPanel extends JPanel {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(3,1,10,10));
         JButton searchButton = new JButton("Search");
-        searchButton.addActionListener(e -> pokemonInfo(taf,
+        searchButton.addActionListener(e -> pokemonInfo(
                 (Pokemon) BattlePokemonField.getSelectedItem(),
                 " Information"));
         JButton setFirstButton = new JButton("Set As Starter");
         setFirstButton.addActionListener(e ->{
-                taf.setFirstPokemon((Pokemon) BattlePokemonField.getSelectedItem());
-                taf.remove(this);
-                taf.setContentPane(new BrowsePokemonPanel(taf));
-                taf.pack();
+                parent.setFirstPokemon((Pokemon) BattlePokemonField.getSelectedItem());
+                parent.remove(this);
+                parent.setContentPane(new BrowsePokemonPanel(parent));
+                parent.pack();
         });
         JButton intoLibButton = new JButton("Put Into Library");
         intoLibButton.addActionListener(e ->{
-                taf.intoLib((Pokemon) BattlePokemonField.getSelectedItem());
-                taf.remove(this);
-                taf.setContentPane(new BrowsePokemonPanel(taf));
-                taf.pack();
+                parent.intoLib((Pokemon) BattlePokemonField.getSelectedItem());
+                parent.remove(this);
+                parent.setContentPane(new BrowsePokemonPanel(parent));
+                parent.pack();
         });
         buttonPanel.add(searchButton);
         buttonPanel.add(setFirstButton);
@@ -101,15 +103,15 @@ public class BrowsePokemonPanel extends JPanel {
         this.add(BattlePokemonPanel);
     }
 
-    public void pokemonInfo(TextAdventureFrame taf, Pokemon pokemon, String title){
+    public void pokemonInfo(Pokemon pokemon, String title){
         if (pokemon != null){
-        PokemonDialog pokemonDialog = new PokemonDialog(taf, pokemon);
+        PokemonDialog pokemonDialog = new PokemonDialog(parent, pokemon);
         pokemonDialog.setTitle(pokemon.getName() + title);
         pokemonDialog.setModal(true);
         pokemonDialog.setSize(500,720);
         pokemonDialog.setVisible(true);
         if (pokemonDialog.isAcceptable()){
-            taf.remove(this);
+            parent.remove(this);
         }}
     }
 }

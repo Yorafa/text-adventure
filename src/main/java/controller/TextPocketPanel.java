@@ -13,6 +13,19 @@ public class TextPocketPanel extends TextPanel implements PanelState {
     private IPocketSorter sorter;
     private IPocketInfoAdder adder;
 
+    /**
+     * Construct a TextExplorePanel, given them the given input,
+     * gameDriver and pokemonManager
+     *
+     * @param input the player input
+     * @param gameDriver the main driver of game
+     * @param pokemonManager the manager of pokemon
+     *
+     * The relative classes
+     * @see GameDriver
+     * @see PanelState
+     * @see PokemonManager
+     */
     public TextPocketPanel(Scanner input, GameDriver gameDriver, PokemonManager pokemonManager) {
         super(input, gameDriver);
         this.pokemonManager = pokemonManager;

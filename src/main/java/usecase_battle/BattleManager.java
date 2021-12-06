@@ -13,6 +13,10 @@ public class BattleManager {
     private BattleAction battleAction;
     private boolean battling;
 
+    /**
+     * @see IBattlePresenter
+     * @see BattleAction
+     */
     public BattleManager(Pokemon p1, Pokemon p2) {
         this.p1 = p1;
         this.p2 = p2;

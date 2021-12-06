@@ -6,6 +6,17 @@ public class BasePokemon implements Serializable {
     protected String name;
     protected BasePokemonData basePokemonData;
 
+    /**
+     * Construct a BasePokemon, giving them the
+     * given name and basePokemonData.
+     *
+     * @param name BasePokemon's name
+     * @param basePokemonData  BasePokemon's data
+     *
+     * The relative classes
+     * @see BasePokemonData
+     */
+
     public BasePokemon(String name, BasePokemonData basePokemonData) {
         this.name = name;
         this.basePokemonData = basePokemonData;

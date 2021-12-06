@@ -10,6 +10,9 @@ public class UserController implements Serializable {
     private List<User> users;
     private User currentUser;
 
+    /**
+     * Construct UserController, given them the new list and null
+     */
     public UserController() {
         users = new ArrayList<>();
         currentUser = null;

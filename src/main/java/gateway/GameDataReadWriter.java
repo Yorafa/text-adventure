@@ -9,6 +9,10 @@ public class GameDataReadWriter implements IReadWriter {
     private final String filePath;
     private final ReadWriter rw = new ReadWriter();
 
+    /**
+     * Construct a GameDataReadWriter, given them the given username
+     * @param username the player given name
+     */
     public GameDataReadWriter(String username) {
         this.filePath = "game_data/game/" + username + ".ser";
     }

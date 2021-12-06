@@ -9,6 +9,20 @@ public class BasePokemonData implements Serializable {
     protected int defencePoint;
     protected int speed;
 
+    /**
+     * Construct a BasePokemon, giving them the
+     * given pokemonType, maxHitPoint, attackPoint, defencePoint and speed.
+     *
+     * @param pokemonType enum value of the enum class PokemonType
+     * @param maxHitPoint  the basic max HP / the max HP on level 1
+     * @param attackPoint  the attack on level 1
+     * @param defencePoint  the defence on level 1
+     * @param speed  the speed on level 1
+     *
+     * The relative classes
+     * @see PokemonType
+     */
+
     public BasePokemonData(PokemonType pokemonType, int maxHitPoint, int attackPoint, int defencePoint, int speed) {
         this.pokemonType = pokemonType;
         this.maxHitPoint = maxHitPoint;

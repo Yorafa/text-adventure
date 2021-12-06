@@ -12,6 +12,20 @@ public class TextChangeBattlePokemonPanel extends TextPanel {
     private final PocketPresenter pocketPresenter;
     private final IPocketInfoAdder adder;
 
+    /**
+     * Construct a TextChangeBattlePokemonPanel, given them the given input, gameDriver,
+     * pokemonManager and adder
+     * @param input the player input
+     * @param gameDriver the main driver of game
+     * @param pokemonManager the manager of pokemon
+     * @param adder the pocket info of player adder
+     *
+     * The relative classes
+     * @see GameDriver
+     * @see PokemonManager
+     * @see IPocketInfoAdder
+     * @see TextPanel
+     */
     public TextChangeBattlePokemonPanel(Scanner input, GameDriver gameDriver, PokemonManager pokemonManager, IPocketInfoAdder adder) {
         super(input, gameDriver);
         this.pokemonManager = pokemonManager;

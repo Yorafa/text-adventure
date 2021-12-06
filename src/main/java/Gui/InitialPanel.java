@@ -6,11 +6,12 @@ import javax.swing.*;
 import java.awt.*;
 
 public class InitialPanel extends JPanel {
-    public InitialPanel(TextAdventureFrame taf){
+    private final TextAdventureFrame parent;
 
-        taf.setContentPane(this);
+    public InitialPanel(TextAdventureFrame parent){
+        this.parent = parent;
         this.setLayout(new GridLayout(2, 1, 10, 10));
-        JLabel label = new JLabel("Welcome to Text Adventure, " + taf.getUser().getUsername() +
+        JLabel label = new JLabel("Welcome to Text Adventure, " + parent.getUser().getUsername() +
                 ".\n I believe that you have wanted to go out and take risks for a long time.\n" +
                 "But hold on. \n" +
                 "Going out on an adventure can't be done without a pokemon.\n" +
@@ -22,28 +23,28 @@ public class InitialPanel extends JPanel {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(2, 2, 10, 10));
         for (String pokemonName: pokemonNames){
-            buttonPanel.add(createButton(pokemonName, taf));
+            buttonPanel.add(createButton(pokemonName));
         }
 
         this.add(buttonPanel);
     }
-    public JButton createButton(String pokemonName, TextAdventureFrame taf){
+    public JButton createButton(String pokemonName){
         JButton button = new JButton(pokemonName);
-        button.addActionListener(e -> showPokemonInfo(taf, taf.getPokemon(pokemonName)));
+        button.addActionListener(e -> showPokemonInfo(parent.getPokemon(pokemonName)));
         return button;
     }
 
-    public void showPokemonInfo(TextAdventureFrame taf, Pokemon pokemon){
-        PokemonDialog pokemonDialog = new PokemonDialog(taf, pokemon);
+    public void showPokemonInfo(Pokemon pokemon){
+        PokemonDialog pokemonDialog = new PokemonDialog(parent, pokemon);
         pokemonDialog.setTitle("Click Yes to Choose Your First Pokemon");
         pokemonDialog.setModal(true);
         pokemonDialog.setSize(500,720);
         pokemonDialog.setVisible(true);
         if (pokemonDialog.isAcceptable()){
-            taf.remove(this);
-            taf.addPokemon(pokemon);
-            taf.setContentPane(new MapPanel(taf));
-            taf.pack();
+            parent.remove(this);
+            parent.addPokemon(pokemon);
+            parent.setContentPane(new MapPanel(parent));
+            parent.pack();
         }
     }
 }

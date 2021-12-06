@@ -10,6 +10,18 @@ public class TextLoginPanel extends TextPanel implements PanelState {
     private final UserManager userManager;
     private final LoginPresenter loginPresenter;
 
+    /**
+     * Construct a TextLoginPanel, given them the given input, gameDriver and userManager.
+     *
+     * @param input the player input
+     * @param gameDriver the main driver of game
+     * @param userManager the manager of user
+     *
+     * The relative classes
+     * @see GameDriver
+     * @see UserManager
+     * @see PanelState
+     */
     public TextLoginPanel(Scanner input, GameDriver gameDriver, UserManager userManager) {
         super(input, gameDriver);
         this.userManager = userManager;

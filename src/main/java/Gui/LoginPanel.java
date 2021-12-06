@@ -4,9 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class LoginPanel extends JPanel {
+    private final TextAdventureFrame parent;
 
-    public LoginPanel(TextAdventureFrame taf) {
-
+    public LoginPanel(TextAdventureFrame parent) {
+        this.parent = parent;
         this.setLayout(new BorderLayout());
         // Setup mainPanel
         JPanel mainPanel = new JPanel();
@@ -25,34 +26,15 @@ public class LoginPanel extends JPanel {
         JPanel buttonPanel = new JPanel();
         JButton login = new JButton("Login");
         login.addActionListener((e) -> {
-            taf.setUser(taf.login(username.getText(), password.getText()));
-            if (taf.getUser() == null) {
-                String message = "Either your username not exist or wrong password";
-                JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
-            } else {
-                taf.remove(this);
-                taf.setUp();
-                taf.setContentPane(new MapPanel(taf));
-                taf.pack();
-            }
+            parent.setUser(parent.login(username.getText(), password.getText()));
+            login();
         });
 
         JButton register = new JButton("Register");
         register.addActionListener((e) -> {
-            taf.setUser(taf.getUserController().register(username.getText(), password.getText()));
-            if (taf.getUser() == null) {
-                String message = "Your name already been used or\n" +
-                        "Your password is doesn't match requirement:\n" +
-                        "length 6-16, consist with numbers and characters";
-                JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
-            } else {
-                String message = "You are successful registered";
-                JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
-                taf.remove(this);
-                taf.newStart();
-                taf.setContentPane(new InitialPanel(taf));
-                taf.pack();
-            }});
+            parent.setUser(parent.getUserController().register(username.getText(), password.getText()));
+            register();
+        });
         buttonPanel.add(login);
         buttonPanel.add(register);
 
@@ -81,5 +63,33 @@ public class LoginPanel extends JPanel {
         this.add(emptyLabel2, BorderLayout.SOUTH);
         this.add(emptyLabel3, BorderLayout.WEST);
         this.add(emptyLabel4, BorderLayout.EAST);
+    }
+
+    public void login(){
+        if (parent.getUser() == null) {
+            String message = "Either your username not exist or wrong password";
+            JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            parent.remove(this);
+            parent.setUp();
+            parent.setContentPane(new MapPanel(parent));
+            parent.pack();
+        }
+    }
+
+    public void register(){
+        if (parent.getUser() == null) {
+            String message = "Your name already been used or\n" +
+                    "Your password is doesn't match requirement:\n" +
+                    "length 6-16, consist with numbers and characters";
+            JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            String message = "You are successful registered";
+            JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
+            parent.remove(this);
+            parent.newStart();
+            parent.setContentPane(new InitialPanel(parent));
+            parent.pack();
+        }
     }
 }

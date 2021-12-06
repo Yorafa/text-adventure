@@ -14,6 +14,14 @@ public class SaveLoadController {
     private List<GuiGameData> gameDataHistory;
     private User relativeUser;
 
+    /**
+     * Construct a SaveLoadController, given them the given user
+     * @param user the player info
+     *
+     * @see User
+     * @see GuiGameData
+     * @see UserController
+     */
     public SaveLoadController(User user){
         this.gameDataHistory = new ArrayList<>();
         relativeUser = user;

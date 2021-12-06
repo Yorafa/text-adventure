@@ -9,6 +9,22 @@ public class Pokemon extends BasePokemon implements Serializable {
     private int hitPoint;
     private PokemonData pokemonData;
 
+    /**
+     * Construct a Pokemon, given them the given name, basePokemonData, level,
+     * experiencePoint, hitPoint and pokemonData
+     * @param name the name of pokemon which is the same as its basic version
+     * @param basePokemonData the data of this pokemon at level 1
+     * @param level the level of this pokemon
+     * @param experiencePoint the experience point of this pokemon will be used to update level
+     * @param hitPoint the current HP of this pokemon
+     * @param pokemonData the current data of this pokemon which update based on basePokemonData
+     *
+     * The relative classes
+     * @see BasePokemon
+     * @see BasePokemonData
+     * @see PokemonData
+     */
+
     public Pokemon(String name, BasePokemonData basePokemonData, int level, int experiencePoint, int hitPoint,
                    PokemonData pokemonData) {
         super(name, basePokemonData);
@@ -75,6 +91,11 @@ public class Pokemon extends BasePokemon implements Serializable {
         return name;
     }
 
+    /**
+     * @inheritDoc override the equal method to avoid conflict of pokemons
+     * @param o the object used to compare
+     * @return true if the o has exactly the same data of this pokemon
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
