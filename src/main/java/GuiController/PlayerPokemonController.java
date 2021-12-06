@@ -22,10 +22,6 @@ public class PlayerPokemonController {
         return playerPokemons;
     }
 
-    public Pokemon getFirstPokemon(){
-        return this.playerPokemons.getPocketPokemon(0);
-    }
-
     public List<Pokemon> getPocketPokemons(){
         return playerPokemons.getPocketPokemons();
     }
@@ -62,12 +58,6 @@ public class PlayerPokemonController {
         else{
             return false;
         }
-    }
-
-    public Pokemon getNextPokemon(Pokemon pokemon) {
-        int index = playerPokemons.indexOfLibraryPokemon(pokemon);
-        if (index + 1 == playerPokemons.getPocketSize()) return null;
-        return playerPokemons.getPocketPokemon(index + 1);
     }
 
     public void addLibraryPokemon(Pokemon pokemon){

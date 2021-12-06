@@ -22,26 +22,30 @@ public class BattlePanel extends JPanel {
         JLabel textLabel = new JLabel("V.S.");
         // Player Pokemon Information
         JPanel playerPokemonInfoPanel = new JPanel();
-        playerPokemonInfoPanel.setLayout(new GridLayout(3,1,10,10));
+        playerPokemonInfoPanel.setLayout(new GridLayout(4,1,10,10));
         JLabel playerInfoLabel = new JLabel("My Pokemon");
         JLabel playerPokemonNameLabel = new JLabel(battleController.getPlayerPokemon().getName());
         JLabel playerPokemonHpLabel = new JLabel(battleController.getPlayerPokemon().getHitPoint() +
                 "/" +battleController.getPlayerPokemon().getMaxHitPoint());
+        JLabel playerPokemonLevelLabel = new JLabel(String.valueOf(battleController.getPlayerPokemon().getLevel()));
         playerPokemonInfoPanel.add(playerInfoLabel);
         playerPokemonInfoPanel.add(playerPokemonNameLabel);
         playerPokemonInfoPanel.add(playerPokemonHpLabel);
+        playerPokemonInfoPanel.add(playerPokemonLevelLabel);
         pokemonPanel.add(playerPokemonInfoPanel);
         pokemonPanel.add(textLabel);
 
         JPanel wildPokemonInfoPanel = new JPanel();
-        wildPokemonInfoPanel.setLayout(new GridLayout(3,1,10,10));
+        wildPokemonInfoPanel.setLayout(new GridLayout(4,1,10,10));
         JLabel infoLabel = new JLabel("Wild Pokemon");
         JLabel nameLabel = new JLabel(wildPokemon.getName());
         JLabel hpLabel = new JLabel(wildPokemon.getHitPoint() +
                 "/" +wildPokemon.getMaxHitPoint());
+        JLabel lvlLabel = new JLabel(String.valueOf(wildPokemon.getLevel()));
         wildPokemonInfoPanel.add(infoLabel);
         wildPokemonInfoPanel.add(nameLabel);
         wildPokemonInfoPanel.add(hpLabel);
+        wildPokemonInfoPanel.add(lvlLabel);
         pokemonPanel.add(wildPokemonInfoPanel);
 
         this.add(pokemonPanel);

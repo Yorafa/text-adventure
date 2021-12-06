@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 public class RandomAlgorithm {
-    private TextAdventureMap textAdventureMap;
+    private final TextAdventureMap textAdventureMap;
     private final Random random;
 
     /**
@@ -18,14 +18,6 @@ public class RandomAlgorithm {
     public RandomAlgorithm(TextAdventureMap textAdventureMap){
         this.textAdventureMap = textAdventureMap;
         this.random = new Random();
-    }
-
-    public void setTextAdventureMap(TextAdventureMap textAdventureMap) {
-        this.textAdventureMap = textAdventureMap;
-    }
-
-    public TextAdventureMap getTextAdventureMap() {
-        return textAdventureMap;
     }
 
     public BasePokemon encounter(PokemonBook pokemonBook){
