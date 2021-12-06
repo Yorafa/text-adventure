@@ -10,7 +10,6 @@ import java.util.List;
 
 public class UserManager implements Serializable {
     private List<User> users;
-    private User currentUser;
     private IReadWriter readWriter;
 
     public UserManager(IReadWriter readWriter) {
@@ -22,20 +21,8 @@ public class UserManager implements Serializable {
         this.readWriter = readWriter;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void addUser(User user) {
+    private void addUser(User user) {
         users.add(user);
-    }
-
-    public void deleteUser(User user) {
-        users.remove(user);
     }
 
     public boolean hasUser(String username) {
@@ -47,28 +34,10 @@ public class UserManager implements Serializable {
         return false;
     }
 
-    public boolean hasUser(User user) {
-        for (User inListUser : users) {
-            if (inListUser.equals(user)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public User getUser(String username) {
+    private User getUser(String username) {
         for (User user : users) {
             if (user.getUsername().equals(username)) {
                 return user;
-            }
-        }
-        return null;
-    }
-
-    public User getUser(User user) {
-        for (User inListUser : users) {
-            if (inListUser.equals(user)) {
-                return inListUser;
             }
         }
         return null;
@@ -79,12 +48,8 @@ public class UserManager implements Serializable {
             return false;
         } else {
             User user = getUser(username);
-            if (user.getPassword().equals(password)) {
-                currentUser = user;
-                return true;
-            } else {
-                return false;
-            }
+            assert user != null;
+            return user.getPassword().equals(password);
         }
     }
 
@@ -95,7 +60,6 @@ public class UserManager implements Serializable {
 //            return false;
         } else {
             User user = new User(username, password);
-            currentUser = user;
             addUser(user);
             try {
                 readWriter.write(users);

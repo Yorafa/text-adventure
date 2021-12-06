@@ -28,7 +28,7 @@ public class PokemonManager {
         return pokemonFactory.getPokemon(basePokemon, level);
     }
 
-    public void levelChange(Pokemon pokemon, int level) {
+    private void levelChange(Pokemon pokemon, int level) {
         PokemonDataManager pokemonDataManager = new PokemonDataManager();
         pokemon.setLevel(level);
         pokemonDataManager.update(pokemon.getPokemonData(), pokemon.getBasePokemonData(), level);
@@ -82,10 +82,6 @@ public class PokemonManager {
 
     public void add(Pokemon pokemon) {
         pocket.add(pokemon);
-    }
-
-    public String getName(Pokemon pokemon) {
-        return pokemon.getName();
     }
 
     public void healAll() {
