@@ -31,19 +31,6 @@ public class Pocket implements Serializable, Iterable<Pokemon> {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Pocket pocket = (Pocket) o;
-        return getPokemons().equals(pocket.getPokemons()) && getBattlePokemon().equals(pocket.getBattlePokemon());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getPokemons(), getBattlePokemon());
-    }
-
-    @Override
     public Iterator<Pokemon> iterator() {
         return pokemons.iterator();
     }

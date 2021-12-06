@@ -33,29 +33,4 @@ public class User implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        User object = (User) obj;
-        return this.getUsername().equals(object.getUsername());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(username, password);
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
 }

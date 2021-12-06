@@ -21,10 +21,6 @@ public class BattleManager {
         this.battling = true;
     }
 
-    public void setPresenter(IBattlePresenter presenter) {
-        this.presenter = presenter;
-    }
-
     public void printStatus() {
         presenter.printStatus(p1.getName(), p1.getLevel(), p1.getHitPoint(), p1.getMaxHitPoint());
         presenter.printStatus(p2.getName(), p2.getLevel(), p2.getHitPoint(), p2.getMaxHitPoint());
@@ -55,7 +51,7 @@ public class BattleManager {
         return captured;
     }
 
-    public void opponentAction() {
+    private void opponentAction() {
         Random r = new Random();
         int i = r.nextInt(100);
         if (i < 70) {
@@ -132,7 +128,11 @@ public class BattleManager {
         return presenter;
     }
 
-    public void setBattleAction(BattleAction battleAction) {
+    public void setPresenter(IBattlePresenter presenter) {
+        this.presenter = presenter;
+    }
+
+    private void setBattleAction(BattleAction battleAction) {
         this.battleAction = battleAction;
     }
 }
