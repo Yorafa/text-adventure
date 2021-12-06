@@ -8,8 +8,8 @@ import usecase_pokemon.PokemonManager;
 import java.util.Scanner;
 
 public class TextPocketPanel extends TextPanel implements PanelState {
-    private PokemonManager pokemonManager;
-    private PocketPresenter pocketPresenter;
+    private final PokemonManager pokemonManager;
+    private final PocketPresenter pocketPresenter;
     private IPocketSorter sorter;
     private IPocketInfoAdder adder;
 

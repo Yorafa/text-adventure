@@ -7,8 +7,8 @@ import usecase_user.UserManager;
 import java.util.Scanner;
 
 public class TextLoginPanel extends TextPanel implements PanelState {
-    private UserManager userManager;
-    private LoginPresenter loginPresenter;
+    private final UserManager userManager;
+    private final LoginPresenter loginPresenter;
 
     public TextLoginPanel(Scanner input, GameDriver gameDriver, UserManager userManager) {
         super(input, gameDriver);

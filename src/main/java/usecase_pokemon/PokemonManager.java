@@ -75,12 +75,12 @@ public class PokemonManager {
         return pocket.getBattlePokemon();
     }
 
-    public String getBattlePokemonName() {
-        return pocket.getBattlePokemon().getName();
-    }
-
     public void setBattlePokemon(int i) {
         pocket.setBattlePokemon(pocket.get(i));
+    }
+
+    public String getBattlePokemonName() {
+        return pocket.getBattlePokemon().getName();
     }
 
     public void add(Pokemon pokemon) {

@@ -8,9 +8,9 @@ import usecase_pokemon.PokemonManager;
 import java.util.Scanner;
 
 public class TextChangeBattlePokemonPanel extends TextPanel {
-    private PokemonManager pokemonManager;
-    private PocketPresenter pocketPresenter;
-    private IPocketInfoAdder adder;
+    private final PokemonManager pokemonManager;
+    private final PocketPresenter pocketPresenter;
+    private final IPocketInfoAdder adder;
 
     public TextChangeBattlePokemonPanel(Scanner input, GameDriver gameDriver, PokemonManager pokemonManager, IPocketInfoAdder adder) {
         super(input, gameDriver);

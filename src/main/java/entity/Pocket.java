@@ -6,19 +6,19 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Pocket implements Serializable, Iterable<Pokemon> {
-    private List<Pokemon> pokemons;
+    private final List<Pokemon> pokemons;
     private Pokemon battlePokemon;
 
     public Pocket() {
         pokemons = new ArrayList<>();
     }
 
-    public void setBattlePokemon(Pokemon battlePokemon) {
-        this.battlePokemon = battlePokemon;
-    }
-
     public Pokemon getBattlePokemon() {
         return battlePokemon;
+    }
+
+    public void setBattlePokemon(Pokemon battlePokemon) {
+        this.battlePokemon = battlePokemon;
     }
 
     public void add(Pokemon pokemon) {

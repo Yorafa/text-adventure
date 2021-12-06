@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 
 public class PokemonJsonReader implements IJsonReader<PokemonBook> {
     public PokemonBook read() throws IOException {
-        Reader reader = Files.newBufferedReader(Paths.get("gamedata/AllPokemonData.json"));
+        Reader reader = Files.newBufferedReader(Paths.get("game_data/AllPokemonData.json"));
         Gson gson = new Gson();
         return gson.fromJson(reader, PokemonBook.class);
     }

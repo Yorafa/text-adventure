@@ -17,11 +17,11 @@ import usecase_user.UserManager;
 import java.util.Scanner;
 
 public class GameDriver {
-    private Scanner input = new Scanner(System.in);
-    private UserManager userManager;
-    private PokemonManager pokemonManager;
-    private MapManager mapManager;
-    private GameDataManager gameDataManager;
+    private final Scanner input = new Scanner(System.in);
+    private final UserManager userManager;
+    private final PokemonManager pokemonManager;
+    private final MapManager mapManager;
+    private final GameDataManager gameDataManager;
     private PanelState state;
     private boolean gaming;
 

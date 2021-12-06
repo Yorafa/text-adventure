@@ -10,7 +10,7 @@ public class GameDataReadWriter implements IReadWriter {
     private final ReadWriter rw = new ReadWriter();
 
     public GameDataReadWriter(String username) {
-        this.filePath = "gamedata/game/" + username + ".ser";
+        this.filePath = "game_data/game/" + username + ".ser";
     }
 
     @Override
