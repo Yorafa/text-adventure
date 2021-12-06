@@ -37,79 +37,12 @@ public class BattleController {
         playerPokemonState = true;
     }
 
-    // setter methods
-    public void setPlayerPokemon(Pokemon playerPokemon) {
-        this.playerPokemon = playerPokemon;
-    }
-
-    public void setWildPokemon(Pokemon wildPokemon) {
-        this.wildPokemon = wildPokemon;
-    }
-
-    public void setPlayerDefense(boolean playerDefense) {
-        this.playerDefense = playerDefense;
-    }
-
-    public void setPlayerCounter(boolean playerCounter) {
-        this.playerCounter = playerCounter;
-    }
-
-    public void setWildCounter(boolean wildCounter) {
-        this.wildCounter = wildCounter;
-    }
-
-    public void setWildDefense(boolean wildDefense) {
-        this.wildDefense = wildDefense;
-    }
-
-    public void setPlayerPokemons(List<Pokemon> playerPokemons) {
-        this.playerPokemons = playerPokemons;
-    }
-
-    public void setBattling(boolean battling) {
-        isBattling = battling;
-    }
-
-    public void setPlayerPokemonIndex(int playerPokemonIndex) {
-        this.playerPokemonIndex = playerPokemonIndex;
-    }
-
-    public void setPlayerPokemonState(boolean playerPokemonState) {
-        this.playerPokemonState = playerPokemonState;
-    }
-
-    // getter methods
-
-    public int getPlayerPokemonIndex() {
-        return playerPokemonIndex;
-    }
-
-    public List<Pokemon> getPlayerPokemons() {
-        return playerPokemons;
-    }
-
     public boolean isPlayerPokemonState() {
         return playerPokemonState;
     }
 
     public boolean isBattling() {
         return isBattling;
-    }
-
-    public boolean isPlayerCounter() {
-        return playerCounter;
-    }
-
-    public boolean isPlayerDefense() {
-        return playerDefense;
-    }
-
-    public boolean isWildCounter() {
-        return wildCounter;
-    }
-
-    public boolean isWildDefense() {
-        return wildDefense;
     }
 
     public Pokemon getWildPokemon() {

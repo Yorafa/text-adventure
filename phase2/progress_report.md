@@ -13,49 +13,21 @@ Open question & discussion
 
 ### Tianle Wang
 
+- Javadoc
+- Finish GUI
+- Test
 - Design Document
-- Map & its related
-- User & its related
-- GUI
-- Data Access Object (Read & write local document)
 
 
 ### Jerry Wei
 
-- Specification
-- Pokemon & its related
-- Shell play UI
-- Battle & its related
+- Update Specification
+- Finish Shell UI
+
 
 ### Yucen Liu
 
-- ReadWriter
-- GameDataManager
-- Some Panels
 
 ### Xi Chen
 
-- fix an error on Specification
-- Panel design
 
-
-## Plan
-
-### Tianle Wang
-
-- GUI
-
-### Jerry Wei
-
-- Perfect the base layer
-- Enhance game logic
-
-### Yucen Liu
-
-- Refactoring
-- new game contents
-
-### Xi Chen
-
-- Refactoring
-- Tests

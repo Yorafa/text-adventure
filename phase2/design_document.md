@@ -39,8 +39,12 @@ We first identify some sources of change. The login system may be changed,
   - s
 - Simple factory
 - Strategy
+- Memento
+  - Save and Load
 
 ## Use of GitHub Features
+
+-
 
 ## Code Style and Documentation
 

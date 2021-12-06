@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Objects;
 
 public class GuiPlayerPokemons implements Serializable, PokemonIterableCollection {
-    private List<Pokemon> pocketPokemons;
-    private List<Pokemon> libraryPokemons;
+    private final List<Pokemon> pocketPokemons;
+    private final List<Pokemon> libraryPokemons;
 
     /**
      * Construct GuiPlayerPokemons by two new list
@@ -51,14 +51,6 @@ public class GuiPlayerPokemons implements Serializable, PokemonIterableCollectio
         return pocketPokemons.get(index);
     }
 
-    public void setPocketPokemons(List<Pokemon> pocketPokemons) {
-        this.pocketPokemons = pocketPokemons;
-    }
-
-    public void setLibraryPokemons(List<Pokemon> libraryPokemons) {
-        this.libraryPokemons = libraryPokemons;
-    }
-
     public void addPocketPokemon(Pokemon pokemon){
         pocketPokemons.add(pokemon);
     }
@@ -71,20 +63,8 @@ public class GuiPlayerPokemons implements Serializable, PokemonIterableCollectio
         pocketPokemons.add(index, pokemon);
     }
 
-    public void addLibraryPokemon(int index,Pokemon pokemon){
-        libraryPokemons.add(index, pokemon);
-    }
-
-    public void removePocketPokemon(int index){
-        pocketPokemons.remove(index);
-    }
-
     public void removePocketPokemon(Pokemon pokemon){
         pocketPokemons.remove(pokemon);
-    }
-
-    public void removeLibraryPokemon(int index){
-        libraryPokemons.remove(index);
     }
 
     public void removeLibraryPokemon(Pokemon pokemon){

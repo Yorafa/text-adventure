@@ -75,32 +75,12 @@ public class TextAdventureFrame extends JFrame {
         setCurrentMap(gameData.getCurrentPlace());
     }
 
-    public void setUserController(UserController userController) {
-        this.userController = userController;
-    }
-
-    public void setMapController(MapController mapController) {
-        this.mapController = mapController;
-    }
-
-    public void setPokemonBook(PokemonBook pokemonBook) {
+   public void setPokemonBook(PokemonBook pokemonBook) {
         this.pokemonBook = pokemonBook;
     }
 
-    public void setPlayerPokemonController(PlayerPokemonController playerPokemonController) {
-        this.playerPokemonController = playerPokemonController;
-    }
-
-    // getter methods
-    public Pokemon getFirstPokemon(){
-        return this.playerPokemonController.getFirstPokemon();
-    }
-
-    public Pokemon getNextPokemon(Pokemon pokemon){
-        return this.playerPokemonController.getNextPokemon(pokemon);
-    }
-
-    public Pokemon getWildPokemon() {
+   // getter methods
+   public Pokemon getWildPokemon() {
         return wildPokemon;
     }
 
@@ -143,9 +123,6 @@ public class TextAdventureFrame extends JFrame {
 
     public List<TextAdventureMap> getMaps(){return mapController.getTextAdventureMaps();}
     // Controller usage methods
-    public PlayerPokemonController getPlayerPokemonController() {
-        return playerPokemonController;
-    }
 
     public void setFirstPokemon(Pokemon pokemon){
         this.playerPokemonController.setFirstPokemon(pokemon);

@@ -4,7 +4,7 @@ import GuiInterface.PokemonIterator;
 import entity.Pokemon;
 
 public class GuiLibraryIterator implements PokemonIterator {
-    private GuiPlayerPokemons guiPlayerPokemons;
+    private final GuiPlayerPokemons guiPlayerPokemons;
     private int currentPosition = 0;
 
     /**

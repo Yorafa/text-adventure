@@ -69,20 +69,8 @@ public class SaveLoadController {
         return gameDataHistory;
     }
 
-    public void setGameDataHistory(List<GuiGameData> gameDataHistory) {
-        this.gameDataHistory = gameDataHistory;
-    }
-
-    public GuiGameData load(String date){
-        return GameDataGate.readGameData(relativeUser, date);
-    }
-
     public GuiGameData load(){
         return lastModify();
-    }
-
-    public User getRelativeUser() {
-        return relativeUser;
     }
 
     public void setRelativeUser(User relativeUser) {

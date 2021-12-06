@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class GuiGameData implements Serializable {
-    private GuiPlayerPokemons playerPokemons;
-    private TextAdventureMap currentPlace;
-    private Date date;
+    private final GuiPlayerPokemons playerPokemons;
+    private final TextAdventureMap currentPlace;
+    private final Date date;
 
     /**
      * Construct a GuiGameData, given them the given playerPokemons and currentPlace
@@ -32,24 +32,12 @@ public class GuiGameData implements Serializable {
         return playerPokemons;
     }
 
-    public void setPlayerPokemons(GuiPlayerPokemons playerPokemons) {
-        this.playerPokemons = playerPokemons;
-    }
-
     public TextAdventureMap getCurrentPlace() {
         return currentPlace;
     }
 
-    public void setCurrentPlace(TextAdventureMap currentPlace) {
-        this.currentPlace = currentPlace;
-    }
-
     public Date getDate() {
         return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
     }
 
     @Override

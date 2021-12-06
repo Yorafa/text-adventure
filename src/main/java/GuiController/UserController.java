@@ -26,20 +26,8 @@ public class UserController implements Serializable {
         this.currentUser = currentUser;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
-    public List<User> getUsers() {
-        return users;
-    }
-
     public void addUser(User user) {
         users.add(user);
-    }
-
-    public void deleteUser(User user) {
-        users.remove(user);
     }
 
     public boolean hasUser(String username) {
@@ -51,28 +39,10 @@ public class UserController implements Serializable {
         return false;
     }
 
-    public boolean hasUser(User user) {
-        for (User inListUser : users) {
-            if (inListUser.equals(user)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public User getUser(String username) {
         for (User user : users) {
             if (user.getUsername().equals(username)) {
                 return user;
-            }
-        }
-        return null;
-    }
-
-    public User getUser(User user) {
-        for (User inListUser : users) {
-            if (inListUser.equals(user)) {
-                return inListUser;
             }
         }
         return null;

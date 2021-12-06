@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MapController{
-    private List<TextAdventureMap> textAdventureMaps;
+    private final List<TextAdventureMap> textAdventureMaps;
     private TextAdventureMap currentPlace;
 
     /**
@@ -38,17 +38,10 @@ public class MapController{
         this.currentPlace = currentPlace;
     }
 
-    public void setTextAdventureMaps(List<TextAdventureMap> textAdventureMaps){
-        this.textAdventureMaps = textAdventureMaps;
-    }
-
     public void setCurrentPlace(TextAdventureMap currentPlace) {
         this.currentPlace = currentPlace;
     }
 
-    public void addMap(TextAdventureMap textAdventureMap) {
-        textAdventureMaps.add(textAdventureMap);
-    }
 
     public List<TextAdventureMap> getTextAdventureMaps() {
         return textAdventureMaps;
