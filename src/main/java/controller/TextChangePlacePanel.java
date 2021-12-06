@@ -10,6 +10,19 @@ public class TextChangePlacePanel extends TextPanel implements PanelState {
     private final MapManager mapManager;
     private final ChangePlacePresenter changePlacePresenter;
 
+    /**
+     * Construct a TextChangePlacePanel, given them the given input, gameDriver
+     * and mapManager
+     *
+     * @param input the player input
+     * @param gameDriver the main driver of game
+     * @param mapManager the manager of map
+     *
+     * The relative classes
+     * @see GameDriver
+     * @see MapManager
+     * @see PanelState
+     */
     public TextChangePlacePanel(Scanner input, GameDriver gameDriver, MapManager mapManager) {
         super(input, gameDriver);
         this.mapManager = mapManager;

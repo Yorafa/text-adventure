@@ -11,7 +11,7 @@ public class BasePokemonData implements Serializable {
 
     /**
      * Construct a BasePokemon, giving them the
-     * given name and basePokemonData.
+     * given pokemonType, maxHitPoint, attackPoint, defencePoint and speed.
      *
      * @param pokemonType enum value of the enum class PokemonType
      * @param maxHitPoint  the basic max HP / the max HP on level 1
