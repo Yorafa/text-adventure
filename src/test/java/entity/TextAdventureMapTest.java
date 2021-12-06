@@ -1,6 +1,6 @@
 package entity;
 
-import GUI_Usecase.TextAdventureMap;
+import GuiUsecase.TextAdventureMap;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -2,30 +2,29 @@
   {"name":"Walter",
     "basePokemonData":
     {"pokemonType":"WATER",
-      "maxHitPoint":10,
+      "maxHitPoint":50,
       "attackPoint":3,
       "defencePoint":2,
       "speed":7}},
   {"name":"Gras",
     "basePokemonData":
     {"pokemonType":"GRASS",
-      "maxHitPoint":7,
+      "maxHitPoint":35,
       "attackPoint":5,
       "defencePoint":1,
       "speed":3}},
   {"name":"Elect",
     "basePokemonData":
     {"pokemonType":"ELECTRICITY",
-      "maxHitPoint":6,
+      "maxHitPoint":30,
       "attackPoint":5,
       "defencePoint":3,
       "speed":5}},
   {"name":"Fir",
     "basePokemonData":
     {"pokemonType":"FIRE",
-      "maxHitPoint":6,
+      "maxHitPoint":30,
       "attackPoint":7,
       "defencePoint":1,
-      "speed":2}},
-
+      "speed":2}}
 ]}
