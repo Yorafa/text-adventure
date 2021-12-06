@@ -43,7 +43,6 @@
 - Strategy
 - Memento
   - Save and Load
-  - !(MementoUML)[phase2/img/Memento Design UML.png]
 
 ## Use of GitHub Features
 
