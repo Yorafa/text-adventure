@@ -14,19 +14,19 @@
 
 ### OCP (Open Closed Principle)
 
-- e.g. all private attribute
+- e.g. all entity
 - 
 ### LSP (Liskov Substitution Principle)
 
 - e.g. BasePokemon and Pokemon
-- 
+
 ### ISP (Interface Segregation Principle)
 
-- we do not write lots of interface and also do not force class to implement those interface
-- 
+- we do write necessary interface and only implement interface when the class exactly need.
+
 ### DIP (Dependency Inversion Principle)
 
-- UI depend on DAO, DAO depend on base
+- Shell UI as controller and presenters depend on use case, and use cases depend on entities.
 
 
 ## Clean Architecture
@@ -36,14 +36,18 @@
 
 ## Design Pattern
 
+- Iterator
+  - Pokemon in pocket can iterate
+  - ![Preview](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/blob/main/phase2/img/Iterator%20Design%20UML.png?raw=true)
 - State
   - Different Panel connect
 - Simple factory
   - produce new pokemon
+  - ![Preview](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/blob/main/phase2/img/Simple%20Factory%20Design%20UML.png?raw=true)
 - Strategy
 - Memento
   - Save and Load
-
+  - ![Preview](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/blob/main/phase2/img/Memento%20Design%20UML.png?raw=true)
 ## Use of GitHub Features
 
 - assign work and create branch onto group member name path
