@@ -15,9 +15,10 @@ import java.util.List;
 
 public class MapJsonReader implements IJsonReader<List<Pmap>> {
     public List<Pmap> read() throws IOException {
-        Reader reader = Files.newBufferedReader(Paths.get("gamedata/AllMapData.json"));
+        Reader reader = Files.newBufferedReader(Paths.get("game_data/AllMapData.json"));
         Gson gson = new Gson();
-        Type type = new TypeToken<ArrayList<Pmap>>(){}.getType();
+        Type type = new TypeToken<ArrayList<Pmap>>() {
+        }.getType();
         return gson.fromJson(reader, type);
     }
 }

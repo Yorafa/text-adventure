@@ -1,6 +1,7 @@
 package usecase_map;
 
-import entity.*;
+import entity.Pmap;
+import entity.Pokemon;
 import usecase_data.IJsonReader;
 import usecase_pokemon.PokemonManager;
 

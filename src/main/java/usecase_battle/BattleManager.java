@@ -5,8 +5,8 @@ import entity.Pokemon;
 import java.util.Random;
 
 public class BattleManager {
-    private Pokemon p1;
-    private Pokemon p2;
+    private final Pokemon p1;
+    private final Pokemon p2;
     private boolean hasCounterattackP1;
     private boolean hasCounterattackP2;
     private IBattlePresenter presenter;

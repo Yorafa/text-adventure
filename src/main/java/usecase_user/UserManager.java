@@ -10,7 +10,7 @@ import java.util.List;
 
 public class UserManager implements Serializable {
     private List<User> users;
-    private IReadWriter readWriter;
+    private final IReadWriter readWriter;
 
     public UserManager(IReadWriter readWriter) {
         try {

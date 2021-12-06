@@ -1,14 +1,13 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 
 public class User implements Serializable {
     private String username;
     private String password;
 
-    public User(){
+    public User() {
         this.username = null;
         this.password = null;
     }
@@ -22,12 +21,12 @@ public class User implements Serializable {
         return username;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public void setPassword(String password) {

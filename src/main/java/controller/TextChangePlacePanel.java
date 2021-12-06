@@ -7,8 +7,8 @@ import usecase_map.MapManager;
 import java.util.Scanner;
 
 public class TextChangePlacePanel extends TextPanel implements PanelState {
-    private MapManager mapManager;
-    private ChangePlacePresenter changePlacePresenter;
+    private final MapManager mapManager;
+    private final ChangePlacePresenter changePlacePresenter;
 
     public TextChangePlacePanel(Scanner input, GameDriver gameDriver, MapManager mapManager) {
         super(input, gameDriver);

@@ -3,12 +3,12 @@ package usecase_battle;
 import entity.Pokemon;
 
 public class BattleActionWhenAttacked implements BattleAction {
-    private BattleManager battleManager;
-    private Pokemon p1;
-    private Pokemon p2;
-    private boolean hasCounterattackP1;
-    private boolean hasCounterattackP2;
-    private IBattlePresenter presenter;
+    private final BattleManager battleManager;
+    private final Pokemon p1;
+    private final Pokemon p2;
+    private final boolean hasCounterattackP1;
+    private final boolean hasCounterattackP2;
+    private final IBattlePresenter presenter;
 
     public BattleActionWhenAttacked(BattleManager battleManager) {
         this.battleManager = battleManager;

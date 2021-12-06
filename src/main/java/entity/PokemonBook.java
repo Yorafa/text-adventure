@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PokemonBook {
-    private List<BasePokemon> pokemonBook;
+    private final List<BasePokemon> pokemonBook;
 
     public PokemonBook() {
         this.pokemonBook = new ArrayList<>();
@@ -18,7 +18,7 @@ public class PokemonBook {
         pokemonBook.remove(i);
     }
 
-    public List<BasePokemon> getPokemonBook(){
+    public List<BasePokemon> getPokemonBook() {
         return pokemonBook;
     }
 

@@ -8,8 +8,8 @@ import gateway.GameDataReadWriter;
 import gateway.MapJsonReader;
 import gateway.PokemonJsonReader;
 import gateway.UserReadWriter;
-import usecase_data.*;
 import usecase_battle.BattleManager;
+import usecase_data.GameDataManager;
 import usecase_map.MapManager;
 import usecase_pokemon.PokemonManager;
 import usecase_user.UserManager;
@@ -17,11 +17,11 @@ import usecase_user.UserManager;
 import java.util.Scanner;
 
 public class GameDriver {
-    private Scanner input = new Scanner(System.in);
-    private UserManager userManager;
-    private PokemonManager pokemonManager;
-    private MapManager mapManager;
-    private GameDataManager gameDataManager;
+    private final Scanner input = new Scanner(System.in);
+    private final UserManager userManager;
+    private final PokemonManager pokemonManager;
+    private final MapManager mapManager;
+    private final GameDataManager gameDataManager;
     private PanelState state;
     private boolean gaming;
 

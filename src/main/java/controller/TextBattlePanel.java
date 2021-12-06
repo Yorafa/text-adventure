@@ -9,9 +9,9 @@ import usecase_pokemon.PokemonManager;
 import java.util.Scanner;
 
 public class TextBattlePanel extends TextPanel implements PanelState {
-    private PokemonManager pokemonManager;
-    private BattleManager battleManager;
-    private BattlePresenter battlePresenter;
+    private final PokemonManager pokemonManager;
+    private final BattleManager battleManager;
+    private final BattlePresenter battlePresenter;
 
     public TextBattlePanel(Scanner input, GameDriver gameDriver, PokemonManager pokemonManager, BattleManager battleManager) {
         super(input, gameDriver);

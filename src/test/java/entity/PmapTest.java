@@ -13,21 +13,21 @@ public class PmapTest {
     Pmap pmap;
 
     @Before
-    public void setPmap(){
+    public void setPmap() {
         pmap = new Pmap();
     }
 
     @Test(timeout = 50)
-    public void testSetMapNameAndGetMapName(){
-       this.pmap.setMapName("MAP");
-       assertEquals("MAP",pmap.getMapName());
+    public void testSetMapNameAndGetMapName() {
+        this.pmap.setMapName("MAP");
+        assertEquals("MAP", pmap.getMapName());
     }
 
     @Test(timeout = 50)
-    public void testSetPokemonsAndGetPokemons(){
+    public void testSetPokemonsAndGetPokemons() {
         List<List<Pokemon>> pokemonList = new ArrayList<>();
-        BasePokemonData basePokemonData = new BasePokemonData(PokemonType.ELECTRICITY, 1,1,1,1);
-        PokemonData pokemonData = new PokemonData(PokemonType.ELECTRICITY, 1,1,1,1);
+        BasePokemonData basePokemonData = new BasePokemonData(PokemonType.ELECTRICITY, 1, 1, 1, 1);
+        PokemonData pokemonData = new PokemonData(PokemonType.ELECTRICITY, 1, 1, 1, 1);
         Pokemon pokemon = new Pokemon("test", basePokemonData, 1, 0, 1, pokemonData);
         List<Pokemon> rarity = new ArrayList<>();
         rarity.add(pokemon);
@@ -38,7 +38,7 @@ public class PmapTest {
 
 
     @Test(timeout = 50)
-    public void testEqual(){
+    public void testEqual() {
         Pmap pmapTest = new Pmap();
         assertTrue(pmap.equals(pmapTest));
     }

@@ -1,6 +1,9 @@
 package usecase_pokemon;
 
-import entity.*;
+
+import entity.BasePokemon;
+import entity.Pokemon;
+import entity.PokemonData;
 
 public class PokemonFactory {
     public Pokemon getPokemon(BasePokemon basePokemon, int experiencePoint, int currentHitPoint) {

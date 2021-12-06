@@ -1,17 +1,16 @@
 package gateway;
 
 import entity.GameData;
-import gateway.ReadWriter;
 import usecase_data.IReadWriter;
 
-import java.io.*;
+import java.io.IOException;
 
 public class GameDataReadWriter implements IReadWriter {
     private final String filePath;
     private final ReadWriter rw = new ReadWriter();
 
     public GameDataReadWriter(String username) {
-        this.filePath = "gamedata/game/" + username + ".ser";
+        this.filePath = "game_data/game/" + username + ".ser";
     }
 
     @Override

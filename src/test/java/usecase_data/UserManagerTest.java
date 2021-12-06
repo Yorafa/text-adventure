@@ -14,12 +14,12 @@ public class UserManagerTest {
     UserManager userManager;
 
     @Before
-    public void setUserManager(){
+    public void setUserManager() {
         userManager = new UserManager();
     }
 
     @Test(timeout = 50)
-    public void testSetUsersAndGetUsers(){
+    public void testSetUsersAndGetUsers() {
         assertEquals(new ArrayList<>(), userManager.getUsers());
         List<User> users = new ArrayList<>();
         users.add(new User("test", "test"));
@@ -28,7 +28,7 @@ public class UserManagerTest {
     }
 
     @Test(timeout = 50)
-    public void testAddUserAndDeleteUser(){
+    public void testAddUserAndDeleteUser() {
         User testUser = new User("test", "test");
         userManager.addUser(testUser);
         List<User> users = new ArrayList<>();
@@ -39,7 +39,7 @@ public class UserManagerTest {
     }
 
     @Test(timeout = 50)
-    public void testHasUser(){
+    public void testHasUser() {
         User testUser = new User("test", "test");
         userManager.addUser(testUser);
         assertTrue(userManager.hasUser("test"));
@@ -47,7 +47,7 @@ public class UserManagerTest {
     }
 
     @Test(timeout = 50)
-    public void testGetUser(){
+    public void testGetUser() {
         User testUser = new User("test", "test");
         userManager.addUser(testUser);
         assertNull(userManager.getUser("none"));
@@ -56,7 +56,7 @@ public class UserManagerTest {
     }
 
     @Test(timeout = 50)
-    public void testLogin(){
+    public void testLogin() {
         User testUser = new User("test", "test");
         userManager.addUser(testUser);
         User loginUser = userManager.login("test", "test");
@@ -66,7 +66,7 @@ public class UserManagerTest {
     }
 
     @Test(timeout = 50)
-    public void testRegister(){
+    public void testRegister() {
         User testUser = new User("test", "test");
         userManager.addUser(testUser);
         User nullUser = userManager.register("test", "test");

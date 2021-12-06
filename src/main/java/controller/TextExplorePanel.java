@@ -10,10 +10,10 @@ import usecase_pokemon.PokemonManager;
 import java.util.Scanner;
 
 public class TextExplorePanel extends TextPanel implements PanelState {
-    private MapManager mapManager;
-    private PokemonManager pokemonManager;
-    private GameDataManager gameDataManager;
-    private ExplorePresenter explorePresenter;
+    private final MapManager mapManager;
+    private final PokemonManager pokemonManager;
+    private final GameDataManager gameDataManager;
+    private final ExplorePresenter explorePresenter;
 
     public TextExplorePanel(Scanner input, GameDriver gameDriver, MapManager mapManager,
                             PokemonManager pokemonManager, GameDataManager gameDataManager) {

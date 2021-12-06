@@ -1,6 +1,9 @@
 package usecase_pokemon;
 
-import entity.*;
+import entity.BasePokemon;
+import entity.Pocket;
+import entity.Pokemon;
+import entity.PokemonBook;
 import usecase_data.IJsonReader;
 import usecase_pocket.IPocketInfoAdder;
 
@@ -72,12 +75,12 @@ public class PokemonManager {
         return pocket.getBattlePokemon();
     }
 
-    public String getBattlePokemonName() {
-        return pocket.getBattlePokemon().getName();
-    }
-
     public void setBattlePokemon(int i) {
         pocket.setBattlePokemon(pocket.get(i));
+    }
+
+    public String getBattlePokemonName() {
+        return pocket.getBattlePokemon().getName();
     }
 
     public void add(Pokemon pokemon) {
