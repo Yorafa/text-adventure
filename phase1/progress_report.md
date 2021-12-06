@@ -35,7 +35,7 @@ Open question & discussion
 
 ### Xi Chen
 
-- fix an error on Specification
+- Fix an error on Specification
 - Panel design
 
 

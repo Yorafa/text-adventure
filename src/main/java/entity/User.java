@@ -41,4 +41,14 @@ public class User implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+        User u = (User) o;
+        return u.getUsername().equals(this.getUsername())
+                && u.getPassword().equals(this.getPassword());
+    }
 }
