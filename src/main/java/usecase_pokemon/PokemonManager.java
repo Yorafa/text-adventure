@@ -17,6 +17,15 @@ public class PokemonManager {
     private PokemonBook pokemonBook;
     private Pocket pocket;
 
+    /**
+     * Construct PokemonManager, given them the given reader read
+     * @param reader use to read PokemonManager
+     *
+     * @see IJsonReader
+     * @see PokemonBook
+     * @see Pocket
+     * @see Pokemon
+     */
     public PokemonManager(IJsonReader<PokemonBook> reader) {
         try {
             this.pokemonBook = reader.read();

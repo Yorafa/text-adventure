@@ -21,7 +21,22 @@ public class TextAdventureFrame extends JFrame {
     private PlayerPokemonController playerPokemonController;
     private SaveLoadController saveLoadController;
 
-
+    /**
+     * Construct a TextAdventureFrame, given them the given userController,
+     * mapController and pokemonBook
+     *
+     * @param userController the controller of user
+     * @param mapController the controller of map
+     * @param pokemonBook the pokemon index of pokemon
+     *
+     * The relative classes
+     * @see UserController
+     * @see MapController
+     * @see PokemonBook
+     * @see Pokemon
+     * @see PlayerPokemonController
+     * @see SaveLoadController
+     */
     public TextAdventureFrame(UserController userController, MapController mapController, PokemonBook pokemonBook) {
         this.userController = userController;
         this.mapController = mapController;

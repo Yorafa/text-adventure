@@ -10,6 +10,12 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class PokemonJsonReader implements IJsonReader<PokemonBook> {
+    /**
+     *
+     * @return the pokemon index of all pokemon
+     * @throws IOException file may not exist
+     */
+
     public PokemonBook read() throws IOException {
         Reader reader = Files.newBufferedReader(Paths.get("game_data/AllPokemonData.json"));
         Gson gson = new Gson();

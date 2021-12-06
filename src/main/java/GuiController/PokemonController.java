@@ -7,6 +7,13 @@ import usecase_pokemon.PokemonDataManager;
 import java.util.List;
 
 public class PokemonController {
+    /**
+     * Heal all pokemons
+     * Heal one poekmon
+     * reduce HP
+     * if the given pokemon can fight
+     * add exp onto the given pokemon
+     */
 
     public static void healAll(List<Pokemon> pokemons){
         for (Pokemon pokemon: pokemons){

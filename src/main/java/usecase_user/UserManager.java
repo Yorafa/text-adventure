@@ -12,6 +12,14 @@ public class UserManager implements Serializable {
     private List<User> users;
     private final IReadWriter readWriter;
 
+    /**
+     * Construct UserManager, given then the readWriter that use
+     * to read the userManager
+     * @param readWriter the data access object
+     *
+     * @see IReadWriter
+     * @see User
+     */
     public UserManager(IReadWriter readWriter) {
         try {
             users = (List<User>) readWriter.read();

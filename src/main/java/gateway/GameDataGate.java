@@ -7,6 +7,11 @@ import entity.User;
 import java.io.*;
 
 public class GameDataGate {
+    /**
+     * @param user the player information
+     * @param gameData the game data type of Gui
+     * @param date the String Date
+     */
     public static void writeGameData(User user, GuiGameData gameData, String date) {
         try {
             String toFilePath = "GuiData/user/" + user.getUsername();

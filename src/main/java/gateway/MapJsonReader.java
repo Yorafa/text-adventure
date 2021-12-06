@@ -14,6 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MapJsonReader implements IJsonReader<List<Pmap>> {
+    /**
+     *
+     * @return a list of map
+     * @throws IOException file may not exist
+     */
     public List<Pmap> read() throws IOException {
         Reader reader = Files.newBufferedReader(Paths.get("game_data/AllMapData.json"));
         Gson gson = new Gson();

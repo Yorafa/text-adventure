@@ -10,6 +10,11 @@ public class RandomAlgorithm {
     private TextAdventureMap textAdventureMap;
     private final Random random;
 
+    /**
+     * Construct a RandomAlgorithm, given them the given textAdventureMap
+     * @param textAdventureMap see TextAdventureMap
+     * @see TextAdventureMap
+     */
     public RandomAlgorithm(TextAdventureMap textAdventureMap){
         this.textAdventureMap = textAdventureMap;
         this.random = new Random();

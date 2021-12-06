@@ -5,21 +5,27 @@ import GuiUsecase.TextAdventureMap;
 import javax.swing.*;
 
 public class MapChangingPanel extends JPanel {
-    public MapChangingPanel(TextAdventureFrame taf) {
-        taf.setContentPane(this);
+    private final TextAdventureFrame parent;
+
+    public MapChangingPanel(TextAdventureFrame parent) {
+        this.parent = parent;
         this.setBorder(BorderFactory.createEmptyBorder(200, 400, 200, 400));
 
-        for (TextAdventureMap textAdventureMap : taf.getMaps()) {
-            showMap(textAdventureMap.getMapName(), taf);
-        }
+        showAll();
     }
-    public void showMap(String name, TextAdventureFrame taf){
+    public void showMap(String name){
         JButton button = new JButton(name);
         button.addActionListener(e -> {
-            taf.setCurrentMap(taf.getMapManager().find(name));
-            taf.setContentPane(new MapPanel(taf));
-            taf.pack();
+            parent.setCurrentMap(parent.getMapManager().find(name));
+            parent.setContentPane(new MapPanel(parent));
+            parent.pack();
         });
         this.add(button);
+    }
+
+    public void showAll(){
+        for (TextAdventureMap textAdventureMap : parent.getMaps())
+            showMap(textAdventureMap.getMapName());
+
     }
 }

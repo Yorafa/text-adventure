@@ -13,6 +13,11 @@ public class GuiPlayerPokemons implements Serializable, PokemonIterableCollectio
     private List<Pokemon> pocketPokemons;
     private List<Pokemon> libraryPokemons;
 
+    /**
+     * Construct GuiPlayerPokemons by two new list
+     *
+     * @see PokemonIterableCollection
+     */
     public GuiPlayerPokemons() {
         pocketPokemons = new ArrayList<>();
         libraryPokemons = new ArrayList<>();}

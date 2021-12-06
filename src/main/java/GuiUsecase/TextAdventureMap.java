@@ -17,6 +17,16 @@ public class TextAdventureMap implements Serializable {
         this.MIN_ExperiencePoint = 0;
         this.MAX_ExperiencePoint = 0;
     }
+
+    /**
+     * Construct TextAdventureMap, given them the given mapName,
+     * pokemons, MIN_ExperiencePoint and MAX_ExperiencePoint
+     *
+     * @param mapName the map name
+     * @param pokemons the pokemon that this map has
+     * @param MIN_ExperiencePoint the minimum exp that the pokemon in this should have
+     * @param MAX_ExperiencePoint the maximum exp that the pokemon in this should have
+     */
     public TextAdventureMap(String mapName, List<List<String>> pokemons,
                             int MIN_ExperiencePoint, int MAX_ExperiencePoint){
         this.mapName = mapName;

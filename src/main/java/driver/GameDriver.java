@@ -25,6 +25,18 @@ public class GameDriver {
     private PanelState state;
     private boolean gaming;
 
+    /**
+     * Construct a GameDriver, given them new variable
+     *
+     * The relative classes
+     * @see UserManager
+     * @see PanelState
+     * @see PokemonManager
+     * @see BattleManager
+     * @see TextLoginPanel
+     * @see GameDataManager
+     * @see MapManager
+     */
     public GameDriver() {
         this.userManager = new UserManager(new UserReadWriter());
         this.pokemonManager = new PokemonManager(new PokemonJsonReader());

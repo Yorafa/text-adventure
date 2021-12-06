@@ -10,6 +10,20 @@ import java.util.Scanner;
 
 public class PokemonGate {
 
+    /**
+     * @param pokemonBook the pokemon index of all pokemon
+     */
+    public static void writePokemonBook(PokemonBook pokemonBook){
+        Gson gson = new Gson();
+        String pokemonBookJson = gson.toJson(pokemonBook);
+        try {
+            FileWriter mapFile = new FileWriter("GuiData/pokemon/AllPokemonData.json");
+            mapFile.write(pokemonBookJson);
+            mapFile.close();}
+        catch (IOException e) {
+            e.printStackTrace();}
+    }
+
     public static PokemonBook toPokemonBook(){
         try{
             File pokemonFile = new File("GuiData/pokemon/AllPokemonData.json");
@@ -24,16 +38,5 @@ public class PokemonGate {
             e.printStackTrace();
         }
         return null;
-    }
-
-    public static void writePokemonBook(PokemonBook pokemonBook){
-        Gson gson = new Gson();
-        String pokemonBookJson = gson.toJson(pokemonBook);
-        try {
-            FileWriter mapFile = new FileWriter("GuiData/pokemon/AllPokemonData.json");
-            mapFile.write(pokemonBookJson);
-            mapFile.close();}
-        catch (IOException e) {
-            e.printStackTrace();}
     }
 }
