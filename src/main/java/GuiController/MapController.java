@@ -4,7 +4,7 @@ import GuiUsecase.TextAdventureMap;
 import entity.BasePokemon;
 import entity.Pokemon;
 import entity.PokemonBook;
-import usecase.PokemonFactory;
+import usecase_pokemon.PokemonFactory;
 
 import java.util.ArrayList;
 import java.util.List;

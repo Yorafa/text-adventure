@@ -1,4 +1,4 @@
-package GuiGateway;
+package gateway;
 
 import com.google.gson.Gson;
 import entity.PokemonBook;
@@ -12,7 +12,7 @@ public class PokemonGate {
 
     public static PokemonBook toPokemonBook(){
         try{
-            File pokemonFile = new File("gamedata/GuiData/pokemon/AllPokemonData.json");
+            File pokemonFile = new File("GuiData/pokemon/AllPokemonData.json");
             Scanner scanner = new Scanner(pokemonFile);
             StringBuilder pokemonData = new StringBuilder();
             while (scanner.hasNext()){pokemonData.append(scanner.next().strip());}
@@ -30,7 +30,7 @@ public class PokemonGate {
         Gson gson = new Gson();
         String pokemonBookJson = gson.toJson(pokemonBook);
         try {
-            FileWriter mapFile = new FileWriter("gamedata/GuiData/pokemon/AllPokemonData.json");
+            FileWriter mapFile = new FileWriter("GuiData/pokemon/AllPokemonData.json");
             mapFile.write(pokemonBookJson);
             mapFile.close();}
         catch (IOException e) {

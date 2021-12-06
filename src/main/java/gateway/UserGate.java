@@ -1,4 +1,4 @@
-package GuiGateway;
+package gateway;
 
 import GuiController.*;
 
@@ -8,7 +8,7 @@ public class UserGate {
     public static void writeUM(UserController userController) {
         try {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(
-                    new FileOutputStream("gamedata/GuiData/userinfo.ser"));
+                    new FileOutputStream("GuiData/userinfo.ser"));
             objectOutputStream.writeObject(userController);
             objectOutputStream.close();
         } catch (IOException e) {
@@ -20,7 +20,7 @@ public class UserGate {
         UserController userController;
         try {
             ObjectInputStream objectInputStream = new ObjectInputStream(
-                    new FileInputStream("gamedata/GuiData/userinfo.ser"));
+                    new FileInputStream("GuiData/userinfo.ser"));
             try {
                 userController = (UserController) objectInputStream.readObject();
             } catch (ClassNotFoundException e) {

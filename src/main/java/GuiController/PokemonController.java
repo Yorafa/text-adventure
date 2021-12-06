@@ -1,8 +1,8 @@
 package GuiController;
 
 import entity.Pokemon;
-import usecase.LevelCalculator;
-import usecase.PokemonDataManager;
+import usecase_pokemon.LevelCalculator;
+import usecase_pokemon.PokemonDataManager;
 
 import java.util.List;
 

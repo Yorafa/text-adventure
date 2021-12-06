@@ -1,8 +1,8 @@
 package GuiController;
 
 
-import GuiGateway.GameDataGate;
-import GuiGateway.UserGate;
+import gateway.GameDataGate;
+import gateway.UserGate;
 import GuiUsecase.GuiGameData;
 import entity.User;
 
@@ -48,7 +48,7 @@ public class SaveLoadController {
     }
 
     public void initial(User user){
-        File file = new File("gamedata/GuiData/user/"  +
+        File file = new File("GuiData/user/"  +
                 user.getUsername());
         File[] files = file.listFiles();
         assert files != null;

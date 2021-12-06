@@ -1,4 +1,4 @@
-package GuiGateway;
+package gateway;
 
 
 import com.google.gson.*;
@@ -13,7 +13,7 @@ public class MapGate {
         Gson gson = new Gson();
         String mapManagerJson = gson.toJson(mapController);
         try {
-            FileWriter mapFile = new FileWriter("gamedata/GuiData/map/mapdata.json");
+            FileWriter mapFile = new FileWriter("GuiData/map/mapdata.json");
             mapFile.write(mapManagerJson);
             mapFile.close();}
         catch (IOException e) {
@@ -22,7 +22,7 @@ public class MapGate {
     }
     public static MapController readMapController(){
         try {
-            File mapFile = new File("gamedata/GuiData/map/mapdata.json");
+            File mapFile = new File("GuiData/map/mapdata.json");
             Scanner scanner = new Scanner(mapFile);
             StringBuilder mapString = new StringBuilder();
             while (scanner.hasNext()){

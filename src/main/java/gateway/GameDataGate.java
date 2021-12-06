@@ -1,4 +1,4 @@
-package GuiGateway;
+package gateway;
 
 
 import GuiUsecase.GuiGameData;
@@ -9,7 +9,7 @@ import java.io.*;
 public class GameDataGate {
     public static void writeGameData(User user, GuiGameData gameData, String date) {
         try {
-            String toFilePath = "gamedata/GuiData/user/" + user.getUsername();
+            String toFilePath = "GuiData/user/" + user.getUsername();
             File myPath = new File(toFilePath);
             if (!myPath.exists())myPath.mkdir();
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(
@@ -25,7 +25,7 @@ public class GameDataGate {
         GuiGameData gameData;
         try {
             ObjectInputStream objectInputStream = new ObjectInputStream(
-                    new FileInputStream("gamedata/GuiData/user/"  +
+                    new FileInputStream("GuiData/user/"  +
                             user.getUsername() + "/"+ date +"gameData.ser"));
             try {
                 gameData = (GuiGameData) objectInputStream.readObject();

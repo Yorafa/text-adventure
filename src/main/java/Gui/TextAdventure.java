@@ -2,7 +2,7 @@ package Gui;
 
 import GuiController.*;
 import entity.*;
-import GuiGateway.*;
+import gateway.*;
 
 import javax.swing.*;
 
