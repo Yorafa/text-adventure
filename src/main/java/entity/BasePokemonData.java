@@ -1,7 +1,6 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 public class BasePokemonData implements Serializable {
     protected PokemonType pokemonType;
@@ -36,18 +35,5 @@ public class BasePokemonData implements Serializable {
 
     public int getSpeed() {
         return speed;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        BasePokemonData that = (BasePokemonData) o;
-        return getMaxHitPoint() == that.getMaxHitPoint() && getAttackPoint() == that.getAttackPoint() && getDefencePoint() == that.getDefencePoint() && getSpeed() == that.getSpeed() && getPokemonType() == that.getPokemonType();
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getPokemonType(), getMaxHitPoint(), getAttackPoint(), getDefencePoint(), getSpeed());
     }
 }

@@ -16,6 +16,6 @@
 
 if you find bug or need advice for going on game, you can ask help on:
 
-- Email: 
+- Email: jerry.wei@mail.utoronto.ca
 
 ## [Contributors](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/graphs/contributors)
