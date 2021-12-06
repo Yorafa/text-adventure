@@ -45,14 +45,11 @@ public class User implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return getUsername().equals(user.getUsername()) && getPassword().equals(user.getPassword());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getUsername(), getPassword());
+        if (o == this) {
+            return true;
+        }
+        User u = (User) o;
+        return u.getUsername().equals(this.getUsername())
+                && u.getPassword().equals(this.getPassword());
     }
 }

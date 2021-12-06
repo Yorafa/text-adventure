@@ -37,9 +37,4 @@ public class PokemonData extends BasePokemonData implements Serializable {
     public void setSpeed(int speed) {
         this.speed = speed;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        return super.equals(o);
-    }
 }

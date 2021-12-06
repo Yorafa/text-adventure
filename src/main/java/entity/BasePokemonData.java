@@ -50,4 +50,16 @@ public class BasePokemonData implements Serializable {
     public int getSpeed() {
         return speed;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) {
+            return true;
+        }
+        BasePokemonData pd = (BasePokemonData) o;
+        return pd.getMaxHitPoint() == this.maxHitPoint
+                && pd.getAttackPoint() == this.attackPoint
+                && pd.getDefencePoint() == this.defencePoint
+                && pd.getSpeed() == this.speed;
+    }
 }
