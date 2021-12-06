@@ -9,7 +9,8 @@
 
 ### SRP (Single Responsibility Principle)
 
-We first identify some sources of change. The login system may be changed,
+- We make lots of classes only deal with one job
+  - separate attack, defend, capture, heal, escape
 
 ### OCP (Open Closed Principle)
 
@@ -36,22 +37,37 @@ We first identify some sources of change. The login system may be changed,
 ## Design Pattern
 
 - State
-  - s
+  - Different Panel connect
 - Simple factory
+  - produce new pokemon
 - Strategy
 - Memento
   - Save and Load
+  - !(MementoUML)[phase2/img/Memento Design UML.png]
 
 ## Use of GitHub Features
 
--
+- assign work and create branch onto group member name path
+- Pull Request Peer Review
 
 ## Code Style and Documentation
 
+- Enough javadoc explains most of the classes
+
 ## Testing
+
+- Testing for Entity and some use cases 
+  - The core part of program
 
 ## Refactoring
 
+- rename some class
+- change location of some path
+
 ## Code Organization
+
+- we classify and package our class by architecture
+  - Easy to organize and have a clean structure to go on
+
 
 ## Functionality

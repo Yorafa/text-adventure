@@ -14,8 +14,8 @@ import java.awt.*;
 import java.util.List;
 
 public class TextAdventureFrame extends JFrame {
-    private UserController userController;
-    private MapController mapController;
+    private final UserController userController;
+    private final MapController mapController;
     private PokemonBook pokemonBook;
     private Pokemon wildPokemon;
     private PlayerPokemonController playerPokemonController;
@@ -172,7 +172,6 @@ public class TextAdventureFrame extends JFrame {
         this.setCurrentMap("Home");
         this.playerPokemonController = (new PlayerPokemonController(new GuiPlayerPokemons()));
         this.saveLoadController = new SaveLoadController();
-        this.saveLoadController.setRelativeUser(getUser());
     }
 
     public void addPokemon(Pokemon pokemon){
