@@ -6,14 +6,15 @@ import usecase_map.MapManager;
 
 import java.util.Scanner;
 
+/**
+ * This is the panel will show all the place that player can go,
+ * and let player choose where to go
+ */
 public class TextChangePlacePanel extends TextPanel{
     private final MapManager mapManager;
     private final ChangePlacePresenter changePlacePresenter;
 
     /**
-     * This is the panel will show all the place that player can go,
-     * and let player choose where to go
-     *
      * Construct a TextChangePlacePanel, given them the given input, gameDriver
      * and mapManager
      *
@@ -33,7 +34,6 @@ public class TextChangePlacePanel extends TextPanel{
     }
 
     /**
-     * Override of TextPanel
      * Call presenter to show what action player can do
      */
     @Override
@@ -44,8 +44,8 @@ public class TextChangePlacePanel extends TextPanel{
     }
 
     /**
-     * Override of TextPanel
      * Read player's input and execute the respective action
+     *
      * @param choice the string that player input
      */
     @Override

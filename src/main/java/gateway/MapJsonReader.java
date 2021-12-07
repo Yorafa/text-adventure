@@ -13,6 +13,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * the data access object in charge of map
+ */
 public class MapJsonReader implements IJsonReader<List<Pmap>> {
     /**
      *

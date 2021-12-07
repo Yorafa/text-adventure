@@ -4,13 +4,14 @@ import driver.GameDriver;
 
 import java.util.Scanner;
 
+/**
+ * This is an abstract class that all showing panel will extend this
+ */
 public abstract class TextPanel implements PanelState {
     protected Scanner input;
     protected GameDriver gameDriver;
 
     /**
-     * This is an abstract class that all showing panel will extend this
-     *
      * Construct a TextPanel, given them the given input and gameDriver
      *
      * @param input the player input
@@ -25,7 +26,8 @@ public abstract class TextPanel implements PanelState {
     }
 
     /**
-     * Override of PanelState
+     * {@inheritDoc}
+     *
      * show all action player can do and
      * call execute to do what player input
      */

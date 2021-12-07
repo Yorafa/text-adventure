@@ -7,6 +7,9 @@ import usecase_pokemon.PokemonManager;
 
 import java.util.Scanner;
 
+/**
+ * This is the panel that show player their pocket.
+ */
 public class TextPocketPanel extends TextPanel{
     private final PokemonManager pokemonManager;
     private final PocketPresenter pocketPresenter;
@@ -14,8 +17,6 @@ public class TextPocketPanel extends TextPanel{
     private IPocketInfoAdder adder;
 
     /**
-     * This is the panel that show player their pocket.
-     *
      * Construct a TextPocketPanel, given them the given input,
      * gameDriver and pokemonManager
      *
@@ -51,7 +52,6 @@ public class TextPocketPanel extends TextPanel{
     }
 
     /**
-     * Override of TextPanel
      * Call presenter to show what action player can do
      */
     @Override
@@ -68,8 +68,8 @@ public class TextPocketPanel extends TextPanel{
     }
 
     /**
-     * Override of TextPanel
      * Read player's input and execute the respective action
+     *
      * @param choice the string that player input
      */
     @Override

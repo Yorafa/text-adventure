@@ -8,14 +8,15 @@ import usecase_pokemon.PokemonManager;
 
 import java.util.Scanner;
 
+/**
+ * This is the battle panel when player meet wild pokemon
+ */
 public class TextBattlePanel extends TextPanel{
     private final PokemonManager pokemonManager;
     private final BattleManager battleManager;
     private final BattlePresenter battlePresenter;
 
     /**
-     * This is the battle panel when player meet wild pokemon
-     *
      * Construct a TextBattlePanel, given them the given input, gameDriver,
      * pokemonManager and battleManger
      * @param input the player input
@@ -40,7 +41,8 @@ public class TextBattlePanel extends TextPanel{
     }
 
     /**
-     * Override of TextPanel, also is the implement of PanelState
+     * {@inheritDoc}
+     *
      * Judge whether the battle is going on, and call the battlePresenter to present action
      * if true, call execute
      * else, exit the battle, settlement experience and switch state
@@ -61,7 +63,6 @@ public class TextBattlePanel extends TextPanel{
     }
 
     /**
-     * Override of TextPanel
      * Call presenter to show what action player can do
      */
     @Override
@@ -75,8 +76,8 @@ public class TextBattlePanel extends TextPanel{
     }
 
     /**
-     * Override of TextPanel
      * Read player's input and execute the respective action
+     *
      * @param choice the string that player input
      */
     @Override

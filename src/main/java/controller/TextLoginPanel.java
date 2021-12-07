@@ -6,14 +6,15 @@ import usecase_user.UserManager;
 
 import java.util.Scanner;
 
+/**
+ * This is the panel ask player to login,
+ * or register if player do not have an account
+ */
 public class TextLoginPanel extends TextPanel{
     private final UserManager userManager;
     private final LoginPresenter loginPresenter;
 
     /**
-     * This is the panel ask player to login,
-     * or register if player do not have an account
-     *
      * Construct a TextLoginPanel, given them the given input, gameDriver and userManager.
      *
      * @param input the player input
@@ -32,7 +33,6 @@ public class TextLoginPanel extends TextPanel{
     }
 
     /**
-     * Override of TextPanel
      * Call presenter to show what action player can do
      */
     @Override
@@ -44,8 +44,8 @@ public class TextLoginPanel extends TextPanel{
     }
 
     /**
-     * Override of TextPanel
      * Read player's input and execute the respective action
+     *
      * @param choice the string that player input
      */
     @Override
