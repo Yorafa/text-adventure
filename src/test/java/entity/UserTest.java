@@ -31,6 +31,6 @@ public class UserTest {
     @Test(timeout = 50)
     public void testEqual() {
         User testUser = new User("test name", "test password");
-        assertTrue(user.equals(testUser));
+        assertEquals(user, testUser);
     }
 }
