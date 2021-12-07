@@ -1,15 +1,18 @@
 package usecase_pokemon;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
-public class LevelCalculatorTest extends TestCase {
-    private final LevelCalculator levelCalculator = new LevelCalculator();
+import static org.junit.Assert.*;
 
-    public void testCalculateLevel() {
-        assertEquals(100, levelCalculator.calculateLevel(10000));
+public class LevelCalculatorTest {
+
+    @Test
+    public void calculateLevel() {
+        assertEquals(100, new LevelCalculator().calculateLevel(10000));
     }
 
-    public void testCalculateExperiencePoint() {
-        assertEquals(10000, levelCalculator.calculateExperiencePoint(100));
+    @Test
+    public void calculateExperiencePoint() {
+        assertEquals(10000, new LevelCalculator().calculateExperiencePoint(100));
     }
 }
