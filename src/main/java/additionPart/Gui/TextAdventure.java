@@ -1,6 +1,5 @@
 package additionPart.Gui;
 
-import GuiController.*;
 import additionPart.GuiController.MapController;
 import additionPart.GuiController.UserController;
 import additionPart.GuiGateway.MapGate;

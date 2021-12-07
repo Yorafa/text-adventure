@@ -1,6 +1,5 @@
 package additionPart.GuiGateway;
 
-import GuiController.*;
 import additionPart.GuiController.UserController;
 
 import java.io.*;
