@@ -9,6 +9,8 @@ public abstract class TextPanel implements PanelState {
     protected GameDriver gameDriver;
 
     /**
+     * This is an abstract class that all showing panel will extend this
+     *
      * Construct a TextPanel, given them the given input and gameDriver
      *
      * @param input the player input
@@ -22,13 +24,25 @@ public abstract class TextPanel implements PanelState {
         this.gameDriver = gameDriver;
     }
 
+    /**
+     * Override of PanelState
+     * show all action player can do and
+     * call execute to do what player input
+     */
     public void run() {
         printMenu();
         execute(input.nextLine());
     }
 
+    /**
+     * Call presenter to show what action player can do
+     */
     protected abstract void printMenu();
 
+    /**
+     * Read player's input and execute the respective action
+     * @param choice the string that player input
+     */
     protected abstract void execute(String choice);
 
 }

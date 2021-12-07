@@ -9,13 +9,17 @@ import usecase_pokemon.PokemonManager;
 
 import java.util.Scanner;
 
-public class TextExplorePanel extends TextPanel implements PanelState {
+public class TextExplorePanel extends TextPanel{
     private final MapManager mapManager;
     private final PokemonManager pokemonManager;
     private final GameDataManager gameDataManager;
     private final ExplorePresenter explorePresenter;
 
     /**
+     * This is the main panel that player will always see
+     * Player can heal, change current place,
+     * walk around to meet pokemon, and log out at this panel
+     *
      * Construct a TextExplorePanel, given them the given input, gameDriver, mapManager,
      * pokemonManager and gameDataManager
      * @param input the player input
@@ -40,6 +44,10 @@ public class TextExplorePanel extends TextPanel implements PanelState {
         this.explorePresenter = new ExplorePresenter();
     }
 
+    /**
+     * Override of TextPanel
+     * Call presenter to show what action player can do
+     */
     @Override
     protected void printMenu() {
         explorePresenter.addWalkAround();
@@ -50,6 +58,11 @@ public class TextExplorePanel extends TextPanel implements PanelState {
         explorePresenter.printAllEnum();
     }
 
+    /**
+     * Override of TextPanel
+     * Read player's input and execute the respective action
+     * @param choice the string that player input
+     */
     @Override
     protected void execute(String choice) {
         switch (choice) {

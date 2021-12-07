@@ -13,6 +13,8 @@ public class TextChangeBattlePokemonPanel extends TextPanel {
     private final IPocketInfoAdder adder;
 
     /**
+     * This is a panel that will show when player change battle pokemon
+     *
      * Construct a TextChangeBattlePokemonPanel, given them the given input, gameDriver,
      * pokemonManager and adder
      * @param input the player input
@@ -33,6 +35,10 @@ public class TextChangeBattlePokemonPanel extends TextPanel {
         this.adder = adder;
     }
 
+    /**
+     * Override of TextPanel
+     * Call presenter to show what action player can do
+     */
     @Override
     protected void printMenu() {
         pocketPresenter.addPocketInfo(pokemonManager.getPocketInfo(adder));
@@ -40,6 +46,11 @@ public class TextChangeBattlePokemonPanel extends TextPanel {
         pocketPresenter.printAllEnum();
     }
 
+    /**
+     * Override of TextPanel
+     * Read player's input and execute the respective action
+     * @param choice the string that player input
+     */
     @Override
     protected void execute(String choice) {
         try {

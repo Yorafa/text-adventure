@@ -6,11 +6,14 @@ import usecase_user.UserManager;
 
 import java.util.Scanner;
 
-public class TextLoginPanel extends TextPanel implements PanelState {
+public class TextLoginPanel extends TextPanel{
     private final UserManager userManager;
     private final LoginPresenter loginPresenter;
 
     /**
+     * This is the panel ask player to login,
+     * or register if player do not have an account
+     *
      * Construct a TextLoginPanel, given them the given input, gameDriver and userManager.
      *
      * @param input the player input
@@ -28,6 +31,10 @@ public class TextLoginPanel extends TextPanel implements PanelState {
         this.loginPresenter = new LoginPresenter();
     }
 
+    /**
+     * Override of TextPanel
+     * Call presenter to show what action player can do
+     */
     @Override
     protected void printMenu() {
         loginPresenter.addLogin();
@@ -36,6 +43,11 @@ public class TextLoginPanel extends TextPanel implements PanelState {
         loginPresenter.printAllEnum();
     }
 
+    /**
+     * Override of TextPanel
+     * Read player's input and execute the respective action
+     * @param choice the string that player input
+     */
     @Override
     protected void execute(String choice) {
         switch (choice) {

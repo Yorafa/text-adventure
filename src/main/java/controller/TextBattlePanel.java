@@ -8,18 +8,21 @@ import usecase_pokemon.PokemonManager;
 
 import java.util.Scanner;
 
-public class TextBattlePanel extends TextPanel implements PanelState {
+public class TextBattlePanel extends TextPanel{
     private final PokemonManager pokemonManager;
     private final BattleManager battleManager;
     private final BattlePresenter battlePresenter;
 
     /**
+     * This is the battle panel when player meet wild pokemon
+     *
      * Construct a TextBattlePanel, given them the given input, gameDriver,
      * pokemonManager and battleManger
      * @param input the player input
      * @param gameDriver the main driver of game
      * @param pokemonManager the manager of pokemon
      * @param battleManager the battle manager of pokemon
+     *
      * The relative class
      * @see GameDriver
      * @see PokemonManager
@@ -27,7 +30,8 @@ public class TextBattlePanel extends TextPanel implements PanelState {
      * @see PanelState
      * @see TextPanel
      */
-    public TextBattlePanel(Scanner input, GameDriver gameDriver, PokemonManager pokemonManager, BattleManager battleManager) {
+    public TextBattlePanel(Scanner input, GameDriver gameDriver,
+                           PokemonManager pokemonManager, BattleManager battleManager) {
         super(input, gameDriver);
         this.pokemonManager = pokemonManager;
         this.battleManager = battleManager;
@@ -35,6 +39,12 @@ public class TextBattlePanel extends TextPanel implements PanelState {
         this.battleManager.setPresenter(battlePresenter);
     }
 
+    /**
+     * Override of TextPanel, also is the implement of PanelState
+     * Judge whether the battle is going on, and call the battlePresenter to present action
+     * if true, call execute
+     * else, exit the battle, settlement experience and switch state
+     */
     @Override
     public void run() {
         if (battleManager.isBattling()) {
@@ -50,6 +60,10 @@ public class TextBattlePanel extends TextPanel implements PanelState {
         }
     }
 
+    /**
+     * Override of TextPanel
+     * Call presenter to show what action player can do
+     */
     @Override
     public void printMenu() {
         battlePresenter.addAttack();
@@ -60,6 +74,11 @@ public class TextBattlePanel extends TextPanel implements PanelState {
         battlePresenter.printAllEnum();
     }
 
+    /**
+     * Override of TextPanel
+     * Read player's input and execute the respective action
+     * @param choice the string that player input
+     */
     @Override
     protected void execute(String choice) {
         switch (choice) {

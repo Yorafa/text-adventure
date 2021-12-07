@@ -6,11 +6,14 @@ import usecase_map.MapManager;
 
 import java.util.Scanner;
 
-public class TextChangePlacePanel extends TextPanel implements PanelState {
+public class TextChangePlacePanel extends TextPanel{
     private final MapManager mapManager;
     private final ChangePlacePresenter changePlacePresenter;
 
     /**
+     * This is the panel will show all the place that player can go,
+     * and let player choose where to go
+     *
      * Construct a TextChangePlacePanel, given them the given input, gameDriver
      * and mapManager
      *
@@ -29,6 +32,10 @@ public class TextChangePlacePanel extends TextPanel implements PanelState {
         this.changePlacePresenter = new ChangePlacePresenter();
     }
 
+    /**
+     * Override of TextPanel
+     * Call presenter to show what action player can do
+     */
     @Override
     protected void printMenu() {
         changePlacePresenter.addToQueue(mapManager.getMapNames());
@@ -36,6 +43,11 @@ public class TextChangePlacePanel extends TextPanel implements PanelState {
         changePlacePresenter.printAllEnum();
     }
 
+    /**
+     * Override of TextPanel
+     * Read player's input and execute the respective action
+     * @param choice the string that player input
+     */
     @Override
     protected void execute(String choice) {
         try {
