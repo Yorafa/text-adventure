@@ -56,6 +56,6 @@ public class BasePokemonTest {
     public void testEqual() {
         BasePokemonData bpd = new BasePokemonData(ELECTRICITY, 1, 1, 1, 1);
         BasePokemon bp = new BasePokemon("test", bpd);
-        assertTrue(basePokemon.equals(bp));
+        assertEquals(basePokemon, bp);
     }
 }
