@@ -1,9 +1,10 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.Objects;
 
-
+/**
+ * the player's information
+ */
 public class User implements Serializable {
     private String username;
     private String password;
@@ -27,26 +28,50 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    /**
+     * the getter method of username
+     * @return the username player
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     * the setter method of username
+     * @param username the given username from player
+     */
     public void setUsername(String username) {
         this.username = username;
     }
 
+    /**
+     * the getter method of password
+     * @return the password player use to set
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * the setter method of password
+     * @param password the given password from player
+     */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     *
+     * @param o the object use compare
+     * @return true if the object share all the data the same
+     */
     @Override
     public boolean equals(Object o) {
         if (o == this) {
             return true;
+        }
+        if (o.getClass() != this.getClass()){
+            return false;
         }
         User u = (User) o;
         return u.getUsername().equals(this.getUsername())

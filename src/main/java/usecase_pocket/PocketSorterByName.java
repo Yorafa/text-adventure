@@ -7,13 +7,18 @@ import java.util.Comparator;
 import java.util.List;
 
 public class PocketSorterByName implements IPocketSorter {
+
+    /**
+     * sort pocket by name
+     * @param pocket the container of pokemons of player
+     */
     @Override
     public void sort(Pocket pocket) {
         List<Pokemon> pokemons = pocket.getPokemons();
         pokemons.sort(new NameComparator());
     }
 
-    private class NameComparator implements Comparator<Pokemon> {
+    private static class NameComparator implements Comparator<Pokemon> {
         @Override
         public int compare(Pokemon p1, Pokemon p2) {
             int result = p1.getName().compareTo(p2.getName());

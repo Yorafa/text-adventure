@@ -7,6 +7,9 @@ import usecase_pokemon.PokemonManager;
 
 import java.util.Scanner;
 
+/**
+ * This is the panel that will show when player change battle pokemon
+ */
 public class TextChangeBattlePokemonPanel extends TextPanel {
     private final PokemonManager pokemonManager;
     private final PocketPresenter pocketPresenter;
@@ -33,6 +36,9 @@ public class TextChangeBattlePokemonPanel extends TextPanel {
         this.adder = adder;
     }
 
+    /**
+     * Call presenter to show what action player can do
+     */
     @Override
     protected void printMenu() {
         pocketPresenter.addPocketInfo(pokemonManager.getPocketInfo(adder));
@@ -40,6 +46,11 @@ public class TextChangeBattlePokemonPanel extends TextPanel {
         pocketPresenter.printAllEnum();
     }
 
+    /**
+     * Read player's input and execute the respective action
+     *
+     * @param choice the string that player input
+     */
     @Override
     protected void execute(String choice) {
         try {

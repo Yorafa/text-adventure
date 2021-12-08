@@ -2,7 +2,11 @@ package gateway;
 
 import java.io.*;
 
+/**
+ * the data access object
+ */
 public class ReadWriter {
+
     /**
      *
      * @param filePath the file path use to get file
@@ -19,6 +23,12 @@ public class ReadWriter {
         return o;
     }
 
+    /**
+     *
+     * @param filePath the file path use to get file
+     * @param o the object will be written
+     * @throws IOException file may not exist
+     */
     public void write(String filePath, Object o) throws IOException {
         FileOutputStream file = new FileOutputStream(filePath);
         OutputStream buffer = new BufferedOutputStream(file);

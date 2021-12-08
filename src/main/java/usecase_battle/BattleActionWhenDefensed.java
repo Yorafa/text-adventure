@@ -10,7 +10,7 @@ public class BattleActionWhenDefensed implements BattleAction {
     private final IBattlePresenter presenter;
 
     /**
-     * Construct BattleActionWhenAttacked, given them the given battleManager
+     * Construct BattleActionWhenDefensed, given them the given battleManager
      * @param battleManager the manager of battle
      *
      * @see BattleManager
@@ -26,6 +26,10 @@ public class BattleActionWhenDefensed implements BattleAction {
         this.presenter = battleManager.getPresenter();
     }
 
+    /**
+     * execute the attack action, call class DamageCalculator to calculate damage,
+     * call presenter to show the attack action
+     */
     @Override
     public void attack() {
         DamageCalculator damageCalculator = new DamageCalculator();
@@ -40,6 +44,10 @@ public class BattleActionWhenDefensed implements BattleAction {
         presenter.printDefenseSucceed(p2.getName());
     }
 
+    /**
+     * execute the defense action, call class DamageCalculator to calculate damage,
+     * call presenter to show the defense action
+     */
     @Override
     public void defense() {
         presenter.printDefense(p1.getName());
@@ -48,6 +56,11 @@ public class BattleActionWhenDefensed implements BattleAction {
         presenter.printDefenseFail(p2.getName());
     }
 
+    /**
+     * execute the heal action, call class DamageCalculator to calculate damage,
+     * call HealCalculator to calculate value of healing,
+     * call presenter to show the heal action
+     */
     @Override
     public void heal() {
         HealCalculator healCalculator = new HealCalculator();
@@ -58,6 +71,11 @@ public class BattleActionWhenDefensed implements BattleAction {
         presenter.printDefenseFail(p2.getName());
     }
 
+    /**
+     * execute the capture action, call class CaptureCalculator to calculate if captured,
+     * call presenter to show the capture action
+     * @return true if successfully capture, false fail in capturing
+     */
     @Override
     public boolean capture() {
         CaptureCalculator captureCalculator = new CaptureCalculator();

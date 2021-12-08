@@ -28,6 +28,10 @@ public class BattleActionWhenAttacked implements BattleAction {
         this.presenter = battleManager.getPresenter();
     }
 
+    /**
+     * execute the attack action, call class DamageCalculator to calculate damage,
+     * call presenter to show the attack action
+     */
     @Override
     public void attack() {
         DamageCalculator damageCalculator = new DamageCalculator();
@@ -43,6 +47,10 @@ public class BattleActionWhenAttacked implements BattleAction {
         presenter.printAttack(p2.getName(), p1.getName(), damageByP2);
     }
 
+    /**
+     * execute the defense action, call class DamageCalculator to calculate damage,
+     * call presenter to show the defense action
+     */
     @Override
     public void defense() {
         DamageCalculator damageCalculator = new DamageCalculator();
@@ -57,6 +65,11 @@ public class BattleActionWhenAttacked implements BattleAction {
         presenter.printAttack(p2.getName(), p1.getName(), damageByP2);
     }
 
+    /**
+     * execute the heal action, call class DamageCalculator to calculate damage,
+     * call HealCalculator to calculate value of healing,
+     * call presenter to show the heal action
+     */
     @Override
     public void heal() {
         DamageCalculator damageCalculator = new DamageCalculator();
@@ -70,6 +83,11 @@ public class BattleActionWhenAttacked implements BattleAction {
         presenter.printAttack(p2.getName(), p1.getName(), damageByP2);
     }
 
+    /**
+     * execute the capture action, call class CaptureCalculator to calculate if captured,
+     * call presenter to show the capture action
+     * @return true if successfully capture, false fail in capturing
+     */
     @Override
     public boolean capture() {
         CaptureCalculator captureCalculator = new CaptureCalculator();

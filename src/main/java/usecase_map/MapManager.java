@@ -13,6 +13,10 @@ public class MapManager {
     private List<Pmap> pmaps;
     private Pmap currentPlace;
 
+    /**
+     * Construct MapManager, given pmaps the value reader read
+     * @param reader the data access object
+     */
     public MapManager(IJsonReader<List<Pmap>> reader) {
         try {
             this.pmaps = reader.read();
@@ -21,6 +25,10 @@ public class MapManager {
         }
     }
 
+    /**
+     * loop the map and store all map names into list, then
+     * @return all map names in a list
+     */
     public List<String> getMapNames() {
         List<String> mapNames = new ArrayList<>();
         for (Pmap pmap : pmaps) {
@@ -29,6 +37,11 @@ public class MapManager {
         return mapNames;
     }
 
+    /**
+     * method of encounter wild pokemon
+     * @param pokemonManager the manager of pokemon
+     * @return a wild pokemon from current map
+     */
     public Pokemon walkAround(PokemonManager pokemonManager) {
         ProbabilityCalculator probabilityCalculator = new ProbabilityCalculator();
         int index = probabilityCalculator.calculate(currentPlace.getProbabilities());
@@ -41,10 +54,18 @@ public class MapManager {
         }
     }
 
+    /**
+     * the getter method of currentPlace
+     * @return current place that player at
+     */
     public Pmap getCurrentPlace() {
         return currentPlace;
     }
 
+    /**
+     * the setter method of currentPlace
+     * @param currentPlace new map player want to switch to
+     */
     public void setCurrentPlace(Pmap currentPlace) {
         if (currentPlace != null) {
             this.currentPlace = currentPlace;
@@ -53,6 +74,10 @@ public class MapManager {
         }
     }
 
+    /**
+     * the setter method of currentPlace
+     * @param i the index of map
+     */
     public void setCurrentPlace(int i) {
         currentPlace = pmaps.get(i);
     }

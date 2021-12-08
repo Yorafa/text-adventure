@@ -4,6 +4,12 @@ import java.util.List;
 import java.util.Random;
 
 public class ProbabilityCalculator {
+
+    /**
+     * the probability of encounter wild pokemon
+     * @param probabilities a list of integer represent probability
+     * @return -1 represent nothing, of index of poekmon
+     */
     public int calculate(List<Integer> probabilities) {
         Random r = new Random();
         int i = r.nextInt(100);

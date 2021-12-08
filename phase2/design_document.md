@@ -48,6 +48,7 @@
 - Memento
   - Save and Load
   - ![Preview](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/blob/main/phase2/img/Memento%20Design%20UML.png?raw=true)
+
 ## Use of GitHub Features
 
 - assign work and create branch onto group member name path

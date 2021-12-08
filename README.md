@@ -1,4 +1,4 @@
-# Text Adventure/Pokemon World
+# Pokemon World
 
 - Are you ready for a new adventure?
 - Are you ready for travel with your Pokemon?
@@ -14,7 +14,7 @@
 
 1. Download one of releases
 2. double click xx.jar if you can
-3. if you can't, open terminal type: `java -jar xx.jar`
+3. if you can't, open terminal at that file path and then type: `java -jar .\xx.jar`
 4. Notice: `xx` is the release you download, either `TextAdventure` or `PokemonWorld`
 5. Or download source code and use your IDE to open it
 
@@ -28,7 +28,8 @@
 ## Documentation
 
 - see specific play instruction on [Specification](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/blob/main/phase2/specification.md)
-- We will use gson to Serializing our partial game data, if you unfamiliar with that, please look [gson](https://github.com/google/gson)
+- We will use gson to Serializing our partial game data
+  - if you unfamiliar with that, please look [gson](https://github.com/google/gson)
 
 ## Support
 

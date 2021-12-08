@@ -10,6 +10,11 @@ public class GameDataManager {
     private IReadWriter readWriter;
     private GameData gameData;
 
+    /**
+     * the setter method of readWriter
+     * use the readWriter to read game data
+     * @param readWriter the data access object
+     */
     public void setReadWriter(IReadWriter readWriter) {
         this.readWriter = readWriter;
         try {
@@ -19,6 +24,11 @@ public class GameDataManager {
         }
     }
 
+    /**
+     * method use save game data in locale file
+     * @param pocket the container of pockmons for player
+     * @param pmap the map player current at
+     */
     public void saveGameData(Pocket pocket, Pmap pmap) {
         gameData.setPocket(pocket);
         gameData.setCurrentPlace(pmap);
@@ -29,10 +39,18 @@ public class GameDataManager {
         }
     }
 
+    /**
+     * the getter method
+     * @return the container of pockmons for player
+     */
     public Pocket getPocket() {
         return gameData.getPocket();
     }
 
+    /**
+     * the getter method
+     * @return the map player current at
+     */
     public Pmap getCurrentPlace() {
         return gameData.getCurrentPlace();
     }

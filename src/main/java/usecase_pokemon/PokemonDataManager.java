@@ -21,6 +21,12 @@ public class PokemonDataManager {
         return new PokemonData(basePokemonData.getPokemonType(), maxHitPoint, attackPoint, defencePoint, speed);
     }
 
+    /**
+     * update the pokemonData by level and basePokemonData
+     * @param pokemonData the current data of pokemon
+     * @param basePokemonData the base data of pokemon
+     * @param level the current level of pokemon
+     */
     public void update(PokemonData pokemonData, BasePokemonData basePokemonData, int level) {
         LeveledDataCalculator leveledDataCalculator = new LeveledDataCalculator();
         pokemonData.setMaxHitPoint(leveledDataCalculator.calculate(basePokemonData.getMaxHitPoint(), level));

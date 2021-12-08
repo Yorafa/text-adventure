@@ -7,14 +7,17 @@ import usecase_pokemon.PokemonManager;
 
 import java.util.Scanner;
 
-public class TextPocketPanel extends TextPanel implements PanelState {
+/**
+ * This is the panel that show player their pocket.
+ */
+public class TextPocketPanel extends TextPanel{
     private final PokemonManager pokemonManager;
     private final PocketPresenter pocketPresenter;
     private IPocketSorter sorter;
     private IPocketInfoAdder adder;
 
     /**
-     * Construct a TextExplorePanel, given them the given input,
+     * Construct a TextPocketPanel, given them the given input,
      * gameDriver and pokemonManager
      *
      * @param input the player input
@@ -33,6 +36,14 @@ public class TextPocketPanel extends TextPanel implements PanelState {
         this.adder = new PocketInfoAdderSimple();
     }
 
+    /**
+     * Construct a TextExplorePanel, given them the given input,
+     * gameDriver, pokemonManager and adder
+     * @param input the player input
+     * @param gameDriver the main driver of game
+     * @param pokemonManager the manager of pokemon
+     * @param adder use add the pokemon information
+     */
     public TextPocketPanel(Scanner input, GameDriver gameDriver, PokemonManager pokemonManager, IPocketInfoAdder adder) {
         super(input, gameDriver);
         this.pokemonManager = pokemonManager;
@@ -40,6 +51,9 @@ public class TextPocketPanel extends TextPanel implements PanelState {
         this.adder = adder;
     }
 
+    /**
+     * Call presenter to show what action player can do
+     */
     @Override
     protected void printMenu() {
         pocketPresenter.addPocketInfo(pokemonManager.getPocketInfo(adder));
@@ -53,6 +67,11 @@ public class TextPocketPanel extends TextPanel implements PanelState {
         pocketPresenter.printAllEnum();
     }
 
+    /**
+     * Read player's input and execute the respective action
+     *
+     * @param choice the string that player input
+     */
     @Override
     protected void execute(String choice) {
         switch (choice) {
