@@ -13,21 +13,19 @@ public class PokemonDataManager {
      * @see PokemonData
      */
     public PokemonData create(BasePokemonData basePokemonData, int level) {
-        int maxHitPoint = leveledPoint(basePokemonData.getMaxHitPoint(), level);
-        int attackPoint = leveledPoint(basePokemonData.getAttackPoint(), level);
-        int defencePoint = leveledPoint(basePokemonData.getDefencePoint(), level);
-        int speed = leveledPoint(basePokemonData.getSpeed(), level);
+        LeveledDataCalculator leveledDataCalculator = new LeveledDataCalculator();
+        int maxHitPoint = leveledDataCalculator.calculate(basePokemonData.getMaxHitPoint(), level);
+        int attackPoint = leveledDataCalculator.calculate(basePokemonData.getAttackPoint(), level);
+        int defencePoint = leveledDataCalculator.calculate(basePokemonData.getDefencePoint(), level);
+        int speed = leveledDataCalculator.calculate(basePokemonData.getSpeed(), level);
         return new PokemonData(basePokemonData.getPokemonType(), maxHitPoint, attackPoint, defencePoint, speed);
     }
 
     public void update(PokemonData pokemonData, BasePokemonData basePokemonData, int level) {
-        pokemonData.setMaxHitPoint(leveledPoint(basePokemonData.getMaxHitPoint(), level));
-        pokemonData.setAttackPoint(leveledPoint(basePokemonData.getAttackPoint(), level));
-        pokemonData.setDefencePoint(leveledPoint(basePokemonData.getDefencePoint(), level));
-        pokemonData.setSpeed(leveledPoint(basePokemonData.getSpeed(), level));
-    }
-
-    private int leveledPoint(int basePoint, int level) {
-        return (int) Math.round(basePoint * (0.1 * (level - 1)) + 1);
+        LeveledDataCalculator leveledDataCalculator = new LeveledDataCalculator();
+        pokemonData.setMaxHitPoint(leveledDataCalculator.calculate(basePokemonData.getMaxHitPoint(), level));
+        pokemonData.setAttackPoint(leveledDataCalculator.calculate(basePokemonData.getAttackPoint(), level));
+        pokemonData.setDefencePoint(leveledDataCalculator.calculate(basePokemonData.getDefencePoint(), level));
+        pokemonData.setSpeed(leveledDataCalculator.calculate(basePokemonData.getSpeed(), level));
     }
 }
