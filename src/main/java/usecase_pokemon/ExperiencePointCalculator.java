@@ -9,6 +9,6 @@ public class ExperiencePointCalculator {
      * @return poekmon current exp / 5
      */
     public int calculate(Pokemon pokemon) {
-        return pokemon.getExperiencePoint() / 5;
+        return (int) (pokemon.getExperiencePoint() / 5.0);
     }
 }
