@@ -43,7 +43,7 @@ public class InitialPanel extends JPanel {
         if (pokemonDialog.isAcceptable()){
             parent.remove(this);
             parent.addPokemon(pokemon);
-            parent.setContentPane(new MapPanel(parent));
+            parent.setContentPane(new ExplorePanel(parent));
             parent.pack();
         }
     }

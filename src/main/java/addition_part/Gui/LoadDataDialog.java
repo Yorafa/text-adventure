@@ -1,7 +1,5 @@
 package addition_part.Gui;
 
-import addition_part.GuiUsecase.GuiGameData;
-
 import javax.swing.*;
 import java.awt.*;
 

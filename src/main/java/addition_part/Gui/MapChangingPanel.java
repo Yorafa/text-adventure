@@ -1,31 +1,43 @@
 package addition_part.Gui;
 
-import addition_part.GuiUsecase.TextAdventureMap;
+import entity.Pmap;
+import usecase_map.MapManager;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class MapChangingPanel extends JPanel {
-    private final TextAdventureFrame parent;
-
-    public MapChangingPanel(TextAdventureFrame parent) {
-        this.parent = parent;
-        this.setBorder(BorderFactory.createEmptyBorder(200, 400, 200, 400));
-
-        showAll();
-    }
-    public void showMap(String name){
-        JButton button = new JButton(name);
-        button.addActionListener(e -> {
-            parent.setCurrentMap(parent.getMapManager().find(name));
-            parent.setContentPane(new MapPanel(parent));
-            parent.pack();
-        });
-        this.add(button);
+    private final MapManager mapManager;
+    public MapChangingPanel(MapManager mapManager) {
+        this.mapManager = mapManager;
+        initialize();
     }
 
-    public void showAll(){
-        for (TextAdventureMap textAdventureMap : parent.getMaps())
-            showMap(textAdventureMap.getMapName());
+    private void initialize(){
+        this.setLayout(new GridLayout(1,3,10,10));
+        this.add(nameLabel());
+        JComboBox<Pmap> comboBox = comboBox();
+        this.add(comboBox);
+        this.add(switchButton(comboBox));
+    }
 
+    private JButton switchButton(JComboBox<Pmap> comboBox){
+        JButton switchButton = new JButton("Switch to");
+        switchButton.addActionListener(e -> setCurrentPlace((Pmap) comboBox.getSelectedItem()));
+        return switchButton;
+    }
+
+    private JLabel nameLabel(){
+        return new JLabel("Select map you want to go");
+    }
+
+    private JComboBox<Pmap> comboBox(){
+        JComboBox<Pmap> comboBox = new JComboBox<>();
+        for (Pmap map: mapManager.getPmaps()) comboBox.addItem(map);
+        return comboBox;
+    }
+
+    private void setCurrentPlace(Pmap pmap){
+        mapManager.setCurrentPlace(pmap);
     }
 }

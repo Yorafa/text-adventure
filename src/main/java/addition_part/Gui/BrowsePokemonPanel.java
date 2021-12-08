@@ -16,7 +16,7 @@ public class BrowsePokemonPanel extends JPanel {
         addBattlePokemon();
         addLibraryLine();
         JButton returnButton = new JButton("Back");
-        returnButton.addActionListener(e -> {parent.setContentPane(new MapPanel(parent));
+        returnButton.addActionListener(e -> {parent.setContentPane(new ExplorePanel(parent));
         parent.pack();});
         this.add(returnButton);
     }

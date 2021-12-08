@@ -38,6 +38,14 @@ public class MapManager {
     }
 
     /**
+     * the getter method of pmaps
+     * @return the list of map
+     */
+    public List<Pmap> getPmaps() {
+        return pmaps;
+    }
+
+    /**
      * method of encounter wild pokemon
      * @param pokemonManager the manager of pokemon
      * @return a wild pokemon from current map

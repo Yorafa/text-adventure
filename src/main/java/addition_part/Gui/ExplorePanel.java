@@ -5,10 +5,10 @@ import addition_part.GuiController.PokemonController;
 import javax.swing.*;
 import java.awt.*;
 
-public class MapPanel extends JPanel {
+public class ExplorePanel extends JPanel {
     private final TextAdventureFrame parent;
 
-    public MapPanel(TextAdventureFrame parent) {
+    public ExplorePanel(TextAdventureFrame parent) {
         this.parent = parent;
         this.setLayout(new GridLayout(2, 1, 10, 10));
 

@@ -7,7 +7,7 @@ import entity.Pokemon;
 import javax.swing.*;
 import java.awt.*;
 
-public class BattlePanel extends JPanel {
+public class BattlePanel extends JPanel{
     private final BattleController battleController;
     private final Pokemon wildPokemon;
 
@@ -72,7 +72,7 @@ public class BattlePanel extends JPanel {
             String message = "Successful Escape";
             JOptionPane.showMessageDialog(this, message, "Escaping", JOptionPane.WARNING_MESSAGE);
             taf.remove(this);
-            taf.setContentPane(new MapPanel(taf));
+            taf.setContentPane(new ExplorePanel(taf));
             taf.pack();
         });
         buttonPanel.add(attackButton);
@@ -94,13 +94,13 @@ public class BattlePanel extends JPanel {
             JOptionPane.showMessageDialog(this, message, "Congratulation", JOptionPane.WARNING_MESSAGE);
             PokemonController.getExp(taf.getPocketPokemons(), wildPokemon);
             taf.remove(this);
-            taf.setContentPane(new MapPanel(taf));
+            taf.setContentPane(new ExplorePanel(taf));
             taf.pack();
         }else if (!battleState && !battleController.isPlayerPokemonState()){
             String message = "You Lose, Please Back to Home to Heal Your Pokemon";
             JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
             taf.remove(this);
-            taf.setContentPane(new MapPanel(taf));
+            taf.setContentPane(new ExplorePanel(taf));
             taf.pack();
         }
     }
@@ -117,7 +117,7 @@ public class BattlePanel extends JPanel {
             String message = "Successful Catching";
             JOptionPane.showMessageDialog(this, message, "Congratulation", JOptionPane.WARNING_MESSAGE);
             taf.remove(this);
-            taf.setContentPane(new MapPanel(taf));
+            taf.setContentPane(new ExplorePanel(taf));
             taf.pack();
         } else{
             String message = "Catching Failure";

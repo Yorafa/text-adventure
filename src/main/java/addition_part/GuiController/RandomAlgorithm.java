@@ -1,9 +1,5 @@
 package addition_part.GuiController;
 
-import addition_part.Gui.TextAdventureFrame;
-import addition_part.GuiUsecase.TextAdventureMap;
-import entity.*;
-
 import java.util.List;
 import java.util.Random;
 
