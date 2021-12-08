@@ -67,7 +67,7 @@ public class BattleActionWhenAttacked implements BattleAction {
 
     /**
      * execute the heal action, call class DamageCalculator to calculate damage,
-     * call HealCalculator to calculate value of healing
+     * call HealCalculator to calculate value of healing,
      * call presenter to show the heal action
      */
     @Override

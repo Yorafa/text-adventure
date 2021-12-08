@@ -14,6 +14,7 @@ public class DamageCalculator {
 
     /**
      * calculate the damage by attack point and defence point
+     *
      * @param attackPoint the attack point of attacker pokemon
      * @param defencePoint the defence point of defender pokemon
      * @return the final damage that attacker cause

@@ -19,6 +19,7 @@ public class BattleManager {
      * @param p1 Pokemon 1
      * @param p2 Pokemon 2
      *
+     * The relative classes
      * @see IBattlePresenter
      * @see BattleAction
      */
