@@ -11,7 +11,6 @@ public class Pocket implements Serializable, Iterable<Pokemon> {
 
     /**
      * The relative classes
-     *
      * @see Pokemon
      * @see Iterator
      * @see Iterable
@@ -38,8 +37,8 @@ public class Pocket implements Serializable, Iterable<Pokemon> {
     }
 
     /**
-     * @return the iterator of pokemons
      * @inheritDoc implement the interface of iterable
+     * @return the iterator of pokemons
      */
 
     @Override

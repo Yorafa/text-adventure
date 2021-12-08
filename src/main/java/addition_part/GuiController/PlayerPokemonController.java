@@ -10,11 +10,11 @@ public class PlayerPokemonController {
 
     /**
      * Construct a PlayerPokemonController, given them the playerPokemons
-     *
      * @param playerPokemons all pokemons that player has
+     *
      * @see GuiPlayerPokemons
      */
-    public PlayerPokemonController(GuiPlayerPokemons playerPokemons) {
+    public PlayerPokemonController(GuiPlayerPokemons playerPokemons){
         this.playerPokemons = playerPokemons;
     }
 
@@ -22,53 +22,54 @@ public class PlayerPokemonController {
         return playerPokemons;
     }
 
-    public void setPlayerPokemons(GuiPlayerPokemons playerPokemons) {
-        this.playerPokemons = playerPokemons;
-    }
-
-    public List<Pokemon> getPocketPokemons() {
+    public List<Pokemon> getPocketPokemons(){
         return playerPokemons.getPocketPokemons();
     }
 
-    public List<Pokemon> getLibraryPokemons() {
+    public List<Pokemon> getLibraryPokemons(){
         return playerPokemons.getLibraryPokemons();
     }
 
-    public boolean intoLib(Pokemon pokemon) {
-        if (playerPokemons.getPocketSize() > 1) {
+    public boolean intoLib(Pokemon pokemon){
+        if (playerPokemons.getPocketSize() > 1){
             playerPokemons.removePocketPokemon(pokemon);
             playerPokemons.addLibraryPokemon(pokemon);
-            return true;
-        }
+        return true;}
         return false;
     }
 
-    public boolean addPocketPokemon(Pokemon pokemon) {
-        if (playerPokemons.getPocketSize() < 6) {
+    public boolean addPocketPokemon(Pokemon pokemon){
+        if (playerPokemons.getPocketSize() < 6){
             playerPokemons.addPocketPokemon(pokemon);
             return true;
-        } else {
+        }
+        else{
             addLibraryPokemon(pokemon);
             return false;
         }
     }
 
-    public boolean moveIntoPocket(Pokemon pokemon) {
-        if (playerPokemons.getPocketSize() < 6) {
+    public boolean moveIntoPocket(Pokemon pokemon){
+        if (playerPokemons.getPocketSize() < 6){
             playerPokemons.addPocketPokemon(pokemon);
             playerPokemons.removeLibraryPokemon(pokemon);
             return true;
-        } else {
+        }
+        else{
             return false;
         }
     }
 
-    public void addLibraryPokemon(Pokemon pokemon) {
+    public void addLibraryPokemon(Pokemon pokemon){
         playerPokemons.addLibraryPokemon(pokemon);
     }
 
-    public void setFirstPokemon(Pokemon pokemon) {
+    public void setFirstPokemon(Pokemon pokemon){
         playerPokemons.removePocketPokemon(pokemon);
         playerPokemons.addPocketPokemon(0, pokemon);
+    }
+
+    public void setPlayerPokemons(GuiPlayerPokemons playerPokemons) {
+        this.playerPokemons = playerPokemons;
     }
 }

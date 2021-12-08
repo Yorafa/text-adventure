@@ -20,16 +20,15 @@ public class BattleController {
 
     /**
      * Construct BattleController, given them the given playerPokemons and wildPokemon
-     *
      * @param playerPokemons the pokemons of player
-     * @param wildPokemon    the wild pokemon faced by walk around
-     *                       <p>
-     *                       The relative classes
+     * @param wildPokemon the wild pokemon faced by walk around
+     *
+     * The relative classes
      * @see Pokemon
      */
-    public BattleController(List<Pokemon> playerPokemons, Pokemon wildPokemon) {
+    public BattleController(List<Pokemon> playerPokemons, Pokemon wildPokemon){
         this.playerPokemons = playerPokemons;
-        this.playerPokemon = playerPokemons.get(playerPokemonIndex);
+        this.playerPokemon = playerPokemons.get(playerPokemonIndex) ;
         this.wildPokemon = wildPokemon;
         wildDefense = false;
         playerDefense = false;
@@ -55,127 +54,121 @@ public class BattleController {
     }
 
     // other methods
-    public boolean attack() {
-        if (faster().equals(playerPokemon)) {
+    public boolean attack(){
+        if (faster().equals(playerPokemon)){
             PokemonController.reduceHp(wildPokemon, playerAttack());
             checkState();
             if (!isBattling()) return isBattling;
-            if (AIbattle.isAttack()) {
-                PokemonController.reduceHp(playerPokemon, AiAttack());
+            if (AIbattle.isAttack()){PokemonController.reduceHp(playerPokemon, AiAttack());
                 checkState();
-                if (!isBattling()) return isBattling;
-            } else wildDefense = true;
+                if (!isBattling()) return isBattling;}
+            else wildDefense = true;
         }
-        if (AIbattle.isAttack()) {
-            PokemonController.reduceHp(playerPokemon, AiAttack());
+        if (AIbattle.isAttack()){ PokemonController.reduceHp(playerPokemon, AiAttack());
             checkState();
-            if (!isBattling()) return isBattling;
-        } else wildDefense = true;
+            if (!isBattling()) return isBattling;}
+        else wildDefense = true;
         PokemonController.reduceHp(wildPokemon, playerAttack());
         checkState();
         return isBattling;
     }
 
-    public boolean defend() {
-        if (faster().equals(playerPokemon)) {
+    public boolean defend(){
+        if (faster().equals(playerPokemon)){
             playerDefense = true;
-            if (AIbattle.isAttack()) {
-                PokemonController.reduceHp(playerPokemon, AiAttack());
+            if (AIbattle.isAttack()){PokemonController.reduceHp(playerPokemon, AiAttack());
                 checkState();
-                if (!isBattling()) return isBattling;
-            } else wildDefense = true;
-        } else {
-            if (AIbattle.isAttack()) {
-                PokemonController.reduceHp(playerPokemon, AiAttack());
-                checkState();
-                if (!isBattling()) return isBattling;
-            } else wildDefense = true;
-            playerDefense = true;
-        }
+                if (!isBattling()) return isBattling;}
+            else wildDefense = true;
+        }else{
+        if (AIbattle.isAttack()){ PokemonController.reduceHp(playerPokemon, AiAttack());
+            checkState();
+            if (!isBattling()) return isBattling;}
+        else wildDefense = true;
+        playerDefense = true;}
         return isBattling;
     }
 
     private int playerAttack() {
         int damage;
-        if (playerCounter) {
-            if (wildDefense) {
+        if (playerCounter){
+            if (wildDefense){
                 damage = playerPokemon.getAttackPoint() * 2 - wildPokemon.getDefencePoint();
                 wildDefense = false;
-            } else {
+            }
+            else{
                 damage = playerPokemon.getAttackPoint() * 2;
             }
             if (damage <= 0) return 1;
             return damage;
-        } else if (wildDefense) {
+        }
+        else if (wildDefense){
             damage = playerPokemon.getAttackPoint() - wildPokemon.getDefencePoint();
             wildDefense = false;
             if (damage <= 0) return 1;
             return damage;
-        } else {
+        }
+        else{
             damage = playerPokemon.getAttackPoint();
             if (damage <= 0) return 1;
             return damage;
         }
     }
 
-    public int AiAttack() {
+    public int AiAttack(){
         int damage;
-        if (wildCounter) {
-            if (playerDefense) {
+        if (wildCounter){
+            if (playerDefense){
                 damage = wildPokemon.getAttackPoint() * 2 - playerPokemon.getDefencePoint();
                 playerDefense = false;
-            } else {
+            }
+            else{
                 damage = wildPokemon.getAttackPoint() * 2;
             }
             if (damage <= 0) return 1;
             return damage;
-        } else if (playerDefense) {
+        }
+        else if (playerDefense){
             damage = wildPokemon.getAttackPoint() - playerPokemon.getDefencePoint();
             playerDefense = false;
             if (damage <= 0) return 1;
             return damage;
-        } else {
+        }
+        else{
             damage = wildPokemon.getAttackPoint();
             if (damage <= 0) return 1;
             return damage;
         }
     }
 
-    public Pokemon faster() {
-        if (playerPokemon.getSpeed() >= wildPokemon.getSpeed()) {
+    public Pokemon faster(){
+        if (playerPokemon.getSpeed() >= wildPokemon.getSpeed()){
             return playerPokemon;
         }
         return wildPokemon;
     }
 
-    public void checkState() {
-        if (wildPokemon.getHitPoint() <= 0) {
-            isBattling = false;
-        }
-        if (playerPokemon.getHitPoint() <= 0 && playerPokemonIndex + 1 != playerPokemons.size()) {
+    public void checkState(){
+        if (wildPokemon.getHitPoint() <= 0){
+            isBattling = false;}
+        if (playerPokemon.getHitPoint() <= 0 && playerPokemonIndex +1 != playerPokemons.size()) {
             do {
                 playerPokemonIndex++;
                 playerPokemon = playerPokemons.get(playerPokemonIndex);
                 counterCheck();
-            } while (playerPokemon.getHitPoint() <= 0 && playerPokemonIndex + 1 != playerPokemons.size());
-        } else if (playerPokemon.getHitPoint() <= 0 && playerPokemonIndex + 1 == playerPokemons.size()) {
+            }while (playerPokemon.getHitPoint() <=0 && playerPokemonIndex +1 != playerPokemons.size());
+        }
+        else if (playerPokemon.getHitPoint() <= 0 && playerPokemonIndex +1 == playerPokemons.size()){
             playerPokemonState = false;
             isBattling = false;
         }
     }
-
-    public boolean catching() {
-        if (capture()) {
-            return true;
-        } else {
-            if (AIbattle.isAttack()) {
-                PokemonController.reduceHp(playerPokemon, AiAttack());
-            } else {
-                wildDefense = true;
-            }
+    public boolean catching(){
+        if (capture()){return true;}
+        else{if (AIbattle.isAttack()){PokemonController.reduceHp(playerPokemon, AiAttack());}
+            else {wildDefense = true;}
             checkState();
-            return false;
-        }
+            return false;}
     }
 
     public boolean capture() {
@@ -183,7 +176,7 @@ public class BattleController {
         return r.nextDouble() > 0.8 * wildPokemon.getHitPoint() / wildPokemon.getMaxHitPoint() + 0.1;
     }
 
-    public void counterCheck() {
+    public void counterCheck(){
         wildCounter = CounterState.IsCounter(wildPokemon, playerPokemon);
         playerCounter = CounterState.IsCounter(playerPokemon, wildPokemon);
     }

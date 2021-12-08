@@ -20,8 +20,7 @@ public class GuiPlayerPokemons implements Serializable, PokemonIterableCollectio
      */
     public GuiPlayerPokemons() {
         pocketPokemons = new ArrayList<>();
-        libraryPokemons = new ArrayList<>();
-    }
+        libraryPokemons = new ArrayList<>();}
 
     public List<Pokemon> getLibraryPokemons() {
         return libraryPokemons;
@@ -31,43 +30,44 @@ public class GuiPlayerPokemons implements Serializable, PokemonIterableCollectio
         return pocketPokemons;
     }
 
-    public int getLibrarySize() {
+    public int getLibrarySize(){
         return libraryPokemons.size();
     }
 
-    public int getPocketSize() {
+    public int getPocketSize(){
         return pocketPokemons.size();
     }
 
-    public int indexOfLibraryPokemon(Pokemon pokemon) {
+    public int indexOfLibraryPokemon(Pokemon pokemon)
+    {
         return pocketPokemons.indexOf(pokemon);
     }
 
-    public Pokemon getLibraryPokemon(int index) {
+    public Pokemon getLibraryPokemon(int index){
         return libraryPokemons.get(index);
     }
 
-    public Pokemon getPocketPokemon(int index) {
+    public Pokemon getPocketPokemon(int index){
         return pocketPokemons.get(index);
     }
 
-    public void addPocketPokemon(Pokemon pokemon) {
+    public void addPocketPokemon(Pokemon pokemon){
         pocketPokemons.add(pokemon);
     }
 
-    public void addLibraryPokemon(Pokemon pokemon) {
+    public void addLibraryPokemon(Pokemon pokemon){
         libraryPokemons.add(pokemon);
     }
 
-    public void addPocketPokemon(int index, Pokemon pokemon) {
+    public void addPocketPokemon(int index, Pokemon pokemon){
         pocketPokemons.add(index, pokemon);
     }
 
-    public void removePocketPokemon(Pokemon pokemon) {
+    public void removePocketPokemon(Pokemon pokemon){
         pocketPokemons.remove(pokemon);
     }
 
-    public void removeLibraryPokemon(Pokemon pokemon) {
+    public void removeLibraryPokemon(Pokemon pokemon){
         libraryPokemons.remove(pokemon);
     }
 

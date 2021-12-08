@@ -1,25 +1,25 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Pokemon extends BasePokemon implements Serializable {
-    private final PokemonData pokemonData;
     private int level;
     private int experiencePoint;
     private int hitPoint;
+    private PokemonData pokemonData;
 
     /**
      * Construct a Pokemon, given them the given name, basePokemonData, level,
      * experiencePoint, hitPoint and pokemonData
-     *
-     * @param name            the name of pokemon which is the same as its basic version
+     * @param name the name of pokemon which is the same as its basic version
      * @param basePokemonData the data of this pokemon at level 1
-     * @param level           the level of this pokemon
+     * @param level the level of this pokemon
      * @param experiencePoint the experience point of this pokemon will be used to update level
-     * @param hitPoint        the current HP of this pokemon
-     * @param pokemonData     the current data of this pokemon which update based on basePokemonData
-     *                        <p>
-     *                        The relative classes
+     * @param hitPoint the current HP of this pokemon
+     * @param pokemonData the current data of this pokemon which update based on basePokemonData
+     *
+     * The relative classes
      * @see BasePokemon
      * @see BasePokemonData
      * @see PokemonData
@@ -62,6 +62,10 @@ public class Pokemon extends BasePokemon implements Serializable {
         return pokemonData;
     }
 
+    public void setPokemonData(PokemonData pokemonData) {
+        this.pokemonData = pokemonData;
+    }
+
     @Override
     public int getMaxHitPoint() {
         return pokemonData.getMaxHitPoint();
@@ -80,5 +84,15 @@ public class Pokemon extends BasePokemon implements Serializable {
     @Override
     public int getSpeed() {
         return pokemonData.getSpeed();
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getLevel(), getExperiencePoint(), getHitPoint(), getPokemonData());
     }
 }

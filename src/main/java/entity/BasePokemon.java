@@ -3,8 +3,8 @@ package entity;
 import java.io.Serializable;
 
 public class BasePokemon implements Serializable {
-    protected final String name;
-    protected final BasePokemonData basePokemonData;
+    protected String name;
+    protected BasePokemonData basePokemonData;
 
     /**
      * Construct a BasePokemon, giving them the
@@ -48,6 +48,18 @@ public class BasePokemon implements Serializable {
 
     public int getSpeed() {
         return basePokemonData.getSpeed();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        else {
+            BasePokemon basepokemon = (BasePokemon) o;
+            return this.getMaxHitPoint() == basepokemon.getMaxHitPoint()
+                    && this.getAttackPoint() == basepokemon.getAttackPoint()
+                    && this.getDefencePoint() == basepokemon.getDefencePoint()
+                    && this.getSpeed() == basepokemon.getSpeed();
+        }
     }
 }
 

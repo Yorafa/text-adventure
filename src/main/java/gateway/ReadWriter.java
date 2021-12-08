@@ -4,9 +4,10 @@ import java.io.*;
 
 public class ReadWriter {
     /**
+     *
      * @param filePath the file path use to get file
      * @return Object by the given filePath
-     * @throws IOException            file may not exist
+     * @throws IOException file may not exist
      * @throws ClassNotFoundException class may not exist
      */
     public Object read(String filePath) throws IOException, ClassNotFoundException {

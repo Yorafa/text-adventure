@@ -7,7 +7,7 @@ public class GuiPocketIterator implements PokemonIterator {
     private final GuiPlayerPokemons guiPlayerPokemons;
     private int currentPosition = 0;
 
-    public GuiPocketIterator(GuiPlayerPokemons guiPlayerPokemons) {
+    public GuiPocketIterator(GuiPlayerPokemons guiPlayerPokemons){
         this.guiPlayerPokemons = guiPlayerPokemons;
     }
 
@@ -18,11 +18,9 @@ public class GuiPocketIterator implements PokemonIterator {
 
     @Override
     public Pokemon getNext() {
-        if (!hasNext()) {
-            return null;
-        }
+        if (!hasNext()){return null;}
         Pokemon pokemon = guiPlayerPokemons.getPocketPokemon(currentPosition);
-        currentPosition++;
+        currentPosition ++;
         return pokemon;
     }
 

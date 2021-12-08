@@ -27,9 +27,8 @@ public class GameDriver {
 
     /**
      * Construct a GameDriver, given them new variable
-     * <p>
-     * The relative classes
      *
+     * The relative classes
      * @see UserManager
      * @see PanelState
      * @see PokemonManager

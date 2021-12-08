@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class CaptureCalculator {
     /**
-     * @param hitPoint    the HP of one pokemon
+     * @param hitPoint the HP of one pokemon
      * @param maxHitPoint the Max HP of the same pokemon
      * @return true/false represent if pokemon can capture
      */

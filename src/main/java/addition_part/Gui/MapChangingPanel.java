@@ -13,8 +13,7 @@ public class MapChangingPanel extends JPanel {
 
         showAll();
     }
-
-    public void showMap(String name) {
+    public void showMap(String name){
         JButton button = new JButton(name);
         button.addActionListener(e -> {
             parent.setCurrentMap(parent.getMapManager().find(name));
@@ -24,7 +23,7 @@ public class MapChangingPanel extends JPanel {
         this.add(button);
     }
 
-    public void showAll() {
+    public void showAll(){
         for (TextAdventureMap textAdventureMap : parent.getMaps())
             showMap(textAdventureMap.getMapName());
 

@@ -11,7 +11,6 @@ public class GameDataReadWriter implements IReadWriter {
 
     /**
      * Construct a GameDataReadWriter, given them the given username
-     *
      * @param username the player given name
      */
     public GameDataReadWriter(String username) {

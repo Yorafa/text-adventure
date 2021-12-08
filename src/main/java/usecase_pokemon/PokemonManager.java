@@ -19,8 +19,8 @@ public class PokemonManager {
 
     /**
      * Construct PokemonManager, given them the given reader read
-     *
      * @param reader use to read PokemonManager
+     *
      * @see IJsonReader
      * @see PokemonBook
      * @see Pocket

@@ -6,12 +6,12 @@ import java.util.List;
 import java.util.Objects;
 
 public class TextAdventureMap implements Serializable {
-    private final int MIN_ExperiencePoint;
-    private final int MAX_ExperiencePoint;
     private String mapName;
     private List<List<String>> pokemons;
+    private final int MIN_ExperiencePoint;
+    private final int MAX_ExperiencePoint;
 
-    public TextAdventureMap() {
+    public TextAdventureMap(){
         this.mapName = "";
         this.pokemons = new ArrayList<>();
         this.MIN_ExperiencePoint = 0;
@@ -22,13 +22,13 @@ public class TextAdventureMap implements Serializable {
      * Construct TextAdventureMap, given them the given mapName,
      * pokemons, MIN_ExperiencePoint and MAX_ExperiencePoint
      *
-     * @param mapName             the map name
-     * @param pokemons            the pokemon that this map has
+     * @param mapName the map name
+     * @param pokemons the pokemon that this map has
      * @param MIN_ExperiencePoint the minimum exp that the pokemon in this should have
      * @param MAX_ExperiencePoint the maximum exp that the pokemon in this should have
      */
     public TextAdventureMap(String mapName, List<List<String>> pokemons,
-                            int MIN_ExperiencePoint, int MAX_ExperiencePoint) {
+                            int MIN_ExperiencePoint, int MAX_ExperiencePoint){
         this.mapName = mapName;
         this.pokemons = pokemons;
         this.MIN_ExperiencePoint = MIN_ExperiencePoint;
@@ -43,20 +43,20 @@ public class TextAdventureMap implements Serializable {
         return MIN_ExperiencePoint;
     }
 
-    public String getMapName() {
-        return mapName;
-    }
-
     public void setMapName(String mapName) {
         this.mapName = mapName;
     }
 
-    public List<List<String>> getPokemons() {
-        return pokemons;
-    }
-
     public void setPokemons(List<List<String>> pokemons) {
         this.pokemons = pokemons;
+    }
+
+    public String getMapName() {
+        return mapName;
+    }
+
+    public List<List<String>> getPokemons() {
+        return pokemons;
     }
 
     @Override

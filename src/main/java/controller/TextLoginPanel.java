@@ -13,11 +13,11 @@ public class TextLoginPanel extends TextPanel implements PanelState {
     /**
      * Construct a TextLoginPanel, given them the given input, gameDriver and userManager.
      *
-     * @param input       the player input
-     * @param gameDriver  the main driver of game
+     * @param input the player input
+     * @param gameDriver the main driver of game
      * @param userManager the manager of user
-     *                    <p>
-     *                    The relative classes
+     *
+     * The relative classes
      * @see GameDriver
      * @see UserManager
      * @see PanelState

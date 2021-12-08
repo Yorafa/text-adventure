@@ -10,13 +10,12 @@
 ### SRP (Single Responsibility Principle)
 
 - We make lots of classes only deal with one job
-    - separate attack, defend, capture, heal, escape
+  - separate attack, defend, capture, heal, escape
 
 ### OCP (Open Closed Principle)
 
 - e.g. all entity
--
-
+- 
 ### LSP (Liskov Substitution Principle)
 
 - e.g. BasePokemon and Pokemon
@@ -29,6 +28,7 @@
 
 - Shell UI as controller and presenters depend on use case, and use cases depend on entities.
 
+
 ## Clean Architecture
 
 - Inner layers do not depend on outer layers
@@ -37,18 +37,17 @@
 ## Design Pattern
 
 - Iterator
-    - Pokemon in pocket can iterate
-    - ![Preview](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/blob/main/phase2/img/Iterator%20Design%20UML.png?raw=true)
+  - Pokemon in pocket can iterate
+  - ![Preview](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/blob/main/phase2/img/Iterator%20Design%20UML.png?raw=true)
 - State
-    - Different Panel connect
+  - Different Panel connect
 - Simple factory
-    - produce new pokemon
-    - ![Preview](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/blob/main/phase2/img/Simple%20Factory%20Design%20UML.png?raw=true)
+  - produce new pokemon
+  - ![Preview](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/blob/main/phase2/img/Simple%20Factory%20Design%20UML.png?raw=true)
 - Strategy
 - Memento
-    - Save and Load
-    - ![Preview](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/blob/main/phase2/img/Memento%20Design%20UML.png?raw=true)
-
+  - Save and Load
+  - ![Preview](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/blob/main/phase2/img/Memento%20Design%20UML.png?raw=true)
 ## Use of GitHub Features
 
 - assign work and create branch onto group member name path
@@ -60,8 +59,8 @@
 
 ## Testing
 
-- Testing for Entity and some use cases
-    - The core part of program
+- Testing for Entity and some use cases 
+  - The core part of program
 
 ## Refactoring
 
@@ -71,6 +70,7 @@
 ## Code Organization
 
 - we classify and package our class by architecture
-    - Easy to organize and have a clean structure to go on
+  - Easy to organize and have a clean structure to go on
+
 
 ## Functionality

@@ -14,11 +14,11 @@ public class TextChangePlacePanel extends TextPanel implements PanelState {
      * Construct a TextChangePlacePanel, given them the given input, gameDriver
      * and mapManager
      *
-     * @param input      the player input
+     * @param input the player input
      * @param gameDriver the main driver of game
      * @param mapManager the manager of map
-     *                   <p>
-     *                   The relative classes
+     *
+     * The relative classes
      * @see GameDriver
      * @see MapManager
      * @see PanelState

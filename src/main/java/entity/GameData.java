@@ -8,7 +8,6 @@ public class GameData implements Serializable {
 
     /**
      * The relative classes
-     *
      * @see Pocket
      * @see Pmap
      */

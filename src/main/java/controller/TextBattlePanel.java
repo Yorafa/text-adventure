@@ -16,12 +16,11 @@ public class TextBattlePanel extends TextPanel implements PanelState {
     /**
      * Construct a TextBattlePanel, given them the given input, gameDriver,
      * pokemonManager and battleManger
-     *
-     * @param input          the player input
-     * @param gameDriver     the main driver of game
+     * @param input the player input
+     * @param gameDriver the main driver of game
      * @param pokemonManager the manager of pokemon
-     * @param battleManager  the battle manager of pokemon
-     *                       The relative class
+     * @param battleManager the battle manager of pokemon
+     * The relative class
      * @see GameDriver
      * @see PokemonManager
      * @see BattleManager

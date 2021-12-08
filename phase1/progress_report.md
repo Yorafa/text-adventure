@@ -19,6 +19,7 @@ Open question & discussion
 - Gui
 - Data Access Object (Read & write local document)
 
+
 ### Jerry Wei
 
 - Specification
@@ -36,6 +37,7 @@ Open question & discussion
 
 - Fix an error on Specification
 - Panel design
+
 
 ## Plan
 

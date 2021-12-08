@@ -62,11 +62,9 @@ public class UserController implements Serializable {
     }
 
     public User register(String username, String password) {
-        if (hasUser(username)) {
-            return null;
-        } else if (!password.matches("^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$")) {
-            return null;
-        } else {
+        if (hasUser(username)) {return null;}
+        else if(!password.matches("^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$")){return null;}
+        else {
             User user = new User(username, password);
             addUser(user);
             return user;

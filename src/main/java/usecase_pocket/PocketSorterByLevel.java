@@ -15,7 +15,7 @@ public class PocketSorterByLevel implements IPocketSorter {
         Collections.reverse(pokemons);
     }
 
-    private static class LevelComparator implements Comparator<Pokemon> {
+    private class LevelComparator implements Comparator<Pokemon> {
         @Override
         public int compare(Pokemon p1, Pokemon p2) {
             int result = p1.getLevel() - p2.getLevel();

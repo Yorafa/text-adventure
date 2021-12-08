@@ -17,11 +17,11 @@ public class TextPocketPanel extends TextPanel implements PanelState {
      * Construct a TextExplorePanel, given them the given input,
      * gameDriver and pokemonManager
      *
-     * @param input          the player input
-     * @param gameDriver     the main driver of game
+     * @param input the player input
+     * @param gameDriver the main driver of game
      * @param pokemonManager the manager of pokemon
-     *                       <p>
-     *                       The relative classes
+     *
+     * The relative classes
      * @see GameDriver
      * @see PanelState
      * @see PokemonManager
