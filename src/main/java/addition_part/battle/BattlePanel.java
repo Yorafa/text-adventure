@@ -1,15 +1,15 @@
-package addition_part.Gui;
+package addition_part.battle;
 
-import addition_part.GuiController.BattleController;
-import addition_part.GuiController.PokemonController;
+import addition_part.Gui.TextAdventureFrame;
 import addition_part.GuiDriver.GuiDriver;
 import entity.Pokemon;
+import usecase_battle.IBattlePresenter;
 import usecase_pokemon.PokemonManager;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class BattlePanel extends JPanel{
+public class BattlePanel extends JPanel implements IBattlePresenter {
     private final TextAdventureFrame parent;
     private final BattleController battleController;
     private final PokemonManager pokemonManager;
@@ -125,5 +125,65 @@ public class BattlePanel extends JPanel{
             JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
             checkState(battleController.isBattling(), playerPokemonNameLabel,playerPokemonHpLabel,wildPokemonLabel);
         }
+    }
+
+    @Override
+    public void printStatus(String name, int level, int hitPoint, int maxHitPoint) {
+
+    }
+
+    @Override
+    public void printAttack(String attacker, String attacked, int damage) {
+
+    }
+
+    @Override
+    public void printDefense(String name) {
+
+    }
+
+    @Override
+    public void printDefenseSucceed(String name) {
+
+    }
+
+    @Override
+    public void printDefenseFail(String name) {
+
+    }
+
+    @Override
+    public void printHeal(String nameP1, int healedPoint) {
+
+    }
+
+    @Override
+    public void printCaptured(String name) {
+
+    }
+
+    @Override
+    public void printNotCaptured(String name) {
+
+    }
+
+    @Override
+    public void printBattleEnded() {
+
+    }
+
+    @Override
+    public void printDraw() {
+
+    }
+
+    @Override
+    public void printLose() {
+
+    }
+
+    @Override
+    public void printWin() {
+
     }
 }

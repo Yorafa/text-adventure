@@ -38,6 +38,14 @@ public class Pocket implements Serializable, Iterable<Pokemon> {
     }
 
     /**
+     * set the pokemon the beginning of pokemons
+     * @param battlePokemon the pokemon on the first order
+     */
+    public void setFirstPokemon(Pokemon battlePokemon){
+        pokemons.remove(battlePokemon);
+        pokemons.add(0, battlePokemon);
+    }
+    /**
      * the adder method, add pokemon into player's pocket
      *
      * @param pokemon the pokemon player capture
