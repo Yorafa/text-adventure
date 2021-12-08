@@ -1,43 +1,52 @@
 package addition_part.Gui;
 
 import addition_part.GuiController.PokemonController;
+import addition_part.GuiController.SaveLoadController;
+import addition_part.GuiDriver.GuiDriver;
+import usecase_map.MapManager;
+import usecase_pokemon.PokemonManager;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class ExplorePanel extends JPanel {
-    private final TextAdventureFrame parent;
+public class ExplorePanel extends BasePanel {
+    private final PokemonManager pokemonManager;
+    private final MapManager mapManager;
+    private final SaveLoadController saveLoadController;
 
-    public ExplorePanel(TextAdventureFrame parent) {
-        this.parent = parent;
-        this.setLayout(new GridLayout(2, 1, 10, 10));
-
-        JLabel label = new JLabel("Welcome to Text Adventure, " + parent.getUser().getUsername() +
-                ". You are currently at " + parent.getCurrentMapName() + "."
-                );
-
-        this.add(label);
-        setButtonFild();
-        parent.pack();
+    public ExplorePanel(TextAdventureFrame parent, GuiDriver guiDriver) {
+        super(parent, guiDriver);
+        pokemonManager = guiDriver.getPokemonManager();
+        mapManager = guiDriver.getMapManager();
+        saveLoadController = guiDriver.getSaveLoadController();
+        initialize();
     }
-    public JButton healAllButton(){
+
+    private void initialize(){
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new GridLayout(2, 1, 10, 10));
+        mainPanel.add(new JLabel("You are currently at " + mapManager.getCurrentPlace().getMapName() + "."));
+        mainPanel.add(buttonPanel());
+        this.add(this);
+    }
+    private JButton healAllButton(){
         JButton healAll = new JButton("Heal All");
         healAll.addActionListener((e) -> {
-            PokemonController.healAll(parent.getPocketPokemons());
-            String message = "All of Your Pokemons are healed";
+            pokemonManager.healAll();
+            String message = "All of your Pokemon are healed";
             JOptionPane.showMessageDialog(this, message, "Notice", JOptionPane.WARNING_MESSAGE);
         });
         return healAll;
     }
 
-    public JButton walkAroundButton(){
-        parent.walkAround();
+    private JButton walkAroundButton(){
+        mapManager.walkAround(pokemonManager);
         JButton search = new JButton("Walk around");
         search.addActionListener((e) -> doSearch());
         return search;
     }
 
-    public void doSearch(){
+    private void doSearch(){
         if (parent.getWildPokemon() == null){
             String message = "Oof, nothing here, may next time will find somethings";
             JOptionPane.showMessageDialog(this, message, "Search", JOptionPane.WARNING_MESSAGE);
@@ -55,7 +64,7 @@ public class ExplorePanel extends JPanel {
         }
     }
 
-    public JButton mapButton(){
+    private JButton mapButton(){
         JButton mapButton = new JButton("Change place");
         mapButton.addActionListener((e) ->
         {
@@ -66,7 +75,7 @@ public class ExplorePanel extends JPanel {
         return mapButton;
     }
 
-    public JButton browsePokemonButton(){
+    private JButton browsePokemonButton(){
         JButton browsePokemon = new JButton("Browse pokemon");
         browsePokemon.addActionListener((e) -> {
             parent.setContentPane(new BrowsePokemonPanel(parent));
@@ -75,46 +84,28 @@ public class ExplorePanel extends JPanel {
         return browsePokemon;
     }
 
-    public JButton logOutButton(){
+    private JButton logOutButton(){
         JButton logOut = new JButton("Log out");
         logOut.addActionListener((e) -> {
             parent.remove(this);
-            parent.setContentPane(new LoginPanel(parent));
+            parent.loginPanel();
             parent.setUser(null);
             parent.pack();
         });
         return logOut;
     }
 
-    public JButton saveButton(){
-        JButton save = new JButton("Save");
-        save.addActionListener(e -> parent.save());
-        return save;
-    }
 
-    public JButton loadButton(){
-        JButton load = new JButton("Load");
-        load.addActionListener(e -> {
-            LoadDataDialog loadDataDialog = new LoadDataDialog(parent);
-            loadDataDialog.setTitle("All Save Game Data");
-            loadDataDialog.setModal(true);
-            loadDataDialog.setSize(600,360);
-            loadDataDialog.setVisible(true);
-        });
-        return load;
-    }
-
-    public void setButtonFild(){
+    private JPanel buttonPanel(){
         // Setup Button Field
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(2, 3, 10, 10));
-        if (parent.getCurrentMapName().equals("Home")) buttonPanel.add(healAllButton());
-        else buttonPanel.add(walkAroundButton());
+        buttonPanel.add(walkAroundButton());
         buttonPanel.add(mapButton());
         buttonPanel.add(saveButton());
         buttonPanel.add(browsePokemonButton());
         buttonPanel.add(logOutButton());
         buttonPanel.add(loadButton());
-        this.add(buttonPanel);
+        return  buttonPanel;
     }
 }

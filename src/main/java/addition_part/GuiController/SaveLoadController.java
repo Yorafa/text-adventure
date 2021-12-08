@@ -35,7 +35,7 @@ public class SaveLoadController {
         gameData.setCurrentPlace(gameDataManager.getCurrentPlace());
     }
 
-    public void addGameDataMemento(Pocket pocket, Pmap pmap) {
+    public void save(Pocket pocket, Pmap pmap) {
         GameData gameData = new GameData();
         gameData.setCurrentPlace(pmap);
         gameData.setPocket(pocket);

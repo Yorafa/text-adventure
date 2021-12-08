@@ -21,51 +21,6 @@ public class BrowsePokemonPanel extends JPanel {
         this.add(returnButton);
     }
 
-    public void addPokemonBookLine(){
-        JPanel pokemonBookPanel = new JPanel();
-        JLabel pokemonBookLabel = new JLabel("Pokemon Index");
-        JComboBox<Pokemon> pokemonBookField = new JComboBox<>();
-        for (BasePokemon basePokemon: parent.getAllBasePokemon()){
-            pokemonBookField.addItem(parent.getPokemon(basePokemon));
-        }
-        JButton searchButton = new JButton("Search");
-        searchButton.addActionListener(e -> pokemonInfo(
-                (Pokemon) pokemonBookField.getSelectedItem(),
-                " Basic Information"));
-        pokemonBookPanel.add(pokemonBookLabel);
-        pokemonBookPanel.add(pokemonBookField);
-        pokemonBookPanel.add(searchButton);
-        this.add(pokemonBookPanel);
-    }
-
-    public void addLibraryLine(){
-        JPanel pocketLibPanel = new JPanel();
-        JLabel pocketLibLabel = new JLabel("My Pokemon Library");
-        JComboBox<Pokemon> pokemonLib = new JComboBox<>();
-        for (Pokemon pokemon: parent.getLibraryPokemons()){
-            pokemonLib.addItem(pokemon);
-        }
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(2,1,10,10));
-        JButton searchButton = new JButton("Search");
-        searchButton.addActionListener(e -> pokemonInfo(
-                (Pokemon) pokemonLib.getSelectedItem(),
-                " Information"));
-        JButton intoPocketButton = new JButton("Put Into Pocket");
-        intoPocketButton.addActionListener(e ->{
-                parent.intoPocket((Pokemon) pokemonLib.getSelectedItem());
-                parent.remove(this);
-                parent.setContentPane(new BrowsePokemonPanel(parent));
-                parent.pack();
-        });
-        buttonPanel.add(searchButton);
-        buttonPanel.add(intoPocketButton);
-
-        pocketLibPanel.add(pocketLibLabel);
-        pocketLibPanel.add(pokemonLib);
-        pocketLibPanel.add(buttonPanel);
-        this.add(pocketLibPanel);
-    }
 
     public void addBattlePokemon(){
         JPanel BattlePokemonPanel = new JPanel();

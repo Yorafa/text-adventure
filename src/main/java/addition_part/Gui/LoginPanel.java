@@ -1,18 +1,26 @@
 package addition_part.Gui;
 
+import addition_part.GuiDriver.GuiDriver;
+import usecase_user.UserManager;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class LoginPanel extends JPanel {
-    private final TextAdventureFrame parent;
+public class LoginPanel extends BasePanel {
+    private final UserManager userManager;
+    private final JTextField username = new JTextField();
+    private final JTextField password = new JTextField();
 
-    public LoginPanel(TextAdventureFrame parent) {
-        this.parent = parent;
-        this.setLayout(new BorderLayout());
+    public LoginPanel(TextAdventureFrame parent, GuiDriver guiDriver) {
+        super(parent, guiDriver);
+        this.userManager = guiDriver.getUserManager();
+        initialize();
+    }
+
+    private void initialize(){
         // Setup mainPanel
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayout(3, 1));
-        setBoard();
 
         // Setup Text Field
         JTextField username = new JTextField();
@@ -22,27 +30,22 @@ public class LoginPanel extends JPanel {
         mainPanel.add(userPanel);
         mainPanel.add(passPanel);
 
+        mainPanel.add(buttonPanel());
+        this.add(mainPanel);
+    }
+    private JPanel buttonPanel(){
         // Setup Button Field
         JPanel buttonPanel = new JPanel();
         JButton login = new JButton("Login");
-        login.addActionListener((e) -> {
-            parent.setUser(parent.login(username.getText(), password.getText()));
-            login();
-        });
+        login.addActionListener(e -> login());
 
         JButton register = new JButton("Register");
-        register.addActionListener((e) -> {
-            parent.setUser(parent.getUserController().register(username.getText(), password.getText()));
-            register();
-        });
+        register.addActionListener(e -> register());
         buttonPanel.add(login);
         buttonPanel.add(register);
-
-        mainPanel.add(buttonPanel);
-        this.add(mainPanel, BorderLayout.CENTER);
+        return buttonPanel;
     }
-
-    public JPanel createLine(String itemName, JTextField field) {
+    private JPanel createLine(String itemName, JTextField field) {
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(1, 2));
         panel.add(new JLabel(itemName));
@@ -50,46 +53,28 @@ public class LoginPanel extends JPanel {
         return panel;
     }
 
-    public void setBoard(){
-        JLabel emptyLabel1 = new JLabel("");
-        emptyLabel1.setPreferredSize(new Dimension(0,280));
-        JLabel emptyLabel2 = new JLabel("");
-        emptyLabel2.setPreferredSize(new Dimension(0,290));
-        JLabel emptyLabel3 = new JLabel("");
-        emptyLabel3.setPreferredSize(new Dimension(300,0));
-        JLabel emptyLabel4 = new JLabel("");
-        emptyLabel4.setPreferredSize(new Dimension(300,0));
-        this.add(emptyLabel1, BorderLayout.NORTH);
-        this.add(emptyLabel2, BorderLayout.SOUTH);
-        this.add(emptyLabel3, BorderLayout.WEST);
-        this.add(emptyLabel4, BorderLayout.EAST);
-    }
-
-    public void login(){
-        if (parent.getUser() == null) {
+    private void login(){
+        if (userManager.login(username.getText(), password.getText())) {
+            parent.remove(this);
+            guiDriver.setUp(username.getText());
+            parent.explorePanel();
+        } else {
             String message = "Either your username not exist or wrong password";
             JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
-        } else {
-            parent.remove(this);
-            parent.setUp();
-            parent.setContentPane(new MapPanel(parent));
-            parent.pack();
+
         }
     }
 
-    public void register(){
-        if (parent.getUser() == null) {
-            String message = "Your name already been used or\n" +
-                    "Your password is doesn't match requirement:\n" +
-                    "length 6-16, consist with numbers and characters";
+    private void register(){
+        if (userManager.hasUser(username.getText())) {
+            String message = "Your name already been used";
             JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
             String message = "You are successful registered";
             JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
             parent.remove(this);
-            parent.newStart();
-            parent.setContentPane(new InitialPanel(parent));
-            parent.pack();
+            guiDriver.setUp(username.getText());
+            parent.initialPanel();
         }
     }
 }

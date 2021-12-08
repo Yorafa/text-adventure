@@ -2,18 +2,20 @@ package addition_part.Gui;
 
 import addition_part.GuiController.BattleController;
 import addition_part.GuiController.PokemonController;
+import addition_part.GuiDriver.GuiDriver;
 import entity.Pokemon;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class BattlePanel extends JPanel{
+public class BattlePanel extends BasePanel{
     private final BattleController battleController;
     private final Pokemon wildPokemon;
 
-    public BattlePanel(TextAdventureFrame taf){
+    public BattlePanel(TextAdventureFrame parent, GuiDriver guiDriver){
+        super(parent, guiDriver);
         this.setLayout(new GridLayout(2,1,10,10));
-        this.battleController = new BattleController(taf.getPocketPokemons(), taf.getWildPokemon());
+        this.battleController = new BattleController(parent.getPocketPokemons(), parent.getWildPokemon());
         wildPokemon = battleController.getWildPokemon();
 
         // PokemonInfo Panel
@@ -49,7 +51,7 @@ public class BattlePanel extends JPanel{
         pokemonPanel.add(wildPokemonInfoPanel);
 
         this.add(pokemonPanel);
-        buttonPanel(taf, playerPokemonNameLabel, playerPokemonHpLabel, hpLabel);
+        buttonPanel(parent, playerPokemonNameLabel, playerPokemonHpLabel, hpLabel);
     }
 
     public void buttonPanel(TextAdventureFrame taf, JLabel playerPokemonNameLabel, JLabel playerPokemonHpLabel,

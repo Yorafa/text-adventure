@@ -12,6 +12,7 @@ public abstract class BasePanel extends JPanel {
     protected BasePanel(TextAdventureFrame parent, GuiDriver guiDriver) {
         this.parent = parent;
         this.guiDriver = guiDriver;
+        initialize();
     }
 
     private void initialize(){
