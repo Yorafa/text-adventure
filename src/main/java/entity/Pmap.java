@@ -43,4 +43,13 @@ public class Pmap implements Serializable {
     public List<Integer> getLevels() {
         return levels;
     }
+
+    /**
+     * the representation showing on data
+     * @return the map of name
+     */
+    @Override
+    public String toString() {
+        return mapName;
+    }
 }

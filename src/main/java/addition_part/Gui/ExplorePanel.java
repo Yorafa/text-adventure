@@ -25,8 +25,9 @@ public class ExplorePanel extends BasePanel {
     private void initialize(){
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayout(4, 1, 10, 10));
-        mainPanel.add(new JLabel("You are currently at " + mapManager.getCurrentPlace().getMapName() + "."));
-        mainPanel.add(new MapChangingPanel(mapManager));
+        JLabel label = new JLabel("You are currently at " + mapManager.getCurrentPlace() + ".");
+        mainPanel.add(label);
+        mainPanel.add(new MapChangingPanel(mapManager, label));
         mainPanel.add(new SaveLoadPanel(guiDriver));
         mainPanel.add(buttonPanel());
         this.add(mainPanel);

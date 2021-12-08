@@ -9,9 +9,11 @@ import java.awt.*;
 public class MapChangingPanel extends JPanel {
     private final MapManager mapManager;
     private final JComboBox<Pmap> comboBox = new JComboBox<>();
+    private final JLabel label;
 
-    public MapChangingPanel(MapManager mapManager) {
+    public MapChangingPanel(MapManager mapManager, JLabel label) {
         this.mapManager = mapManager;
+        this.label = label;
         initialize();
     }
 
@@ -20,11 +22,15 @@ public class MapChangingPanel extends JPanel {
         this.add(nameLabel());
         this.add(comboBox);
         this.add(switchButton());
+        addItem();
     }
 
     private JButton switchButton(){
         JButton switchButton = new JButton("Switch to");
-        switchButton.addActionListener(e -> setCurrentPlace((Pmap) comboBox.getSelectedItem()));
+        switchButton.addActionListener(e -> {
+            setCurrentPlace((Pmap) comboBox.getSelectedItem());
+            label.setText("You are currently at " + mapManager.getCurrentPlace() + ".");
+        });
         return switchButton;
     }
 
