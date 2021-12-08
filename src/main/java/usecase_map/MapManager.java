@@ -44,13 +44,12 @@ public class MapManager {
      */
     public Pokemon walkAround(PokemonManager pokemonManager) {
         ProbabilityCalculator probabilityCalculator = new ProbabilityCalculator();
-        int index = probabilityCalculator.calculate(currentPlace.getProbabilities());
-        if (index == -1) {
+        String pokemonName = probabilityCalculator.calculate(currentPlace.getPokemons());
+        if (pokemonName.equals("-1")) {
             return null;
         } else {
-            String name = currentPlace.getPokemons().get(index);
-            int level = currentPlace.getLevels().get(index);
-            return pokemonManager.getPokemon(name, level);
+            int level = probabilityCalculator.calculateLevel(currentPlace.getLevels());
+            return pokemonManager.getPokemon(pokemonName, level);
         }
     }
 
