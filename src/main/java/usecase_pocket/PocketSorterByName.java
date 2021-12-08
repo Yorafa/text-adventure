@@ -9,8 +9,8 @@ import java.util.List;
 public class PocketSorterByName implements IPocketSorter {
 
     /**
-     *
-     * @param pocket the
+     * sort pocket by name
+     * @param pocket the container of pokemons of player
      */
     @Override
     public void sort(Pocket pocket) {
@@ -18,9 +18,6 @@ public class PocketSorterByName implements IPocketSorter {
         pokemons.sort(new NameComparator());
     }
 
-    /**
-     *
-     */
     private static class NameComparator implements Comparator<Pokemon> {
         @Override
         public int compare(Pokemon p1, Pokemon p2) {

@@ -8,6 +8,11 @@ import java.util.Comparator;
 import java.util.List;
 
 public class PocketSorterByLevel implements IPocketSorter {
+
+    /**
+     * sort pocket by level
+     * @param pocket the container of pokemons of player
+     */
     @Override
     public void sort(Pocket pocket) {
         List<Pokemon> pokemons = pocket.getPokemons();
