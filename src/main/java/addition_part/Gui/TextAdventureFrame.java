@@ -1,6 +1,7 @@
 package addition_part.Gui;
 
 import addition_part.GuiDriver.GuiDriver;
+import addition_part.battle.BattlePanel;
 
 import javax.swing.*;
 import java.awt.*;

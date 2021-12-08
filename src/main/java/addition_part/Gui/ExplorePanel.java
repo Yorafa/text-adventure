@@ -1,6 +1,6 @@
 package addition_part.Gui;
 
-import addition_part.GuiController.PokemonController;
+import addition_part.battle.PokemonController;
 import addition_part.GuiController.SaveLoadController;
 import addition_part.GuiDriver.GuiDriver;
 import usecase_map.MapManager;

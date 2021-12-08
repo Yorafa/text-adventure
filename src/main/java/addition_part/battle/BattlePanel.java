@@ -1,7 +1,6 @@
-package addition_part.Gui;
+package addition_part.battle;
 
-import addition_part.GuiController.BattleController;
-import addition_part.GuiController.PokemonController;
+import addition_part.Gui.TextAdventureFrame;
 import addition_part.GuiDriver.GuiDriver;
 import entity.Pokemon;
 import usecase_pokemon.PokemonManager;

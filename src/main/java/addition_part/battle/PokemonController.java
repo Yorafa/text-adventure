@@ -1,4 +1,4 @@
-package addition_part.GuiController;
+package addition_part.battle;
 
 import entity.Pokemon;
 import usecase_pokemon.LevelCalculator;
