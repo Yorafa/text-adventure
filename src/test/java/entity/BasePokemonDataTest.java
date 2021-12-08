@@ -43,6 +43,6 @@ public class BasePokemonDataTest {
     @Test(timeout = 50)
     public void testEqual() {
         BasePokemonData bpd = new BasePokemonData(ELECTRICITY, 1, 1, 1, 1);
-        assertTrue(basePokemonData.equals(bpd));
+        assertEquals(basePokemonData, bpd);
     }
 }

@@ -51,6 +51,6 @@ public class PokemonTest {
         BasePokemonData basePokemonData = new BasePokemonData(PokemonType.ELECTRICITY, 1, 1, 1, 1);
         PokemonData pokemonData = new PokemonData(PokemonType.ELECTRICITY, 1, 1, 1, 1);
         Pokemon testPokemon = new Pokemon("test", basePokemonData, 1, 0, 1, pokemonData);
-        assertTrue(this.pokemon.equals(testPokemon));
+        assertEquals(this.pokemon, testPokemon);
     }
 }

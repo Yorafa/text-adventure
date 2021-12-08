@@ -4,36 +4,62 @@ import java.util.List;
 import java.util.Map;
 
 public class PocketPresenter extends Presenter {
+    /**
+     * add show details option
+     */
     public void addShowDetails() {
         addToQueue("Show details");
     }
 
+    /**
+     * add hide details option
+     */
     public void addHideDetails() {
         addToQueue("Hide details");
     }
 
+    /**
+     * add sort by name option
+     */
     public void addSortByName() {
         addToQueue("Sort by name");
     }
 
+    /**
+     * add sort by level
+     */
     public void addSortByLevel() {
         addToQueue("Sort by level");
     }
 
+    /**
+     * add change battle pokemon option
+     */
     public void addSetBattlePokemon() {
         addToQueue("Change battle pokemon");
     }
 
+    /**
+     * add back option
+     */
     public void addBack() {
         addToQueue("Back");
     }
 
+    /**
+     * call addPokemonInfo to add pokemon information
+     * @param pocketInfo all pocket pokemon information
+     */
     public void addPocketInfo(List<Map<String, String>> pocketInfo) {
         for (Map<String, String> pokemonInfo : pocketInfo) {
             addPokemonInfo(pokemonInfo);
         }
     }
 
+    /**
+     * show pokemon specific information
+     * @param pokemonInfo specific pokemon information
+     */
     private void addPokemonInfo(Map<String, String> pokemonInfo) {
         String name = pokemonInfo.get("name");
         String pokemonType = pokemonInfo.get("pokemonType");
@@ -71,6 +97,10 @@ public class PocketPresenter extends Presenter {
         addToQueue(toAdd);
     }
 
+    /**
+     * show battle pokemon changed
+     * @param battlePokemonName the switched battle pokemon name
+     */
     public void printBattlePokemonChanged(String battlePokemonName) {
         System.out.println("You changed the battle pokemon to " + battlePokemonName + ".");
     }
