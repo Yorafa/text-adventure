@@ -18,6 +18,22 @@ public class LoginPanel extends BasePanel {
     }
 
     private void initialize(){
+        // Setup mainPanel
+        setMargin();
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new GridLayout(3, 1));
+
+        // Setup Text Field
+        JPanel userPanel = createLine("Username: ", username);
+        JPanel passPanel = createLine("Password: ", password);
+        mainPanel.add(userPanel);
+        mainPanel.add(passPanel);
+
+        mainPanel.add(buttonPanel());
+        this.add(mainPanel);
+    }
+
+    private void setMargin(){
         this.setLayout(new BorderLayout());
         JLabel emptyLabel1 = new JLabel("");
         emptyLabel1.setPreferredSize(new Dimension(0,280));
@@ -31,22 +47,8 @@ public class LoginPanel extends BasePanel {
         this.add(emptyLabel2, BorderLayout.SOUTH);
         this.add(emptyLabel3, BorderLayout.WEST);
         this.add(emptyLabel4, BorderLayout.EAST);
-
-        // Setup mainPanel
-        JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(new GridLayout(3, 1));
-
-        // Setup Text Field
-        JTextField username = new JTextField();
-        JPanel userPanel = createLine("Username: ", username);
-        JTextField password = new JTextField();
-        JPanel passPanel = createLine("Password: ", password);
-        mainPanel.add(userPanel);
-        mainPanel.add(passPanel);
-
-        mainPanel.add(buttonPanel());
-        this.add(mainPanel);
     }
+
     private JPanel buttonPanel(){
         // Setup Button Field
         JPanel buttonPanel = new JPanel();
@@ -75,7 +77,6 @@ public class LoginPanel extends BasePanel {
         } else {
             String message = "Either your username not exist or wrong password";
             JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
-
         }
     }
 
@@ -84,6 +85,7 @@ public class LoginPanel extends BasePanel {
             String message = "Your name already been used";
             JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
         } else {
+            userManager.register(username.getText(), password.getText());
             String message = "You are successful registered";
             JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
             parent.remove(this);
