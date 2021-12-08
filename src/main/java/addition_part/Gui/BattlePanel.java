@@ -9,14 +9,14 @@ import usecase_pokemon.PokemonManager;
 import javax.swing.*;
 import java.awt.*;
 
-public class BattlePanel extends BasePanel{
+public class BattlePanel extends JPanel{
+    private final TextAdventureFrame parent;
     private final BattleController battleController;
     private final PokemonManager pokemonManager;
     private final Pokemon wildPokemon;
-    private JLabel myPokemonHp;
 
     public BattlePanel(TextAdventureFrame parent, GuiDriver guiDriver){
-        super(parent, guiDriver);
+        this.parent = parent;
         this.pokemonManager = guiDriver.getPokemonManager();
         this.setLayout(new GridLayout(2,1,10,10));
         this.battleController = new BattleController(pokemonManager.getPocket().getPokemons(),
@@ -32,8 +32,8 @@ public class BattlePanel extends BasePanel{
         playerPokemonInfoPanel.setLayout(new GridLayout(4,1,10,10));
         JLabel playerInfoLabel = new JLabel("My Pokemon");
         JLabel playerPokemonNameLabel = new JLabel(battleController.getPlayerPokemon().getName());
-        myPokemonHp = new JLabel(battleController.getPlayerPokemon().getHitPoint() +
-                "/" +battleController.getPlayerPokemon().getMaxHitPoint());
+        JLabel myPokemonHp = new JLabel(battleController.getPlayerPokemon().getHitPoint() +
+                "/" + battleController.getPlayerPokemon().getMaxHitPoint());
         JLabel playerPokemonLevelLabel = new JLabel("level: " + battleController.getPlayerPokemon().getLevel());
         playerPokemonInfoPanel.add(playerInfoLabel);
         playerPokemonInfoPanel.add(playerPokemonNameLabel);

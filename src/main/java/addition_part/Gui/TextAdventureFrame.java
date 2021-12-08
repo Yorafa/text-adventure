@@ -36,7 +36,7 @@ public class TextAdventureFrame extends JFrame {
         BrowsePokemonDialog dialog = new BrowsePokemonDialog(this, guiDriver);
         dialog.setTitle("Check the Pokemon Book/Change the battle pokemon");
         dialog.setModal(true);
-        dialog.setSize(500,720);
+        dialog.setSize(500,150);
         dialog.setVisible(true);
     }
 

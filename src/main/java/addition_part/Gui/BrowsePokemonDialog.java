@@ -15,18 +15,7 @@ public class BrowsePokemonDialog extends JDialog {
     public BrowsePokemonDialog(TextAdventureFrame parent, GuiDriver guiDriver) {
         this.parent = parent;
         this.pokemonManager = guiDriver.getPokemonManager();
-        initialize();
-    }
-
-    private void initialize() {
         addBattlePokemon();
-        this.add(returnButton());
-    }
-
-    private JButton returnButton() {
-        JButton returnButton = new JButton("Back");
-        returnButton.addActionListener(e -> this.setVisible(false));
-        return returnButton;
     }
 
     private void addBattlePokemon() {
@@ -39,7 +28,7 @@ public class BrowsePokemonDialog extends JDialog {
         BattlePokemonPanel.add(comboBox);
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(2, 1, 10, 10));
-        JButton searchButton = new JButton("Search");
+        JButton searchButton = new JButton("Show pokemon information");
         searchButton.addActionListener(e -> pokemonInfo(
                 (Pokemon) comboBox.getSelectedItem()
         ));

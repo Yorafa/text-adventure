@@ -43,13 +43,13 @@ public class ExplorePanel extends BasePanel {
     }
 
     private JButton walkAroundButton(){
-        guiDriver.setWildPokemon(mapManager.walkAround(pokemonManager));
         JButton search = new JButton("Walk around");
         search.addActionListener((e) -> doSearch());
         return search;
     }
 
     private void doSearch(){
+        guiDriver.setWildPokemon(mapManager.walkAround(pokemonManager));
         if (guiDriver.getWildPokemon() == null){
             String message = "Oof, nothing here, may next time will find somethings";
             JOptionPane.showMessageDialog(this, message, "Search", JOptionPane.WARNING_MESSAGE);
@@ -80,7 +80,7 @@ public class ExplorePanel extends BasePanel {
     private JPanel buttonPanel(){
         // Setup Button Field
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(2, 2, 30, 30));
+        buttonPanel.setLayout(new GridLayout(2, 2, 10, 10));
         buttonPanel.add(walkAroundButton());
         buttonPanel.add(healAllButton());
         buttonPanel.add(browsePokemonButton());
