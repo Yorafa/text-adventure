@@ -50,22 +50,22 @@ public class LoginPanel extends JPanel {
         return panel;
     }
 
-    public void setBoard(){
+    public void setBoard() {
         JLabel emptyLabel1 = new JLabel("");
-        emptyLabel1.setPreferredSize(new Dimension(0,280));
+        emptyLabel1.setPreferredSize(new Dimension(0, 280));
         JLabel emptyLabel2 = new JLabel("");
-        emptyLabel2.setPreferredSize(new Dimension(0,290));
+        emptyLabel2.setPreferredSize(new Dimension(0, 290));
         JLabel emptyLabel3 = new JLabel("");
-        emptyLabel3.setPreferredSize(new Dimension(300,0));
+        emptyLabel3.setPreferredSize(new Dimension(300, 0));
         JLabel emptyLabel4 = new JLabel("");
-        emptyLabel4.setPreferredSize(new Dimension(300,0));
+        emptyLabel4.setPreferredSize(new Dimension(300, 0));
         this.add(emptyLabel1, BorderLayout.NORTH);
         this.add(emptyLabel2, BorderLayout.SOUTH);
         this.add(emptyLabel3, BorderLayout.WEST);
         this.add(emptyLabel4, BorderLayout.EAST);
     }
 
-    public void login(){
+    public void login() {
         if (parent.getUser() == null) {
             String message = "Either your username not exist or wrong password";
             JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
@@ -77,7 +77,7 @@ public class LoginPanel extends JPanel {
         }
     }
 
-    public void register(){
+    public void register() {
         if (parent.getUser() == null) {
             String message = "Your name already been used or\n" +
                     "Your password is doesn't match requirement:\n" +

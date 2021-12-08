@@ -7,12 +7,10 @@ import entity.PokemonData;
 
 public class PokemonFactory {
     /**
-     *
-     * @param basePokemon the basic info of a pokemon at its level 1
+     * @param basePokemon     the basic info of a pokemon at its level 1
      * @param experiencePoint the given exp that the pokemon will have
      * @param currentHitPoint the given HP that the pokemon will have
      * @return new Pokmeon consist by basePokemon, experiencePoint and experiencePoint
-     *
      * @see BasePokemon
      * @see LevelCalculator
      * @see PokemonDataManager

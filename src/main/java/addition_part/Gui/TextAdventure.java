@@ -5,7 +5,7 @@ import addition_part.GuiController.UserController;
 import addition_part.GuiGateway.MapGate;
 import addition_part.GuiGateway.PokemonGate;
 import addition_part.GuiGateway.UserGate;
-import entity.*;
+import entity.PokemonBook;
 
 import javax.swing.*;
 

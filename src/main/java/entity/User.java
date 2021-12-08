@@ -1,20 +1,11 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 
 public class User implements Serializable {
-    private String username;
-    private String password;
-
-    /**
-     * Construct a User with all null value
-     */
-    public User() {
-        this.username = null;
-        this.password = null;
-    }
+    private final String username;
+    private final String password;
 
     /**
      * Construct a User, given them the given username and password
@@ -31,25 +22,7 @@ public class User implements Serializable {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getPassword() {
         return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == this) {
-            return true;
-        }
-        User u = (User) o;
-        return u.getUsername().equals(this.getUsername())
-                && u.getPassword().equals(this.getPassword());
     }
 }

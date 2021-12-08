@@ -9,7 +9,7 @@ import usecase_pokemon.PokemonFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapController{
+public class MapController {
     private final List<TextAdventureMap> textAdventureMaps;
     private TextAdventureMap currentPlace;
 
@@ -24,8 +24,8 @@ public class MapController{
 
     /**
      * Construct MapController, given them the new list and currentPlace
-     * @param currentPlace the currentPlace that player in
      *
+     * @param currentPlace the currentPlace that player in
      * @see TextAdventureMap
      * @see RandomAlgorithm
      * @see PokemonBook
@@ -37,11 +37,6 @@ public class MapController{
         this.textAdventureMaps = new ArrayList<>();
         this.currentPlace = currentPlace;
     }
-
-    public void setCurrentPlace(TextAdventureMap currentPlace) {
-        this.currentPlace = currentPlace;
-    }
-
 
     public List<TextAdventureMap> getTextAdventureMaps() {
         return textAdventureMaps;
@@ -64,14 +59,17 @@ public class MapController{
             Pokemon newPokemon = pokemonFactory.getPokemon(basePokemon, ra.randomExp(), 0);
             PokemonController.heal(newPokemon);
             return newPokemon;
-        }
-        else{
+        } else {
             return null;
         }
     }
 
     public TextAdventureMap getCurrentPlace() {
         return currentPlace;
+    }
+
+    public void setCurrentPlace(TextAdventureMap currentPlace) {
+        this.currentPlace = currentPlace;
     }
 
 

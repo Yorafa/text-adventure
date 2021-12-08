@@ -3,7 +3,7 @@ package entity;
 import java.io.Serializable;
 
 public class BasePokemonData implements Serializable {
-    protected PokemonType pokemonType;
+    protected final PokemonType pokemonType;
     protected int maxHitPoint;
     protected int attackPoint;
     protected int defencePoint;
@@ -13,13 +13,13 @@ public class BasePokemonData implements Serializable {
      * Construct a BasePokemon, giving them the
      * given pokemonType, maxHitPoint, attackPoint, defencePoint and speed.
      *
-     * @param pokemonType enum value of the enum class PokemonType
+     * @param pokemonType  enum value of the enum class PokemonType
      * @param maxHitPoint  the basic max HP / the max HP on level 1
      * @param attackPoint  the attack on level 1
-     * @param defencePoint  the defence on level 1
-     * @param speed  the speed on level 1
-     *
-     * The relative classes
+     * @param defencePoint the defence on level 1
+     * @param speed        the speed on level 1
+     *                     <p>
+     *                     The relative classes
      * @see PokemonType
      */
 
@@ -49,17 +49,5 @@ public class BasePokemonData implements Serializable {
 
     public int getSpeed() {
         return speed;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == this) {
-            return true;
-        }
-        BasePokemonData pd = (BasePokemonData) o;
-        return pd.getMaxHitPoint() == this.maxHitPoint
-                && pd.getAttackPoint() == this.attackPoint
-                && pd.getDefencePoint() == this.defencePoint
-                && pd.getSpeed() == this.speed;
     }
 }

@@ -9,13 +9,13 @@ public class GuiLibraryIterator implements PokemonIterator {
 
     /**
      * Construct a GuiLibraryIterator, given them the guiPlayerPokemons
-     * @param guiPlayerPokemons use players pokemons to iterate
      *
+     * @param guiPlayerPokemons use players pokemons to iterate
      * @see PokemonIterator
      * @see GuiPlayerPokemons
      */
 
-    public GuiLibraryIterator(GuiPlayerPokemons guiPlayerPokemons){
+    public GuiLibraryIterator(GuiPlayerPokemons guiPlayerPokemons) {
         this.guiPlayerPokemons = guiPlayerPokemons;
     }
 
@@ -26,9 +26,11 @@ public class GuiLibraryIterator implements PokemonIterator {
 
     @Override
     public Pokemon getNext() {
-        if (!hasNext()){return null;}
+        if (!hasNext()) {
+            return null;
+        }
         Pokemon pokemon = guiPlayerPokemons.getLibraryPokemon(currentPosition);
-        currentPosition ++;
+        currentPosition++;
         return pokemon;
     }
 

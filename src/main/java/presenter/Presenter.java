@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Queue;
 
 public class Presenter {
-    protected Queue<String> messageQueue;
+    protected final Queue<String> messageQueue;
 
     public Presenter() {
         this.messageQueue = new ArrayDeque<>();

@@ -8,17 +8,17 @@ import java.io.*;
 
 public class GameDataGate {
     /**
-     * @param user the player information
+     * @param user     the player information
      * @param gameData the game data type of Gui
-     * @param date the String Date
+     * @param date     the String Date
      */
     public static void writeGameData(User user, GuiGameData gameData, String date) {
         try {
             String toFilePath = "GuiData/user/" + user.getUsername();
             File myPath = new File(toFilePath);
-            if (!myPath.exists())myPath.mkdir();
+            if (!myPath.exists()) myPath.mkdir();
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(
-                    new FileOutputStream(toFilePath +  "/" + date +".ser"));
+                    new FileOutputStream(toFilePath + "/" + date + ".ser"));
             objectOutputStream.writeObject(gameData);
             objectOutputStream.close();
         } catch (IOException e) {
@@ -30,8 +30,8 @@ public class GameDataGate {
         GuiGameData gameData;
         try {
             ObjectInputStream objectInputStream = new ObjectInputStream(
-                    new FileInputStream("GuiData/user/"  +
-                            user.getUsername() + "/"+ date +"gameData.ser"));
+                    new FileInputStream("GuiData/user/" +
+                            user.getUsername() + "/" + date + "gameData.ser"));
             try {
                 gameData = (GuiGameData) objectInputStream.readObject();
             } catch (ClassNotFoundException e) {
