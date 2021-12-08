@@ -1,40 +1,45 @@
 package addition_part.Gui;
 
+import addition_part.GuiDriver.GuiDriver;
 import entity.Pokemon;
+import usecase_pokemon.PokemonManager;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class InitialPanel extends JPanel {
-    private final TextAdventureFrame parent;
+public class InitialPanel extends BasePanel {
+    private final PokemonManager pokemonManager;
 
-    public InitialPanel(TextAdventureFrame parent){
-        this.parent = parent;
-        this.setLayout(new GridLayout(2, 1, 10, 10));
-        JLabel label = new JLabel("Welcome to Text Adventure, " + parent.getUser().getUsername() +
-                ".\n I believe that you have wanted to go out and take risks for a long time.\n" +
-                "But hold on. \n" +
-                "Going out on an adventure can't be done without a pokemon.\n" +
+    public InitialPanel(TextAdventureFrame parent, GuiDriver guiDriver){
+        super(parent, guiDriver);
+        this.pokemonManager = guiDriver.getPokemonManager();
+        initialize();
+    }
+
+    private void initialize(){
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new GridLayout(2, 1, 10, 10));
+        mainPanel.add(new JLabel("Welcome to Text Adventure, " +
                 "Pick a pokemon to start your adventure"
-        );
-        label.setSize(this.getWidth()/2,20);
-        this.add(label);
-        String[] pokemonNames = {"Walter", "Gras", "Elect","Fir"};
+        ));
+        String[] pokemonNames = {"Bulbasaur", "Squirtle", "Charmander"};
+        // setUp button panel
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(2, 2, 10, 10));
+        buttonPanel.setLayout(new GridLayout(1, 3, 10, 10));
         for (String pokemonName: pokemonNames){
             buttonPanel.add(createButton(pokemonName));
         }
-
-        this.add(buttonPanel);
+        mainPanel.add(buttonPanel);
+        this.add(mainPanel);
     }
-    public JButton createButton(String pokemonName){
+
+    private JButton createButton(String pokemonName){
         JButton button = new JButton(pokemonName);
-        button.addActionListener(e -> showPokemonInfo(parent.getPokemon(pokemonName)));
+        button.addActionListener(e -> showPokemonInfo(pokemonManager.getPokemon(pokemonName,1)));
         return button;
     }
 
-    public void showPokemonInfo(Pokemon pokemon){
+    private void showPokemonInfo(Pokemon pokemon){
         PokemonDialog pokemonDialog = new PokemonDialog(parent, pokemon);
         pokemonDialog.setTitle("Click Yes to Choose Your First Pokemon");
         pokemonDialog.setModal(true);
@@ -42,9 +47,8 @@ public class InitialPanel extends JPanel {
         pokemonDialog.setVisible(true);
         if (pokemonDialog.isAcceptable()){
             parent.remove(this);
-            parent.addPokemon(pokemon);
-            parent.setContentPane(new MapPanel(parent));
-            parent.pack();
+            pokemonManager.add(pokemon);
+            parent.explorePanel();
         }
     }
 }

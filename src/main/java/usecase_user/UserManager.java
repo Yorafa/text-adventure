@@ -21,12 +21,12 @@ public class UserManager implements Serializable {
      * @see User
      */
     public UserManager(IReadWriter readWriter) {
+        this.readWriter = readWriter;
         try {
             users = (List<User>) readWriter.read();
         } catch (IOException | ClassNotFoundException e) {
             users = new ArrayList<>();
         }
-        this.readWriter = readWriter;
     }
 
     /**

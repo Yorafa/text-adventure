@@ -21,12 +21,12 @@ public class PokemonDialog extends JDialog {
         addYesNoButton(mainPanel);
     }
 
-    public void pokemonInfoLabel(String info, JPanel panel){
+    private void pokemonInfoLabel(String info, JPanel panel){
         JLabel label = new JLabel(info);
         panel.add(label);
     }
 
-    public void addPokemonInfo(JPanel mainPanel){
+    private void addPokemonInfo(JPanel mainPanel){
         PokemonData pokemonData = pokemon.getPokemonData();
         pokemonInfoLabel("Pokemon Name: " + pokemon.getName(), mainPanel);
         pokemonInfoLabel("Level: " + pokemon.getLevel(), mainPanel);
@@ -37,7 +37,7 @@ public class PokemonDialog extends JDialog {
         pokemonInfoLabel("Speed: " + pokemonData.getSpeed(), mainPanel);
     }
 
-    public void addYesNoButton(JPanel mainPanel){
+    private void addYesNoButton(JPanel mainPanel){
         JButton accept = new JButton("Yes");
         JButton reject = new JButton("No");
         accept.addActionListener(e ->

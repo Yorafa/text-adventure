@@ -1,31 +1,48 @@
 package addition_part.Gui;
 
-import addition_part.GuiUsecase.TextAdventureMap;
+import entity.Pmap;
+import usecase_map.MapManager;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class MapChangingPanel extends JPanel {
-    private final TextAdventureFrame parent;
+    private final MapManager mapManager;
+    private final JComboBox<Pmap> comboBox = new JComboBox<>();
+    private final JLabel label;
 
-    public MapChangingPanel(TextAdventureFrame parent) {
-        this.parent = parent;
-        this.setBorder(BorderFactory.createEmptyBorder(200, 400, 200, 400));
-
-        showAll();
+    public MapChangingPanel(MapManager mapManager, JLabel label) {
+        this.mapManager = mapManager;
+        this.label = label;
+        initialize();
     }
-    public void showMap(String name){
-        JButton button = new JButton(name);
-        button.addActionListener(e -> {
-            parent.setCurrentMap(parent.getMapManager().find(name));
-            parent.setContentPane(new MapPanel(parent));
-            parent.pack();
+
+    private void initialize(){
+        this.setLayout(new GridLayout(1,3,10,10));
+        this.add(nameLabel());
+        this.add(comboBox);
+        this.add(switchButton());
+        addItem();
+    }
+
+    private JButton switchButton(){
+        JButton switchButton = new JButton("Switch to");
+        switchButton.addActionListener(e -> {
+            setCurrentPlace((Pmap) comboBox.getSelectedItem());
+            label.setText("You are currently at " + mapManager.getCurrentPlace() + ".");
         });
-        this.add(button);
+        return switchButton;
     }
 
-    public void showAll(){
-        for (TextAdventureMap textAdventureMap : parent.getMaps())
-            showMap(textAdventureMap.getMapName());
+    private JLabel nameLabel(){
+        return new JLabel("Select map you want to go");
+    }
 
+    private void addItem(){
+        for (Pmap map: mapManager.getPmaps()) comboBox.addItem(map);
+    }
+
+    private void setCurrentPlace(Pmap pmap){
+        mapManager.setCurrentPlace(pmap);
     }
 }
