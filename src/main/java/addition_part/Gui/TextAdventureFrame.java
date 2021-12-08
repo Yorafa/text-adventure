@@ -32,6 +32,14 @@ public class TextAdventureFrame extends JFrame {
         this.pack();
     }
 
+    public void browsePokemonPanel(){
+        BrowsePokemonDialog dialog = new BrowsePokemonDialog(this, guiDriver);
+        dialog.setTitle("Check the Pokemon Book/Change the battle pokemon");
+        dialog.setModal(true);
+        dialog.setSize(500,720);
+        dialog.setVisible(true);
+    }
+
     public void explorePanel(){
         this.panel = new ExplorePanel(this, guiDriver);
         this.setContentPane();

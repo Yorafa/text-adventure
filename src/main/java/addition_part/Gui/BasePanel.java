@@ -18,13 +18,13 @@ public abstract class BasePanel extends JPanel {
     private void initialize(){
         this.setLayout(new BorderLayout());
         JLabel emptyLabel1 = new JLabel("");
-        emptyLabel1.setPreferredSize(new Dimension(0,280));
+        emptyLabel1.setPreferredSize(new Dimension(0,180));
         JLabel emptyLabel2 = new JLabel("");
-        emptyLabel2.setPreferredSize(new Dimension(0,290));
+        emptyLabel2.setPreferredSize(new Dimension(0,190));
         JLabel emptyLabel3 = new JLabel("");
-        emptyLabel3.setPreferredSize(new Dimension(300,0));
+        emptyLabel3.setPreferredSize(new Dimension(150,0));
         JLabel emptyLabel4 = new JLabel("");
-        emptyLabel4.setPreferredSize(new Dimension(300,0));
+        emptyLabel4.setPreferredSize(new Dimension(150,0));
         this.add(emptyLabel1, BorderLayout.NORTH);
         this.add(emptyLabel2, BorderLayout.SOUTH);
         this.add(emptyLabel3, BorderLayout.WEST);

@@ -7,42 +7,22 @@ public class ProbabilityCalculator {
 
     /**
      * the probability of encounter wild pokemon
-     * @param pokemonList a list of different rarity pokemon group
-     * @return -1 represent nothing, of name of pokemon
+     * @param probabilities a list of integer represent probability
+     * @return -1 represent nothing, of index of poekmon
      */
-    public String calculate(List<List<String>> pokemonList) {
+    public int calculate(List<Integer> probabilities) {
         Random r = new Random();
-        int rarity = calculateRarity();
-        if (pokemonList.get(rarity).size() > 0){
-            List<String> rarityPokemons = pokemonList.get(rarity);
-            return rarityPokemons.get(r.nextInt(rarityPokemons.size()));
+        int i = r.nextInt(100);
+        int sum = 0;
+        int index = 0;
+        for (int p : probabilities) {
+            sum += p;
+            if (sum > i) {
+                return index;
+            } else {
+                index += 1;
+            }
         }
-        return "-1";
-    }
-
-    /**
-     *
-     * @param levelList the level range of pokemon
-     * @return the random level of pokemon
-     */
-    public int calculateLevel(List<Integer> levelList){
-        Random r = new Random();
-        int diff = levelList.get(1) - levelList.get(0);
-        return r.nextInt(diff) + levelList.get(0);
-    }
-
-    private int calculateRarity(){
-        Random random = new Random();
-        int rarityIdentity = random.nextInt(100);
-        if (rarityIdentity == 0){
-            return 0;
-        }
-        else if (rarityIdentity <=5){
-            return 1;
-        }
-        else if (rarityIdentity <=40){
-            return 2;
-        }
-        else {return 3;}
+        return -1;
     }
 }

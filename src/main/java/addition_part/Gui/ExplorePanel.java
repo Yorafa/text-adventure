@@ -24,10 +24,12 @@ public class ExplorePanel extends BasePanel {
 
     private void initialize(){
         JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(new GridLayout(2, 1, 10, 10));
+        mainPanel.setLayout(new GridLayout(4, 1, 10, 10));
         mainPanel.add(new JLabel("You are currently at " + mapManager.getCurrentPlace().getMapName() + "."));
+        mainPanel.add(new MapChangingPanel(mapManager));
+        mainPanel.add(new SaveLoadPanel(guiDriver));
         mainPanel.add(buttonPanel());
-        this.add(this);
+        this.add(mainPanel);
     }
     private JButton healAllButton(){
         JButton healAll = new JButton("Heal All");
@@ -40,22 +42,21 @@ public class ExplorePanel extends BasePanel {
     }
 
     private JButton walkAroundButton(){
-        mapManager.walkAround(pokemonManager);
+        guiDriver.setWildPokemon(mapManager.walkAround(pokemonManager));
         JButton search = new JButton("Walk around");
         search.addActionListener((e) -> doSearch());
         return search;
     }
 
     private void doSearch(){
-        if (parent.getWildPokemon() == null){
+        if (guiDriver.getWildPokemon() == null){
             String message = "Oof, nothing here, may next time will find somethings";
             JOptionPane.showMessageDialog(this, message, "Search", JOptionPane.WARNING_MESSAGE);
         }
         else{
-            if (PokemonController.canFight(parent.getPocketPokemons())){
+            if (PokemonController.canFight(pokemonManager.getPocket().getPokemons())){
                 parent.remove(this);
-                parent.setContentPane(new BattlePanel(parent));
-                parent.pack();}
+                parent.battlePanel();}
             else {
                 String message = "Oof, Your first pokemon in your pocket can not fight now";
                 JOptionPane.showMessageDialog(this, message,
@@ -64,33 +65,12 @@ public class ExplorePanel extends BasePanel {
         }
     }
 
-    private JButton mapButton(){
-        JButton mapButton = new JButton("Change place");
-        mapButton.addActionListener((e) ->
-        {
-            parent.remove(this);
-            parent.setContentPane(new MapChangingPanel(parent));
-            parent.pack();
-        });
-        return mapButton;
-    }
-
-    private JButton browsePokemonButton(){
-        JButton browsePokemon = new JButton("Browse pokemon");
-        browsePokemon.addActionListener((e) -> {
-            parent.setContentPane(new BrowsePokemonPanel(parent));
-            parent.pack();
-        });
-        return browsePokemon;
-    }
-
     private JButton logOutButton(){
         JButton logOut = new JButton("Log out");
         logOut.addActionListener((e) -> {
             parent.remove(this);
+            saveLoadController.saveGameData(pokemonManager.getPocket(), mapManager.getCurrentPlace());
             parent.loginPanel();
-            parent.setUser(null);
-            parent.pack();
         });
         return logOut;
     }
@@ -99,13 +79,20 @@ public class ExplorePanel extends BasePanel {
     private JPanel buttonPanel(){
         // Setup Button Field
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(2, 3, 10, 10));
+        buttonPanel.setLayout(new GridLayout(2, 2, 30, 30));
         buttonPanel.add(walkAroundButton());
-        buttonPanel.add(mapButton());
-        buttonPanel.add(saveButton());
+        buttonPanel.add(healAllButton());
         buttonPanel.add(browsePokemonButton());
         buttonPanel.add(logOutButton());
-        buttonPanel.add(loadButton());
-        return  buttonPanel;
+        return buttonPanel;
+    }
+
+    private JButton browsePokemonButton() {
+        JButton browseButton = new JButton("Browse My Pokemon");
+        browseButton.addActionListener((e) -> {
+            parent.remove(this);
+            parent.browsePokemonPanel();
+        });
+        return browseButton;
     }
 }

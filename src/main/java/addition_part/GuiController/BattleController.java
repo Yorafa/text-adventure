@@ -7,9 +7,9 @@ import java.util.Random;
 
 
 public class BattleController {
-    private List<Pokemon> playerPokemons;
+    private final List<Pokemon> playerPokemons;
     private Pokemon playerPokemon;
-    private Pokemon wildPokemon;
+    private final Pokemon wildPokemon;
     private int playerPokemonIndex = 0;
     private boolean playerCounter;
     private boolean wildCounter;
@@ -115,7 +115,7 @@ public class BattleController {
         }
     }
 
-    public int AiAttack(){
+    private int AiAttack(){
         int damage;
         if (wildCounter){
             if (playerDefense){
@@ -141,14 +141,14 @@ public class BattleController {
         }
     }
 
-    public Pokemon faster(){
+    private Pokemon faster(){
         if (playerPokemon.getSpeed() >= wildPokemon.getSpeed()){
             return playerPokemon;
         }
         return wildPokemon;
     }
 
-    public void checkState(){
+    private void checkState(){
         if (wildPokemon.getHitPoint() <= 0){
             isBattling = false;}
         if (playerPokemon.getHitPoint() <= 0 && playerPokemonIndex +1 != playerPokemons.size()) {
@@ -171,12 +171,12 @@ public class BattleController {
             return false;}
     }
 
-    public boolean capture() {
+    private boolean capture() {
         Random r = new Random();
         return r.nextDouble() > 0.8 * wildPokemon.getHitPoint() / wildPokemon.getMaxHitPoint() + 0.1;
     }
 
-    public void counterCheck(){
+    private void counterCheck(){
         wildCounter = CounterState.IsCounter(wildPokemon, playerPokemon);
         playerCounter = CounterState.IsCounter(playerPokemon, wildPokemon);
     }

@@ -8,6 +8,8 @@ import java.awt.*;
 
 public class MapChangingPanel extends JPanel {
     private final MapManager mapManager;
+    private final JComboBox<Pmap> comboBox = new JComboBox<>();
+
     public MapChangingPanel(MapManager mapManager) {
         this.mapManager = mapManager;
         initialize();
@@ -16,12 +18,11 @@ public class MapChangingPanel extends JPanel {
     private void initialize(){
         this.setLayout(new GridLayout(1,3,10,10));
         this.add(nameLabel());
-        JComboBox<Pmap> comboBox = comboBox();
         this.add(comboBox);
-        this.add(switchButton(comboBox));
+        this.add(switchButton());
     }
 
-    private JButton switchButton(JComboBox<Pmap> comboBox){
+    private JButton switchButton(){
         JButton switchButton = new JButton("Switch to");
         switchButton.addActionListener(e -> setCurrentPlace((Pmap) comboBox.getSelectedItem()));
         return switchButton;
@@ -31,10 +32,8 @@ public class MapChangingPanel extends JPanel {
         return new JLabel("Select map you want to go");
     }
 
-    private JComboBox<Pmap> comboBox(){
-        JComboBox<Pmap> comboBox = new JComboBox<>();
+    private void addItem(){
         for (Pmap map: mapManager.getPmaps()) comboBox.addItem(map);
-        return comboBox;
     }
 
     private void setCurrentPlace(Pmap pmap){

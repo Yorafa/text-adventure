@@ -8,8 +8,9 @@ import java.util.List;
  */
 public class Pmap implements Serializable {
     private String mapName;
-    private List<List<String>> pokemons;
-    private List<Integer> levels; // this list should only store 2 value
+    private List<String> pokemons;
+    private List<Integer> probabilities;
+    private List<Integer> levels;
 
     /**
      * the getter method of mapName
@@ -23,8 +24,16 @@ public class Pmap implements Serializable {
      * the getter method of pokemons
      * @return a list of Pokemon's name from this map
      */
-    public List<List<String>> getPokemons() {
+    public List<String> getPokemons() {
         return pokemons;
+    }
+
+    /**
+     * the getter method of probabilities
+     * @return a list of integer that represent of pokemon probability from this map
+     */
+    public List<Integer> getProbabilities() {
+        return probabilities;
     }
 
     /**

@@ -57,8 +57,4 @@ public class SaveLoadController {
     public Pocket getPocket() {
         return gameData.getPocket();
     }
-
-    public HashMap<Date, GameData> getGameDataHistory() {
-        return gameDataHistory;
-    }
 }

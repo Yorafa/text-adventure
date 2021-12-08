@@ -18,6 +18,20 @@ public class LoginPanel extends BasePanel {
     }
 
     private void initialize(){
+        this.setLayout(new BorderLayout());
+        JLabel emptyLabel1 = new JLabel("");
+        emptyLabel1.setPreferredSize(new Dimension(0,280));
+        JLabel emptyLabel2 = new JLabel("");
+        emptyLabel2.setPreferredSize(new Dimension(0,290));
+        JLabel emptyLabel3 = new JLabel("");
+        emptyLabel3.setPreferredSize(new Dimension(300,0));
+        JLabel emptyLabel4 = new JLabel("");
+        emptyLabel4.setPreferredSize(new Dimension(300,0));
+        this.add(emptyLabel1, BorderLayout.NORTH);
+        this.add(emptyLabel2, BorderLayout.SOUTH);
+        this.add(emptyLabel3, BorderLayout.WEST);
+        this.add(emptyLabel4, BorderLayout.EAST);
+
         // Setup mainPanel
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayout(3, 1));

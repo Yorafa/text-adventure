@@ -15,6 +15,7 @@ public class GuiDriver {
     private final MapManager mapManager;
     private final PokemonManager pokemonManager;
     private final SaveLoadController saveLoadController;
+    private Pokemon wildPokemon = null;
 
     /**
      * Construct a TextAdventureFrame, given them the given userController,
@@ -32,6 +33,14 @@ public class GuiDriver {
         this.mapManager = new MapManager(new MapJsonReader());
         this.pokemonManager = new PokemonManager(new PokemonJsonReader());
         this.saveLoadController = new SaveLoadController();
+    }
+
+    public Pokemon getWildPokemon() {
+        return wildPokemon;
+    }
+
+    public void setWildPokemon(Pokemon wildPokemon) {
+        this.wildPokemon = wildPokemon;
     }
 
     public MapManager getMapManager() {
