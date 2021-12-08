@@ -9,14 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserManager implements Serializable {
-    private List<User> users;
     private final IReadWriter readWriter;
+    private List<User> users;
 
     /**
      * Construct UserManager, given then the readWriter that use
      * to read the userManager
-     * @param readWriter the data access object
      *
+     * @param readWriter the data access object
      * @see IReadWriter
      * @see User
      */

@@ -4,7 +4,8 @@ This report aims to provide self-evaluation on the accessibility of this program
 
 ## Equitable Use
 
-This is a stand-alone game, which means no requirement on connection to the internet after installation. This enhances the safety and security of the program. The open-source nature of this program makes it available to everyone.
+This is a stand-alone game, which means no requirement on connection to the internet after installation. This enhances
+the safety and security of the program. The open-source nature of this program makes it available to everyone.
 
 ## Flexibility in Use
 
@@ -12,20 +13,19 @@ It features with a symmetric GUI design. It comes with relatively large GUI butt
 
 ## Simple and Intuitive Use
 
-It is a relatively simple program, so with only a few options at each time an operation is required, the user should 
-feel intuitive to use. Information and buttoms are naturally merged together so feedback should be
-notified with no effort.
+It is a relatively simple program, so with only a few options at each time an operation is required, the user should
+feel intuitive to use. Information and buttoms are naturally merged together so feedback should be notified with no
+effort.
 
 ## Perceptible Information
 
-There are generally two types of information: description of situation and 
-options for the next step. The description of situation is always centered and is to be
-read first.
+There are generally two types of information: description of situation and options for the next step. The description of
+situation is always centered and is to be read first.
 
 ## Tolerance for Error
 
-The in-game progress is always saved using serialization. With limited options, the
-user probably never goes wrong with the program with exception being caught.
+The in-game progress is always saved using serialization. With limited options, the user probably never goes wrong with
+the program with exception being caught.
 
 ## Low Physical Effort
 
@@ -38,8 +38,8 @@ screens.
 
 ## The Target Market
 
-For the players who love to have Pokemons in a retro style. This game should naturally reminds people 
-the era of 2G network where online games are mostly text-based.
+For the players who love to have Pokemons in a retro style. This game should naturally reminds people the era of 2G
+network where online games are mostly text-based.
 
 ## To Certain Demographics
 

@@ -18,13 +18,14 @@ public class TextExplorePanel extends TextPanel implements PanelState {
     /**
      * Construct a TextExplorePanel, given them the given input, gameDriver, mapManager,
      * pokemonManager and gameDataManager
-     * @param input the player input
-     * @param gameDriver the main driver of game
-     * @param mapManager the manager of map
-     * @param pokemonManager the manager of pokemon
-     * @param gameDataManager the manager of game data
      *
-     * The relative classes
+     * @param input           the player input
+     * @param gameDriver      the main driver of game
+     * @param mapManager      the manager of map
+     * @param pokemonManager  the manager of pokemon
+     * @param gameDataManager the manager of game data
+     *                        <p>
+     *                        The relative classes
      * @see GameDriver
      * @see MapManager
      * @see PokemonManager

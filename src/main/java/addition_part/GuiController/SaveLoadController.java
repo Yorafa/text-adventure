@@ -1,9 +1,9 @@
 package addition_part.GuiController;
 
 
-import addition_part.GuiUsecase.GuiGameData;
 import addition_part.GuiGateway.GameDataGate;
 import addition_part.GuiGateway.UserGate;
+import addition_part.GuiUsecase.GuiGameData;
 import entity.User;
 
 import java.io.File;
@@ -20,20 +20,21 @@ public class SaveLoadController {
      * @see GuiGameData
      * @see UserController
      */
-    public SaveLoadController(User user){
+    public SaveLoadController(User user) {
         this.gameDataHistory = new ArrayList<>();
         initial(user);
     }
-    public SaveLoadController(){
+
+    public SaveLoadController() {
         this.gameDataHistory = new ArrayList<>();
     }
 
-    public void save(User user, GuiGameData gameData, UserController userController){
+    public void save(User user, GuiGameData gameData, UserController userController) {
         saveGameDataMemento(user, gameData);
         saveUserController(userController);
     }
 
-    public void saveGameDataMemento(User user, GuiGameData gameData){
+    public void saveGameDataMemento(User user, GuiGameData gameData) {
         addGameDataMemento(gameData);
         String date = gameData.toString();
         String[] dateStrings = date.split(" ");
@@ -43,20 +44,20 @@ public class SaveLoadController {
         GameDataGate.writeGameData(user, gameData, date);
     }
 
-    public void saveUserController(UserController userController){
+    public void saveUserController(UserController userController) {
         UserGate.writeUM(userController);
     }
 
-    public void addGameDataMemento(GuiGameData gameData){
+    public void addGameDataMemento(GuiGameData gameData) {
         gameDataHistory.add(gameData);
     }
 
-    public void initial(User user){
-        File file = new File("GuiData/user/"  +
+    public void initial(User user) {
+        File file = new File("GuiData/user/" +
                 user.getUsername());
         File[] files = file.listFiles();
         assert files != null;
-        for (File file1: files){
+        for (File file1 : files) {
             addGameDataMemento(GameDataGate.readGameData(file1));
         }
     }
@@ -65,14 +66,14 @@ public class SaveLoadController {
         return gameDataHistory;
     }
 
-    public GuiGameData load(){
+    public GuiGameData load() {
         return lastModify();
     }
 
-    public GuiGameData lastModify(){
+    public GuiGameData lastModify() {
         GuiGameData lastData = gameDataHistory.get(0);
-        for (GuiGameData gameData: gameDataHistory){
-            if(gameData.getDate().getTime() > lastData.getDate().getTime()){
+        for (GuiGameData gameData : gameDataHistory) {
+            if (gameData.getDate().getTime() > lastData.getDate().getTime()) {
                 lastData = gameData;
             }
         }

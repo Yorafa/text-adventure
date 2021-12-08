@@ -8,13 +8,13 @@ public class PokemonData extends BasePokemonData implements Serializable {
      * Construct a PokemonData, given them the given pokemonType, maxHitPoint,
      * attackPoint, defencePoint and speed.
      *
-     * @param pokemonType the enum pokemonType, the type of pokemon
-     * @param maxHitPoint the updatable max HP of a pokemon
-     * @param attackPoint the updatable attack point of a pokemon
+     * @param pokemonType  the enum pokemonType, the type of pokemon
+     * @param maxHitPoint  the updatable max HP of a pokemon
+     * @param attackPoint  the updatable attack point of a pokemon
      * @param defencePoint the updatable defence point of a pokemon
-     * @param speed the updatable speed of a pokemon
-     *
-     * The relative classes
+     * @param speed        the updatable speed of a pokemon
+     *                     <p>
+     *                     The relative classes
      * @see PokemonType
      */
 

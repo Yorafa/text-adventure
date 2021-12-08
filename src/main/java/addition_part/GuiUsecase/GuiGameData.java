@@ -10,9 +10,9 @@ public class GuiGameData implements Serializable {
 
     /**
      * Construct a GuiGameData, given them the given playerPokemons and currentPlace
-     * @param playerPokemons all pokemons of player
-     * @param currentPlace the current place player in
      *
+     * @param playerPokemons all pokemons of player
+     * @param currentPlace   the current place player in
      * @see GuiPlayerPokemons
      * @see TextAdventureMap
      */
@@ -22,7 +22,7 @@ public class GuiGameData implements Serializable {
         this.date = new Date();
     }
 
-    public GuiGameData(){
+    public GuiGameData() {
         this.playerPokemons = new GuiPlayerPokemons();
         this.currentPlace = null;
         this.date = new Date();

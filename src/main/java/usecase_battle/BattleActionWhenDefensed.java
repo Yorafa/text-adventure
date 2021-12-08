@@ -11,8 +11,8 @@ public class BattleActionWhenDefensed implements BattleAction {
 
     /**
      * Construct BattleActionWhenAttacked, given them the given battleManager
-     * @param battleManager the manager of battle
      *
+     * @param battleManager the manager of battle
      * @see BattleManager
      * @see Pokemon
      * @see IBattlePresenter

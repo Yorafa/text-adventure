@@ -13,7 +13,7 @@ public class PocketSorterByName implements IPocketSorter {
         pokemons.sort(new NameComparator());
     }
 
-    private class NameComparator implements Comparator<Pokemon> {
+    private static class NameComparator implements Comparator<Pokemon> {
         @Override
         public int compare(Pokemon p1, Pokemon p2) {
             int result = p1.getName().compareTo(p2.getName());

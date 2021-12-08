@@ -6,8 +6,10 @@
 
 ## Release
 
-- Gui Version [Download](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/releases/download/TextAdventure/TextAdventure.zip)
-- Shell Version [Download](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/releases/download/PokemonWorld/PokemonWorld.zip)
+- Gui
+  Version [Download](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/releases/download/TextAdventure/TextAdventure.zip)
+- Shell
+  Version [Download](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/releases/download/PokemonWorld/PokemonWorld.zip)
 - Source Code [Download](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/archive/refs/heads/main.zip)
 
 ## Run
@@ -27,8 +29,10 @@
 
 ## Documentation
 
-- see specific play instruction on [Specification](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/blob/main/phase2/specification.md)
-- We will use gson to Serializing our partial game data, if you unfamiliar with that, please look [gson](https://github.com/google/gson)
+- see specific play instruction
+  on [Specification](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/blob/main/phase2/specification.md)
+- We will use gson to Serializing our partial game data, if you unfamiliar with that, please
+  look [gson](https://github.com/google/gson)
 
 ## Support
 

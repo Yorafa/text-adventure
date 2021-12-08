@@ -9,8 +9,9 @@ public class PokemonBook implements Serializable {
 
     /**
      * Construct a PokemonBook give them a new arraylist
-     *
+     * <p>
      * The relative classes
+     *
      * @see BasePokemon
      */
 
@@ -18,15 +19,7 @@ public class PokemonBook implements Serializable {
         this.pokemonBook = new ArrayList<>();
     }
 
-    public void addPokemon(BasePokemon pokemon) {
-        pokemonBook.add(pokemon);
-    }
-
-    public void removePokemon(int i) {
-        pokemonBook.remove(i);
-    }
-
-    public List<BasePokemon> getPokemonBook(){
+    public List<BasePokemon> getPokemonBook() {
         return pokemonBook;
     }
 
@@ -43,9 +36,11 @@ public class PokemonBook implements Serializable {
         return null;
     }
 
-    public BasePokemon getPokemon(String pokemonName){
-        for (BasePokemon basePokemon: pokemonBook){
-            if (basePokemon.getName().equals(pokemonName)){return basePokemon;}
+    public BasePokemon getPokemon(String pokemonName) {
+        for (BasePokemon basePokemon : pokemonBook) {
+            if (basePokemon.getName().equals(pokemonName)) {
+                return basePokemon;
+            }
         }
         return null;
     }

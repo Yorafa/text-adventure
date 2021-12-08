@@ -17,9 +17,10 @@ Open question & discussion
 - Finish GUI
 - Test
 - Design Document
-- my significant [Pull Request](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/commit/f5aca2c7687d6ffa44c60775ebf3964989b0c432)
-  - this PR is important that I provide another gameplay, and there is no conflict with another gameplay
-  - At the same time when writing Gui, I also corrected many other bugs
+- my
+  significant [Pull Request](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/commit/f5aca2c7687d6ffa44c60775ebf3964989b0c432)
+    - this PR is important that I provide another gameplay, and there is no conflict with another gameplay
+    - At the same time when writing Gui, I also corrected many other bugs
 
 ### Jerry Wei
 
@@ -32,7 +33,6 @@ Open question & discussion
 - accessibility.md
 - Test
 - Bug fixing for the failed tests
-
 
 ### Yucen Liu
 
