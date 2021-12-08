@@ -1,5 +1,6 @@
 package addition_part.GuiController;
 
+import addition_part.Gui.TextAdventureFrame;
 import addition_part.GuiUsecase.TextAdventureMap;
 import entity.*;
 
@@ -20,13 +21,12 @@ public class RandomAlgorithm {
         this.random = new Random();
     }
 
-    public BasePokemon encounter(PokemonBook pokemonBook){
+    public String encounter(){
         List<List<String>> pokemons = textAdventureMap.getPokemons();
         int rarity = getRarity();
         if (pokemons.get(rarity).size() > 0){
             List<String> rarityPokemons = pokemons.get(rarity);
-            String pokemonName = rarityPokemons.get(random.nextInt(rarityPokemons.size()));
-            return pokemonBook.getPokemon(pokemonName);
+            return rarityPokemons.get(random.nextInt(rarityPokemons.size()));
         }
         return null;
     }

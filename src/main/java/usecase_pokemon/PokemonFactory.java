@@ -29,6 +29,12 @@ public class PokemonFactory {
                 currentHitPoint, pokemonData);
     }
 
+    /**
+     *
+     * @param basePokemon the basic info of a pokemon at its level 1
+     * @param level the level of pokemon
+     * @return an update pokemon with the given level
+     */
     public Pokemon getPokemon(BasePokemon basePokemon, int level) {
         LevelCalculator lc = new LevelCalculator();
         int experiencePoint = lc.calculateExperiencePoint(level);

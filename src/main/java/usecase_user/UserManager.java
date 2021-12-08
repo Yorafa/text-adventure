@@ -13,7 +13,7 @@ public class UserManager implements Serializable {
     private final IReadWriter readWriter;
 
     /**
-     * Construct UserManager, given then the readWriter that use
+     * Construct UserManager, given then the readWriter that used
      * to read the userManager
      * @param readWriter the data access object
      *
@@ -29,10 +29,11 @@ public class UserManager implements Serializable {
         this.readWriter = readWriter;
     }
 
-    private void addUser(User user) {
-        users.add(user);
-    }
-
+    /**
+     *
+     * @param username the name of user that player given
+     * @return true if and only if there exist a user in users has the same name
+     */
     public boolean hasUser(String username) {
         for (User user : users) {
             if (user.getUsername().equals(username)) {
@@ -42,15 +43,12 @@ public class UserManager implements Serializable {
         return false;
     }
 
-    private User getUser(String username) {
-        for (User user : users) {
-            if (user.getUsername().equals(username)) {
-                return user;
-            }
-        }
-        return null;
-    }
-
+    /**
+     *
+     * @param username the name of user that player given
+     * @param password the password of user that player given
+     * @return true if and only if there exist a user in users has the same name and password
+     */
     public boolean login(String username, String password) {
         if (!hasUser(username)) {
             return false;
@@ -61,6 +59,12 @@ public class UserManager implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param username the name of user that player given
+     * @param password the password of user that player given
+     * @return true if not has this user
+     */
     public boolean register(String username, String password) {
         if (hasUser(username)) {
             return false;
@@ -76,5 +80,18 @@ public class UserManager implements Serializable {
             }
             return true;
         }
+    }
+
+    private void addUser(User user) {
+        users.add(user);
+    }
+
+    private User getUser(String username) {
+        for (User user : users) {
+            if (user.getUsername().equals(username)) {
+                return user;
+            }
+        }
+        return null;
     }
 }

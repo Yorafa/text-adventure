@@ -56,10 +56,20 @@ public class MapController{
         return null;
     }
 
+    public BasePokemon getBasePokemon(PokemonBook pokemonBook, String pokemonName){
+        for(BasePokemon basePokemon: pokemonBook.getPokemonBook()){
+            if (basePokemon.getName().equals(pokemonName)){
+                return basePokemon;
+            }
+        }
+        return null;
+    }
+
     public Pokemon walkAround(PokemonBook pokemonBook) {
         RandomAlgorithm ra = new RandomAlgorithm(this.currentPlace);
         PokemonFactory pokemonFactory = new PokemonFactory();
-        BasePokemon basePokemon = ra.encounter(pokemonBook);
+        String pokemonName = ra.encounter();
+        BasePokemon basePokemon = getBasePokemon(pokemonBook, pokemonName);
         if (basePokemon != null) {
             Pokemon newPokemon = pokemonFactory.getPokemon(basePokemon, ra.randomExp(), 0);
             PokemonController.heal(newPokemon);

@@ -145,7 +145,7 @@ public class TextAdventureFrame extends JFrame {
     }
 
     public Pokemon getPokemon(String pokemonName){
-        BasePokemon basePokemon = this.pokemonBook.getPokemon(pokemonName);
+        BasePokemon basePokemon = mapController.getBasePokemon(pokemonBook,pokemonName);
         PokemonData pokemonData = new PokemonData(basePokemon.getPokemonType(),
                 basePokemon.getMaxHitPoint(),
                 basePokemon.getAttackPoint(),
