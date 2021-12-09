@@ -20,7 +20,9 @@ public class PokemonJsonReader implements IJsonReader<PokemonBook> {
      * @throws IOException file may not exist
      */
     public PokemonBook read() throws IOException {
-        Reader reader = Files.newBufferedReader(Paths.get("game_data/AllPokemonData.json"));
+        ConfigReader configReader = new ConfigReader();
+        String filePath = configReader.getPokemonPath();
+        Reader reader = Files.newBufferedReader(Paths.get(filePath));
         Gson gson = new Gson();
         return gson.fromJson(reader, PokemonBook.class);
     }

@@ -1,0 +1,6 @@
+{
+  "GamePath" : "game_data/game/",
+  "UserPath" : "game_data/UserInfo.ser",
+  "MapPath" : "game_data/AllMapData.json",
+  "PokemonPath" : "game_data/AllPokemonData.json"
+}

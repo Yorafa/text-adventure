@@ -23,7 +23,9 @@ public class MapJsonReader implements IJsonReader<List<Pmap>> {
      * @throws IOException file may not exist
      */
     public List<Pmap> read() throws IOException {
-        Reader reader = Files.newBufferedReader(Paths.get("game_data/AllMapData.json"));
+        ConfigReader configReader = new ConfigReader();
+        String filePath = configReader.getMapPath();
+        Reader reader = Files.newBufferedReader(Paths.get(filePath));
         Gson gson = new Gson();
         Type type = new TypeToken<ArrayList<Pmap>>() {
         }.getType();
