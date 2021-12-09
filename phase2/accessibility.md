@@ -48,14 +48,14 @@ nothing exciting comes up repeatedly.
 
 ## Size and Space for Approach and Use
 
-- The program still needs to work on varying text font and size, more specifically,  the buttom may be scalable to accommodate smaller
-screens.
+- The program still needs to work on varying text font and size, more specifically,  the buttom may be scalable to 
+- accommodate smaller screens.
 - The GUI is designed in a way such that various types of input devices are accommodated well. 
 - Night mode can be added.
 
 ## The Target Market
 
-For the players who love to have pokemon in a retro style. This game should naturally reminds people 
+For the players who love to have pokemon in a retro style. This game should naturally remind people 
 the era of 2G network where online games are mostly text-based. This game currently lacks of graphical contents for 
 the vivid images which are usually associated with pokemon. This game may also be appealing to the little ones who are
 starting to read and are also interested in the story of pokemon.
