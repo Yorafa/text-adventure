@@ -97,9 +97,11 @@ public class BasePokemon implements Serializable {
         if (o == this) {
             return true;
         }
+
         if (o.getClass() != this.getClass()) {
             return false;
         }
+
         else {
             BasePokemon basepokemon = (BasePokemon) o;
             return this.getMaxHitPoint() == basepokemon.getMaxHitPoint()
