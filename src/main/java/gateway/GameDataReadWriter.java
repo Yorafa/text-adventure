@@ -9,16 +9,16 @@ import java.io.IOException;
  * the data access object in charge of gameData
  */
 public class GameDataReadWriter implements IReadWriter {
-    private final String filePath;
+    private final String username;
     private final ReadWriter rw = new ReadWriter();
 
     /**
-     * Construct a GameDataReadWriter, given them the given username
+     * Construct a GameDataReadWriter, given the username
      *
-     * @param username the player given name
+     * @param username the player's username
      */
     public GameDataReadWriter(String username) {
-        this.filePath = "game_data/game/" + username + ".ser";
+        this.username = username;
     }
 
     /**
@@ -29,6 +29,8 @@ public class GameDataReadWriter implements IReadWriter {
      */
     @Override
     public GameData read() throws IOException, ClassNotFoundException {
+        ConfigReader configReader = new ConfigReader();
+        String filePath = configReader.getGamePath() + username + ".ser";
         return (GameData) rw.read(filePath);
     }
 
@@ -39,6 +41,8 @@ public class GameDataReadWriter implements IReadWriter {
      */
     @Override
     public void write(Object o) throws IOException {
+        ConfigReader configReader = new ConfigReader();
+        String filePath = configReader.getGamePath() + username + ".ser";
         rw.write(filePath, o);
     }
 }

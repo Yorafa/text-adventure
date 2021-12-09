@@ -8,7 +8,6 @@ import java.io.IOException;
  * the data access object of user
  */
 public class UserReadWriter implements IReadWriter {
-    private final String filePath = "game_data/UserInfo.ser";
     private final ReadWriter rw = new ReadWriter();
 
     /**
@@ -19,6 +18,8 @@ public class UserReadWriter implements IReadWriter {
      */
     @Override
     public Object read() throws IOException, ClassNotFoundException {
+        ConfigReader configReader = new ConfigReader();
+        String filePath = configReader.getUserPath();
         return rw.read(filePath);
     }
 
@@ -29,7 +30,8 @@ public class UserReadWriter implements IReadWriter {
      */
     @Override
     public void write(Object o) throws IOException {
+        ConfigReader configReader = new ConfigReader();
+        String filePath = configReader.getUserPath();
         rw.write(filePath, o);
     }
-
 }
