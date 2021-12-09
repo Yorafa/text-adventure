@@ -1,4 +1,4 @@
-# Pokemon World
+# [Pokemon World](https://github.com/CSC207-UofT/course-project-jerry-text-adventure)
 
 - Are you ready for a new adventure?
 - Are you ready for travel with your Pokemon?
@@ -33,8 +33,14 @@
 
 ## Support
 
-if you find bug or need advice for going on game, you can ask help on:
-
-- Email: jerry.wei@mail.utoronto.ca
+if you find bug or need advice for going on the game, you can ask help on:
+Email: jerry.wei@mail.utoronto.ca
 
 ## [Contributors](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/graphs/contributors)
+This project is contributed by:
+[Xiaodong "Jerry" Wei](https://github.com/jerryweixd), 
+[Tianle "Thomas" Wang](https://github.com/Yorafa), 
+[Yucen "Quark" Liu](https://github.com/Yucen-Liu), 
+[Xi "Tony" Chen](https://github.com/TonyXiChen).
+
+
