@@ -94,7 +94,12 @@ public class BasePokemon implements Serializable {
      */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
+        if (o == this) {
+            return true;
+        }
+        if (o.getClass() != this.getClass()) {
+            return false;
+        }
         else {
             BasePokemon basepokemon = (BasePokemon) o;
             return this.getMaxHitPoint() == basepokemon.getMaxHitPoint()
