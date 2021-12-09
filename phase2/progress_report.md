@@ -1,15 +1,4 @@
-# Progress report
-
-## Report
-
-Open question & discussion
-
-- If a person can have several Pokemon in his pocket?
-- If set up the storage of Pokemon?
-- If increase the props?
-- If set up a catching ball to catch the Pokemon.
-
-## Work
+# Progress Report
 
 ### Tianle Wang
 
@@ -23,8 +12,17 @@ Open question & discussion
 
 ### Jerry Wei
 
-- Update Specification
-- Finish Shell UI
+- Refactor controller and presenter so that they are separated
+- Implement gateway classes
+- Implement view pocket feature, add usecases for pocket
+- Implement battle feature, update usecases for battle
+- Design document
+- Testing
+- My significant [Pull Request](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/pull/15) (refactor controller and presenter)
+  - Separate controller and presenter to follows the single responsibility principle
+  - Implement state design pattern
+  - Fix dependencies that break clean architecture
+  - This refactoring makes extension much easier
 
 ### Xi Chen
 
@@ -35,5 +33,14 @@ Open question & discussion
 
 
 ### Yucen Liu
+
+- Implement pocket sorting
+- Implement battle feature, update usecase for battle
+- Refactor gateway classes
+- Testing
+- My significant [Pull Request](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/pull/42) (refactor gateway)
+  - Add configuration file
+  - Remove hardcoding in gateway classes
+  - This makes the program more flexible
 
 
