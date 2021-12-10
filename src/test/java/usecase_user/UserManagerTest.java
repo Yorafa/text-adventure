@@ -31,9 +31,14 @@ public class UserManagerTest {
             Path source = new File("test_data/backup/TestUserInfo.ser").toPath();
             Path dest = new File("test_data/TestUserInfo.ser").toPath();
             Files.copy(source, dest, REPLACE_EXISTING);
-            boolean b1 = testUM.register("register", "register");
-            boolean b2 = testUM.hasUser("register");
-            assertTrue(b1 && b2);
         }
+        boolean b1 = testUM.register("register", "register");
+        boolean b2 = testUM.hasUser("register");
+        if (file.delete()) {
+            Path source = new File("test_data/backup/TestUserInfo.ser").toPath();
+            Path dest = new File("test_data/TestUserInfo.ser").toPath();
+            Files.copy(source, dest, REPLACE_EXISTING);
+        }
+        assertTrue(b1 && b2);
     }
 }
