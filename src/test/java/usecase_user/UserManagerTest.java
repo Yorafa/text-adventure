@@ -26,15 +26,9 @@ public class UserManagerTest {
 
     @Test
     public void testRegister() throws IOException {
-        File file = new File("test_data/TestUserInfo.ser");
-        if (file.delete()) {
-            Path source = new File("test_data/backup/TestUserInfo.ser").toPath();
-            Path dest = new File("test_data/TestUserInfo.ser").toPath();
-            Files.copy(source, dest, REPLACE_EXISTING);
-        }
         boolean b1 = testUM.register("register", "register");
         boolean b2 = testUM.hasUser("register");
-        if (file.delete()) {
+        if (new File("test_data/TestUserInfo.ser").delete()) {
             Path source = new File("test_data/backup/TestUserInfo.ser").toPath();
             Path dest = new File("test_data/TestUserInfo.ser").toPath();
             Files.copy(source, dest, REPLACE_EXISTING);
