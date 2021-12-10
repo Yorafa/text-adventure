@@ -1,6 +1,7 @@
 package usecase_pocket;
 
 import entity.*;
+import org.junit.Test;
 
 public interface PokemonForTest {
     BasePokemonData testBPD1 = new BasePokemonData(PokemonType.ELECTRICITY,
@@ -20,5 +21,5 @@ public interface PokemonForTest {
     Pokemon testPokemon1 = new Pokemon("Test Pokemon 1", testBPD1, 4, 4,1, testPD1);
     Pokemon testPokemon2 = new Pokemon("Test Pokemon 2", testBPD2, 3, 3,2, testPD2);
     Pokemon testPokemon3 = new Pokemon("Test Pokemon 3", testBPD3, 2, 2,3, testPD3);
-    Pokemon testPokemon4 = new Pokemon("Test Pokemon 4", testBPD3, 1, 1,4, testPD4);
+    Pokemon testPokemon4 = new Pokemon("Test Pokemon 4", testBPD4, 1, 1,4, testPD4);
 }
