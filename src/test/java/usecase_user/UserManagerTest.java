@@ -1,7 +1,5 @@
 package usecase_user;
 
-import usecase_user.UserReadWriterForTest;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
