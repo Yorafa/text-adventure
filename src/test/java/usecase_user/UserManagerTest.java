@@ -12,36 +12,35 @@ import static org.junit.Assert.*;
 
 public class UserManagerTest {
     UserReadWriterForTest testURW = new UserReadWriterForTest();
+    String filePath = "test_data/backup/TestUserInfo.ser";
     UserManager testUM = new UserManager(testURW);
 
+    public void prepForTest() throws IOException {
+        if (new File("test_data/TestUserInfo.ser").delete()) {
+            Path source = new File("test_data/backup/TestUserInfo.ser").toPath();
+            Path dest = new File("test_data/TestUserInfo.ser").toPath();
+            Files.copy(source, dest, REPLACE_EXISTING);
+        }
+    }
+
     @Test
-    public void testHasUser() {
+    public void testHasUser() throws IOException {
+        prepForTest();
         assertTrue(testUM.hasUser("testuser"));
     }
 
     @Test
-    public void testLogin() {
+    public void testLogin() throws IOException {
+        prepForTest();
         assertTrue(testUM.login("testuser", "testpassword"));
     }
 
     @Test
     public void testRegister() throws IOException {
-        // clean start
-        if (new File("test_data/TestUserInfo.ser").delete()) {
-            Path source = new File("test_data/backup/TestUserInfo.ser").toPath();
-            Path dest = new File("test_data/TestUserInfo.ser").toPath();
-            Files.copy(source, dest, REPLACE_EXISTING);
-        }
-
+        prepForTest();
         boolean b1 = testUM.register("register", "register");
         boolean b2 = testUM.hasUser("register");
-
-        // prepare for next time
-        if (new File("test_data/TestUserInfo.ser").delete()) {
-            Path source = new File("test_data/backup/TestUserInfo.ser").toPath();
-            Path dest = new File("test_data/TestUserInfo.ser").toPath();
-            Files.copy(source, dest, REPLACE_EXISTING);
-        }
+        prepForTest();
         assertTrue(b1 && b2);
     }
 }
