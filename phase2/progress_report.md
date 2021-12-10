@@ -27,8 +27,8 @@
 ### Xi Chen
 
 - Brainstorming with regards to design patterns used in coordinating the panels
-- accessibility.md
-- Test
+- Accessibility markdown: [Pull Request](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/pull/46)
+- Testing
 - Bug fixing for the failed tests
 
 

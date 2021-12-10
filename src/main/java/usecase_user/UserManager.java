@@ -20,6 +20,8 @@ public class UserManager implements Serializable {
      * @see IReadWriter
      * @see User
      */
+
+    @SuppressWarnings("unchecked")
     public UserManager(IReadWriter readWriter) {
         this.readWriter = readWriter;
         try {
@@ -28,6 +30,7 @@ public class UserManager implements Serializable {
             users = new ArrayList<>();
         }
     }
+
 
     /**
      *

@@ -26,7 +26,7 @@ public class GameDataManager {
 
     /**
      * method use save game data in locale file
-     * @param pocket the container of pockmons for player
+     * @param pocket the container of pokemon for player
      * @param pmap the map player current at
      */
     public void saveGameData(Pocket pocket, Pmap pmap) {
