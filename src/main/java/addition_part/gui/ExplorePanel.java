@@ -1,6 +1,5 @@
 package addition_part.gui;
 
-import addition_part.battle.PokemonController;
 import addition_part.gui_controller.SaveLoadController;
 import addition_part.gui_driver.GuiDriver;
 import usecase_map.MapManager;
@@ -55,7 +54,7 @@ public class ExplorePanel extends BasePanel {
             String message = "Oof, nothing here, may next time will find somethings";
             JOptionPane.showMessageDialog(this, message, "Search", JOptionPane.WARNING_MESSAGE);
         } else {
-            if (PokemonController.canFight(pokemonManager.getPocket().getPokemons())) {
+            if (pokemonManager.canFight()) {
                 parent.remove(this);
                 parent.battlePanel();
             } else {
