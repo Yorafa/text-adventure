@@ -122,6 +122,13 @@ public class PokemonManager {
     }
 
     /**
+     *
+     * @param pokemon the pokemon from pocket
+     */
+    public void setBattlePokemon(Pokemon pokemon) {
+        pocket.setBattlePokemon(pokemon);
+    }
+    /**
      * @return the name of pokemon that will battle
      */
     public String getBattlePokemonName() {
