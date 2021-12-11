@@ -185,10 +185,12 @@ We added javadoc for all public methods.
 During testing, we faced several problems. Some classes with private field have no constructor nor setters for the
 field. They may be only constructed from a gateway class by reading from files. So, the test case cannot create objects
 of such classes if not appeal to the gateway class. But another problem arises, which is that we do no want test cases
-to modify our database, but it may need to or otherwise some methods are not testable. So, we created a new directory to
-store database only for testing, and refactored the gateway so that file paths are no longer hardcoded, but are stored
-in a configuration file. So, in order for the tests to pass, you would need to change `game_data` to `test_data` in the
-path strings in `configuration.json`.
+to modify our database, but some methods to be tested will modify the database. Moreover, it is hard to do test on a
+dynamic database, as the tests may not pass when the database changes.
+
+So, we created a new directory to store database only for testing, and refactored the gateway so that file paths are no
+longer hardcoded, but are stored in a configuration file. We mocked the gateway classes into the test case so that they
+can read from and write to the testing database, which is pre-made and fixed.
 
 ## Refactoring
 
