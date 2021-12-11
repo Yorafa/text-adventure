@@ -6,10 +6,10 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class PokemonTest {
-    Pokemon pokemon;
+    private Pokemon pokemon;
 
     @Before
-    public void setPokemon() {
+    public void setUp() {
         BasePokemonData basePokemonData = new BasePokemonData(PokemonType.ELECTRICITY, 1, 1, 1, 1);
         PokemonData pokemonData = new PokemonData(PokemonType.ELECTRICITY, 1, 1, 1, 1);
         this.pokemon = new Pokemon("test", basePokemonData, 1, 0, 1, pokemonData);

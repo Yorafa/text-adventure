@@ -10,8 +10,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class PokemonManagerTest {
-    PokemonJsonReaderForTest testPJRFT = new PokemonJsonReaderForTest();
-    PokemonManager testPM = new PokemonManager(testPJRFT);
+    final PokemonJsonReaderForTest testPJRFT = new PokemonJsonReaderForTest();
+    final PokemonManager testPM = new PokemonManager(testPJRFT);
 
     @Test
     public void testGetPokemon() {
@@ -37,17 +37,15 @@ public class PokemonManagerTest {
 
     @Test
     public void testGetPocketInfo() {
-        // for simple only, due to similarity
         Pocket testPocket = new Pocket();
         testPocket.add(testPM.getPokemon("Pikachu", 1));
         testPM.setPocket(testPocket);
         IPocketInfoAdder adder = new PocketInfoAdderSimple();
-        assertEquals("Pikachu",testPM.getPocketInfo(adder).get(0).get("name"));
-
+        assertEquals("Pikachu", testPM.getPocketInfo(adder).get(0).get("name"));
     }
 
     @Test
-    public void testGetBattlePokemonAndGetBattlePokemon() {
+    public void testSetBattlePokemonAndGetBattlePokemon() {
         Pocket testPocket = new Pocket();
         testPocket.add(testPM.getPokemon("Pikachu", 1));
         testPocket.add(testPM.getPokemon("Squirtle", 2));

@@ -64,6 +64,7 @@ public class TextExplorePanel extends TextPanel {
      *
      * @param choice the string that player input
      */
+    @SuppressWarnings("EnhancedSwitchMigration")
     @Override
     protected void execute(String choice) {
         switch (choice) {

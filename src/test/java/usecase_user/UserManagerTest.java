@@ -1,5 +1,6 @@
 package usecase_user;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
@@ -14,7 +15,8 @@ public class UserManagerTest {
     final UserReadWriterForTest testURW = new UserReadWriterForTest();
     final UserManager testUM = new UserManager(testURW);
 
-    public void prepForTest() throws IOException {
+    @Before
+    public void setUp() throws IOException {
         if (new File("test_data/UserInfo.ser").delete()) {
             Path source = new File("test_data/backup/UserInfo.ser").toPath();
             Path dest = new File("test_data/UserInfo.ser").toPath();
@@ -23,23 +25,18 @@ public class UserManagerTest {
     }
 
     @Test
-    public void testHasUser() throws IOException {
-        prepForTest();
+    public void testHasUser() {
         assertTrue(testUM.hasUser("testuser"));
     }
 
     @Test
-    public void testLogin() throws IOException {
-        prepForTest();
+    public void testLogin() {
         assertTrue(testUM.login("testuser", "testpassword"));
     }
 
     @Test
-    public void testRegister() throws IOException {
-        prepForTest();
-        boolean b1 = testUM.register("register", "register");
-        boolean b2 = testUM.hasUser("register");
-        prepForTest();
-        assertTrue(b1 && b2);
+    public void testRegister() {
+        assertTrue(testUM.register("register", "register"));
+        assertTrue(testUM.hasUser("register"));
     }
 }

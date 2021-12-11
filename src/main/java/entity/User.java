@@ -11,14 +11,6 @@ public class User implements Serializable {
     private String password;
 
     /**
-     * Construct a User with all null value
-     */
-    public User() {
-        this.username = null;
-        this.password = null;
-    }
-
-    /**
      * Construct a User, given them the given username and password
      *
      * @param username the name of user

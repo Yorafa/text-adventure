@@ -4,6 +4,7 @@ import entity.BasePokemon;
 import entity.BasePokemonData;
 import entity.Pokemon;
 import entity.PokemonType;
+import org.junit.Before;
 import org.junit.Test;
 import presenter.BattlePresenter;
 import usecase_pokemon.PokemonFactory;
@@ -11,12 +12,12 @@ import usecase_pokemon.PokemonFactory;
 import static org.junit.Assert.*;
 
 public class BattleManagerTest {
-
     private Pokemon testPokemon1;
     private Pokemon testPokemon2;
     private BattleManager testBM;
 
-    private void setUp() {
+    @Before
+    public void setUp() {
         BasePokemonData testBPD1 = new BasePokemonData(PokemonType.FIRE, 100, 40, 10, 3);
         BasePokemonData testBPD2 = new BasePokemonData(PokemonType.WATER, 100, 30, 50, 4);
         BasePokemon basePokemon1 = new BasePokemon("Test Pokemon 1", testBPD1);
@@ -31,7 +32,6 @@ public class BattleManagerTest {
 
     @Test
     public void testAttack() {
-        setUp();
         testBM.attack();
         DamageCalculator damageCalculator = new DamageCalculator();
         int damageNoDefense = damageCalculator.calculate(testPokemon1.getAttackPoint(), testPokemon2.getDefencePoint());
@@ -41,17 +41,8 @@ public class BattleManagerTest {
                 testPokemon2.getHitPoint() == getHitPoint(testPokemon2, damageWithDefense));
     }
 
-    private int getHitPoint(Pokemon pokemon, int damage) {
-        return Math.max(pokemon.getMaxHitPoint() - damage, 0);
-    }
-
-    private int getHitPoint(Pokemon pokemon, int damage, int heal) {
-        return Math.min(Math.max(pokemon.getMaxHitPoint() - damage + heal, 0), pokemon.getMaxHitPoint());
-    }
-
     @Test
     public void testDefense() {
-        setUp();
         testBM.defense();
         DamageCalculator damageCalculator = new DamageCalculator();
         damageCalculator.setHasDefense(true);
@@ -62,7 +53,6 @@ public class BattleManagerTest {
 
     @Test
     public void testHeal() {
-        setUp();
         testBM.heal();
         DamageCalculator damageCalculator = new DamageCalculator();
         int damage = damageCalculator.calculate(testPokemon2.getAttackPoint(), testPokemon1.getDefencePoint());
@@ -74,7 +64,6 @@ public class BattleManagerTest {
 
     @Test
     public void testIsBattlingAndEndBattle() {
-        setUp();
         assertTrue(testBM.isBattling());
         testBM.endBattle();
         assertFalse(testBM.isBattling());
@@ -82,7 +71,6 @@ public class BattleManagerTest {
 
     @Test
     public void testGetterAndSetter() {
-        setUp();
         assertEquals(testPokemon1, testBM.getP1());
         assertEquals(testPokemon2, testBM.getP2());
         assertEquals(testPokemon1.getName(), testBM.getP1Name());
@@ -93,5 +81,13 @@ public class BattleManagerTest {
         testBM.setHasCounterattackP2(true);
         assertTrue(testBM.hasCounterattackP1());
         assertTrue(testBM.hasCounterattackP2());
+    }
+
+    private int getHitPoint(Pokemon pokemon, int damage) {
+        return Math.max(pokemon.getMaxHitPoint() - damage, 0);
+    }
+
+    private int getHitPoint(Pokemon pokemon, int damage, int heal) {
+        return Math.min(Math.max(pokemon.getMaxHitPoint() - damage + heal, 0), pokemon.getMaxHitPoint());
     }
 }

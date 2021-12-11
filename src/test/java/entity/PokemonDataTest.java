@@ -1,17 +1,11 @@
 package entity;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class PokemonDataTest {
-    PokemonData pokemonData;
-
-    @Before
-    public void setUp() {
-        pokemonData = new PokemonData(PokemonType.ELECTRICITY, 1, 1, 1, 1);
-    }
+    private final PokemonData pokemonData = new PokemonData(PokemonType.ELECTRICITY, 1, 1, 1, 1);
 
     @Test(timeout = 50)
     public void testSetMaxHitPoint() {

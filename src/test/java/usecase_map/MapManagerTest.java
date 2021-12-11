@@ -1,8 +1,11 @@
 package usecase_map;
 
 import entity.Pmap;
+import entity.Pokemon;
 import org.junit.Test;
 import usecase_data.IJsonReader;
+import usecase_pokemon.PokemonJsonReaderForTest;
+import usecase_pokemon.PokemonManager;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,35 +14,39 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class MapManagerTest {
-    final IJsonReader<List<Pmap>> testIJR = new MapJsonReaderForTest();
-    final MapManager testMM = new MapManager(testIJR);
+    private final IJsonReader<List<Pmap>> testIJR = new MapJsonReaderForTest();
+    private final MapManager testMM = new MapManager(testIJR);
 
     @Test
-    public void mapCountTest() {
-        assertEquals(3, testMM.getMapNames().size());
+    public void testGetMapNames() {
+        List<String> mapNames = testMM.getMapNames();
+        assertTrue(mapNames.contains("Ocean"));
+        assertTrue(mapNames.contains("Volcano"));
+        assertTrue(mapNames.contains("Forest"));
     }
 
     @Test
-    public void currentPlaceTest() throws IOException {
+    public void testGetPmaps() {
+        List<String> mapNames = testMM.getMapNames();
+        List<Pmap> pmaps = testMM.getPmaps();
+        for (Pmap pmap : pmaps) {
+            assertTrue(mapNames.contains(pmap.getMapName()));
+        }
+    }
+
+    @Test
+    public void testGetAndSetCurrentPlace() throws IOException {
         testMM.setCurrentPlace(0);
-        boolean b1 = testMM.getCurrentPlace().getMapName().equals("Ocean");
+        assertEquals("Ocean", testMM.getCurrentPlace().getMapName());
         Pmap testPmap = testIJR.read().get(2);
         testMM.setCurrentPlace(testPmap);
-        boolean b2 = testMM.getCurrentPlace().getMapName().equals("Forest");
-        assertTrue(b1 && b2);
+        assertEquals("Forest", testMM.getCurrentPlace().getMapName());
     }
 
     @Test
-    public void getMapNamesTest() {
-        assertTrue(testMM.getMapNames().get(0).equals("Ocean")
-                && testMM.getMapNames().get(1).equals("Volcano")
-                && testMM.getMapNames().get(2).equals("Forest"));
-    }
-
-    @Test
-    public void pmapRelatedTest() {
-        assertTrue(testMM.getPmaps().get(0).getMapName().equals("Ocean")
-                && testMM.getPmaps().get(1).getMapName().equals("Volcano")
-                && testMM.getPmaps().get(2).getMapName().equals("Forest"));
+    public void testWalkAround() {
+        testMM.setCurrentPlace(0);
+        Pokemon pokemon = testMM.walkAround(new PokemonManager(new PokemonJsonReaderForTest()));
+        assertTrue(pokemon == null || pokemon.getName().equals("Squirtle") || pokemon.getName().equals("Psyduck"));
     }
 }

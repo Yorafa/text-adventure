@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 public class PocketTest {
-    Pocket pocket;
-    Pokemon testPokemon;
+    private Pocket pocket;
+    private Pokemon testPokemon;
 
     @Before
     public void setUp() {
