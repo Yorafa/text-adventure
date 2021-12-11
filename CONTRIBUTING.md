@@ -2,7 +2,8 @@
 
 :tada: First, thanks for taking time to contribute this project! :tada:
 
-The following is a set of guidelines for contributing to course-project-jerry-text-adventure and its packages, which are hosted in the [CSC207-UofT Organization](https://github.com/CSC207-UofT) on GitHub. 
+The following is a set of guidelines for contributing to course-project-jerry-text-adventure and its packages, which are
+hosted in the [CSC207-UofT Organization](https://github.com/CSC207-UofT) on GitHub.
 
 ## Pull Request && Issue
 

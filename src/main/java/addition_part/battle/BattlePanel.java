@@ -1,34 +1,34 @@
 package addition_part.battle;
 
-import addition_part.Gui.TextAdventureFrame;
-import addition_part.GuiDriver.GuiDriver;
+import addition_part.gui.TextAdventureFrame;
+import addition_part.gui_driver.GuiDriver;
 import entity.Pokemon;
 import usecase_pokemon.PokemonManager;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class BattlePanel extends JPanel{
+public class BattlePanel extends JPanel {
     private final TextAdventureFrame parent;
     private final BattleController battleController;
     private final PokemonManager pokemonManager;
     private final Pokemon wildPokemon;
 
-    public BattlePanel(TextAdventureFrame parent, GuiDriver guiDriver){
+    public BattlePanel(TextAdventureFrame parent, GuiDriver guiDriver) {
         this.parent = parent;
         this.pokemonManager = guiDriver.getPokemonManager();
-        this.setLayout(new GridLayout(2,1,10,10));
+        this.setLayout(new GridLayout(2, 1, 10, 10));
         this.battleController = new BattleController(pokemonManager.getPocket().getPokemons(),
                 guiDriver.getWildPokemon());
         wildPokemon = battleController.getWildPokemon();
 
         // PokemonInfo Panel
         JPanel pokemonPanel = new JPanel();
-        pokemonPanel.setLayout(new GridLayout(1,3,20,20));
+        pokemonPanel.setLayout(new GridLayout(1, 3, 20, 20));
         JLabel textLabel = new JLabel("V.S.");
         // Player Pokemon Information
         JPanel playerPokemonInfoPanel = new JPanel();
-        playerPokemonInfoPanel.setLayout(new GridLayout(4,1,10,10));
+        playerPokemonInfoPanel.setLayout(new GridLayout(4, 1, 10, 10));
         JLabel playerInfoLabel = new JLabel("My Pokemon");
         JLabel playerPokemonNameLabel = new JLabel(battleController.getPlayerPokemon().getName());
         JLabel myPokemonHp = new JLabel(battleController.getPlayerPokemon().getHitPoint() +
@@ -42,11 +42,11 @@ public class BattlePanel extends JPanel{
         pokemonPanel.add(textLabel);
 
         JPanel wildPokemonInfoPanel = new JPanel();
-        wildPokemonInfoPanel.setLayout(new GridLayout(4,1,10,10));
+        wildPokemonInfoPanel.setLayout(new GridLayout(4, 1, 10, 10));
         JLabel infoLabel = new JLabel("Wild Pokemon");
         JLabel nameLabel = new JLabel(wildPokemon.getName());
         JLabel hpLabel = new JLabel(wildPokemon.getHitPoint() +
-                "/" +wildPokemon.getMaxHitPoint());
+                "/" + wildPokemon.getMaxHitPoint());
         JLabel lvlLabel = new JLabel("level: " + wildPokemon.getLevel());
         wildPokemonInfoPanel.add(infoLabel);
         wildPokemonInfoPanel.add(nameLabel);
@@ -59,19 +59,19 @@ public class BattlePanel extends JPanel{
     }
 
     private void buttonPanel(TextAdventureFrame parent, JLabel playerPokemonNameLabel, JLabel playerPokemonHpLabel,
-                            JLabel wildPokemonLabel){
+                             JLabel wildPokemonLabel) {
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(2,2,20,20));
+        buttonPanel.setLayout(new GridLayout(2, 2, 20, 20));
 
         JButton attackButton = new JButton("Attack");
         attackButton.addActionListener(e -> checkState(battleController.attack(),
-                playerPokemonNameLabel,playerPokemonHpLabel, wildPokemonLabel));
+                playerPokemonNameLabel, playerPokemonHpLabel, wildPokemonLabel));
         JButton defenseButton = new JButton("Defense");
         defenseButton.addActionListener(e -> checkState(battleController.defend(),
                 playerPokemonNameLabel, playerPokemonHpLabel, wildPokemonLabel));
         JButton catchButton = new JButton("Catch");
         catchButton.addActionListener(e -> catching(playerPokemonNameLabel, playerPokemonHpLabel,
-                 wildPokemonLabel));
+                wildPokemonLabel));
         JButton escapeButton = new JButton("Escape");
         escapeButton.addActionListener(e -> {
             String message = "Successful Escape";
@@ -87,19 +87,19 @@ public class BattlePanel extends JPanel{
     }
 
     private void checkState(boolean battleState,
-                           JLabel playerPokemonNameLabel, JLabel playerPokemonHpLabel,
-                           JLabel wildPokemonLabel){
+                            JLabel playerPokemonNameLabel, JLabel playerPokemonHpLabel,
+                            JLabel wildPokemonLabel) {
         playerPokemonNameLabel.setText(battleController.getPlayerPokemon().getName());
         playerPokemonHpLabel.setText(battleController.getPlayerPokemon().getHitPoint() +
-                "/" +battleController.getPlayerPokemon().getMaxHitPoint());
+                "/" + battleController.getPlayerPokemon().getMaxHitPoint());
         wildPokemonLabel.setText(wildPokemon.getHitPoint() + "/" + wildPokemon.getMaxHitPoint());
-        if (!battleState && battleController.isPlayerPokemonState()){
+        if (!battleState && battleController.isPlayerPokemonState()) {
             String message = "You Win";
             JOptionPane.showMessageDialog(this, message, "Congratulation", JOptionPane.WARNING_MESSAGE);
             PokemonController.getExp(pokemonManager.getPocket().getPokemons(), wildPokemon);
             parent.remove(this);
             parent.explorePanel();
-        }else if (!battleState && !battleController.isPlayerPokemonState()){
+        } else if (!battleState && !battleController.isPlayerPokemonState()) {
             String message = "You Lose, Please Back to Home to Heal Your Pokemon";
             JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
             parent.remove(this);
@@ -108,21 +108,21 @@ public class BattlePanel extends JPanel{
     }
 
     private void catching(JLabel playerPokemonNameLabel, JLabel playerPokemonHpLabel,
-                         JLabel wildPokemonLabel){
+                          JLabel wildPokemonLabel) {
         playerPokemonNameLabel.setText(battleController.getPlayerPokemon().getName());
         playerPokemonHpLabel.setText(battleController.getPlayerPokemon().getHitPoint() +
-                "/" +battleController.getPlayerPokemon().getMaxHitPoint());
+                "/" + battleController.getPlayerPokemon().getMaxHitPoint());
         wildPokemonLabel.setText(wildPokemon.getHitPoint() + "/" + wildPokemon.getMaxHitPoint());
-        if (battleController.catching()){
+        if (battleController.catching()) {
             pokemonManager.add(wildPokemon);
             String message = "Successful Catching";
             JOptionPane.showMessageDialog(this, message, "Congratulation", JOptionPane.WARNING_MESSAGE);
             parent.remove(this);
             parent.explorePanel();
-        } else{
+        } else {
             String message = "Catching Failure";
             JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);
-            checkState(battleController.isBattling(), playerPokemonNameLabel,playerPokemonHpLabel,wildPokemonLabel);
+            checkState(battleController.isBattling(), playerPokemonNameLabel, playerPokemonHpLabel, wildPokemonLabel);
         }
     }
 }

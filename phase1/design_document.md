@@ -1,6 +1,7 @@
 # Design Document
 
-- see [specification](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/blob/main/phase1/specification.md)
+-
+see [specification](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/blob/main/phase1/specification.md)
 - So far, we have implemented registration and login, as well as logout in the game
 - At the same time, you can now fight in the game
 
@@ -13,19 +14,20 @@ In the future,
 ## Design Decisions
 
 - We decided to use json to store Pokemon data
-  - If we create all pokemon on the program, will waste lots of time
+    - If we create all pokemon on the program, will waste lots of time
 
 ## SOLID
+
 - SRP (Single Responsibility Principle)
-  - In order to achieve SRP, we wrote a lot of classes and made each class responsible for a function.
+    - In order to achieve SRP, we wrote a lot of classes and made each class responsible for a function.
 - OCP (Open Closed Principle)
-  - e.g. all private attribute
+    - e.g. all private attribute
 - LSP (Liskov Substitution Principle)
-  - e.g. BasePokemon and Pokemon
+    - e.g. BasePokemon and Pokemon
 - ISP (Interface Segregation Principle)
-  - we do not write lots of interface and also do not force class to implement those interface
+    - we do not write lots of interface and also do not force class to implement those interface
 - DIP (Dependency Inversion Principle)
-  - UI depend on DAO, DAO depend on base
+    - UI depend on DAO, DAO depend on base
 
 ## Clean Architecture
 
@@ -35,7 +37,7 @@ In the future,
 ## Packaging Strategies
 
 - depend on architecture
-  - Clearer and more intuitive
+    - Clearer and more intuitive
 
 ## Design Pattern
 

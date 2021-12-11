@@ -9,14 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserManager implements Serializable {
-    private List<User> users;
     private final IReadWriter readWriter;
+    private List<User> users;
 
     /**
      * Construct UserManager, given then the readWriter that used
      * to read the userManager
-     * @param readWriter the data access object
      *
+     * @param readWriter the data access object
      * @see IReadWriter
      * @see User
      */
@@ -33,7 +33,6 @@ public class UserManager implements Serializable {
 
 
     /**
-     *
      * @param username the name of user that player given
      * @return true if and only if there exist a user in users has the same name
      */
@@ -47,7 +46,6 @@ public class UserManager implements Serializable {
     }
 
     /**
-     *
      * @param username the name of user that player given
      * @param password the password of user that player given
      * @return true if and only if there exist a user in users has the same name and password
@@ -63,7 +61,6 @@ public class UserManager implements Serializable {
     }
 
     /**
-     *
      * @param username the name of user that player given
      * @param password the password of user that player given
      * @return true if not has this user

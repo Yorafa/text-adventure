@@ -11,6 +11,7 @@ public class ChangePlacePresenter extends Presenter {
 
     /**
      * show player the current place is changed
+     *
      * @param mapName the new current place
      */
     public void printMapChanged(String mapName) {

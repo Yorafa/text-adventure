@@ -1,6 +1,6 @@
-package addition_part.Gui;
+package addition_part.gui;
 
-import addition_part.GuiDriver.GuiDriver;
+import addition_part.gui_driver.GuiDriver;
 import entity.Pokemon;
 import usecase_pokemon.PokemonManager;
 

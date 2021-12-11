@@ -48,6 +48,7 @@ public class PocketPresenter extends Presenter {
 
     /**
      * call addPokemonInfo to add pokemon information
+     *
      * @param pocketInfo all pocket pokemon information
      */
     public void addPocketInfo(List<Map<String, String>> pocketInfo) {
@@ -58,6 +59,7 @@ public class PocketPresenter extends Presenter {
 
     /**
      * show pokemon specific information
+     *
      * @param pokemonInfo specific pokemon information
      */
     private void addPokemonInfo(Map<String, String> pokemonInfo) {
@@ -99,6 +101,7 @@ public class PocketPresenter extends Presenter {
 
     /**
      * show battle pokemon changed
+     *
      * @param battlePokemonName the switched battle pokemon name
      */
     public void printBattlePokemonChanged(String battlePokemonName) {

@@ -12,8 +12,9 @@ public class PokemonBook implements Serializable {
 
     /**
      * Construct a PokemonBook give them a new arraylist
-     *
+     * <p>
      * The relative classes
+     *
      * @see BasePokemon
      */
     public PokemonBook() {
@@ -43,12 +44,11 @@ public class PokemonBook implements Serializable {
      *
      * @return the pokemon book
      */
-    public List<BasePokemon> getPokemonBook(){
+    public List<BasePokemon> getPokemonBook() {
         return pokemonBook;
     }
 
     /**
-     *
      * @param i integer index
      * @return the base pokemon at index of pokemon book
      */
@@ -57,7 +57,6 @@ public class PokemonBook implements Serializable {
     }
 
     /**
-     *
      * @param name the name of pokemon
      * @return the pokemon has the given name in the pokemon book
      */

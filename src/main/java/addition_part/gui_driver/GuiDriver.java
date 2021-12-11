@@ -1,6 +1,6 @@
-package addition_part.GuiDriver;
+package addition_part.gui_driver;
 
-import addition_part.GuiController.SaveLoadController;
+import addition_part.gui_controller.SaveLoadController;
 import entity.Pokemon;
 import entity.PokemonBook;
 import gateway.MapJsonReader;
@@ -20,15 +20,16 @@ public class GuiDriver {
     /**
      * Construct a TextAdventureFrame, given them the given userController,
      * mapController and pokemonBook
-     *
+     * <p>
      * The relative classes
+     *
      * @see UserManager
      * @see MapManager
      * @see PokemonBook
      * @see Pokemon
      * @see SaveLoadController
      */
-    public GuiDriver(){
+    public GuiDriver() {
         this.userManager = new UserManager(new UserReadWriter());
         this.mapManager = new MapManager(new MapJsonReader());
         this.pokemonManager = new PokemonManager(new PokemonJsonReader());
@@ -59,7 +60,7 @@ public class GuiDriver {
         return userManager;
     }
 
-    public void setUp(String username){
+    public void setUp(String username) {
         saveLoadController.setReadWriter(username);
         mapManager.setCurrentPlace(saveLoadController.getCurrentPlace());
         pokemonManager.setPocket(saveLoadController.getPocket());

@@ -2,7 +2,6 @@ package gateway;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import entity.Pmap;
 import usecase_data.IJsonReader;
 
 import java.io.IOException;
@@ -10,8 +9,6 @@ import java.io.Reader;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -20,7 +17,6 @@ import java.util.Map;
 public class ConfigReader implements IJsonReader<Map<String, String>> {
 
     /**
-     *
      * @return a map of configuration
      * @throws IOException file may not exist
      */

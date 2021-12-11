@@ -15,7 +15,6 @@ import java.nio.file.Paths;
 public class PokemonJsonReader implements IJsonReader<PokemonBook> {
 
     /**
-     *
      * @return the pokemon index of all pokemon
      * @throws IOException file may not exist
      */

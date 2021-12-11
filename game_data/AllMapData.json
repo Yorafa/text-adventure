@@ -1,20 +1,47 @@
 [
   {
-    "mapName" : "Ocean",
-    "pokemons": ["Squirtle", "Psyduck"],
-    "probabilities": [30, 30],
-    "levels": [15, 13]
+    "mapName": "Ocean",
+    "pokemons": [
+      "Squirtle",
+      "Psyduck"
+    ],
+    "probabilities": [
+      30,
+      30
+    ],
+    "levels": [
+      15,
+      13
+    ]
   },
   {
-    "mapName" : "Volcano",
-    "pokemons": ["Charmander", "Vulpix"],
-    "probabilities": [40, 20],
-    "levels": [15, 20]
+    "mapName": "Volcano",
+    "pokemons": [
+      "Charmander",
+      "Vulpix"
+    ],
+    "probabilities": [
+      40,
+      20
+    ],
+    "levels": [
+      15,
+      20
+    ]
   },
   {
-    "mapName" : "Forest",
-    "pokemons": ["Bulbasaur", "Oddish"],
-    "probabilities": [20, 40],
-    "levels": [17, 14]
+    "mapName": "Forest",
+    "pokemons": [
+      "Bulbasaur",
+      "Oddish"
+    ],
+    "probabilities": [
+      20,
+      40
+    ],
+    "levels": [
+      17,
+      14
+    ]
   }
 ]

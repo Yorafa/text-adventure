@@ -5,7 +5,6 @@ import org.junit.Test;
 
 import static entity.PokemonType.ELECTRICITY;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class BasePokemonDataTest {
     BasePokemonData basePokemonData;

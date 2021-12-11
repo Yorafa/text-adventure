@@ -1,6 +1,6 @@
-package addition_part.Gui;
+package addition_part.gui;
 
-import addition_part.GuiDriver.GuiDriver;
+import addition_part.gui_driver.GuiDriver;
 import usecase_user.UserManager;
 
 import javax.swing.*;
@@ -17,7 +17,7 @@ public class LoginPanel extends BasePanel {
         initialize();
     }
 
-    private void initialize(){
+    private void initialize() {
         // Setup mainPanel
         setMargin();
         JPanel mainPanel = new JPanel();
@@ -33,23 +33,23 @@ public class LoginPanel extends BasePanel {
         this.add(mainPanel);
     }
 
-    private void setMargin(){
+    private void setMargin() {
         this.setLayout(new BorderLayout());
         JLabel emptyLabel1 = new JLabel("");
-        emptyLabel1.setPreferredSize(new Dimension(0,280));
+        emptyLabel1.setPreferredSize(new Dimension(0, 280));
         JLabel emptyLabel2 = new JLabel("");
-        emptyLabel2.setPreferredSize(new Dimension(0,290));
+        emptyLabel2.setPreferredSize(new Dimension(0, 290));
         JLabel emptyLabel3 = new JLabel("");
-        emptyLabel3.setPreferredSize(new Dimension(300,0));
+        emptyLabel3.setPreferredSize(new Dimension(300, 0));
         JLabel emptyLabel4 = new JLabel("");
-        emptyLabel4.setPreferredSize(new Dimension(300,0));
+        emptyLabel4.setPreferredSize(new Dimension(300, 0));
         this.add(emptyLabel1, BorderLayout.NORTH);
         this.add(emptyLabel2, BorderLayout.SOUTH);
         this.add(emptyLabel3, BorderLayout.WEST);
         this.add(emptyLabel4, BorderLayout.EAST);
     }
 
-    private JPanel buttonPanel(){
+    private JPanel buttonPanel() {
         // Setup Button Field
         JPanel buttonPanel = new JPanel();
         JButton login = new JButton("Login");
@@ -61,6 +61,7 @@ public class LoginPanel extends BasePanel {
         buttonPanel.add(register);
         return buttonPanel;
     }
+
     private JPanel createLine(String itemName, JTextField field) {
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(1, 2));
@@ -69,7 +70,7 @@ public class LoginPanel extends BasePanel {
         return panel;
     }
 
-    private void login(){
+    private void login() {
         if (userManager.login(username.getText(), password.getText())) {
             parent.remove(this);
             guiDriver.setUp(username.getText());
@@ -80,7 +81,7 @@ public class LoginPanel extends BasePanel {
         }
     }
 
-    private void register(){
+    private void register() {
         if (userManager.hasUser(username.getText())) {
             String message = "Your name already been used";
             JOptionPane.showMessageDialog(this, message, "Warning", JOptionPane.WARNING_MESSAGE);

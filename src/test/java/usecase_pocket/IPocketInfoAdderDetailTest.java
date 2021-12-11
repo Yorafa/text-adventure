@@ -8,8 +8,8 @@ import java.util.Map;
 import static org.junit.Assert.assertTrue;
 
 public class IPocketInfoAdderDetailTest {
-    PocketInfoAdderDetail testIPIAD = new PocketInfoAdderDetail();
-    Map<String, String> testMap = new HashMap<>();
+    final PocketInfoAdderDetail testIPIAD = new PocketInfoAdderDetail();
+    final Map<String, String> testMap = new HashMap<>();
 
     @Test
     public void addTest() {

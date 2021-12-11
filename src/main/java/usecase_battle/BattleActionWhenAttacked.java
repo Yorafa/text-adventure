@@ -12,8 +12,8 @@ public class BattleActionWhenAttacked implements BattleAction {
 
     /**
      * Construct BattleActionWhenAttacked, given them the given battleManager
-     * @param battleManager the manager of battle
      *
+     * @param battleManager the manager of battle
      * @see BattleManager
      * @see Pokemon
      * @see BattleAction
@@ -86,6 +86,7 @@ public class BattleActionWhenAttacked implements BattleAction {
     /**
      * execute the capture action, call class CaptureCalculator to calculate if captured,
      * call presenter to show the capture action
+     *
      * @return true if successfully capture, false fail in capturing
      */
     @Override

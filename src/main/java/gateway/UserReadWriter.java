@@ -11,9 +11,8 @@ public class UserReadWriter implements IReadWriter {
     private final ReadWriter rw = new ReadWriter();
 
     /**
-     *
      * @return the user data
-     * @throws IOException file not exist exception
+     * @throws IOException            file not exist exception
      * @throws ClassNotFoundException class not exist exception
      */
     @Override
@@ -24,7 +23,6 @@ public class UserReadWriter implements IReadWriter {
     }
 
     /**
-     *
      * @param o object will be written
      * @throws IOException file not exist
      */

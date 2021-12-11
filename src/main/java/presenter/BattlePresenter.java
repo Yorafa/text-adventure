@@ -48,7 +48,8 @@ public class BattlePresenter extends Presenter implements IBattlePresenter {
 
     /**
      * notice how much exp that the pokemon get
-     * @param name the name of pokemon
+     *
+     * @param name                  the name of pokemon
      * @param experiencePointGained the exp that got
      */
     public void printGainExperiencePoint(String name, int experiencePointGained) {
@@ -57,9 +58,10 @@ public class BattlePresenter extends Presenter implements IBattlePresenter {
 
     /**
      * show pokemon status
-     * @param name the name of pokemon
-     * @param level the level of pokemon
-     * @param hitPoint the current hit point of pokemon
+     *
+     * @param name        the name of pokemon
+     * @param level       the level of pokemon
+     * @param hitPoint    the current hit point of pokemon
      * @param maxHitPoint the max hit point of pokemon
      */
     @Override
@@ -69,9 +71,10 @@ public class BattlePresenter extends Presenter implements IBattlePresenter {
 
     /**
      * show the damage caused info
+     *
      * @param attacker the attacker pokemon
      * @param attacked the pokemon be attacked
-     * @param damage the damage from attacker
+     * @param damage   the damage from attacker
      */
     @Override
     public void printAttack(String attacker, String attacked, int damage) {
@@ -80,6 +83,7 @@ public class BattlePresenter extends Presenter implements IBattlePresenter {
 
     /**
      * show pokemon defending
+     *
      * @param name the pokemon choose to defend
      */
     @Override
@@ -89,6 +93,7 @@ public class BattlePresenter extends Presenter implements IBattlePresenter {
 
     /**
      * show pokemon defend successfully
+     *
      * @param name the pokemon execute defend
      */
     @Override
@@ -98,6 +103,7 @@ public class BattlePresenter extends Presenter implements IBattlePresenter {
 
     /**
      * show pokemon defend failure
+     *
      * @param name the pokemon execute defend
      */
     @Override
@@ -107,7 +113,8 @@ public class BattlePresenter extends Presenter implements IBattlePresenter {
 
     /**
      * show pokemon get healed and exact hp get from heal
-     * @param name the pokemon execute defend
+     *
+     * @param name        the pokemon execute defend
      * @param healedPoint the hp get from heal
      */
     @Override
@@ -117,6 +124,7 @@ public class BattlePresenter extends Presenter implements IBattlePresenter {
 
     /**
      * show successful information about capturing pokemon
+     *
      * @param name the pokemon that player try to capture
      */
     @Override
@@ -126,6 +134,7 @@ public class BattlePresenter extends Presenter implements IBattlePresenter {
 
     /**
      * show failure information about capturing pokemon
+     *
      * @param name the pokemon that player try to capture
      */
     @Override

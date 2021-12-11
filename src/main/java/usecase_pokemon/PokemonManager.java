@@ -19,8 +19,8 @@ public class PokemonManager {
 
     /**
      * Construct PokemonManager, given them the given reader read
-     * @param reader use to read PokemonManager
      *
+     * @param reader use to read PokemonManager
      * @see IJsonReader
      * @see PokemonBook
      * @see Pocket
@@ -35,8 +35,7 @@ public class PokemonManager {
     }
 
     /**
-     *
-     * @param name the name of pokemon
+     * @param name  the name of pokemon
      * @param level the level of pokemon
      * @return a new pokemon
      */
@@ -47,9 +46,8 @@ public class PokemonManager {
     }
 
     /**
-     *
      * @param pokemon pokemon
-     * @param level new level
+     * @param level   new level
      */
     private void levelChange(Pokemon pokemon, int level) {
         PokemonDataManager pokemonDataManager = new PokemonDataManager();
@@ -58,8 +56,7 @@ public class PokemonManager {
     }
 
     /**
-     *
-     * @param pokemon pokemon
+     * @param pokemon   pokemon
      * @param increment exp will be added
      */
     public void addExperiencePoint(Pokemon pokemon, int increment) {
@@ -73,6 +70,7 @@ public class PokemonManager {
 
     /**
      * the getter method of pocket
+     *
      * @return the container of pokemons of player
      */
     public Pocket getPocket() {
@@ -81,6 +79,7 @@ public class PokemonManager {
 
     /**
      * the setter method of pocket
+     *
      * @param pocket the container of pokemons of player
      */
     public void setPocket(Pocket pocket) {
@@ -95,7 +94,6 @@ public class PokemonManager {
     }
 
     /**
-     *
      * @param adder the information adder
      * @return list of pokemons information
      */
@@ -110,7 +108,6 @@ public class PokemonManager {
     }
 
     /**
-     *
      * @return the pokemon that used to battle
      */
     public Pokemon getBattlePokemon() {
@@ -118,7 +115,6 @@ public class PokemonManager {
     }
 
     /**
-     *
      * @param i the index of pokemon in pocket
      */
     public void setBattlePokemon(int i) {
@@ -126,7 +122,6 @@ public class PokemonManager {
     }
 
     /**
-     *
      * @return the name of pokemon that will battle
      */
     public String getBattlePokemonName() {
@@ -134,7 +129,6 @@ public class PokemonManager {
     }
 
     /**
-     *
      * @param pokemon new pokemon
      */
     public void add(Pokemon pokemon) {

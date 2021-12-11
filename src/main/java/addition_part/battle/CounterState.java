@@ -9,11 +9,12 @@ public class CounterState {
      * WATER counter FIRE
      * FIRE counter GRASS
      * (GRASS || WATER || FIRE) and ELECTRICITY counter each other
+     *
      * @see PokemonType
      */
 
     public static boolean IsCounter(Pokemon p1, Pokemon p2) {
-        switch (p1.getPokemonType()){
+        switch (p1.getPokemonType()) {
             case ELECTRICITY:
                 return true;
             case FIRE:

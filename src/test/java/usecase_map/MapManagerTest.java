@@ -3,6 +3,7 @@ package usecase_map;
 import entity.Pmap;
 import org.junit.Test;
 import usecase_data.IJsonReader;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -10,8 +11,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class MapManagerTest {
-    IJsonReader<List<Pmap>> testIJR = new MapJsonReaderForTest();
-    MapManager testMM = new MapManager(testIJR);
+    final IJsonReader<List<Pmap>> testIJR = new MapJsonReaderForTest();
+    final MapManager testMM = new MapManager(testIJR);
 
     @Test
     public void mapCountTest() {

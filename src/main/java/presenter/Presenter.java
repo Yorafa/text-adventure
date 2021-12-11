@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Queue;
 
 public class Presenter {
-    protected Queue<String> messageQueue;
+    protected final Queue<String> messageQueue;
 
     /**
      * Construct Presenter by empty messageQueue
@@ -16,6 +16,7 @@ public class Presenter {
 
     /**
      * add a message into messageQueue
+     *
      * @param s the sentence information
      */
     public void addToQueue(String s) {
@@ -24,6 +25,7 @@ public class Presenter {
 
     /**
      * add a list of message into messageQueue
+     *
      * @param strings the list of message
      */
     public void addToQueue(List<String> strings) {

@@ -6,8 +6,10 @@
 
 ## Release
 
-- Gui Version [Download](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/releases/download/TextAdventure/TextAdventure.zip)
-- Shell Version [Download](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/releases/download/PokemonWorld/PokemonWorld.zip)
+- Gui
+  Version [Download](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/releases/download/TextAdventure/TextAdventure.zip)
+- Shell
+  Version [Download](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/releases/download/PokemonWorld/PokemonWorld.zip)
 - Source Code [Download](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/archive/refs/heads/main.zip)
 
 ## Run
@@ -27,9 +29,10 @@
 
 ## Documentation
 
-- see specific play instruction on [Specification](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/blob/main/phase2/specification.md)
+- see specific play instruction
+  on [Specification](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/blob/main/phase2/specification.md)
 - We will use gson to Serializing our partial game data
-  - if you unfamiliar with that, please look [gson](https://github.com/google/gson)
+    - if you unfamiliar with that, please look [gson](https://github.com/google/gson)
 
 ## Support
 
@@ -37,10 +40,11 @@ if you find bug or need advice for going on the game, you can ask help on:
 Email: jerry.wei@mail.utoronto.ca
 
 ## [Contributors](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/graphs/contributors)
+
 This project is contributed by:
-[Xiaodong "Jerry" Wei](https://github.com/jerryweixd), 
-[Tianle "Thomas" Wang](https://github.com/Yorafa), 
-[Yucen "Quark" Liu](https://github.com/Yucen-Liu), 
+[Xiaodong "Jerry" Wei](https://github.com/jerryweixd),
+[Tianle "Thomas" Wang](https://github.com/Yorafa),
+[Yucen "Quark" Liu](https://github.com/Yucen-Liu),
 [Xi "Tony" Chen](https://github.com/TonyXiChen).
 
 

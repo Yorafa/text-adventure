@@ -10,18 +10,18 @@ import java.util.Scanner;
  * This is the panel ask player to login,
  * or register if player do not have an account
  */
-public class TextLoginPanel extends TextPanel{
+public class TextLoginPanel extends TextPanel {
     private final UserManager userManager;
     private final LoginPresenter loginPresenter;
 
     /**
      * Construct a TextLoginPanel, given them the given input, gameDriver and userManager.
      *
-     * @param input the player input
-     * @param gameDriver the main driver of game
+     * @param input       the player input
+     * @param gameDriver  the main driver of game
      * @param userManager the manager of user
-     *
-     * The relative classes
+     *                    <p>
+     *                    The relative classes
      * @see GameDriver
      * @see UserManager
      * @see PanelState
