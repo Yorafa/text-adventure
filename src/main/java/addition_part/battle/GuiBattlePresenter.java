@@ -11,17 +11,16 @@ public class GuiBattlePresenter extends JPanel implements IBattlePresenter {
     private final JPanel battleInfo = new JPanel();
     private int controlNum = 0;
 
-    public GuiBattlePresenter(){
-        battleInfo.setLayout(new GridLayout(1, 2,50,50));
+    public GuiBattlePresenter() {
+        battleInfo.setLayout(new GridLayout(1, 2, 50, 50));
         initialize();
     }
 
     @Override
     public void printStatus(String name, int level, int hitPoint, int maxHitPoint) {
-        if (battleInfo.getComponents().length < 2){
+        if (battleInfo.getComponents().length < 2) {
             battleInfoAdd(new BattleStatusPanel(name, level, hitPoint, maxHitPoint));
-        }
-        else{
+        } else {
             battleInfo.removeAll();
             printStatus(name, level, hitPoint, maxHitPoint);
         }
@@ -29,10 +28,10 @@ public class GuiBattlePresenter extends JPanel implements IBattlePresenter {
 
     @Override
     public void printAttack(String attacker, String attacked, int damage) {
-        if (controlNum == 0){
+        if (controlNum == 0) {
             textLabel1.setText(attacker + " attacked " + attacked + ", and made " + damage + " damage.");
             controlNum += 1;
-        }else{
+        } else {
             textLabel2.setText(attacker + " attacked " + attacked + ", and made " + damage + " damage.");
             controlNum -= 1;
         }
@@ -40,10 +39,10 @@ public class GuiBattlePresenter extends JPanel implements IBattlePresenter {
 
     @Override
     public void printDefense(String name) {
-        if (controlNum == 0){
+        if (controlNum == 0) {
             textLabel2.setText(name + " is defending. ");
             controlNum += 1;
-        }else{
+        } else {
             textLabel2.setText(name + " is defending. ");
             controlNum -= 1;
         }
@@ -51,10 +50,10 @@ public class GuiBattlePresenter extends JPanel implements IBattlePresenter {
 
     @Override
     public void printDefenseSucceed(String name) {
-        if (controlNum == 0){
+        if (controlNum == 0) {
             textLabel1.setText(name + " successfully defended.");
             controlNum += 1;
-        }else{
+        } else {
             textLabel2.setText(name + " successfully defended.");
             controlNum -= 1;
         }
@@ -62,10 +61,10 @@ public class GuiBattlePresenter extends JPanel implements IBattlePresenter {
 
     @Override
     public void printDefenseFail(String name) {
-        if (controlNum == 0){
+        if (controlNum == 0) {
             textLabel1.setText(name + " defended nothing.");
             controlNum += 1;
-        }else{
+        } else {
             textLabel2.setText(name + " defended nothing.");
             controlNum -= 1;
         }
@@ -73,10 +72,10 @@ public class GuiBattlePresenter extends JPanel implements IBattlePresenter {
 
     @Override
     public void printHeal(String nameP1, int healedPoint) {
-        if (controlNum == 0){
+        if (controlNum == 0) {
             textLabel1.setText(nameP1 + " healed, and gained " + healedPoint + " hit points.");
             controlNum += 1;
-        }else{
+        } else {
             textLabel2.setText(nameP1 + " healed, and gained " + healedPoint + " hit points.");
             controlNum -= 1;
         }
@@ -144,12 +143,13 @@ public class GuiBattlePresenter extends JPanel implements IBattlePresenter {
         this.add(setUpMainPanel(), BorderLayout.CENTER);
     }
 
-    private void battleInfoAdd(BattleStatusPanel battleStatusPanel){
+    private void battleInfoAdd(BattleStatusPanel battleStatusPanel) {
         battleInfo.add(battleStatusPanel);
     }
-    private JPanel setUpMainPanel(){
+
+    private JPanel setUpMainPanel() {
         JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(new GridLayout(3,1,10,10));
+        mainPanel.setLayout(new GridLayout(3, 1, 10, 10));
         mainPanel.add(battleInfo);
         mainPanel.add(textLabel1);
         mainPanel.add(textLabel2);
@@ -157,13 +157,12 @@ public class GuiBattlePresenter extends JPanel implements IBattlePresenter {
     }
 
     /**
-     *
-     * @param name pokemon name
-     * @param level pokemon level
-     * @param hitPoint pokemon current hp
+     * @param name        pokemon name
+     * @param level       pokemon level
+     * @param hitPoint    pokemon current hp
      * @param maxHitPoint pokemon max hp
      */
-    public void setUp(String name, int level, int hitPoint, int maxHitPoint){
+    public void setUp(String name, int level, int hitPoint, int maxHitPoint) {
         battleInfoAdd(new BattleStatusPanel(name, level, hitPoint, maxHitPoint));
     }
 }

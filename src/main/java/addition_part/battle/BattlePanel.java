@@ -2,7 +2,6 @@ package addition_part.battle;
 
 import addition_part.gui.TextAdventureFrame;
 import addition_part.gui_driver.GuiDriver;
-import controller.TextBattlePanel;
 import entity.Pokemon;
 import usecase_battle.BattleManager;
 import usecase_pokemon.ExperiencePointCalculator;
@@ -31,7 +30,7 @@ public class BattlePanel extends JPanel {
         initialize();
     }
 
-    private void initialize(){
+    private void initialize() {
         this.add(battlePresenter);
         battlePresenter.setUp(getPokemonName(playerPokemon), getPokemonLevel(playerPokemon),
                 getPokemonHp(playerPokemon), getPokemonMaxHp(playerPokemon));
@@ -51,27 +50,27 @@ public class BattlePanel extends JPanel {
         this.add(buttonPanel);
     }
 
-    private JButton attackButton(){
+    private JButton attackButton() {
         JButton attackButton = new JButton("Attack");
-        attackButton.addActionListener(e ->{
+        attackButton.addActionListener(e -> {
             battleManager.attack();
             checkState();
         });
         return attackButton;
     }
 
-    private JButton defenseButton(){
+    private JButton defenseButton() {
         JButton defenseButton = new JButton("Defense");
-        defenseButton.addActionListener(e ->{
+        defenseButton.addActionListener(e -> {
             battleManager.defense();
             checkState();
         });
         return defenseButton;
     }
 
-    private JButton catchButton(){
+    private JButton catchButton() {
         JButton catchButton = new JButton("Catch");
-        catchButton.addActionListener(e ->{
+        catchButton.addActionListener(e -> {
             if (battleManager.capture()) {
                 pokemonManager.add(battleManager.getP2());
                 battleManager.endBattle();
@@ -81,7 +80,7 @@ public class BattlePanel extends JPanel {
         return catchButton;
     }
 
-    private JButton escapeButton(){
+    private JButton escapeButton() {
         JButton escapeButton = new JButton("Escape");
         escapeButton.addActionListener(e -> {
             parent.explorePanel();
@@ -90,7 +89,7 @@ public class BattlePanel extends JPanel {
         return escapeButton;
     }
 
-    private JButton healButton(){
+    private JButton healButton() {
         JButton healButton = new JButton("Heal");
         healButton.addActionListener(e -> {
             battleManager.heal();
@@ -112,18 +111,19 @@ public class BattlePanel extends JPanel {
         }
     }
 
-    private String getPokemonName(Pokemon pokemon){
+    private String getPokemonName(Pokemon pokemon) {
         return pokemon.getName();
     }
 
-    private int getPokemonHp(Pokemon pokemon){
+    private int getPokemonHp(Pokemon pokemon) {
         return pokemon.getHitPoint();
     }
 
-    private int getPokemonMaxHp(Pokemon pokemon){
+    private int getPokemonMaxHp(Pokemon pokemon) {
         return pokemon.getMaxHitPoint();
     }
-    private int getPokemonLevel(Pokemon pokemon){
+
+    private int getPokemonLevel(Pokemon pokemon) {
         return pokemon.getLevel();
     }
 }
