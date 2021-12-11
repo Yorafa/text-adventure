@@ -144,4 +144,12 @@ public class PokemonManager {
             pokemon.setHitPoint(pokemon.getMaxHitPoint());
         }
     }
+
+    /**
+     *
+     * @return true if the battle pokemon can fight
+     */
+    public boolean canFight(){
+        return this.getBattlePokemon().getHitPoint() > 0;
+    }
 }

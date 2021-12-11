@@ -25,4 +25,7 @@ public interface IBattlePresenter {
 
     void printWin();
 
+    void printEscaped();
+
+    void printGainExperiencePoint(String name, int experiencePointGained);
 }

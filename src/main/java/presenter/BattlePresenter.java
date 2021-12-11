@@ -40,23 +40,6 @@ public class BattlePresenter extends Presenter implements IBattlePresenter {
     }
 
     /**
-     * notice player that successful escaped
-     */
-    public void printEscaped() {
-        System.out.println("You escaped.");
-    }
-
-    /**
-     * notice how much exp that the pokemon get
-     *
-     * @param name                  the name of pokemon
-     * @param experiencePointGained the exp that got
-     */
-    public void printGainExperiencePoint(String name, int experiencePointGained) {
-        System.out.println(name + " gained " + experiencePointGained + " experience points.");
-    }
-
-    /**
      * show pokemon status
      *
      * @param name        the name of pokemon
@@ -173,4 +156,24 @@ public class BattlePresenter extends Presenter implements IBattlePresenter {
     public void printWin() {
         System.out.println("You win.");
     }
+
+    /**
+     * notice player that successful escaped
+     */
+    @Override
+    public void printEscaped() {
+        System.out.println("You escaped.");
+    }
+
+    /**
+     * notice how much exp that the pokemon get
+     *
+     * @param name                  the name of pokemon
+     * @param experiencePointGained the exp that got
+     */
+    @Override
+    public void printGainExperiencePoint(String name, int experiencePointGained) {
+        System.out.println(name + " gained " + experiencePointGained + " experience points.");
+    }
+
 }
