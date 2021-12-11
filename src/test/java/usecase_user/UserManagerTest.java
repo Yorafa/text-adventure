@@ -15,9 +15,9 @@ public class UserManagerTest {
     final UserManager testUM = new UserManager(testURW);
 
     public void prepForTest() throws IOException {
-        if (new File("test_data/TestUserInfo.ser").delete()) {
-            Path source = new File("test_data/backup/TestUserInfo.ser").toPath();
-            Path dest = new File("test_data/TestUserInfo.ser").toPath();
+        if (new File("test_data/UserInfo.ser").delete()) {
+            Path source = new File("test_data/backup/UserInfo.ser").toPath();
+            Path dest = new File("test_data/UserInfo.ser").toPath();
             Files.copy(source, dest, REPLACE_EXISTING);
         }
     }
