@@ -1,7 +1,9 @@
 # Design Document
 
 -
+
 see [specification](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/blob/main/phase1/specification.md)
+
 - So far, we have implemented registration and login, as well as logout in the game
 - At the same time, you can now fight in the game
 

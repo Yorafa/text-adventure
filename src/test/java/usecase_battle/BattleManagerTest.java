@@ -1,6 +1,9 @@
 package usecase_battle;
 
-import entity.*;
+import entity.BasePokemon;
+import entity.BasePokemonData;
+import entity.Pokemon;
+import entity.PokemonType;
 import org.junit.Test;
 import presenter.BattlePresenter;
 import usecase_pokemon.PokemonFactory;

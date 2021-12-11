@@ -12,7 +12,7 @@ public class PocketTest {
     Pokemon testPokemon;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         pocket = new Pocket();
         BasePokemonData basePokemonData = new BasePokemonData(PokemonType.ELECTRICITY, 1, 1, 1, 1);
         PokemonData pokemonData = new PokemonData(PokemonType.ELECTRICITY, 1, 1, 1, 1);
@@ -20,35 +20,35 @@ public class PocketTest {
     }
 
     @Test(timeout = 50)
-    public void testGetBattlePokemon(){
+    public void testGetBattlePokemon() {
         assertNull(pocket.getBattlePokemon());
     }
 
     @Test(timeout = 50)
-    public void testSetBattlePokemon(){
+    public void testSetBattlePokemon() {
         pocket.setBattlePokemon(testPokemon);
         assertEquals(testPokemon, pocket.getBattlePokemon());
     }
 
     @Test(timeout = 50)
-    public void testGetPokemons(){
+    public void testGetPokemons() {
         assertEquals(new ArrayList<>(), pocket.getPokemons());
     }
 
     @Test(timeout = 50)
-    public void testAdd(){
+    public void testAdd() {
         pocket.add(testPokemon);
         assertNotEquals(new ArrayList<>(), pocket.getPokemons());
     }
 
     @Test(timeout = 50)
-    public void testGet(){
+    public void testGet() {
         pocket.add(testPokemon);
         assertEquals(testPokemon, pocket.get(0));
     }
 
     @Test(timeout = 50)
-    public void testSize(){
+    public void testSize() {
         assertEquals(0, pocket.size());
         pocket.add(testPokemon);
         assertEquals(1, pocket.size());

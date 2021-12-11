@@ -9,12 +9,12 @@ public class HealCalculatorTest {
     HealCalculator healCalculator;
 
     @Before
-    public void setHealCalculator(){
+    public void setHealCalculator() {
         healCalculator = new HealCalculator();
     }
 
     @Test(timeout = 50)
-    public void testCalculate(){
+    public void testCalculate() {
         assertEquals(0, healCalculator.calculate(1));
         assertEquals(10, healCalculator.calculate(50));
 

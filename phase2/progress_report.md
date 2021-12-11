@@ -29,11 +29,12 @@
 ### Xi Chen
 
 - Brainstorming with regards to design patterns used in coordinating the panels
-- Accessibility markdown file: [Pull Request](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/pull/46)
+- Accessibility markdown
+  file: [Pull Request](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/pull/46)
 - Testing
 - Bug fixing for the failed tests
 - Extensive tests and test files for usecase_*, which is the significant contribution to be found in
-[Pull Request](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/pull/51)
+  [Pull Request](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/pull/51)
 
 ### Yucen Liu
 
