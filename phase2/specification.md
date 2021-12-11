@@ -57,3 +57,9 @@ battle pokemon will gain some experience point.
 
 All user info and their games will be saved to file. The game database (what maps there are, what pokemons there are,
 etc) are written in json files. The program will read them to load the game.
+
+## Notice
+
+- do not exist by directly click `x`, please log out first so that your data will be saved
+- Gui version have the save/load feature, but notice this feature does not actually save game data in your disk, it just gives you an additional choice to back your data
+- shell share exactly the same data with Gui

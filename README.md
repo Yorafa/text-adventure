@@ -7,15 +7,16 @@
 ## Release
 
 - Gui
-  Version [Download](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/releases/download/TextAdventure/TextAdventure.zip)
+  Version [Download](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/releases/download/TextAdventureBetaV1.0.0/TextAdventure.zip)
 - Shell
-  Version [Download](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/releases/download/PokemonWorld/PokemonWorld.zip)
+  Version [Download](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/releases/download/PokemonWorldBetaV1.0.0/PokemonWorld.zip)
 - Source Code [Download](https://github.com/CSC207-UofT/course-project-jerry-text-adventure/archive/refs/heads/main.zip)
 
 ## Run
 
 1. Download one of releases
 2. double click xx.jar if you can
+   - open `run.bat` (Windows system)
 3. if you can't, open terminal at that file path and then type: `java -jar .\xx.jar`
 4. Notice: `xx` is the release you download, either `TextAdventure` or `PokemonWorld`
 5. Or download source code and use your IDE to open it
