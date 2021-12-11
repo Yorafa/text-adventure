@@ -18,7 +18,7 @@ public class UserReadWriterForTest implements IReadWriter {
      */
     @Override
     public Object read() throws IOException, ClassNotFoundException {
-        String filePath = "test_data/TestUserInfo.ser";
+        String filePath = "test_data/UserInfo.ser";
         return rw.read(filePath);
     }
 
@@ -28,7 +28,7 @@ public class UserReadWriterForTest implements IReadWriter {
      */
     @Override
     public void write(Object o) throws IOException {
-        String filePath = "test_data/TestUserInfo.ser";
+        String filePath = "test_data/UserInfo.ser";
         rw.write(filePath, o);
     }
 }
