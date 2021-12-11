@@ -1,6 +1,7 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * The template data at level 1
@@ -95,5 +96,15 @@ public class BasePokemonData implements Serializable {
                 && pd.getAttackPoint() == this.attackPoint
                 && pd.getDefencePoint() == this.defencePoint
                 && pd.getSpeed() == this.speed;
+    }
+
+    /**
+     * the hashcode method
+     *
+     * @return hashCode of this BasePokemonData
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(getPokemonType(), getMaxHitPoint(), getAttackPoint(), getDefencePoint(), getSpeed());
     }
 }

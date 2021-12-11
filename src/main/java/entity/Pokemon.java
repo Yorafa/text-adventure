@@ -159,6 +159,11 @@ public class Pokemon extends BasePokemon implements Serializable {
         return name;
     }
 
+    /**
+     * the hashcode method
+     *
+     * @return hashCode of this Pokemon
+     */
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), getLevel(), getExperiencePoint(), getHitPoint(), getPokemonData());
