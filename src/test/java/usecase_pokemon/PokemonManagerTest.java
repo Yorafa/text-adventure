@@ -10,8 +10,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class PokemonManagerTest {
-    PokemonJsonReaderForTest testPJRFT = new PokemonJsonReaderForTest();
-    PokemonManager testPM = new PokemonManager(testPJRFT);
+    final PokemonJsonReaderForTest testPJRFT = new PokemonJsonReaderForTest();
+    final PokemonManager testPM = new PokemonManager(testPJRFT);
 
     @Test
     public void testGetPokemon() {

@@ -116,12 +116,11 @@ public class GuiBattlePresenter extends JPanel implements IBattlePresenter {
         JOptionPane.showMessageDialog(this, message, "Battle Status", JOptionPane.WARNING_MESSAGE);
     }
 
-    @Override
+    @SuppressWarnings("EmptyMethod")
     public void printEscaped() {
 
     }
 
-    @Override
     public void printGainExperiencePoint(String name, int experiencePointGained) {
         textLabel1.setText(name + " gained " + experiencePointGained + " experience points.");
     }

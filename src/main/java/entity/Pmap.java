@@ -6,6 +6,7 @@ import java.util.List;
 /**
  * The map of game
  */
+@SuppressWarnings("unused")
 public class Pmap implements Serializable {
     private String mapName;
     private List<String> pokemons;

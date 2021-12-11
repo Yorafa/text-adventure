@@ -160,7 +160,6 @@ public class BattlePresenter extends Presenter implements IBattlePresenter {
     /**
      * notice player that successful escaped
      */
-    @Override
     public void printEscaped() {
         System.out.println("You escaped.");
     }
@@ -171,7 +170,6 @@ public class BattlePresenter extends Presenter implements IBattlePresenter {
      * @param name                  the name of pokemon
      * @param experiencePointGained the exp that got
      */
-    @Override
     public void printGainExperiencePoint(String name, int experiencePointGained) {
         System.out.println(name + " gained " + experiencePointGained + " experience points.");
     }
