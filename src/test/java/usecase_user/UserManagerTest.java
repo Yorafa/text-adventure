@@ -1,19 +1,18 @@
 package usecase_user;
 
+import org.junit.Test;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import org.junit.Test;
-
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 public class UserManagerTest {
-    UserReadWriterForTest testURW = new UserReadWriterForTest();
-    String filePath = "test_data/backup/TestUserInfo.ser";
-    UserManager testUM = new UserManager(testURW);
+    final UserReadWriterForTest testURW = new UserReadWriterForTest();
+    final UserManager testUM = new UserManager(testURW);
 
     public void prepForTest() throws IOException {
         if (new File("test_data/TestUserInfo.ser").delete()) {

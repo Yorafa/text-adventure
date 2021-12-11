@@ -30,6 +30,7 @@ public class User implements Serializable {
 
     /**
      * the getter method of username
+     *
      * @return the username player
      */
     public String getUsername() {
@@ -38,6 +39,7 @@ public class User implements Serializable {
 
     /**
      * the setter method of username
+     *
      * @param username the given username from player
      */
     public void setUsername(String username) {
@@ -46,6 +48,7 @@ public class User implements Serializable {
 
     /**
      * the getter method of password
+     *
      * @return the password player use to set
      */
     public String getPassword() {
@@ -54,6 +57,7 @@ public class User implements Serializable {
 
     /**
      * the setter method of password
+     *
      * @param password the given password from player
      */
     public void setPassword(String password) {
@@ -61,7 +65,6 @@ public class User implements Serializable {
     }
 
     /**
-     *
      * @param o the object use compare
      * @return true if the object share all the data the same
      */
@@ -70,7 +73,7 @@ public class User implements Serializable {
         if (o == this) {
             return true;
         }
-        if (o.getClass() != this.getClass()){
+        if (o.getClass() != this.getClass()) {
             return false;
         }
         User u = (User) o;

@@ -3,6 +3,7 @@ package usecase_pokemon;
 public class LevelCalculator {
     /**
      * method calculate the level of pokemon
+     *
      * @param experiencePoint pokemon's exp
      * @return the level of pokemon
      */
@@ -12,6 +13,7 @@ public class LevelCalculator {
 
     /**
      * method calculate the exp of pokemon
+     *
      * @param level pokemon's level
      * @return the exp of pokemon
      */

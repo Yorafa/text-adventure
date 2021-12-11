@@ -10,7 +10,7 @@ import java.util.Scanner;
  * This is the panel will show all the place that player can go,
  * and let player choose where to go
  */
-public class TextChangePlacePanel extends TextPanel{
+public class TextChangePlacePanel extends TextPanel {
     private final MapManager mapManager;
     private final ChangePlacePresenter changePlacePresenter;
 
@@ -18,11 +18,11 @@ public class TextChangePlacePanel extends TextPanel{
      * Construct a TextChangePlacePanel, given them the given input, gameDriver
      * and mapManager
      *
-     * @param input the player input
+     * @param input      the player input
      * @param gameDriver the main driver of game
      * @param mapManager the manager of map
-     *
-     * The relative classes
+     *                   <p>
+     *                   The relative classes
      * @see GameDriver
      * @see MapManager
      * @see PanelState

@@ -60,6 +60,7 @@ public class ExplorePresenter extends Presenter {
 
     /**
      * show meet opponent information
+     *
      * @param opponentName the opponent pokemon information
      */
     public void printOpponent(String opponentName) {

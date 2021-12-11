@@ -22,9 +22,8 @@ public class GameDataReadWriter implements IReadWriter {
     }
 
     /**
-     *
      * @return the saved game data
-     * @throws IOException file not found exception
+     * @throws IOException            file not found exception
      * @throws ClassNotFoundException class not found exception
      */
     @Override
@@ -35,7 +34,6 @@ public class GameDataReadWriter implements IReadWriter {
     }
 
     /**
-     *
      * @param o the object will be written
      * @throws IOException file not found exception
      */

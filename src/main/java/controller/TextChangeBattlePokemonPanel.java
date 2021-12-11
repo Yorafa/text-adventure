@@ -18,12 +18,13 @@ public class TextChangeBattlePokemonPanel extends TextPanel {
     /**
      * Construct a TextChangeBattlePokemonPanel, given them the given input, gameDriver,
      * pokemonManager and adder
-     * @param input the player input
-     * @param gameDriver the main driver of game
-     * @param pokemonManager the manager of pokemon
-     * @param adder the pocket info of player adder
      *
-     * The relative classes
+     * @param input          the player input
+     * @param gameDriver     the main driver of game
+     * @param pokemonManager the manager of pokemon
+     * @param adder          the pocket info of player adder
+     *                       <p>
+     *                       The relative classes
      * @see GameDriver
      * @see PokemonManager
      * @see IPocketInfoAdder

@@ -6,8 +6,8 @@ import java.io.Serializable;
  * The template information of a pokemon
  */
 public class BasePokemon implements Serializable {
-    protected String name;
-    protected BasePokemonData basePokemonData;
+    protected final String name;
+    protected final BasePokemonData basePokemonData;
 
     /**
      * Construct a BasePokemon, giving them the
@@ -15,8 +15,8 @@ public class BasePokemon implements Serializable {
      *
      * @param name            BasePokemon's name
      * @param basePokemonData BasePokemon's data
-     *
-     * The relative classes
+     *                        <p>
+     *                        The relative classes
      * @see BasePokemonData
      */
 
@@ -100,9 +100,7 @@ public class BasePokemon implements Serializable {
 
         if (o.getClass() != this.getClass()) {
             return false;
-        }
-
-        else {
+        } else {
             BasePokemon basepokemon = (BasePokemon) o;
             return this.getMaxHitPoint() == basepokemon.getMaxHitPoint()
                     && this.getAttackPoint() == basepokemon.getAttackPoint()

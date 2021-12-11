@@ -30,8 +30,9 @@ public class GameDriver {
 
     /**
      * Construct a GameDriver, given them new variable
-     *
+     * <p>
      * The relative classes
+     *
      * @see UserManager
      * @see PanelState
      * @see PokemonManager
@@ -62,7 +63,6 @@ public class GameDriver {
      * Use change panel
      *
      * @param state panel(words) that will be showed in the shell to player
-     *
      * @see PanelState
      */
     public void changeState(PanelState state) {
@@ -92,7 +92,6 @@ public class GameDriver {
      * call changeState switch to explore panel
      *
      * @param username the player's name
-     *
      * @see TextExplorePanel
      */
     public void changeStateExplore(String username) {
@@ -106,7 +105,6 @@ public class GameDriver {
      * call changeState switch to battle panel
      *
      * @param battleManager the manage in charge of pokemon battle
-     *
      * @see TextBattlePanel
      */
     public void changeStateBattle(BattleManager battleManager) {

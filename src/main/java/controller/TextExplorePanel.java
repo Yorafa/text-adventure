@@ -13,9 +13,8 @@ import java.util.Scanner;
  * This is the main panel that player will always see
  * Player can heal, change current place,
  * walk around to meet pokemon, and log out at this panel
- *
  */
-public class TextExplorePanel extends TextPanel{
+public class TextExplorePanel extends TextPanel {
     private final MapManager mapManager;
     private final PokemonManager pokemonManager;
     private final GameDataManager gameDataManager;
@@ -24,13 +23,14 @@ public class TextExplorePanel extends TextPanel{
     /**
      * Construct a TextExplorePanel, given them the given input, gameDriver, mapManager,
      * pokemonManager and gameDataManager
-     * @param input the player input
-     * @param gameDriver the main driver of game
-     * @param mapManager the manager of map
-     * @param pokemonManager the manager of pokemon
-     * @param gameDataManager the manager of game data
      *
-     * The relative classes
+     * @param input           the player input
+     * @param gameDriver      the main driver of game
+     * @param mapManager      the manager of map
+     * @param pokemonManager  the manager of pokemon
+     * @param gameDataManager the manager of game data
+     *                        <p>
+     *                        The relative classes
      * @see GameDriver
      * @see MapManager
      * @see PokemonManager

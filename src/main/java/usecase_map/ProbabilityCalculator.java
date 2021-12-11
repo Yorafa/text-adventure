@@ -7,6 +7,7 @@ public class ProbabilityCalculator {
 
     /**
      * the probability of encounter wild pokemon
+     *
      * @param probabilities a list of integer represent probability
      * @return -1 represent nothing, of index of poekmon
      */

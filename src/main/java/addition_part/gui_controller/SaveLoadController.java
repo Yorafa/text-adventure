@@ -1,4 +1,4 @@
-package addition_part.GuiController;
+package addition_part.gui_controller;
 
 
 import entity.GameData;
@@ -24,12 +24,12 @@ public class SaveLoadController {
      * @see GameData
      * @see UserManager
      */
-    public SaveLoadController(){
+    public SaveLoadController() {
         this.gameDataHistory = new HashMap<>();
         gameData = new GameData();
     }
 
-    public void setReadWriter(String username){
+    public void setReadWriter(String username) {
         gameDataManager.setReadWriter(new GameDataReadWriter(username));
         gameData.setPocket(gameDataManager.getPocket());
         gameData.setCurrentPlace(gameDataManager.getCurrentPlace());
@@ -42,11 +42,11 @@ public class SaveLoadController {
         gameDataHistory.put(new Date(), gameData);
     }
 
-    public void loadGameDataMemento(Date date){
+    public void loadGameDataMemento(Date date) {
         gameData = gameDataHistory.get(date);
     }
 
-    public void saveGameData(Pocket pocket, Pmap pmap){
+    public void saveGameData(Pocket pocket, Pmap pmap) {
         gameDataManager.saveGameData(pocket, pmap);
     }
 

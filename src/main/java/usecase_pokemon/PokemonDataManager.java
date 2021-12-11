@@ -5,11 +5,9 @@ import entity.PokemonData;
 
 public class PokemonDataManager {
     /**
-     *
      * @param basePokemonData the basic data of a pokemon at level 1
-     * @param level the level of a pokemon
+     * @param level           the level of a pokemon
      * @return data of pokemon update by level through basic data
-     *
      * @see PokemonData
      */
     public PokemonData create(BasePokemonData basePokemonData, int level) {
@@ -23,9 +21,10 @@ public class PokemonDataManager {
 
     /**
      * update the pokemonData by level and basePokemonData
-     * @param pokemonData the current data of pokemon
+     *
+     * @param pokemonData     the current data of pokemon
      * @param basePokemonData the base data of pokemon
-     * @param level the current level of pokemon
+     * @param level           the current level of pokemon
      */
     public void update(PokemonData pokemonData, BasePokemonData basePokemonData, int level) {
         LeveledDataCalculator leveledDataCalculator = new LeveledDataCalculator();

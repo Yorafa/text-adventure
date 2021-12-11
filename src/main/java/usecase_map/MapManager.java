@@ -15,6 +15,7 @@ public class MapManager {
 
     /**
      * Construct MapManager, given pmaps the value reader read
+     *
      * @param reader the data access object
      */
     public MapManager(IJsonReader<List<Pmap>> reader) {
@@ -27,6 +28,7 @@ public class MapManager {
 
     /**
      * loop the map and store all map names into list, then
+     *
      * @return all map names in a list
      */
     public List<String> getMapNames() {
@@ -39,6 +41,7 @@ public class MapManager {
 
     /**
      * the getter method of pmaps
+     *
      * @return the list of map
      */
     public List<Pmap> getPmaps() {
@@ -47,6 +50,7 @@ public class MapManager {
 
     /**
      * method of encounter wild pokemon
+     *
      * @param pokemonManager the manager of pokemon
      * @return a wild pokemon from current map
      */
@@ -64,6 +68,7 @@ public class MapManager {
 
     /**
      * the getter method of currentPlace
+     *
      * @return current place that player at
      */
     public Pmap getCurrentPlace() {
@@ -72,6 +77,7 @@ public class MapManager {
 
     /**
      * the setter method of currentPlace
+     *
      * @param currentPlace new map player want to switch to
      */
     public void setCurrentPlace(Pmap currentPlace) {
@@ -84,6 +90,7 @@ public class MapManager {
 
     /**
      * the setter method of currentPlace
+     *
      * @param i the index of map
      */
     public void setCurrentPlace(int i) {

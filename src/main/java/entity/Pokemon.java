@@ -16,14 +16,14 @@ public class Pokemon extends BasePokemon implements Serializable {
      * Construct a Pokemon, given them the given name, basePokemonData, level,
      * experiencePoint, hitPoint and pokemonData
      *
-     * @param name the name of pokemon which is the same as its basic version
+     * @param name            the name of pokemon which is the same as its basic version
      * @param basePokemonData the data of this pokemon at level 1
-     * @param level the level of this pokemon
+     * @param level           the level of this pokemon
      * @param experiencePoint the experience point of this pokemon will be used to update level
-     * @param hitPoint the current HP of this pokemon
-     * @param pokemonData the current data of this pokemon which update based on basePokemonData
-     *
-     * The relative classes
+     * @param hitPoint        the current HP of this pokemon
+     * @param pokemonData     the current data of this pokemon which update based on basePokemonData
+     *                        <p>
+     *                        The relative classes
      * @see BasePokemon
      * @see BasePokemonData
      * @see PokemonData
@@ -39,6 +39,7 @@ public class Pokemon extends BasePokemon implements Serializable {
 
     /**
      * the getter method of level
+     *
      * @return the level of pokemon
      */
     public int getLevel() {
@@ -47,6 +48,7 @@ public class Pokemon extends BasePokemon implements Serializable {
 
     /**
      * the setter method of level
+     *
      * @param level the level of pokemon
      */
     public void setLevel(int level) {
@@ -55,6 +57,7 @@ public class Pokemon extends BasePokemon implements Serializable {
 
     /**
      * the getter method of experiencePoint
+     *
      * @return the experiencePoint of pokemon
      */
     public int getExperiencePoint() {
@@ -63,6 +66,7 @@ public class Pokemon extends BasePokemon implements Serializable {
 
     /**
      * the setter method of experiencePoint
+     *
      * @param experiencePoint the new experiencePoint for pokemon
      */
     public void setExperiencePoint(int experiencePoint) {
@@ -71,6 +75,7 @@ public class Pokemon extends BasePokemon implements Serializable {
 
     /**
      * the getter method of hitPoint
+     *
      * @return current hit point of pokemon
      */
     public int getHitPoint() {
@@ -79,6 +84,7 @@ public class Pokemon extends BasePokemon implements Serializable {
 
     /**
      * the setter method of hitPoint
+     *
      * @param hitPoint updated hit point of pokemon
      */
     public void setHitPoint(int hitPoint) {
@@ -87,6 +93,7 @@ public class Pokemon extends BasePokemon implements Serializable {
 
     /**
      * the getter method of pokemonData
+     *
      * @return current pokemon data
      */
     public PokemonData getPokemonData() {
@@ -95,6 +102,7 @@ public class Pokemon extends BasePokemon implements Serializable {
 
     /**
      * the setter method of pokemonData
+     *
      * @param pokemonData the updated pokemon data
      */
     public void setPokemonData(PokemonData pokemonData) {
@@ -103,6 +111,7 @@ public class Pokemon extends BasePokemon implements Serializable {
 
     /**
      * the getter method of MaxHitPoint
+     *
      * @return the max hit point of pokemon from its pokemonData
      */
     @Override
@@ -112,6 +121,7 @@ public class Pokemon extends BasePokemon implements Serializable {
 
     /**
      * the getter method of AttackPoint
+     *
      * @return the attack point of pokemon from its pokemonData
      */
     @Override
@@ -121,6 +131,7 @@ public class Pokemon extends BasePokemon implements Serializable {
 
     /**
      * the getter method of DefencePoint
+     *
      * @return the defence point of pokemon from its pokemonData
      */
     @Override
@@ -130,6 +141,7 @@ public class Pokemon extends BasePokemon implements Serializable {
 
     /**
      * the getter method of Speed
+     *
      * @return the speed of pokemon from its pokemonData
      */
     @Override
@@ -139,6 +151,7 @@ public class Pokemon extends BasePokemon implements Serializable {
 
     /**
      * the toString method
+     *
      * @return pokemon name as its presenter
      */
     @Override

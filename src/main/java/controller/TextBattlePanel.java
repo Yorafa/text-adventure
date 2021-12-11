@@ -11,7 +11,7 @@ import java.util.Scanner;
 /**
  * This is the battle panel when player meet wild pokemon
  */
-public class TextBattlePanel extends TextPanel{
+public class TextBattlePanel extends TextPanel {
     private final PokemonManager pokemonManager;
     private final BattleManager battleManager;
     private final BattlePresenter battlePresenter;
@@ -19,12 +19,13 @@ public class TextBattlePanel extends TextPanel{
     /**
      * Construct a TextBattlePanel, given them the given input, gameDriver,
      * pokemonManager and battleManger
-     * @param input the player input
-     * @param gameDriver the main driver of game
-     * @param pokemonManager the manager of pokemon
-     * @param battleManager the battle manager of pokemon
      *
-     * The relative class
+     * @param input          the player input
+     * @param gameDriver     the main driver of game
+     * @param pokemonManager the manager of pokemon
+     * @param battleManager  the battle manager of pokemon
+     *                       <p>
+     *                       The relative class
      * @see GameDriver
      * @see PokemonManager
      * @see BattleManager
@@ -42,7 +43,7 @@ public class TextBattlePanel extends TextPanel{
 
     /**
      * {@inheritDoc}
-     *
+     * <p>
      * Judge whether the battle is going on, and call the battlePresenter to present action
      * if true, call execute
      * else, exit the battle, settlement experience and switch state

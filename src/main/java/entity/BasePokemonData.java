@@ -6,7 +6,7 @@ import java.io.Serializable;
  * The template data at level 1
  */
 public class BasePokemonData implements Serializable {
-    protected PokemonType pokemonType;
+    protected final PokemonType pokemonType;
     protected int maxHitPoint;
     protected int attackPoint;
     protected int defencePoint;
@@ -16,13 +16,13 @@ public class BasePokemonData implements Serializable {
      * Construct a BasePokemon, giving them the
      * given pokemonType, maxHitPoint, attackPoint, defencePoint and speed.
      *
-     * @param pokemonType enum value of the enum class PokemonType
+     * @param pokemonType  enum value of the enum class PokemonType
      * @param maxHitPoint  the basic max HP / the max HP at level 1
      * @param attackPoint  the attack at level 1
-     * @param defencePoint  the defence at level 1
-     * @param speed  the speed at level 1
-     *
-     * The relative classes
+     * @param defencePoint the defence at level 1
+     * @param speed        the speed at level 1
+     *                     <p>
+     *                     The relative classes
      * @see PokemonType
      */
     public BasePokemonData(PokemonType pokemonType, int maxHitPoint, int attackPoint, int defencePoint, int speed) {

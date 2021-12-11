@@ -10,6 +10,7 @@ public class PocketSorterByName implements IPocketSorter {
 
     /**
      * sort pocket by name
+     *
      * @param pocket the container of pokemons of player
      */
     @Override

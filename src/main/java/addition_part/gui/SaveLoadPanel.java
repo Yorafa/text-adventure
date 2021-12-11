@@ -1,7 +1,7 @@
-package addition_part.Gui;
+package addition_part.gui;
 
-import addition_part.GuiController.SaveLoadController;
-import addition_part.GuiDriver.GuiDriver;
+import addition_part.gui_controller.SaveLoadController;
+import addition_part.gui_driver.GuiDriver;
 import usecase_map.MapManager;
 import usecase_pokemon.PokemonManager;
 
@@ -15,37 +15,37 @@ public class SaveLoadPanel extends JPanel {
     private final PokemonManager pokemonManager;
 
 
-    public SaveLoadPanel(GuiDriver guiDriver){
+    public SaveLoadPanel(GuiDriver guiDriver) {
         this.saveLoadController = guiDriver.getSaveLoadController();
         this.mapManager = guiDriver.getMapManager();
         this.pokemonManager = guiDriver.getPokemonManager();
         initialize();
     }
 
-    private void initialize(){
+    private void initialize() {
         this.add(saveButton());
         this.add(comboBox);
         this.add(loadButton());
     }
 
-    private JButton saveButton(){
+    private JButton saveButton() {
         JButton save = new JButton("Save");
         save.addActionListener(e -> save());
         return save;
     }
 
-    private JButton loadButton(){
+    private JButton loadButton() {
         JButton load = new JButton("Load");
         load.addActionListener(e -> load((Date) comboBox.getSelectedItem()));
         return load;
     }
 
-    private void save(){
+    private void save() {
         saveLoadController.save(pokemonManager.getPocket(), mapManager.getCurrentPlace());
         comboBox.addItem(new Date());
     }
 
-    private void load(Date date){
+    private void load(Date date) {
         saveLoadController.loadGameDataMemento(date);
         mapManager.setCurrentPlace(saveLoadController.getCurrentPlace());
         pokemonManager.setPocket(saveLoadController.getPocket());

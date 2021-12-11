@@ -76,7 +76,9 @@ the project would be the non-GUI part, which this document will be mainly addres
 
 ## Clean Architecture
 
-This is a [UML diagram](UML.png) for the whole project. We first observe a general trend - the inner-layer (of clean architecture) classes are towards the top, and the outer-layer classes are towards the bottom. So, in general, we see that our project is indeed following the clean architecture. Now, we will inspect the details.
+This is a [UML diagram](UML.png) for the whole project. We first observe a general trend - the inner-layer (of clean
+architecture) classes are towards the top, and the outer-layer classes are towards the bottom. So, in general, we see
+that our project is indeed following the clean architecture. Now, we will inspect the details.
 
 - The inner layers do not depend on outer layers. This is demonstrated by this dependency matrix
   ![Dependency Matrix](./img/dependency_matrix.png)

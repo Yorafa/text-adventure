@@ -3,7 +3,6 @@ package usecase_map;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import entity.Pmap;
-import gateway.ConfigReader;
 import usecase_data.IJsonReader;
 
 import java.io.IOException;
@@ -19,7 +18,6 @@ import java.util.List;
  */
 public class MapJsonReaderForTest implements IJsonReader<List<Pmap>> {
     /**
-     *
      * @return a list of map
      * @throws IOException file may not exist
      */

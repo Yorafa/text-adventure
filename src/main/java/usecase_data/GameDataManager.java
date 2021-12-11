@@ -13,6 +13,7 @@ public class GameDataManager {
     /**
      * the setter method of readWriter
      * use the readWriter to read game data
+     *
      * @param readWriter the data access object
      */
     public void setReadWriter(IReadWriter readWriter) {
@@ -26,8 +27,9 @@ public class GameDataManager {
 
     /**
      * method use save game data in locale file
+     *
      * @param pocket the container of pokemon for player
-     * @param pmap the map player current at
+     * @param pmap   the map player current at
      */
     public void saveGameData(Pocket pocket, Pmap pmap) {
         gameData.setPocket(pocket);
@@ -41,6 +43,7 @@ public class GameDataManager {
 
     /**
      * the getter method
+     *
      * @return the container of pockmons for player
      */
     public Pocket getPocket() {
@@ -49,6 +52,7 @@ public class GameDataManager {
 
     /**
      * the getter method
+     *
      * @return the map player current at
      */
     public Pmap getCurrentPlace() {

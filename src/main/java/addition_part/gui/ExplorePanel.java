@@ -1,8 +1,8 @@
-package addition_part.Gui;
+package addition_part.gui;
 
 import addition_part.battle.PokemonController;
-import addition_part.GuiController.SaveLoadController;
-import addition_part.GuiDriver.GuiDriver;
+import addition_part.gui_controller.SaveLoadController;
+import addition_part.gui_driver.GuiDriver;
 import usecase_map.MapManager;
 import usecase_pokemon.PokemonManager;
 
@@ -22,7 +22,7 @@ public class ExplorePanel extends BasePanel {
         initialize();
     }
 
-    private void initialize(){
+    private void initialize() {
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new GridLayout(4, 1, 10, 10));
         JLabel label = new JLabel("You are currently at " + mapManager.getCurrentPlace() + ".");
@@ -32,7 +32,8 @@ public class ExplorePanel extends BasePanel {
         mainPanel.add(buttonPanel());
         this.add(mainPanel);
     }
-    private JButton healAllButton(){
+
+    private JButton healAllButton() {
         JButton healAll = new JButton("Heal All");
         healAll.addActionListener((e) -> {
             pokemonManager.healAll();
@@ -42,23 +43,22 @@ public class ExplorePanel extends BasePanel {
         return healAll;
     }
 
-    private JButton walkAroundButton(){
+    private JButton walkAroundButton() {
         JButton search = new JButton("Walk around");
         search.addActionListener((e) -> doSearch());
         return search;
     }
 
-    private void doSearch(){
+    private void doSearch() {
         guiDriver.setWildPokemon(mapManager.walkAround(pokemonManager));
-        if (guiDriver.getWildPokemon() == null){
+        if (guiDriver.getWildPokemon() == null) {
             String message = "Oof, nothing here, may next time will find somethings";
             JOptionPane.showMessageDialog(this, message, "Search", JOptionPane.WARNING_MESSAGE);
-        }
-        else{
-            if (PokemonController.canFight(pokemonManager.getPocket().getPokemons())){
+        } else {
+            if (PokemonController.canFight(pokemonManager.getPocket().getPokemons())) {
                 parent.remove(this);
-                parent.battlePanel();}
-            else {
+                parent.battlePanel();
+            } else {
                 String message = "Oof, Your first pokemon in your pocket can not fight now";
                 JOptionPane.showMessageDialog(this, message,
                         "Warning", JOptionPane.WARNING_MESSAGE);
@@ -66,7 +66,7 @@ public class ExplorePanel extends BasePanel {
         }
     }
 
-    private JButton logOutButton(){
+    private JButton logOutButton() {
         JButton logOut = new JButton("Log out");
         logOut.addActionListener((e) -> {
             parent.remove(this);
@@ -77,7 +77,7 @@ public class ExplorePanel extends BasePanel {
     }
 
 
-    private JPanel buttonPanel(){
+    private JPanel buttonPanel() {
         // Setup Button Field
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(2, 2, 10, 10));

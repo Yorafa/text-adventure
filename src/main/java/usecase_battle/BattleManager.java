@@ -18,8 +18,8 @@ public class BattleManager {
      *
      * @param p1 Pokemon 1
      * @param p2 Pokemon 2
-     *
-     * The relative classes
+     *           <p>
+     *           The relative classes
      * @see IBattlePresenter
      * @see BattleAction
      */
@@ -68,6 +68,7 @@ public class BattleManager {
 
     /**
      * do the attack action and update the relative information
+     *
      * @return true if and only if successful capture
      */
     public boolean capture() {
@@ -100,6 +101,7 @@ public class BattleManager {
 
     /**
      * update two pokemon hit point
+     *
      * @param pokemon pokemon should be updated
      */
     private void boundHitPoint(Pokemon pokemon) {
@@ -109,6 +111,7 @@ public class BattleManager {
 
     /**
      * check if still battling
+     *
      * @return true if and only if one of pokemons has no hp
      */
     public boolean isBattling() {
@@ -140,6 +143,7 @@ public class BattleManager {
 
     /**
      * the getter method for pokemon 1 name
+     *
      * @return pokemon 1 name
      */
     public String getP1Name() {
@@ -148,6 +152,7 @@ public class BattleManager {
 
     /**
      * the getter method for pokemon 2 name
+     *
      * @return pokemon 2's name
      */
     public String getP2Name() {
@@ -156,6 +161,7 @@ public class BattleManager {
 
     /**
      * the getter method of p1
+     *
      * @return Pokemon 1
      */
     public Pokemon getP1() {
@@ -164,6 +170,7 @@ public class BattleManager {
 
     /**
      * the getter method of p2
+     *
      * @return Pokemon 2
      */
     public Pokemon getP2() {
@@ -172,6 +179,7 @@ public class BattleManager {
 
     /**
      * the getter method of hasCounterattackP1
+     *
      * @return if pokemon 1 counter-attack
      */
     public boolean hasCounterattackP1() {
@@ -180,6 +188,7 @@ public class BattleManager {
 
     /**
      * the setter method of hasCounterattackP1
+     *
      * @param hasCounterattackP1 if pokemon 1 counter-attack
      */
     public void setHasCounterattackP1(boolean hasCounterattackP1) {
@@ -188,6 +197,7 @@ public class BattleManager {
 
     /**
      * the getter method of hasCounterattackP2
+     *
      * @return if pokemon 2 has counter-attack
      */
     public boolean hasCounterattackP2() {
@@ -196,7 +206,8 @@ public class BattleManager {
 
     /**
      * the setter method of hasCounterattackP2
-     * @param hasCounterattackP2  if pokemon 2 counter-attack
+     *
+     * @param hasCounterattackP2 if pokemon 2 counter-attack
      */
     public void setHasCounterattackP2(boolean hasCounterattackP2) {
         this.hasCounterattackP2 = hasCounterattackP2;
@@ -204,6 +215,7 @@ public class BattleManager {
 
     /**
      * the getter method of presenter
+     *
      * @return the current presenter
      */
     public IBattlePresenter getPresenter() {
@@ -212,6 +224,7 @@ public class BattleManager {
 
     /**
      * the setter method of presenter
+     *
      * @param presenter the respective presenter of panel to show information on shell
      */
     public void setPresenter(IBattlePresenter presenter) {
@@ -220,6 +233,7 @@ public class BattleManager {
 
     /**
      * the setter method of battleAction
+     *
      * @param battleAction the battle action that player choose
      */
     private void setBattleAction(BattleAction battleAction) {

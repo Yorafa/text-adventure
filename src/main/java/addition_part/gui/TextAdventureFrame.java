@@ -1,7 +1,7 @@
-package addition_part.Gui;
+package addition_part.gui;
 
-import addition_part.GuiDriver.GuiDriver;
 import addition_part.battle.BattlePanel;
+import addition_part.gui_driver.GuiDriver;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,37 +17,35 @@ public class TextAdventureFrame extends JFrame {
      */
     public TextAdventureFrame(GuiDriver guiDriver) {
         this.guiDriver = guiDriver;
-        // Setup frame
-        initialize();
     }
 
-    public void loginPanel(){
+    public void loginPanel() {
         this.panel = new LoginPanel(this, guiDriver);
         this.setContentPane();
         this.pack();
     }
 
-    public void initialPanel(){
+    public void initialPanel() {
         this.panel = new InitialPanel(this, guiDriver);
         this.setContentPane();
         this.pack();
     }
 
-    public void browsePokemonPanel(){
+    public void browsePokemonPanel() {
         BrowsePokemonDialog dialog = new BrowsePokemonDialog(this, guiDriver);
         dialog.setTitle("Check the Pokemon Book/Change the battle pokemon");
         dialog.setModal(true);
-        dialog.setSize(500,150);
+        dialog.setSize(500, 150);
         dialog.setVisible(true);
     }
 
-    public void explorePanel(){
+    public void explorePanel() {
         this.panel = new ExplorePanel(this, guiDriver);
         this.setContentPane();
         this.pack();
     }
 
-    public void battlePanel(){
+    public void battlePanel() {
         this.panel = new BattlePanel(this, guiDriver);
         this.setContentPane();
         this.pack();
@@ -57,7 +55,7 @@ public class TextAdventureFrame extends JFrame {
         this.setContentPane(panel);
     }
 
-    private void initialize() {
+    public void initialize() {
         this.setTitle("Text Adventure");
         this.setSize(new Dimension(1280, 720));
         this.setPreferredSize(new Dimension(1280, 720));

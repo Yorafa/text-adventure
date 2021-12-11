@@ -10,7 +10,7 @@ import java.util.Scanner;
 /**
  * This is the panel that show player their pocket.
  */
-public class TextPocketPanel extends TextPanel{
+public class TextPocketPanel extends TextPanel {
     private final PokemonManager pokemonManager;
     private final PocketPresenter pocketPresenter;
     private IPocketSorter sorter;
@@ -20,11 +20,11 @@ public class TextPocketPanel extends TextPanel{
      * Construct a TextPocketPanel, given them the given input,
      * gameDriver and pokemonManager
      *
-     * @param input the player input
-     * @param gameDriver the main driver of game
+     * @param input          the player input
+     * @param gameDriver     the main driver of game
      * @param pokemonManager the manager of pokemon
-     *
-     * The relative classes
+     *                       <p>
+     *                       The relative classes
      * @see GameDriver
      * @see PanelState
      * @see PokemonManager
@@ -39,10 +39,11 @@ public class TextPocketPanel extends TextPanel{
     /**
      * Construct a TextExplorePanel, given them the given input,
      * gameDriver, pokemonManager and adder
-     * @param input the player input
-     * @param gameDriver the main driver of game
+     *
+     * @param input          the player input
+     * @param gameDriver     the main driver of game
      * @param pokemonManager the manager of pokemon
-     * @param adder use add the pokemon information
+     * @param adder          use add the pokemon information
      */
     public TextPocketPanel(Scanner input, GameDriver gameDriver, PokemonManager pokemonManager, IPocketInfoAdder adder) {
         super(input, gameDriver);

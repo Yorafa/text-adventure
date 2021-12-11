@@ -8,15 +8,15 @@ import java.util.Scanner;
  * This is an abstract class that all showing panel will extend this
  */
 public abstract class TextPanel implements PanelState {
-    protected Scanner input;
-    protected GameDriver gameDriver;
+    protected final Scanner input;
+    protected final GameDriver gameDriver;
 
     /**
      * Construct a TextPanel, given them the given input and gameDriver
      *
-     * @param input the player input
+     * @param input      the player input
      * @param gameDriver the main driver of game
-     * The relative classes
+     *                   The relative classes
      * @see GameDriver
      * @see PanelState
      */
@@ -27,7 +27,7 @@ public abstract class TextPanel implements PanelState {
 
     /**
      * {@inheritDoc}
-     *
+     * <p>
      * show all action player can do and
      * call execute to do what player input
      */
@@ -43,6 +43,7 @@ public abstract class TextPanel implements PanelState {
 
     /**
      * Read player's input and execute the respective action
+     *
      * @param choice the string that player input
      */
     protected abstract void execute(String choice);

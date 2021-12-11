@@ -6,8 +6,8 @@ import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 
 public class PocketSorterByLevelTest {
-    PocketSorterByLevel testPSBL = new PocketSorterByLevel();
-    Pocket testPocket = new Pocket();
+    final PocketSorterByLevel testPSBL = new PocketSorterByLevel();
+    final Pocket testPocket = new Pocket();
 
     @Test
     public void sortTest() {

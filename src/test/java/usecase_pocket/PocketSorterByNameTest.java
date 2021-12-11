@@ -6,8 +6,8 @@ import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 
 public class PocketSorterByNameTest {
-    PocketSorterByName testPSBN = new PocketSorterByName();
-    Pocket testPocket = new Pocket();
+    final PocketSorterByName testPSBN = new PocketSorterByName();
+    final Pocket testPocket = new Pocket();
 
     @Test
     public void sortTest() {
