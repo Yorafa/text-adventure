@@ -1,6 +1,7 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * the player's information
@@ -79,5 +80,15 @@ public class User implements Serializable {
         User u = (User) o;
         return u.getUsername().equals(this.getUsername())
                 && u.getPassword().equals(this.getPassword());
+    }
+
+    /**
+     * the hashcode method
+     *
+     * @return hashCode of this User
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(getUsername(), getPassword());
     }
 }

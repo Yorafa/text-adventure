@@ -1,6 +1,7 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * The template information of a pokemon
@@ -107,6 +108,16 @@ public class BasePokemon implements Serializable {
                     && this.getDefencePoint() == basepokemon.getDefencePoint()
                     && this.getSpeed() == basepokemon.getSpeed();
         }
+    }
+
+    /**
+     * the hashcode method
+     *
+     * @return hashCode of this BasePokemon
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getBasePokemonData());
     }
 }
 
