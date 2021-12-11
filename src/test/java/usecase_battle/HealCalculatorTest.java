@@ -6,12 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class HealCalculatorTest {
-    HealCalculator healCalculator;
-
-    @Before
-    public void setHealCalculator() {
-        healCalculator = new HealCalculator();
-    }
+    private final HealCalculator healCalculator = new HealCalculator();
 
     @Test(timeout = 50)
     public void testCalculate() {

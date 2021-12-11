@@ -6,12 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class DamageCalculatorTest {
-    DamageCalculator damageCalculator;
-
-    @Before
-    public void setDamageCalculator() {
-        damageCalculator = new DamageCalculator();
-    }
+    private final DamageCalculator damageCalculator = new DamageCalculator();
 
     @Test(timeout = 50)
     public void testCalculate() {

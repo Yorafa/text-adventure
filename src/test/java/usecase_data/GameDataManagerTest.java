@@ -15,11 +15,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class GameDataManagerTest {
-    final GameDataReadWriterForTest testGDRW = new GameDataReadWriterForTest();
-    final GameDataManager testGDM = new GameDataManager();
+    private final GameDataReadWriterForTest testGDRW = new GameDataReadWriterForTest();
+    private final GameDataManager testGDM = new GameDataManager();
 
     @Before
-    public void prepForTest() throws IOException {
+    public void setUp() throws IOException {
         if (new File("test_data/game/testuser.ser").delete()) {
             Path source = new File("test_data/backup/testuser.ser").toPath();
             Path dest = new File("test_data/game/testuser.ser").toPath();
@@ -29,14 +29,12 @@ public class GameDataManagerTest {
     }
 
     @Test
-    public void testGetCurrentPlace() throws IOException {
-        prepForTest();
+    public void testGetCurrentPlace() {
         assertEquals("Ocean", testGDM.getCurrentPlace().getMapName());
     }
 
     @Test
-    public void testGetPocket() throws IOException {
-        prepForTest();
+    public void testGetPocket() {
         String battlePokemon = testGDM.getPocket().getBattlePokemon().getName();
         List<Pokemon> listPokemon = testGDM.getPocket().getPokemons();
         assertTrue(battlePokemon.equals("Pikachu")

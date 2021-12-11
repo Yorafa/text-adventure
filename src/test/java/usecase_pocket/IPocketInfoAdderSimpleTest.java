@@ -5,15 +5,17 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class IPocketInfoAdderSimpleTest {
-    final PocketInfoAdderDetail testIPIAS = new PocketInfoAdderDetail();
-    final Map<String, String> testMap = new HashMap<>();
+    private final PocketInfoAdderDetail testIPIAS = new PocketInfoAdderDetail();
+    private final Map<String, String> testMap = new HashMap<>();
 
     @Test
-    public void addTest() {
+    public void testAdd() {
         testIPIAS.add(testMap, PokemonForTest.testPokemon1);
-        assertTrue(testMap.get("name").equals("Test Pokemon 1") && testMap.get("level").equals("4"));
+        assertEquals("Test Pokemon 1", testMap.get("name"));
+        assertEquals("4", testMap.get("level"));
     }
 }

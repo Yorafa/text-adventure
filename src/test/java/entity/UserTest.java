@@ -6,12 +6,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class UserTest {
-    User user;
-
-    @Before
-    public void setUser() {
-        user = new User("test name", "test password");
-    }
+    private final User user = new User("test name", "test password");
 
     @Test(timeout = 50)
     public void testGetUserNameAndSetUserName() {

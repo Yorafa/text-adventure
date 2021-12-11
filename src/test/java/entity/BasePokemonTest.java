@@ -7,10 +7,10 @@ import static entity.PokemonType.ELECTRICITY;
 import static org.junit.Assert.assertEquals;
 
 public class BasePokemonTest {
-    BasePokemon basePokemon;
+    private BasePokemon basePokemon;
 
     @Before
-    public void setBasePokemon() {
+    public void setUp() {
         BasePokemonData bpd = new BasePokemonData(ELECTRICITY, 1, 1, 1, 1);
         basePokemon = new BasePokemon("test", bpd);
     }

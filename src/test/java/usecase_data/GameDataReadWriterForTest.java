@@ -9,7 +9,7 @@ import java.io.IOException;
  * the data access object in charge of gameData
  */
 public class GameDataReadWriterForTest implements IReadWriter {
-    final ReadWriter rw = new ReadWriter();
+    private final ReadWriter rw = new ReadWriter();
 
     /**
      * @return the saved game data
