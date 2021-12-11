@@ -72,7 +72,10 @@ public class BattlePanel extends JPanel {
     private JButton catchButton(){
         JButton catchButton = new JButton("Catch");
         catchButton.addActionListener(e ->{
-            battleManager.capture();
+            if (battleManager.capture()) {
+                pokemonManager.add(battleManager.getP2());
+                battleManager.endBattle();
+            }
             checkState();
         });
         return catchButton;
