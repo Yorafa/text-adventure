@@ -14,13 +14,13 @@ public class PokemonManagerTest {
     PokemonManager testPM = new PokemonManager(testPJRFT);
 
     @Test
-    public void getPokemonTest() {
+    public void testGetPokemon() {
         Pokemon pokemon = testPM.getPokemon("Pikachu", 1);
         assertTrue(pokemon.getName().equals("Pikachu") && pokemon.getLevel() == 1);
     }
 
     @Test
-    public void addExperiencePointTest() {
+    public void testAddExperiencePoint() {
         Pokemon pokemon = testPM.getPokemon("Pikachu", 1);
         int current = pokemon.getExperiencePoint();
         testPM.addExperiencePoint(pokemon, 10);
@@ -28,7 +28,7 @@ public class PokemonManagerTest {
     }
 
     @Test
-    public void setPocketAndGetPocketTest() {
+    public void testSetPocketAndGetPocket() {
         Pocket testPocket = new Pocket();
         testPocket.add(testPM.getPokemon("Pikachu", 1));
         testPM.setPocket(testPocket);
@@ -36,7 +36,7 @@ public class PokemonManagerTest {
     }
 
     @Test
-    public void getPocketInfoTest() {
+    public void testGetPocketInfo() {
         // for simple only, due to similarity
         Pocket testPocket = new Pocket();
         testPocket.add(testPM.getPokemon("Pikachu", 1));
@@ -47,7 +47,7 @@ public class PokemonManagerTest {
     }
 
     @Test
-    public void setBattlePokemonAndGetBattlePokemonTest() {
+    public void testGetBattlePokemonAndGetBattlePokemon() {
         Pocket testPocket = new Pocket();
         testPocket.add(testPM.getPokemon("Pikachu", 1));
         testPocket.add(testPM.getPokemon("Squirtle", 2));
@@ -57,7 +57,7 @@ public class PokemonManagerTest {
     }
 
     @Test
-    public void addTest() {
+    public void testAdd() {
         Pocket testPocket = new Pocket();
         testPocket.add(testPM.getPokemon("Pikachu", 1));
         testPM.setPocket(testPocket);
@@ -66,7 +66,7 @@ public class PokemonManagerTest {
     }
 
     @Test
-    public void healAllTest() {
+    public void testHealAll() {
         Pocket testPocket = new Pocket();
         Pokemon pokemon = testPM.getPokemon("Pikachu", 1);
         pokemon.setHitPoint(pokemon.getHitPoint() - 1);
