@@ -34,7 +34,7 @@ public class BrowsePokemonDialog extends JDialog {
         ));
         JButton setFirstButton = new JButton("Set As Starter");
         setFirstButton.addActionListener(e ->
-                pokemonManager.getPocket().setFirstPokemon((Pokemon) comboBox.getSelectedItem())
+                pokemonManager.setBattlePokemon((Pokemon) comboBox.getSelectedItem())
         );
         buttonPanel.add(searchButton);
         buttonPanel.add(setFirstButton);

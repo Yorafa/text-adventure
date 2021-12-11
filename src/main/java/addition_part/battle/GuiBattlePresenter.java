@@ -6,8 +6,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GuiBattlePresenter extends JPanel implements IBattlePresenter {
-    private final JLabel textLabel = new JLabel();
+    private final JLabel textLabel2 = new JLabel();
+    private final JLabel textLabel1 = new JLabel();
     private final JPanel battleInfo = new JPanel();
+    private int controlNum = 0;
 
     public GuiBattlePresenter(){
         battleInfo.setLayout(new GridLayout(1, 2,50,50));
@@ -27,27 +29,57 @@ public class GuiBattlePresenter extends JPanel implements IBattlePresenter {
 
     @Override
     public void printAttack(String attacker, String attacked, int damage) {
-        textLabel.setText(attacker + " attacked " + attacked + ", and made " + damage + " damage.");
+        if (controlNum == 0){
+            textLabel1.setText(attacker + " attacked " + attacked + ", and made " + damage + " damage.");
+            controlNum += 1;
+        }else{
+            textLabel2.setText(attacker + " attacked " + attacked + ", and made " + damage + " damage.");
+            controlNum -= 1;
+        }
     }
 
     @Override
     public void printDefense(String name) {
-        textLabel.setText(name + " is defending. ");
+        if (controlNum == 0){
+            textLabel2.setText(name + " is defending. ");
+            controlNum += 1;
+        }else{
+            textLabel2.setText(name + " is defending. ");
+            controlNum -= 1;
+        }
     }
 
     @Override
     public void printDefenseSucceed(String name) {
-        textLabel.setText(name + " successfully defended.");
+        if (controlNum == 0){
+            textLabel1.setText(name + " successfully defended.");
+            controlNum += 1;
+        }else{
+            textLabel2.setText(name + " successfully defended.");
+            controlNum -= 1;
+        }
     }
 
     @Override
     public void printDefenseFail(String name) {
-        textLabel.setText(name + " defended nothing.");
+        if (controlNum == 0){
+            textLabel1.setText(name + " defended nothing.");
+            controlNum += 1;
+        }else{
+            textLabel2.setText(name + " defended nothing.");
+            controlNum -= 1;
+        }
     }
 
     @Override
     public void printHeal(String nameP1, int healedPoint) {
-        textLabel.setText(nameP1 + " healed, and gained " + healedPoint + " hit points.");
+        if (controlNum == 0){
+            textLabel1.setText(nameP1 + " healed, and gained " + healedPoint + " hit points.");
+            controlNum += 1;
+        }else{
+            textLabel2.setText(nameP1 + " healed, and gained " + healedPoint + " hit points.");
+            controlNum -= 1;
+        }
     }
 
     @Override
@@ -64,7 +96,7 @@ public class GuiBattlePresenter extends JPanel implements IBattlePresenter {
 
     @Override
     public void printBattleEnded() {
-        textLabel.setText("This battle is ended");
+        textLabel1.setText("This battle is ended");
     }
 
     @Override
@@ -92,7 +124,7 @@ public class GuiBattlePresenter extends JPanel implements IBattlePresenter {
 
     @Override
     public void printGainExperiencePoint(String name, int experiencePointGained) {
-        textLabel.setText(name + " gained " + experiencePointGained + " experience points.");
+        textLabel1.setText(name + " gained " + experiencePointGained + " experience points.");
     }
 
     private void initialize() {
@@ -117,9 +149,10 @@ public class GuiBattlePresenter extends JPanel implements IBattlePresenter {
     }
     private JPanel setUpMainPanel(){
         JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(new GridLayout(2,1,10,10));
+        mainPanel.setLayout(new GridLayout(3,1,10,10));
         mainPanel.add(battleInfo);
-        mainPanel.add(textLabel);
+        mainPanel.add(textLabel1);
+        mainPanel.add(textLabel2);
         return mainPanel;
     }
 
