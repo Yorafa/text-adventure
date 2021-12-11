@@ -2,20 +2,16 @@ package usecase_pokemon;
 
 import entity.Pocket;
 import entity.Pokemon;
-import org.junit.Assert;
 import org.junit.Test;
-import usecase_data.IJsonReader;
 import usecase_pocket.IPocketInfoAdder;
 import usecase_pocket.PocketInfoAdderSimple;
-
-import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class PokemonManagerTest {
     PokemonJsonReaderForTest testPJRFT = new PokemonJsonReaderForTest();
-    PokemonManager testPM = new PokemonManager((IJsonReader) testPJRFT);
+    PokemonManager testPM = new PokemonManager(testPJRFT);
 
     @Test
     public void getPokemon() {
