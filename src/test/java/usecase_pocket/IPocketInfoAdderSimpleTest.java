@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class IPocketInfoAdderSimpleTest {
     private final PocketInfoAdderDetail testIPIAS = new PocketInfoAdderDetail();

@@ -41,7 +41,7 @@ public class PokemonManagerTest {
         testPocket.add(testPM.getPokemon("Pikachu", 1));
         testPM.setPocket(testPocket);
         IPocketInfoAdder adder = new PocketInfoAdderSimple();
-        assertEquals("Pikachu",testPM.getPocketInfo(adder).get(0).get("name"));
+        assertEquals("Pikachu", testPM.getPocketInfo(adder).get(0).get("name"));
     }
 
     @Test

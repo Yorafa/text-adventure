@@ -2,7 +2,6 @@ package usecase_pokemon;
 
 import com.google.gson.Gson;
 import entity.PokemonBook;
-import gateway.ConfigReader;
 import usecase_data.IJsonReader;
 
 import java.io.IOException;
