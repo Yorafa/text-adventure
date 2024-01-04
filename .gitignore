@@ -89,3 +89,10 @@ fabric.properties
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 /.idea/
+
+# Ignore Gradle build output directory
+build
+*/build
+*/bin
+.vscode
+gradle*
